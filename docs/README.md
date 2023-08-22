@@ -1,25 +1,18 @@
-# TITULO DO PROJETO
+# Morada
 
-
-**Nome completo do Aluno 1, email do aluno 1**
-
-**Nome completo do Aluno 2, email do aluno 2**
-
-**Nome completo do Aluno 3, email do aluno 3**
-
-**Nome completo do Aluno 4, email do aluno 4**
-
-**Nome completo do Aluno 5, email do aluno 5**
+- Guilherme Leroy Teixeira Capanema
+- João Pedro Queiroz Rocha
+- Kimberly Liz Spencer Lourenço
+- Luca Ferrari Azalim, lucaazalim@gmail.com
+- Wanessa Dias Costa
 
 ---
 
 Professores:
 
-** Prof. Nome do Prof 1 **
-
-** Prof. Nome do Prof 2 **
-
-** Prof. Nome do Prof 3 **
+- Eveline Alonso Veloso
+- Hugo Bastos de Paula
+- Juliana Amaral Baroni de Carvalho
 
 ---
 
