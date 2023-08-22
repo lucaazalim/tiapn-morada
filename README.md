@@ -1,20 +1,20 @@
-# Nome do projeto
+# Morada
 
 Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
+* Guilherme Leroy Teixeira Capanema
+* João Pedro Queiroz Rocha
+* Kimberly Liz Spencer Lourenço
+* Luca Ferrari Azalim
+* Wanessa Dias Costa
 
 ## Professor
 
-* Nome completo do professor 1
-* Nome completo do professor 2
-* Nome completo do professor 3
+* Eveline Alonso Veloso
+* Hugo Bastos de Paula
+* Juliana Amaral Baroni de Carvalho
 
 ## Instruções de utilização
 
