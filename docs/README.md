@@ -61,20 +61,20 @@ _Mostre também as **justificativas** para o
 desenvolvimento do seu trabalho e, caso deseje, destaque alguma contribuição do trabalho._
 
 ## 2. Participantes do processo
-- Cliente 
-Perfil: Jovens adultos e adultos que buscam flexibilidade em termos de moradia.
-Objetivo: Encontrar um conjunto de acomodações que se adequem às suas necessidades individuais. 
-Necessidades: Buscam uma plataforma abrangente para encontrar acomodações.
+- Cliente
+a.Perfil: Jovens adultos e adultos que buscam flexibilidade em termos de moradia.
+b.Objetivo: Encontrar um conjunto de acomodações que se adequem às suas necessidades individuais. 
+c.Necessidades: Buscam uma plataforma abrangente para encontrar acomodações.
 
 - Locatário
-Perfil: Pessoas acima de 18 anos, especialmente jovens adultos e adultos.
-Objetivo: Encontrar imóveis que atendam às suas diversas preferências e necessidades habitacionais.
-Necessidades: Obter informações precisas sobre imóveis de maneira simples e prática e encontrar propriedades ideais aos seus critérios.
+a.Perfil: Pessoas acima de 18 anos, especialmente jovens adultos e adultos.
+b.Objetivo: Encontrar imóveis que atendam às suas diversas preferências e necessidades habitacionais.
+c.Necessidades: Obter informações precisas sobre imóveis de maneira simples e prática e encontrar propriedades ideais aos seus critérios.
 
 - Proprietário de imóveis:
-Perfil: Indivíduos com propriedades disponíveis para aluguel.
-Objetivo: Anunciar suas propriedades e obter retorno financeiro sobre elas.
-Necessidades: Buscam inquilinos confiáveis e desejam anunciar seus imóveis de forma facilitada e eficiente a fim de alcançar um público amplo e atrair potenciais inquilinos interessados em suas propriedades
+a.Perfil: Indivíduos com propriedades disponíveis para aluguel.
+b.Objetivo: Anunciar suas propriedades e obter retorno financeiro sobre elas.
+c.Necessidades: Buscam inquilinos confiáveis e desejam anunciar seus imóveis de forma facilitada e eficiente a fim de alcançar um público amplo e atrair potenciais inquilinos interessados em suas propriedades
 
 
 ## 3. Modelagem do processo de negócio
