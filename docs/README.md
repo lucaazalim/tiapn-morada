@@ -82,7 +82,12 @@ desenvolvimento do seu trabalho e, caso deseje, destaque alguma contribuição d
 
 ### 3.1. Análise da situação atual
 
-_Apresente uma descrição textual de como os sistemas atuais resolvem o problema que se propõe a resolver.  Caso sua proposta seja inovadora e não existam processos claramente definidos, **apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente**, mesmo que não se utilize tecnologia computacional._
+No contexto do mercado de aluguel residencial, proprietários e locatários em potencial frequentemente se deparam com uma gama de desafios que tornam a busca e locação de imóveis uma experiência cansativa e demorada. Isso inclui a necessidade de explorar diversos canais em busca de propriedades disponíveis, a dificuldade em anunciar imóveis de maneira eficaz e a complexidade burocrática envolvida no processo de locação.
+
+Atualmente, os locatários em busca de moradia têm que se envolver em uma busca por imóveis utilizando uma série de fontes, incluindo os inúmeros sites imobiliários e aplicativos. A multiplicidade e descentralização da informação torna o processo exaustivo, exigindo a coleta e comparação meticulosa de dados. 
+
+Por outro lado, os proprietários de imóveis precisam recorrer a múltiplos métodos para anunciar suas propriedades, a fim de garantir o alcance de um amplo público e de conquistar potenciais locatários. Os locadores (proprietários de imóveis) utilizam agências imobiliárias, realizam publicações em sites especializados e até recorrem às redes sociais. Essa variedade de meios pode acarretar dificuldades na promoção de seus imóveis de modo eficaz, além de exigir investimento significativo de tempo e recursos.
+
 
 ### 3.2. Descrição geral da proposta
 
