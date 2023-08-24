@@ -30,35 +30,34 @@ mostrar algum resultado relevante do trabalho (até 10 linhas)._
 
 ## 1. Introdução
 
-_Apresente uma frase introdutória definindo o que será apresentado._
+Morada é a plataforma definitiva para locação e anúncio de imóveis. Simplificamos o processo de aluguel, unificando anúncios e aprimorando a experiência tanto para locatários quanto para proprietários. Além da centralização de anúncios, integramos processos e documentações, oferecendo benefícios que enriquecem a jornada no setor imobiliário.
 
 ### 1.1 Contextualização
 
-_Na **contextualização**, o aluno deve dizer do que se trata o trabalho, em que área ou contexto se insere.
-A **contextualização** deve ser desenvolvida de algo mais genérico para algo mais específico. 
-A citação de pesquisas quantitativas é bem aceita aqui (corretamente referenciadas)._
+No cenário atual, em meio à crescente inflação global, os salários perderam poder de compra, enquanto as taxas de juros atingiram níveis recordes. Diante do custo elevado para adquirir uma casa devido ao aumento frenético das taxas de juros, a busca por moradias para aluguel tem se intensificado, o que, por sua vez, impulsiona os preços dos aluguéis. Esse cenário é ainda mais evidente conforme noticiado pelo G1 em 2023.
 
 ### 1.2 Problema
 
-_Em seguida o aluno deve caminhar a contextualização para descrever o **problema** que o trabalho trata. 
-O **problema** pode ser algo vivido em uma empresa específica. Neste caso, o aluno deve rapidamente apresentar 
-o cenário de problema da empresa. A empresa só deve ser citada explicitamente se o aluno tiver autorização 
-para tal._
+O processo tradicional de busca, seleção e locação de imóveis apresenta uma série de barreiras. Os locatários são obrigados a percorrer vários sites e agências, consumindo tempo e esforço consideráveis. Já os proprietários enfrentam dificuldades em promover seus imóveis de forma eficaz e lidar com as etapas burocráticas e documentais complexas.
 
 ### 1.3 Objetivo geral
 
-_O aluno deve escrever um pequeno parágrafo ou frase com o **objetivo geral** do trabalho. 
-O objetivo deve ser bem direto, específico e definido com verbos de ação (elaborar, propor, avaliar, comparar, etc.). No caso específico deste projeto, o objetivo deste trabalho é desenvolver um sistema para automação de processos para um problema específico._
+O objetivo do Morada é centralizar anúncios de aluguel, simplificando o processo para locatários e proprietários, e para concretizar essa visão, buscamos proporcionar uma experiência totalmente integrada desde a busca até a assinatura do contrato, tornando todo o processo mais ágil. Isso será alcançado por meio de uma busca avançada que permite filtrar opções por localização, tamanho e preço, além da integração direta com serviços de pagamento, simplificando aluguéis e depósitos, e complementado por um suporte ao cliente disponível 24/7, garantindo assistência contínua para uma experiência de aluguel fluida e sem interrupções.
+
 
 #### 1.3.1 Objetivos específicos
 
-_Apresente também alguns (pelo menos 2) **objetivos específicos** dependendo de onde você vai querer 
-concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho._
+* Realizar um levantamento minucioso dos processos envolvidos na busca, seleção e locação de imóveis, identificando pontos de dificuldade e oportunidades de aprimoramento.
+* Identificar as necessidades específicas dos locatários, compreendendo seus critérios de escolha, preferências de localização e requisitos essenciais, a fim de apresentar o imóvel ideal para atender a todas essas demandas de maneira precisa
+* Coletar feedback dos proprietários para entender os desafios enfrentados na promoção de seus imóveis, bem como para identificar as documentações e processos necessários.
+* Desenvolver um sistema de interface que permita a inserção e busca de informações por meio de campos claros e objetivos, proporcionando facilidade de uso e uma experiência intuitiva para o usuário.
+* Estabelecer uma estrutura robusta de gerenciamento de documentos, permitindo o compartilhamento seguro e eficaz de informações entre as partes envolvidas, agilizando a locação.
+* Utilizar os insights e feedbacks para otimizar continuamente a plataforma, adaptando-a às necessidades em evolução dos clientes e às mudanças no mercado imobiliário.
+
 
 ### 1.4 Justificativas
 
-_Mostre também as **justificativas** para o 
-desenvolvimento do seu trabalho e, caso deseje, destaque alguma contribuição do trabalho._
+A criação da Morada tem como base a necessidade de centralizar anúncios, simplificar procedimentos e eliminar as buscas caóticas por moradias. Com a Morada, você economizará tempo, evitará erros e desfrutará de uma experiência de aluguel tranquila e agradável. A plataforma oferece recursos inovadores, como avaliações e comentários de locatários anteriores, e funcionalidades que transformam a maneira como as pessoas encontram e alugam imóveis, incluindo a integração com serviços de pagamento para agilizar aluguéis e depósitos, além da praticidade da assinatura digital de contratos e documentações.
 
 ## 2. Participantes do processo
 ### Cliente
