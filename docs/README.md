@@ -1,6 +1,6 @@
 # Morada
 
-- Guilherme Leroy Teixeira Capanema
+- Guilherme Leroy Teixeira Capanema, gleroydev@gmail.com
 - João Pedro Queiroz Rocha
 - Kimberly Liz Spencer Lourenço, kimberlylizsl@gmail.com
 - Luca Ferrari Azalim, lucaazalim@gmail.com
@@ -34,7 +34,7 @@ Morada é a plataforma definitiva para locação e anúncio de imóveis. Simplif
 
 ### 1.1 Contextualização
 
-No cenário atual, em meio à crescente inflação global, os salários perderam poder de compra, enquanto as taxas de juros atingiram níveis recordes. Diante do custo elevado para adquirir uma casa devido ao aumento frenético das taxas de juros, a busca por moradias para aluguel tem se intensificado, o que, por sua vez, impulsiona os preços dos aluguéis. Esse cenário é ainda mais evidente conforme noticiado pelo G1 em 2023.
+No cenário atual, em meio à crescente inflação global, os salários perderam poder de compra, enquanto as taxas de juros atingiram níveis recordes. Diante do custo elevado para adquirir uma casa devido ao aumento frenético das taxas de juros, a busca por moradias para aluguel tem se intensificado, o que, por sua vez, impulsiona os preços dos aluguéis. Esse cenário é ainda mais evidente conforme noticiado pelo [ G1 em 2023.](https://g1.globo.com/mundo/noticia/2023/06/03/o-que-explica-disparada-de-alugueis-nas-maiores-cidades-da-america-latina.ghtml)
 
 ### 1.2 Problema
 
