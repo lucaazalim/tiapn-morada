@@ -89,8 +89,13 @@ Por outro lado, os proprietários de imóveis precisam recorrer a múltiplos mé
 
 
 ### 3.2. Descrição geral da proposta
-
-_Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias._
+ 
+A proposta da MORADA consiste em facilitar, através da eliminação de burocracias impostas por modelos tradicionais, o processo de aluguel de imóveis, tanto para o inquilino, quanto para o proprietário, visto que, as partes envolvidas no citado, as partes envolvidas necessitam de fiadores, assinatura em cartório, baixo alcance em anúncios que, geralmente, são panfletados, comprovação de renda, etc... Além disso, o usuário poderá avaliar condições que se adequam a sua realidade e, também, o responsável legal pelo imóvel poderá selecionar o seu cliente através de condições personalizadas por meio de uma avaliação. Por fim, o fluxo da aplicação seguirá as seguintes etapas: 
+ 
+• O usuário acessa a plataforma, fornece dados pessoais – nome, data de nascimento CPF, e-mail, telefone – e se cadastra.  
+• Feito o cadastro, o usuário estará apto para cadastrar um imóvel ou personalizar suas pesquisas, através de filtros, para alugar um.  
+• Caso o usuário tenha interesse em um determinado imóvel, ele deverá propor uma oferta ao proprietário, que poderá ser aceita ou recusada pelo usuário responsável. 
+• Após a conclusão da proposta, as partes envolvidas deverão se sujeitar a uma etapa simples de negociação
 
 ### 3.3. Modelagem dos processos
 
