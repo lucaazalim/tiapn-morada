@@ -4,7 +4,7 @@
 - João Pedro Queiroz Rocha
 - Kimberly Liz Spencer Lourenço, kimberlylizsl@gmail.com
 - Luca Ferrari Azalim, lucaazalim@gmail.com
-- Wanessa Dias Costa
+- Wanessa Dias Costa, wanessadiascw@gmail.com
 
 ---
 
@@ -95,7 +95,7 @@ A proposta da MORADA consiste em facilitar, através da eliminação de burocrac
 • O usuário acessa a plataforma, fornece dados pessoais – nome, data de nascimento CPF, e-mail, telefone – e se cadastra.  
 • Feito o cadastro, o usuário estará apto para cadastrar um imóvel ou personalizar suas pesquisas, através de filtros, para alugar um.  
 • Caso o usuário tenha interesse em um determinado imóvel, ele deverá propor uma oferta ao proprietário, que poderá ser aceita ou recusada pelo usuário responsável. 
-• Após a conclusão da proposta, as partes envolvidas deverão se sujeitar a uma etapa simples de negociação
+• Após a conclusão da proposta, as partes envolvidas deverão se sujeitar a uma etapa simples de negociação, tendo como ao futuro cliente, a solicitação de determinada documentação e, até que ela seja aprovada, o imóvel seguirá disponível e aberto a novas propostas.
 
 ### 3.3. Modelagem dos processos
 
