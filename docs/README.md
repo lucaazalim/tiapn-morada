@@ -60,7 +60,7 @@ O objetivo do Morada é centralizar anúncios de aluguel, simplificando o proces
 A criação da Morada tem como base a necessidade de centralizar anúncios, simplificar procedimentos e eliminar as buscas caóticas por moradias. Com a Morada, você economizará tempo, evitará erros e desfrutará de uma experiência de aluguel tranquila e agradável. A plataforma oferece recursos inovadores, como avaliações e comentários de locatários anteriores, e funcionalidades que transformam a maneira como as pessoas encontram e alugam imóveis, incluindo a integração com serviços de pagamento para agilizar aluguéis e depósitos, além da praticidade da assinatura digital de contratos e documentações.
 
 ## 2. Participantes do processo
-### Cliente
+### Usuário
   - Perfil: Jovens adultos e adultos que buscam flexibilidade em termos de moradia.
   - Objetivo: Encontrar um conjunto de acomodações que se adequem às suas necessidades individuais. 
   - Necessidades: Buscam uma plataforma abrangente para encontrar acomodações.
