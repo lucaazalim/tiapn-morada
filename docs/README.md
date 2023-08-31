@@ -113,8 +113,11 @@ O sistema Morada se concentrará em simplificar a experiência de aluguel de im�
 Por fim, o fluxo da aplicação seguirá as seguintes etapas:
 
 • Usuário acessa a plataforma, fornece dados pessoais (nome, data de nascimento, CPF, e-mail, telefone) para efetuar seu cadastro.
+
 • Confirmado o cadastro, o usuário está apto a cadastrar um imóvel e/ou a realizar pesquisas personalizadas de moradias.
+
 • Na ocorrência de interesse por um determinado imóvel, deverá propor uma oferta ao locador, da qual, após avaliação pelo proprietário, poderá ser aceita, iniciando o procedimento para a locação, ou recusada. 
+
 • No caso de validação da proposta de oferta, as partes envolvidas se sujeitarão a uma etapa simples de negociação, havendo a solicitação de determinada documentação. Enquanto não for aprovada, o imóvel seguirá disponível a novas propostas.
 
 
