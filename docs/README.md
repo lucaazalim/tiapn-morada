@@ -81,21 +81,42 @@ A criação da Morada tem como base a necessidade de centralizar anúncios, simp
 
 ### 3.1. Análise da situação atual
 
-No contexto do mercado de aluguel residencial, proprietários e locatários em potencial frequentemente se deparam com uma gama de desafios que tornam a busca e locação de imóveis uma experiência cansativa e demorada. Isso inclui a necessidade de explorar diversos canais em busca de propriedades disponíveis, a dificuldade em anunciar imóveis de maneira eficaz e a complexidade burocrática envolvida no processo de locação.
+No contexto do mercado de aluguel residencial, proprietários e locatários em potencial frequentemente se deparam com uma gama de desafios que tornam a busca e a locação de imóveis uma experiência cansativa e demorada. Isso inclui a necessidade de explorar diversos canais em busca de propriedades disponíveis, a dificuldade em anunciar imóveis de maneira eficaz e a complexidade burocrática envolvida no processo de locação.
 
-Atualmente, os locatários em busca de moradia têm que se envolver em uma busca por imóveis utilizando uma série de fontes, incluindo os inúmeros sites imobiliários e aplicativos. A multiplicidade e descentralização da informação torna o processo exaustivo, exigindo a coleta e comparação meticulosa de dados. 
+Atualmente, os locatários em busca de moradia têm que se envolver em uma busca por imóveis utilizando uma série de fontes, incluindo os inúmeros sites imobiliários e aplicativos. A multiplicidade e descentralização da informação torna o processo exaustivo, exigindo coleta e comparação meticulosa de dados.
 
-Por outro lado, os proprietários de imóveis precisam recorrer a múltiplos métodos para anunciar suas propriedades, a fim de garantir o alcance de um amplo público e de conquistar potenciais locatários. Os locadores (proprietários de imóveis) utilizam agências imobiliárias, realizam publicações em sites especializados e até recorrem às redes sociais. Essa variedade de meios pode acarretar dificuldades na promoção de seus imóveis de modo eficaz, além de exigir investimento significativo de tempo e recursos.
+Por outro lado, os proprietários de imóveis precisam recorrer a múltiplos métodos para anunciar suas propriedades a fim de garantir o alcance de um amplo público e de conquistar potenciais locatários. Os locadores (proprietários de imóveis) utilizam agências imobiliárias, realizam publicações em sites especializados e até recorrem às redes sociais. Essa variedade de meios pode acarretar dificuldades na promoção de seus imóveis de modo eficaz, além de exigir investimento significativo de tempo e de recursos.
 
 
 ### 3.2. Descrição geral da proposta
  
-A proposta do Morada consiste em facilitar, através da eliminação de burocracias impostas por modelos tradicionais, o processo de aluguel de imóveis, tanto para o inquilino, quanto para o proprietário, visto que, as partes envolvidas no citado, as partes envolvidas necessitam de fiadores, assinatura em cartório, baixo alcance em anúncios que, geralmente, são panfletados, comprovação de renda, etc... Além disso, o usuário poderá avaliar condições que se adequam a sua realidade e, também, o responsável legal pelo imóvel poderá selecionar o seu cliente através de condições personalizadas por meio de uma avaliação. Por fim, o fluxo da aplicação seguirá as seguintes etapas: 
- 
-• O usuário acessa a plataforma, fornece dados pessoais – nome, data de nascimento CPF, e-mail, telefone – e se cadastra.  
-• Feito o cadastro, o usuário estará apto para cadastrar um imóvel ou personalizar suas pesquisas, através de filtros, para alugar um.  
-• Caso o usuário tenha interesse em um determinado imóvel, ele deverá propor uma oferta ao proprietário, que poderá ser aceita ou recusada pelo usuário responsável. 
-• Após a conclusão da proposta, as partes envolvidas deverão se sujeitar a uma etapa simples de negociação, tendo como ao futuro cliente, a solicitação de determinada documentação e, até que ela seja aprovada, o imóvel seguirá disponível e aberto a novas propostas.
+A proposta do Morada consiste em simplificar e agilizar o processo de aluguel de imóveis, através da eliminação de burocracias impostas aos inquilinos e proprietários, como a necessidade de fiador e de assinatura em cartório, associadas aos modelos tradicionais de locação. A plataforma busca oferecer uma experiência mais eficiente e conveniente para todas as partes envolvidas. O sistema Morada abordará as seguintes funcionalidades de alto nível:
+
+• Centralização da Informação: A plataforma centralizará informações sobre imóveis disponíveis para aluguel, reunindo dados relevantes como localização, tamanho, comodidades e preços. Isso eliminará a necessidade de os locatários consultarem múltiplos sites e aplicativos, tornando o processo de busca mais ágil.
+
+• Anúncios Eficientes: Proprietários poderão anunciar suas propriedades de maneira eficaz, eliminando a necessidade de recorrer a múltiplos canais. Isso será possível por meio de uma interface intuitiva que permite o cadastro detalhado das informações do imóvel, alcançando um amplo público de locatários em potencial.
+
+• Personalização de Pesquisas: Os locatários poderão personalizar suas pesquisas utilizando filtros que atendam às suas necessidades específicas, como localização, tamanho do imóvel e faixa de preço. Isso reduzirá a necessidade de coletar e comparar meticulosamente os dados de diversas fontes.
+
+• Sistema de Propostas: Os locatários poderão fazer propostas diretamente aos proprietários dos imóveis de seu interesse, agilizando o processo de negociação. Os proprietários terão a opção de aceitar ou recusar essas propostas com base em critérios específicos.
+
+• Negociação Simplificada: Uma vez que a proposta seja aceita, o sistema facilitará uma etapa de negociação mais simplificada. Será estabelecida uma comunicação direta entre as partes, permitindo a solicitação de documentação necessária para o processo de aluguel.
+
+• Avaliação Personalizada: Os proprietários poderão avaliar os locatários em potencial com base em critérios personalizados, como histórico de aluguel, referências e outras informações relevantes. Isso ajudará a garantir a seleção do locatário mais adequado para o imóvel.
+
+• Documentação Online: A plataforma permitirá o envio e a análise de documentos online, eliminando a necessidade de procedimentos demorados, como assinaturas em cartório e comprovação de renda em papel.
+
+• Acompanhamento do Processo: Tanto locatários quanto proprietários poderão acompanhar o progresso do processo de aluguel por meio da plataforma, mantendo-se atualizados sobre o processo de locação e as etapas restantes.
+
+O sistema Morada se concentrará em simplificar a experiência de aluguel de imóveis, automatizando processos que tradicionalmente são demorados e burocráticos. Isso resultará em um ambiente mais eficiente para locatários e proprietários, proporcionando uma abordagem mais ágil e conveniente para encontrar, negociar e alugar imóveis residenciais.
+
+Por fim, o fluxo da aplicação seguirá as seguintes etapas:
+
+• Usuário acessa a plataforma, fornece dados pessoais (nome, data de nascimento, CPF, e-mail, telefone) para efetuar seu cadastro.
+• Confirmado o cadastro, o usuário está apto a cadastrar um imóvel e/ou a realizar pesquisas personalizadas de moradias.
+• Na ocorrência de interesse por um determinado imóvel, deverá propor uma oferta ao locador, da qual, após avaliação pelo proprietário, poderá ser aceita, iniciando o procedimento para a locação, ou recusada. 
+• No caso de validação da proposta de oferta, as partes envolvidas se sujeitarão a uma etapa simples de negociação, havendo a solicitação de determinada documentação. Enquanto não for aprovada, o imóvel seguirá disponível a novas propostas.
+
 
 ### 3.3. Modelagem dos processos
 
