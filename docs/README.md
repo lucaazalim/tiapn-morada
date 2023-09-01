@@ -1,7 +1,7 @@
 # Morada
 
 - Guilherme Leroy Teixeira Capanema, gleroydev@gmail.com
-- João Pedro Queiroz Rocha
+- João Pedro Queiroz Rocha, queirozrochajoaopedro2004@gmail.com
 - Kimberly Liz Spencer Lourenço, kimberlylizsl@gmail.com
 - Luca Ferrari Azalim, lucaazalim@gmail.com
 - Wanessa Dias Costa, wanessadiascw@gmail.com
@@ -123,17 +123,19 @@ Por fim, o fluxo da aplicação seguirá as seguintes etapas:
 
 ### 3.3. Modelagem dos processos
 
-[PROCESSO 1 - Nome do Processo](processo-1-nome-do-processo.md "Detalhamento do Processo 1.")
+[PROCESSO 1 - Verificação de usuário](processo-1-nome-do-processo.md "Detalhamento do Processo 1.")
 
-[PROCESSO 2 - Nome do Processo](processo-2-nome-do-processo.md "Detalhamento do Processo 2.")
+[PROCESSO 2 - Publicação de imóvel](processo-2-nome-do-processo.md "Detalhamento do Processo 2.")
 
-[PROCESSO 3 - Nome do Processo](processo-3-nome-do-processo.md "Detalhamento do Processo 3.")
+[PROCESSO 3 - Visita ao imóvel](processo-3-nome-do-processo.md "Detalhamento do Processo 3.")
 
-[PROCESSO 4 - Nome do Processo](processo-4-nome-do-processo.md "Detalhamento do Processo 4.")
+[PROCESSO 4 - Aluguel de imóvel](processo-4-nome-do-processo.md "Detalhamento do Processo 4.")
 
-[PROCESSO 5 - Nome do Processo](processo-5-nome-do-processo.md "Detalhamento do Processo 5.")
+[PROCESSO 5 - Pagamento de aluguel](processo-5-nome-do-processo.md "Detalhamento do Processo 5.")
 
-[PROCESSO 6 - Nome do Processo](processo-6-nome-do-processo.md "Detalhamento do Processo 6.")
+[PROCESSO 6 - Reajuste do valor do aluguel](processo-6-nome-do-processo.md "Detalhamento do Processo 6.")
+
+[PROCESSO 7 - Rescisão de contrato de aluguel](processo-7-nome-do-processo.md "Detalhamento do Processo 7.")
 
 ## 4. Projeto da solução
 
