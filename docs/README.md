@@ -61,21 +61,23 @@ A criação da Morada tem como base a necessidade de centralizar anúncios, simp
 
 ## 2. Participantes do processo
 ### Usuário
-  - Perfil: Jovens adultos e adultos que buscam flexibilidade em termos de moradia.
-  - Objetivo: Encontrar um conjunto de acomodações que se adequem às suas necessidades individuais. 
-  - Necessidades: Buscam uma plataforma abrangente para encontrar acomodações.
+- Perfil: Jovens adultos e adultos que buscam flexibilidade em termos de moradia.
+- Objetivo: Encontrar um conjunto de acomodações que se adequem às suas necessidades individuais.
+- Necessidades: Buscam uma plataforma abrangente para encontrar acomodações.
 
 ### Locatário
-  - Perfil: Pessoas acima de 18 anos, especialmente jovens adultos e adultos.
-  - Objetivo: Encontrar imóveis que atendam às suas diversas preferências e necessidades habitacionais.
-  - Necessidades: Obter informações precisas sobre imóveis de maneira simples e prática e encontrar propriedades ideais aos seus critérios.
+- Perfil: Pessoas acima de 18 anos, especialmente jovens adultos e adultos.
+- Objetivo: Encontrar imóveis que atendam às suas diversas preferências e necessidades habitacionais.
+- Necessidades: Obter informações precisas sobre imóveis de maneira simples e prática e encontrar propriedades ideais aos seus critérios.
 
-### Proprietário de imóveis:
-  - Perfil: Indivíduos com propriedades disponíveis para aluguel.
-  - Objetivo: Anunciar suas propriedades e obter retorno financeiro sobre elas.
-  - Necessidades: Buscam inquilinos confiáveis e desejam anunciar seus imóveis de forma facilitada e eficiente a fim de alcançar um público amplo e atrair potenciais inquilinos interessados em suas propriedades
+### Proprietário:
+- Perfil: Indivíduos com propriedades disponíveis para aluguel.
+- Objetivo: Anunciar suas propriedades e obter retorno financeiro sobre elas.
+- Necessidades: Buscam inquilinos confiáveis e desejam anunciar seus imóveis de forma facilitada e eficiente a fim de alcançar um público amplo e atrair potenciais inquilinos interessados em suas propriedades
 
-
+### Admin
+- Perfil: Funcionários do Morada
+- Objetivo: Responsáveis por avaliar publicações de imóveis e analisar solicitações dos usuários.
 
 ## 3. Modelagem do processo de negócio
 
@@ -92,33 +94,33 @@ Por outro lado, os proprietários de imóveis precisam recorrer a múltiplos mé
  
 A proposta do Morada consiste em simplificar e agilizar o processo de aluguel de imóveis, através da eliminação de burocracias impostas aos inquilinos e proprietários, como a necessidade de fiador e de assinatura em cartório, associadas aos modelos tradicionais de locação. A plataforma busca oferecer uma experiência mais eficiente e conveniente para todas as partes envolvidas. O sistema Morada abordará as seguintes funcionalidades de alto nível:
 
-• Centralização da Informação: A plataforma centralizará informações sobre imóveis disponíveis para aluguel, reunindo dados relevantes como localização, tamanho, comodidades e preços. Isso eliminará a necessidade de os locatários consultarem múltiplos sites e aplicativos, tornando o processo de busca mais ágil.
+- Centralização da Informação: A plataforma centralizará informações sobre imóveis disponíveis para aluguel, reunindo dados relevantes como localização, tamanho, comodidades e preços. Isso eliminará a necessidade de os locatários consultarem múltiplos sites e aplicativos, tornando o processo de busca mais ágil.
 
-• Anúncios Eficientes: Proprietários poderão anunciar suas propriedades de maneira eficaz, eliminando a necessidade de recorrer a múltiplos canais. Isso será possível por meio de uma interface intuitiva que permite o cadastro detalhado das informações do imóvel, alcançando um amplo público de locatários em potencial.
+- Anúncios Eficientes: Proprietários poderão anunciar suas propriedades de maneira eficaz, eliminando a necessidade de recorrer a múltiplos canais. Isso será possível por meio de uma interface intuitiva que permite o cadastro detalhado das informações do imóvel, alcançando um amplo público de locatários em potencial.
 
-• Personalização de Pesquisas: Os locatários poderão personalizar suas pesquisas utilizando filtros que atendam às suas necessidades específicas, como localização, tamanho do imóvel e faixa de preço. Isso reduzirá a necessidade de coletar e comparar meticulosamente os dados de diversas fontes.
+- Personalização de Pesquisas: Os locatários poderão personalizar suas pesquisas utilizando filtros que atendam às suas necessidades específicas, como localização, tamanho do imóvel e faixa de preço. Isso reduzirá a necessidade de coletar e comparar meticulosamente os dados de diversas fontes.
 
-• Sistema de Propostas: Os locatários poderão fazer propostas diretamente aos proprietários dos imóveis de seu interesse, agilizando o processo de negociação. Os proprietários terão a opção de aceitar ou recusar essas propostas com base em critérios específicos.
+- Sistema de Propostas: Os locatários poderão fazer propostas diretamente aos proprietários dos imóveis de seu interesse, agilizando o processo de negociação. Os proprietários terão a opção de aceitar ou recusar essas propostas com base em critérios específicos.
 
-• Negociação Simplificada: Uma vez que a proposta seja aceita, o sistema facilitará uma etapa de negociação mais simplificada. Será estabelecida uma comunicação direta entre as partes, permitindo a solicitação de documentação necessária para o processo de aluguel.
+- Negociação Simplificada: Uma vez que a proposta seja aceita, o sistema facilitará uma etapa de negociação mais simplificada. Será estabelecida uma comunicação direta entre as partes, permitindo a solicitação de documentação necessária para o processo de aluguel.
 
-• Avaliação Personalizada: Os proprietários poderão avaliar os locatários em potencial com base em critérios personalizados, como histórico de aluguel, referências e outras informações relevantes. Isso ajudará a garantir a seleção do locatário mais adequado para o imóvel.
+- Avaliação Personalizada: Os proprietários poderão avaliar os locatários em potencial com base em critérios personalizados, como histórico de aluguel, referências e outras informações relevantes. Isso ajudará a garantir a seleção do locatário mais adequado para o imóvel.
 
-• Documentação Online: A plataforma permitirá o envio e a análise de documentos online, eliminando a necessidade de procedimentos demorados, como assinaturas em cartório e comprovação de renda em papel.
+- Documentação Online: A plataforma permitirá o envio e a análise de documentos online, eliminando a necessidade de procedimentos demorados, como assinaturas em cartório e comprovação de renda em papel.
 
-• Acompanhamento do Processo: Tanto locatários quanto proprietários poderão acompanhar o progresso do processo de aluguel por meio da plataforma, mantendo-se atualizados sobre o processo de locação e as etapas restantes.
+- Acompanhamento do Processo: Tanto locatários quanto proprietários poderão acompanhar o progresso do processo de aluguel por meio da plataforma, mantendo-se atualizados sobre o processo de locação e as etapas restantes.
 
 O sistema Morada se concentrará em simplificar a experiência de aluguel de imóveis, automatizando processos que tradicionalmente são demorados e burocráticos. Isso resultará em um ambiente mais eficiente para locatários e proprietários, proporcionando uma abordagem mais ágil e conveniente para encontrar, negociar e alugar imóveis residenciais.
 
 Por fim, o fluxo da aplicação seguirá as seguintes etapas:
 
-• Usuário acessa a plataforma, fornece dados pessoais (nome, data de nascimento, CPF, e-mail, telefone) para efetuar seu cadastro.
+- Usuário acessa a plataforma, fornece dados pessoais (nome, data de nascimento, CPF, e-mail, telefone) para efetuar seu cadastro.
 
-• Confirmado o cadastro, o usuário está apto a cadastrar um imóvel e/ou a realizar pesquisas personalizadas de moradias.
+- Confirmado o cadastro, o usuário está apto a cadastrar um imóvel e/ou a realizar pesquisas personalizadas de moradias.
 
-• Na ocorrência de interesse por um determinado imóvel, deverá propor uma oferta ao locador, da qual, após avaliação pelo proprietário, poderá ser aceita, iniciando o procedimento para a locação, ou recusada. 
+- Na ocorrência de interesse por um determinado imóvel, deverá propor uma oferta ao locador, da qual, após avaliação pelo proprietário, poderá ser aceita, iniciando o procedimento para a locação, ou recusada. 
 
-• No caso de validação da proposta de oferta, as partes envolvidas se sujeitarão a uma etapa simples de negociação, havendo a solicitação de determinada documentação. Enquanto não for aprovada, o imóvel seguirá disponível a novas propostas.
+- No caso de validação da proposta de oferta, as partes envolvidas se sujeitarão a uma etapa simples de negociação, havendo a solicitação de determinada documentação. Enquanto não for aprovada, o imóvel seguirá disponível a novas propostas.
 
 
 ### 3.3. Modelagem dos processos
