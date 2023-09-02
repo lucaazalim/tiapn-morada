@@ -2,7 +2,7 @@
 
 Em uma imobiliária tradicional, é comum que o anúncio de um imóvel disponível para aluguel seja constituído por informações desestruradas e armazenadas em forma de texto livre. Além disso, geralmente, quem redige o anúncio é um funcionário da imobiliária, e não o proprietário, que é quem mais conhece o imóvel a ser anunciado.
 
-No Morada, o anúncio do imóvel é criado de maneira estruturada, pelo próprio proprietário, o que facilita a criação de mecanismos de busca eficientes para potenciais locatários.
+No Morada, o anúncio do imóvel é criado de maneira estruturada, pelo próprio proprietário, o que facilita a criação de mecanismos de busca eficientes para potenciais locatários e garante que as informações mais importantes do imóvel estejam contidas no anúncio.
 
 ![Processo 2 - Publicação de imóvel](images/processo-2.png "Modelo BPMN do Processo 2.")
 
