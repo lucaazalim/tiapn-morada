@@ -1,9 +1,9 @@
-### 3.3.2 Processo 2 – NOME DO PROCESSO
+### 3.3.2 Processo 2 – P
 
 Apresente aqui o nome e as oportunidades de melhoria para o processo 2. 
 Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
 
-![Exemplo de um Modelo BPMN do PROCESSO 2](images/process.png "Modelo BPMN do Processo 2.")
+![Processo 2 - Publicação de imóvel](images/processo-2-publicação-de-imóvel.md "Modelo BPMN do Processo 2.")
 
 
 #### Detalhamento das atividades
