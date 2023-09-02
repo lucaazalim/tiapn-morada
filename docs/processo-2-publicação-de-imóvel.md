@@ -1,7 +1,8 @@
-### 3.3.2 Processo 2 – P
+### 3.3.2 Processo 2 – Publicação do imóvel
 
-Apresente aqui o nome e as oportunidades de melhoria para o processo 2. 
-Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
+Em uma imobiliária tradicional, é comum que o anúncio de um imóvel disponível para aluguel seja constituído por informações desestruradas e armazenadas em forma de texto livre. Além disso, geralmente, quem redige o anúncio é um funcionário da imobiliária, e não o proprietário, que é quem mais conhece o imóvel a ser anunciado.
+
+No Morada, o anúncio do imóvel é criado de maneira estruturada, pelo próprio proprietário, o que facilita a criação de mecanismos de busca eficientes para potenciais locatários.
 
 ![Processo 2 - Publicação de imóvel](images/processo-2.png "Modelo BPMN do Processo 2.")
 
