@@ -3,7 +3,7 @@
 Apresente aqui o nome e as oportunidades de melhoria para o processo 2. 
 Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
 
-![Processo 2 - Publicação de imóvel](images/processo-2-publicação-de-imóvel.png "Modelo BPMN do Processo 2.")
+![Processo 2 - Publicação de imóvel](images/processo-2.png "Modelo BPMN do Processo 2.")
 
 
 #### Detalhamento das atividades
