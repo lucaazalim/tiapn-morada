@@ -6,52 +6,45 @@ No Morada, o anúncio do imóvel é criado de maneira estruturada, pelo próprio
 
 ![Processo 2 - Publicação de imóvel](images/processo-2.png "Modelo BPMN do Processo 2.")
 
-
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 2. 
-Devem estar relacionadas com o modelo de processo apresentado anteriormente.
+**Enviar uma publicação de imóvel**
 
-Os tipos de dados a serem utilizados são:
+| Campo                      | Tipo                | Restrições                                 | Valor default     |
+|----------------------------|---------------------|--------------------------------------------|-------------------|
+| Tipo                       | Seleção Múltipla    | Apartamento, Studio ou Casa                |                   |
+| CEP                        | Caixa de Texto      | Formato de CEP                             |                   |
+| Logradouro                 | Caixa de Texto      |                                            |                   |
+| Número                     | Número              | Número inteiro positivo                    |                   |
+| Complemento                | Caixa de Texto      |                                            |                   |
+| Bairro                     | Caixa de Texto      |                                            |                   |
+| Cidade                     | Caixa de Texto      |                                            |                   |
+| Estado                     | Seleção Única       | Lista de estados brasileiros               |                   |
+| Descrição                  | Área de Texto       | Máximo de 1000 caracteres                  |                   |
+| Metragem                   | Número              | Número inteiro positivo                    |                   |
+| Quartos                    | Número              | Número inteiro positivo                    |                   |
+| Banheiro                   | Número              | Número inteiro positivo                    |                   |
+| Vagas de Garagem           | Número              | Número inteiro positivo                    |                   |
+| Aceita Pet                 | Seleção Única       | Sim ou Não                                 |                   |
+| Mobiliado                  | Seleção Única       | Sim ou Não                                 |                   |
+| Itens Disponíveis no Imóvel | Seleção Múltipla    | Lista de possíveis itens disponíveis no imóvel |                   |
+| Itens Disponíveis no Condomínio | Seleção Múltipla | Lista de possíveis itens disponíveis no condomínio | Vazio         |
+| Valor do Aluguel           | Número              | Número inteiro positivo                    |                   |
+| Valor do Condomínio        | Número              | Número inteiro positivo                    | 0                 |
+| Valor do IPTU              | Número              | Número inteiro positivo                    |                   |
 
-* **Área de texto** - campo texto de múltiplas linhas
-* **Caixa de texto** - campo texto de uma linha
-* **Número** - campo numérico
-* **Data** - campo do tipo data (dd-mm-aaaa)
-* **Hora** - campo do tipo hora (hh:mm:ss)
-* **Data e Hora** - campo do tipo data e hora (dd-mm-aaaa, hh:mm:ss)
-* **Imagem** - campo - contendo uma imagem
-* **Seleção única** - campo com várias opções de valores que são mutuamente exclusivos (tradicional radio button ou combobox)
-* **Seleção múltipla** - campo com várias opções que podem ser selecionadas mutuamente (tradicional checkbox ou listbox)
-* **Arquivo** - campo de upload de documento
-* **Link** - campo que armazena uma URL
-* **Tabela** - campo formado por uma matriz de valores
+| Comandos  | Destino                | Tipo        |
+|-----------|------------------------|-------------|
+| Enviar    | Notificar sobre o envio de uma publicação de imóvel | default     |
+| Cancelar  | Página inicial          | cancel      |
 
-**Nome da atividade 1**
+**Avaliar o conteúdo da publicação do imóvel**
 
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-| ***Exemplo:***  |                  |                |                   |
-| login           | Caixa de Texto   | formato de e-mail |                |
-| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |
+| Campo     | Tipo          | Restrições |
+|-----------|---------------|------------|
+| Mensagem  | Área de Texto |            |
 
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-| ***Exemplo:***       |                                |                   |
-| entrar               | Fim do Processo 1              | default           |
-| cadastrar            | Início do proceso de cadastro  |                   |
-
-
-**Nome da atividade 2**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-|                 |                  |                |                   |
-
-| **Comandos**         |  **Destino**                   | **Tipo**          |
-| ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-|                      |                                |                   |
+| Comandos | Destino                           | Tipo     |
+|----------|----------------------------------|----------|
+| Aprovar  | Publicar imóvel na plataforma    | default  |
+| Rejeitar | Notificar sobre o resultado da avaliação |          |
