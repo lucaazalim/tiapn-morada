@@ -11,10 +11,9 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 
 **Enviar documentos**
 
-|     **Campo**     | **Tipo**         | **Restrições**  | **Valor default** |
-| ---               | ---              | ---             | ---               |
-|        RG         | Imagem/Documento | png, jpg ou pdf |                   |
-| Comprovante renda | Imagem/Documento | png, jpg ou pdf |                   |
+|     **Campo**         | **Tipo**         | **Restrições**    | **Valor default** |
+| ---                   | ---              | ---               | ---               |
+| Anexo de documentos   | Arquivo          | png, jpg e/ou pdf |                   |
 
 | **Comandos**         |  **Destino**                          | **Tipo**          |
 | ---                  | ---                                   | ---               |
@@ -25,8 +24,8 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 
 | **Campo**             | **Tipo**              | **Restrições**      | **Valor default** |
 | ---                   | ---                   | ---                 | ---               |
-| Anexos                | Anexos de documentos  |  png, jpg e/ou pdf  |                   |
-| Mensagem (resultado)  | Área de texto         |                     | default           |
+| Anexos                | Arquivo               |  png, jpg e/ou pdf  |                   |
+| Mensagem de resultado | Área de texto         |                     | default           |
 
 
 | **Comandos**         |  **Destino**                                                | **Tipo**          |
