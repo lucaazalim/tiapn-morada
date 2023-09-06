@@ -9,34 +9,27 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 1. 
-Devem estar relacionadas com o modelo de processo apresentado anteriormente.
+**Enviar documentos**
 
-**Nome da atividade 1**
+|     **Campo**     | **Tipo**         | **Restrições**  | **Valor default** |
+| ---               | ---              | ---             | ---               |
+|        RG         | Imagem/Documento | png, jpg ou pdf |                   |
+| Comprovante renda | Imagem/Documento | png, jpg ou pdf |                   |
 
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-| ***Exemplo:***  |                  |                |                   |
-| login           | Caixa de Texto   | formato de e-mail |                |
-| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |
+| **Comandos**         |  **Destino**                          | **Tipo**          |
+| ---                  | ---                                   | ---               |
+| Enviar               | Notificar sobre o envio de documentos | default           |
+| Cancelar             | Retornar à página inicial             | cancel            |
 
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-| ***Exemplo:***       |                                |                   |
-| entrar               | Fim do Processo 1              | default           |
-| cadastrar            | Início do proceso de cadastro  |                   |
+**Avaliar documentos do usuário**
+
+| **Campo**             | **Tipo**              | **Restrições**      | **Valor default** |
+| ---                   | ---                   | ---                 | ---               |
+| Anexos                | Anexos de documentos  |  png, jpg e/ou pdf  |                   |
+| Mensagem (resultado)  | Área de texto         |                     | default           |
 
 
-**Nome da atividade 2**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-|                 |                  |                |                   |
-
-| **Comandos**         |  **Destino**                   | **Tipo**          |
-| ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-|                      |                                |                   |
+| **Comandos**         |  **Destino**                                                | **Tipo**          |
+| ---                  | ---                                                         | ---               |
+| Aprovar              | Notificar resultado ao usuário e salvar dados em seu perfil | default           |
+| Rejeitar             | Notificar resultado ao usuário                              |                   |
