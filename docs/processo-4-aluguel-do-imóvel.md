@@ -1,5 +1,7 @@
 ### 3.3.4 Processo 4 – Aluguel de imóvel
 
+O processo de aluguel de um imóvel em imobiliarias tradicionais é cansativo e repleto de burocracia. Prencher papelada, agendar a entrega das chaves e pagar a participação da imobiliária. Tudo isso contribui para que todas as partes precisem reservar parte do seu dia somente para cuidar deste assunto.
+
 No moradas, é possivel realizar todo o processo de aluguel de forma totalmente online. O próprio usuário pode enviar uma proposta  ao proprietário que poderá ou não aceita-la.
 O processo de assinatura de contrato também é realizado digitalmente, seguindo todos os processos de segurança e verificação de ambas as partes.
 
