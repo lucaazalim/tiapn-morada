@@ -8,9 +8,6 @@ No Morada, a rescisão do contrato ocorrerá por meio de uma notificação forma
 
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 1. 
-Devem estar relacionadas com o modelo de processo apresentado anteriormente.
-
 Os tipos de dados a serem utilizados são:
 
 * **Área de texto** - campo texto de múltiplas linhas
@@ -26,31 +23,23 @@ Os tipos de dados a serem utilizados são:
 * **Link** - campo que armazena uma URL
 * **Tabela** - campo formado por uma matriz de valores
 
-**Nome da atividade 1**
+**Notificar sobre rescisão do contrato**
 
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-| ***Exemplo:***  |                  |                |                   |
-| login           | Caixa de Texto   | formato de e-mail |                |
-| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |
-
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-| ***Exemplo:***       |                                |                   |
-| entrar               | Fim do Processo 1              | default           |
-| cadastrar            | Início do proceso de cadastro  |                   |
+| **Campo**       | **Tipo**     |            **Restrições**                  | **Valor default** |
+| Área de texto   | Texto        | Prazo de 30 dias para finalizar o contrato.| Dias úteis        |
 
 
-**Nome da atividade 2**
+| **Comandos**         |  **Destino**                                         | **Tipo** |
+| Mensagem             |Notificar envolvidos sobre início do processo         | Padrão   |
 
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-|                 |                  |                |                   |
 
-| **Comandos**         |  **Destino**                   | **Tipo**          |
-| ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-|                      |                                |                   |
+**Verificar as condições do contrato**
+
+| **Campo**       | **Tipo**                        |     **Restrições**      | **Valor default** |
+| Arquivo         | Comprovante de pagamentos       | Enviar em PDF           | Nenhum            |
+| Data e hora     | Verificar as condições do imóvel| Horário comercial       | Horário comercial |
+
+| **Comandos**         |  **Destino**                                         | **Tipo** |
+| Mensagem             |Notificar envolvidos sobre o decorrer do processo     | Padrão   |
+| Enviar               |Notificar envolvidos sobre o encerramento do contrato | Padrão   |
+
