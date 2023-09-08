@@ -8,7 +8,7 @@ No Morada, a rescisão do contrato ocorrerá por meio de uma notificação forma
 
 #### Detalhamento das atividades
 
-Os tipos de dados a serem utilizados são:
+
 
 **Notificar sobre rescisão do contrato**
 
