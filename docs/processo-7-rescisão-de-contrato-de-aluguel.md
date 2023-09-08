@@ -14,7 +14,7 @@ Os tipos de dados a serem utilizados são:
 
 | **Campo**           | **Tipo**         | **Restrições**                                                               | **Valor default** |
 | ---                 | ---              | ---                                                                          | ---               |
-| Área de texto       | Texto            | Prazo de 30 dias para finalizar o contrato                                   |Dias útei          |
+| Área de texto       | Texto            | Prazo de 30 dias para finalizar o contrato                                   | Dias úteis        |
 
 
 
@@ -31,8 +31,8 @@ Os tipos de dados a serem utilizados são:
 | Arquivo                     | Comprovante de pagamentos       | Enviar em PDF     | Nenhum            |
 | Data e hora                 | Verificar as condições do imóvel| Horário comercial | Horário comercial |
 
-| **Comandos**         |  **Destino**                                         | **Tipo*           |
+| **Comandos**         |  **Destino**                                         | **Tipo**          |
 | ---                  | ---                                                  | ---               |
 | Mensagem             | Notificar os envolvidos sobre o decorrer do processo |  Padrão           |
-| Enviar               | Notificação envolvida sobre a rescisão do contrato   |   Padrão          |
+| Enviar               | Notificar os envolvidos sobre a rescisão do contrato |  Padrão           |
 
