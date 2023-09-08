@@ -4,7 +4,7 @@ Uma rescisão de contrato é um procedimento formal em que uma ou ambas as parte
 
 No Morada, a rescisão do contrato ocorrerá por meio de uma notificação formal. As partes deverão cumprir todas as cláusulas contratuais relacionadas ao processo de rescisão, como prazos de aviso prévio - 30 dias de antecedência - e condições específicas de rescisão, conforme previsto no documento original. Em suma, ainda que o encerramento, geralmente, ocorra de maneira amigável, em situações de desacordo, a resolução poderá exigir mediação judiciária, a fim de encerrar a movimentação de maneira justa e legal, protegendo os direitos e interesses de ambas as partes envolvidas.
 
-(images/processo-7.png)
+/assets/images/processo-7.png
 
 #### Detalhamento das atividades
 
