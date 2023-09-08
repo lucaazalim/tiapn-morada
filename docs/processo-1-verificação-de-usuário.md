@@ -1,55 +1,34 @@
-### 3.3.1 Processo 1 – NOME DO PROCESSO
+### 3.3.3 Processo 1 – Verificação de usuário
 
-Apresente aqui o nome e as oportunidades de melhoria para o processo 1. 
-Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN.
+O processo de averiguação do indivíduo para torná-lo um futuro locatário é frequentemente complexo em imobiliárias tradicionais devido à exigência de uma série de documentações e procedimentos, o que pode ser um grande obstáculo no caminho do interessado em alugar um imóvel.
 
-![Exemplo de um Modelo BPMN do PROCESSO 1](images/process.png "Modelo BPMN do Processo 1.")
+No Morada, tornamos esse processo muito mais simples. Para se tornar um locatário, o indivíduo precisará enviar apenas o RG e o comprovante de renda, ou até mesmo apenas o RG, para nossa plataforma. Esses documentos serão analisados e nossa equipe fornecerá uma resposta o mais breve possível, tornando o processo para a locação de imóveis muito mais ágil e simples.
+
+![Processo 1 - Verificação de usuáriol](images/processo-1.png "Modelo BPMN do Processo 1.")
+
 
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 1. 
-Devem estar relacionadas com o modelo de processo apresentado anteriormente.
+**Enviar documentos**
 
-Os tipos de dados a serem utilizados são:
+|     **Campo**         | **Tipo**         | **Restrições**    | **Valor default** |
+| ---                   | ---              | ---               | ---               |
+| Anexo de documentos   | Arquivo          | png, jpg e/ou pdf |                   |
 
-* **Área de texto** - campo texto de múltiplas linhas
-* **Caixa de texto** - campo texto de uma linha
-* **Número** - campo numérico
-* **Data** - campo do tipo data (dd-mm-aaaa)
-* **Hora** - campo do tipo hora (hh:mm:ss)
-* **Data e Hora** - campo do tipo data e hora (dd-mm-aaaa, hh:mm:ss)
-* **Imagem** - campo contendo uma imagem
-* **Seleção única** - campo com várias opções de valores que são mutuamente exclusivos (tradicional radio button ou combobox)
-* **Seleção múltipla** - campo com várias opções que podem ser selecionadas mutuamente (tradicional checkbox ou listbox)
-* **Arquivo** - campo de upload de documento
-* **Link** - campo que armazena uma URL
-* **Tabela** - campo formado por uma matriz de valores
+| **Comandos**         |  **Destino**                          | **Tipo**          |
+| ---                  | ---                                   | ---               |
+| Enviar               | Notificar sobre o envio de documentos | default           |
+| Cancelar             | Retornar à página inicial             | cancel            |
 
-**Nome da atividade 1**
+**Avaliar documentos do usuário**
 
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-| ***Exemplo:***  |                  |                |                   |
-| login           | Caixa de Texto   | formato de e-mail |                |
-| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |
-
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-| ***Exemplo:***       |                                |                   |
-| entrar               | Fim do Processo 1              | default           |
-| cadastrar            | Início do proceso de cadastro  |                   |
+| **Campo**             | **Tipo**              | **Restrições**      | **Valor default** |
+| ---                   | ---                   | ---                 | ---               |
+| Anexos                | Arquivo               |  png, jpg e/ou pdf  |                   |
+| Mensagem de resultado | Área de texto         |                     | default           |
 
 
-**Nome da atividade 2**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-|                 |                  |                |                   |
-
-| **Comandos**         |  **Destino**                   | **Tipo**          |
-| ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-|                      |                                |                   |
+| **Comandos**         |  **Destino**                                                | **Tipo**          |
+| ---                  | ---                                                         | ---               |
+| Aprovar              | Notificar resultado ao usuário e salvar dados em seu perfil | default           |
+| Rejeitar             | Notificar resultado ao usuário                              |                   |
