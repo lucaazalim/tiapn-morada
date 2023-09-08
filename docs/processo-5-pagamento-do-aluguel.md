@@ -3,7 +3,7 @@
 Apresente aqui o nome e as oportunidades de melhoria para o processo 5. 
 Em seguida, apresente o modelo do processo 5, descrito no padrão BPMN.
 
-![Exemplo de um Modelo BPMN do PROCESSO 5](imagens/processo-5.png "Modelo BPMN do Processo 5.")
+![Processo 5 - Pagamento do Aluguel](imagens/processo-5.png "Modelo BPMN do Processo 5.")
 
 
 #### Detalhamento das atividades
