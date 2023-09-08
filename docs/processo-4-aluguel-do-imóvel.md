@@ -5,8 +5,7 @@ O processo de aluguel de um imóvel em imobiliarias tradicionais é cansativo e 
 No Morada, é possivel realizar todo o processo de aluguel de forma totalmente online. O próprio usuário pode enviar uma proposta ao proprietário que poderá ou não aceitá-la.
 O processo de assinatura de contrato também é realizado digitalmente, seguindo todos os processos de segurança e verificação de ambas as partes.
 
-![image](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-morada/assets/78454334/f9c481f9-7298-4d82-9975-7df7877da6c1)
-
+![processo-4](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-morada/assets/78454334/5ada9768-bad3-418e-bd74-a537a73962b5)
 
 
 #### Detalhamento das atividades
