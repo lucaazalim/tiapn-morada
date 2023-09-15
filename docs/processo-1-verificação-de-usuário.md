@@ -9,26 +9,44 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 
 #### Detalhamento das atividades
 
-**Enviar documentos**
+**Enviar documentação necessária**
 
 |     **Campo**         | **Tipo**         | **Restrições**    | **Valor default** |
 | ---                   | ---              | ---               | ---               |
-| Anexo de documentos   | Arquivo          | png, jpg e/ou pdf |                   |
+| RG                    | Arquivo          | png, jpg ou pdf   |                   |
+| Comprovante de Renda  | Arquivo          | pdf               |                   |
 
-| **Comandos**         |  **Destino**                          | **Tipo**          |
-| ---                  | ---                                   | ---               |
-| Enviar               | Notificar sobre o envio de documentos | default           |
-| Cancelar             | Retornar à página inicial             | cancel            |
+| **Comandos**         |  **Destino**                                         | **Tipo**          |
+| ---                  | ---                                                  | ---               |
+| Enviar               | Notificar ao administrador sobre envio de documentos | default           |
+| Cancelar             | Página inicial                                       | cancel            |
 
 **Avaliar documentos do usuário**
 
-| **Campo**             | **Tipo**              | **Restrições**      | **Valor default** |
-| ---                   | ---                   | ---                 | ---               |
-| Anexos                | Arquivo               |  png, jpg e/ou pdf  |                   |
-| Mensagem de resultado | Área de texto         |                     | default           |
+|     **Campo**            | **Tipo**         | **Restrições**    | **Valor default** |
+| ---                      | ---              | ---               | ---               |
+| RG                       | Arquivo          |                   |                   |
+| Comprovante de Renda     | Arquivo          |                   |                   |
+
+|     **Campo**              | **Tipo**         | **Restrições**    | **Valor default** |
+| ---                        | ---              | ---               | ---               |
+| Selecionar resultado       | Seleção única    |                   |                   |
+| Justificar resultado       | Área de texto    |                   |                   |
 
 
-| **Comandos**         |  **Destino**                                                | **Tipo**          |
-| ---                  | ---                                                         | ---               |
-| Aprovar              | Notificar resultado ao usuário e salvar dados em seu perfil | default           |
-| Rejeitar             | Notificar resultado ao usuário                              |                   |
+| **Comandos**         |  **Destino**                                                   | **Tipo**          |
+| ---                  | ---                                                            | ---               |
+| Aprovar              | Mensagem ao usuário e armazenamento do resultado em seu perfil | default           |
+| Rejeitar             | Mensagem ao usuário                                            |                   |
+
+**Resultado da verificação**
+
+|     **Campo**              | **Tipo**         | **Restrições**            | **Valor default** |
+| ---                        | ---              | ---                       | ---               |
+| Resultado                  | Caixa de texto   | "Aprovado" ou "Rejeitado" |                   |
+| Mensagem de justificativa  | Área de texto    |                           |                   |
+
+| **Comandos**   |  **Destino**   | **Tipo**          |
+| ---            | ---            | ---               |
+| Sair da página | Página inicial | default           |
+
