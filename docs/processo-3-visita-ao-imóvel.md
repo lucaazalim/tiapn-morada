@@ -10,28 +10,31 @@ Para isso, o Morada torna tudo mais ágil e eficaz para ambas as partes ao exibi
 
 **Agendar visita ao imóvel**
 
-| **Campo**           | **Tipo**         | **Restrições**                                                               | **Valor default** |
-| ---                 | ---              | ---                                                                          | ---               |
-| Tabela com horários | Tabela           | Apresentar semana (7 dias) evidenciando horários disponíveis do proprietário |                   |
-| [Dentro da tabela:] |                  |                                                                              |                   |
-| Colunas Data        | Data             |                                                                              |                   |
-| Linhas Hora         | Hora             | Horário comercial                                                            | Horário comercial |
+| **Campo**           | **Tipo**         | **Restrições**                 | **Valor default** |
+| ---                 | ---              | ---                            | ---               |
+| Tabela com horários | Tabela           | Apresentar semana + horários   |                   |
+| Colunas Data        | Data             |                                |                   |
+| Linhas Hora         | Hora             | Horário comercial              |                   |
+| Seleção             | Seleção única    | Evidenciar horário selecionado |                   |
 
 
-| **Comandos**         |  **Destino**                             | **Tipo** |
-| ---                  | ---                                      | ---      |
-| Selecionar           | Notificar proprietário sobre agendamento | default  |
-| Cancelar             | Retirar agendamento                      |          |
+| **Comandos**         |  **Destino**                                | **Tipo** |
+| ---                  | ---                                         | ---      |
+| Selecionar horário   | Seleção de horário na página                |          |
+| Confirmar            | Notificar ao proprietário sobre agendamento | default  |
+| Cancelar             | Cancelar agendamento                        |          |
 
 
 **Avaliar imóvel e visita**
 
-| **Campo**                   | **Tipo**         | **Restrições** | **Valor default** |
-| ---                         | ---              | ---            | ---               |
-| Avaliação estrelas(símbolo) | Seleção múltipla |                |                   |
-| Mensagem                    | Área de texto    |                |                   |
+| **Campo**                        | **Tipo**         | **Restrições** | **Valor default** |
+| ---                              | ---              | ---            | ---               |
+| Avaliação com estrelas (símbolo) | Seleção múltipla |                |                   |
+| Mensagem de avaliação            | Área de texto    |                |                   |
 
-| **Comandos**         |  **Destino**                    | **Tipo**          |
-| ---                  | ---                             | ---               |
-| Enviar               | Acrescentar avaliação ao imóvel | default           |
-| Fechar               | Fechar página de avaliação      |                   |
+| **Comandos**         |  **Destino**                             | **Tipo**          |
+| ---                  | ---                                      | ---               |
+| Selecionar           | Acrescentar avaliação ao imóvel          |                   |
+| Escrever mensagem    | Acrescentar avaliação ao imóvel          | opcional          |
+| Enviar               | Acrescentar e salvar avaliação ao imóvel | default           |
+| Fechar               | Página inicial                           |                   |
