@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="1c7d819" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="41bb8c9b-6771-48ce-b746-21e3d98f2982">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="cbae99f" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="41bb8c9b-6771-48ce-b746-21e3d98f2982">
   <bpmn:collaboration id="Collaboration_0bkqy8o">
     <bpmn:participant id="Participant_0f6ezxo" name="Publicação de imóvel" processRef="Process_0epca28" />
   </bpmn:collaboration>
@@ -12,7 +12,7 @@
         <bpmn:flowNodeRef>Activity_15l01xl</bpmn:flowNodeRef>
         <bpmn:childLaneSet id="LaneSet_1ozlsjz" />
       </bpmn:lane>
-      <bpmn:lane id="Lane_13ffqsp" name="Usuário">
+      <bpmn:lane id="Lane_13ffqsp" name="Locatário">
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_060ju6z</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0480a6p</bpmn:flowNodeRef>
@@ -35,7 +35,7 @@
       <bpmn:incoming>Flow_0pcl60h</bpmn:incoming>
       <bpmn:outgoing>Flow_10n2zz2</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:exclusiveGateway id="Gateway_0x9r8lk">
+    <bpmn:exclusiveGateway id="Gateway_0x9r8lk" name="Publicação do imóvel aprovada?">
       <bpmn:incoming>Flow_10n2zz2</bpmn:incoming>
       <bpmn:outgoing>Flow_0ma9wdn</bpmn:outgoing>
       <bpmn:outgoing>Flow_0xub4ev</bpmn:outgoing>
@@ -95,6 +95,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0x9r8lk_di" bpmnElement="Gateway_0x9r8lk" isMarkerVisible="true">
         <dc:Bounds x="615" y="293" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="597" y="350" width="87" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0cmmyc1_di" bpmnElement="Activity_15l01xl">
         <dc:Bounds x="740" y="278" width="100" height="80" />
