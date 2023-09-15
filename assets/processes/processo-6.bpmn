@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_03vhyd8" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.14.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0">
+  <bpmn:collaboration id="Collaboration_11vuhgx">
+    <bpmn:participant id="Participant_0fd9xil" name="Reajuste Aluguel" processRef="Process_082b4vo" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_082b4vo" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_19bbgm9">
+      <bpmn:lane id="Lane_0iml0fy" name="Proprietário">
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0afnars</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_0cn8rt0" name="Locatário">
+        <bpmn:flowNodeRef>Event_0elurvs</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_01bqkcm</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_0j44c6v</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_1ser2ax</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1aknp08</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1fnp2us</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1fnp2us" sourceRef="StartEvent_1" targetRef="Activity_0afnars" />
+    <bpmn:sequenceFlow id="Flow_1krd2v0" name="Sim" sourceRef="Gateway_0j44c6v" targetRef="Activity_01bqkcm" />
+    <bpmn:sequenceFlow id="Flow_0us0sjv" sourceRef="Activity_01bqkcm" targetRef="Event_0elurvs" />
+    <bpmn:sequenceFlow id="Flow_1l8le5h" name="Não" sourceRef="Gateway_0j44c6v" targetRef="Event_1ser2ax" />
+    <bpmn:userTask id="Activity_0afnars" name="Solicitar reajuste do aluguel">
+      <bpmn:incoming>Flow_1fnp2us</bpmn:incoming>
+      <bpmn:outgoing>Flow_0nmwr1f</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0nmwr1f" sourceRef="Activity_0afnars" targetRef="Activity_1aknp08" />
+    <bpmn:sequenceFlow id="Flow_1xdnwft" sourceRef="Activity_1aknp08" targetRef="Gateway_0j44c6v" />
+    <bpmn:endEvent id="Event_0elurvs">
+      <bpmn:incoming>Flow_0us0sjv</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_01bqkcm" name="Atualizar valor de aluguel">
+      <bpmn:incoming>Flow_1krd2v0</bpmn:incoming>
+      <bpmn:outgoing>Flow_0us0sjv</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_0j44c6v">
+      <bpmn:incoming>Flow_1xdnwft</bpmn:incoming>
+      <bpmn:outgoing>Flow_1krd2v0</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1l8le5h</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_1ser2ax">
+      <bpmn:incoming>Flow_1l8le5h</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="Activity_1aknp08" name="Visualizar proposta">
+      <bpmn:incoming>Flow_0nmwr1f</bpmn:incoming>
+      <bpmn:outgoing>Flow_1xdnwft</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:textAnnotation id="TextAnnotation_05sz4zo">
+      <bpmn:text>Aceita reajuste?</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1yqzwzr" sourceRef="Gateway_0j44c6v" targetRef="TextAnnotation_05sz4zo" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_11vuhgx">
+      <bpmndi:BPMNShape id="Participant_0fd9xil_di" bpmnElement="Participant_0fd9xil" isHorizontal="true">
+        <dc:Bounds x="129" y="100" width="579" height="290" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0cn8rt0_di" bpmnElement="Lane_0cn8rt0" isHorizontal="true">
+        <dc:Bounds x="159" y="215" width="549" height="175" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0iml0fy_di" bpmnElement="Lane_0iml0fy" isHorizontal="true">
+        <dc:Bounds x="159" y="100" width="549" height="115" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_05sz4zo_di" bpmnElement="TextAnnotation_05sz4zo">
+        <dc:Bounds x="480" y="319" width="100" height="41" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="142" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qscvk8_di" bpmnElement="Activity_0afnars">
+        <dc:Bounds x="280" y="120" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0elurvs_di" bpmnElement="Event_0elurvs">
+        <dc:Bounds x="652" y="252" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0us0b7j_di" bpmnElement="Activity_01bqkcm">
+        <dc:Bounds x="520" y="230" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0j44c6v_di" bpmnElement="Gateway_0j44c6v" isMarkerVisible="true">
+        <dc:Bounds x="415" y="245" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ser2ax_di" bpmnElement="Event_1ser2ax">
+        <dc:Bounds x="422" y="322" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ocu1pr_di" bpmnElement="Activity_1aknp08">
+        <dc:Bounds x="280" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1yqzwzr_di" bpmnElement="Association_1yqzwzr">
+        <di:waypoint x="454" y="281" />
+        <di:waypoint x="510" y="319" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fnp2us_di" bpmnElement="Flow_1fnp2us">
+        <di:waypoint x="228" y="160" />
+        <di:waypoint x="280" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1krd2v0_di" bpmnElement="Flow_1krd2v0">
+        <di:waypoint x="465" y="270" />
+        <di:waypoint x="520" y="270" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="483" y="257" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0us0sjv_di" bpmnElement="Flow_0us0sjv">
+        <di:waypoint x="620" y="270" />
+        <di:waypoint x="652" y="270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1l8le5h_di" bpmnElement="Flow_1l8le5h">
+        <di:waypoint x="440" y="295" />
+        <di:waypoint x="440" y="322" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="443" y="300" width="21" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0nmwr1f_di" bpmnElement="Flow_0nmwr1f">
+        <di:waypoint x="330" y="200" />
+        <di:waypoint x="330" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xdnwft_di" bpmnElement="Flow_1xdnwft">
+        <di:waypoint x="380" y="270" />
+        <di:waypoint x="415" y="270" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
