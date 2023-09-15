@@ -40,9 +40,29 @@ No Morada, o anúncio do imóvel é criado de maneira estruturada, pelo próprio
 
 **Avaliar o conteúdo da publicação do imóvel**
 
-| Campo     | Tipo          | Restrições |
-|-----------|---------------|------------|
-| Mensagem  | Área de Texto |            |
+| Campo                        | Tipo                | Restrições                                       |
+|------------------------------|---------------------|--------------------------------------------------|
+| Tipo                         | Seleção Múltipla    | Apartamento, Studio ou Casa                    |
+| CEP                          | Caixa de Texto      | Formato de CEP                                 |
+| Logradouro                   | Caixa de Texto      |                                                |
+| Número                       | Número              | Número inteiro positivo                        |
+| Complemento                  | Caixa de Texto      |                                                |
+| Bairro                       | Caixa de Texto      |                                                |
+| Cidade                       | Caixa de Texto      |                                                |
+| Estado                       | Seleção Única       | Lista de estados brasileiros                   |
+| Descrição                    | Área de Texto       | Máximo de 1000 caracteres                      |
+| Metragem                     | Número              | Número inteiro positivo                        |
+| Quartos                      | Número              | Número inteiro positivo                        |
+| Banheiro                     | Número              | Número inteiro positivo                        |
+| Vagas de Garagem             | Número              | Número inteiro positivo                        |
+| Aceita Pet                   | Seleção Única       | Sim ou Não                                     |
+| Mobiliado                    | Seleção Única       | Sim ou Não                                     |
+| Itens Disponíveis no Imóvel  | Seleção Múltipla    | Lista de possíveis itens disponíveis no imóvel |
+| Itens Disponíveis no Condomínio | Seleção Múltipla | Lista de possíveis itens disponíveis no condomínio |
+| Valor do Aluguel             | Número              | Número inteiro positivo                        |
+| Valor do Condomínio          | Número              | Número inteiro positivo                        |
+| Valor do IPTU                | Número              | Número inteiro positivo                        |
+| **Mensagem ao Proprietário**     | Área de Texto       |                                                |
 
 | Comandos | Destino                           | Tipo     |
 |----------|----------------------------------|----------|
