@@ -18,11 +18,11 @@ Para isso, o Morada torna tudo mais ágil e eficaz para ambas as partes ao exibi
 | Seleção             | Seleção única    | Evidenciar horário selecionado |          -        |
 
 
-| **Comandos**         |  **Destino**                                | **Tipo** |
-| ---                  | ---                                         | ---      |
-| Selecionar horário   | Seleção de horário na página                |          |
-| Confirmar            | Notificar ao proprietário sobre agendamento | default  |
-| Cancelar             | Cancelar agendamento                        |          |
+| **Comandos**         |  **Destino**                                | **Tipo**      |
+| ---                  | ---                                         | ---           |
+| Selecionar horário   | Seleção de horário na página                | Seleção única |
+| Confirmar            | Notificar ao proprietário sobre agendamento | Seleção única |
+| Cancelar             | Cancelar agendamento                        | Seleção única |
 
 
 **Avaliar imóvel e visita**
