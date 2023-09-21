@@ -12,10 +12,10 @@ Para isso, o Morada torna tudo mais ágil e eficaz para ambas as partes ao exibi
 
 | **Campo**           | **Tipo**         | **Restrições**                 | **Valor default** |
 | ---                 | ---              | ---                            | ---               |
-| Tabela com horários | Tabela           | Apresentar semana + horários   |                   |
-| Colunas Data        | Data             |                                |                   |
-| Linhas Hora         | Hora             | Horário comercial              |                   |
-| Seleção             | Seleção única    | Evidenciar horário selecionado |                   |
+| Tabela com horários | Tabela           | Apresentar semana + horários   |          -        |
+| Colunas Data        | Data             |                                |          -        |
+| Linhas Hora         | Hora             | Horário comercial              |          -        |
+| Seleção             | Seleção única    | Evidenciar horário selecionado |          -        |
 
 
 | **Comandos**         |  **Destino**                                | **Tipo** |
@@ -29,12 +29,12 @@ Para isso, o Morada torna tudo mais ágil e eficaz para ambas as partes ao exibi
 
 | **Campo**                        | **Tipo**         | **Restrições** | **Valor default** |
 | ---                              | ---              | ---            | ---               |
-| Avaliação com estrelas (símbolo) | Seleção múltipla |                |                   |
-| Mensagem de avaliação            | Área de texto    |                |                   |
+| Avaliação com estrelas (símbolo) | Seleção múltipla |Símbolo estrela |  Estrelas vazias  |
+| Mensagem de avaliação            | Área de texto    | Caracteres     |       -           |
 
 | **Comandos**         |  **Destino**                             | **Tipo**          |
 | ---                  | ---                                      | ---               |
-| Selecionar           | Acrescentar avaliação ao imóvel          |                   |
-| Escrever mensagem    | Acrescentar avaliação ao imóvel          | opcional          |
-| Enviar               | Acrescentar e salvar avaliação ao imóvel | default           |
-| Fechar               | Página inicial                           |                   |
+| Selecionar           | Acrescentar avaliação ao imóvel          | Seleção múltipla  |
+| Escrever mensagem    | Acrescentar avaliação ao imóvel          | Área de texto     |
+| Enviar               | Acrescentar e salvar avaliação ao imóvel | Seleção Única     |
+| Fechar               | Página inicial                           | Seleção única     |
