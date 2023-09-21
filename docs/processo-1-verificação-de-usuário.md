@@ -37,7 +37,7 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 | **Comandos**         |  **Destino**                                                   | **Tipo**          |
 | ---                  | ---                                                            | ---               |
 | Aprovar              | Mensagem ao usuário e armazenamento do resultado em seu perfil | Seleção única     |
-| Rejeitar             | Mensagem ao usuário                                            | Sleção única      |
+| Rejeitar             | Mensagem ao usuário                                            | Seleção única      |
 
 **Resultado da verificação**
 
