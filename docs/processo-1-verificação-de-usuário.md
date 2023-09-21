@@ -13,8 +13,8 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 
 |     **Campo**         | **Tipo**         | **Restrições**    | **Valor default** |
 | ---                   | ---              | ---               | ---               |
-| RG                    | Arquivo          | png, jpg ou pdf   |                   |
-| Comprovante de Renda  | Arquivo          | pdf               |                   |
+| RG                    | Arquivo          | png, jpg ou pdf   |  -                |
+| Comprovante de Renda  | Arquivo          | pdf               |  -                |
 
 | **Comandos**         |  **Destino**                                         | **Tipo**          |
 | ---                  | ---                                                  | ---               |
@@ -25,28 +25,28 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 
 |     **Campo**            | **Tipo**         | **Restrições**    | **Valor default** |
 | ---                      | ---              | ---               | ---               |
-| RG                       | Arquivo          |                   |                   |
-| Comprovante de Renda     | Arquivo          |                   |                   |
+| RG                       | Arquivo          | png, jpg ou pdf   |  -                |
+| Comprovante de Renda     | Arquivo          | pdf               |  -                |
 
 |     **Campo**              | **Tipo**         | **Restrições**    | **Valor default** |
 | ---                        | ---              | ---               | ---               |
-| Selecionar resultado       | Seleção única    |                   |                   |
-| Justificar resultado       | Área de texto    |                   |                   |
+| Selecionar resultado       | Seleção única    |  -                | -                 |
+| Justificar resultado       | Área de texto    |  -                | -                 |
 
 
 | **Comandos**         |  **Destino**                                                   | **Tipo**          |
 | ---                  | ---                                                            | ---               |
-| Aprovar              | Mensagem ao usuário e armazenamento do resultado em seu perfil | default           |
-| Rejeitar             | Mensagem ao usuário                                            |                   |
+| Aprovar              | Mensagem ao usuário e armazenamento do resultado em seu perfil | Seleção única     |
+| Rejeitar             | Mensagem ao usuário                                            | Sleção única      |
 
 **Resultado da verificação**
 
 |     **Campo**              | **Tipo**         | **Restrições**            | **Valor default** |
 | ---                        | ---              | ---                       | ---               |
-| Resultado                  | Caixa de texto   | "Aprovado" ou "Rejeitado" |                   |
-| Mensagem de justificativa  | Área de texto    |                           |                   |
+| Resultado                  | Caixa de texto   | "Aprovado" ou "Rejeitado" | -                 |
+| Mensagem de justificativa  | Área de texto    |                           | -                 |
 
 | **Comandos**   |  **Destino**   | **Tipo**          |
 | ---            | ---            | ---               |
-| Sair da página | Página inicial | default           |
+| Sair da página | Página inicial | Seleção única     |
 
