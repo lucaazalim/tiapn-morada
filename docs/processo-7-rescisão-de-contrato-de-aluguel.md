@@ -27,7 +27,7 @@ No Morada, a rescisão do contrato ocorrerá por meio de uma notificação forma
 
 
 
-**Verificação das Condições do Contrato**
+**Reavaliar as pendências do Contrato**
 
 | **Campo**                   | **Tipo**                        | **Restrições**    | **Valor default** |
 | ---                         | ---                             | ---               | ---               |
