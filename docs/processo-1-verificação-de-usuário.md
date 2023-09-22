@@ -30,8 +30,8 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 
 |     **Campo**              | **Tipo**         | **Restrições**    | **Valor default** |
 | ---                        | ---              | ---                        | ---               |
-| Selecionar resultado       | Seleção única    | 'Aprovado' ou 'Rejeitado'  | -                 |
-| Justificar resultado       | Área de texto    |  -                         | -                 |
+| Resultado                  | Seleção única    | 'Aprovado' ou 'Rejeitado'  | -                 |
+| Mensagem de justificativa  | Área de texto    |  -                         | -                 |
 
 
 | **Comandos**         |  **Destino**                                                   | **Tipo**          |
