@@ -15,9 +15,9 @@ No Morada, a rescisão do contrato ocorrerá por meio de uma notificação forma
 
 **Notificar sobre rescisão do contrato**
 
-| **Campo**           | **Tipo**         | **Restrições**                                                               | **Valor default** |
-| ---                 | ---              | ---                                                                          | ---               |
-| Área de texto       | Texto            | Prazo de 30 dias para finalizar o contrato                                   | Área de texto     |
+| **Campo**           | **Tipo**         | **Restrições**                                                 | **Valor default** |
+| ---                 | ---              | ---                                                            | ---               |
+| Área de texto       | Texto            | mínimo de 300 caracteres                                       | Área de texto     |
 
 
 
