@@ -1,4 +1,4 @@
-### 3.3.6 Processo 6 – NOME DO PROCESSO
+### 3.3.6 Processo 6 – Reajuste do Aluguel
 
 ![Processo 6 - Reajuste do Aluguel](images/processo-6.png "Modelo BPMN do Processo 6.")
 
@@ -10,7 +10,6 @@
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
 |  Valor aluguel | Numérico |   Valor positivo, menor que 10.000.000        |                   |
-| Enviar aviso  | Seleção Única  |  |                |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
@@ -19,10 +18,6 @@
 
 
 **Análise reajuste**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| Aceitar Reajuste | Seleção Única | Sim/Não     |                   |
 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
