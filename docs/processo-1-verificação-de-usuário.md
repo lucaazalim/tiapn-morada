@@ -29,24 +29,24 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 | Comprovante de Renda     | Arquivo          | pdf               |  -                |
 
 |     **Campo**              | **Tipo**         | **Restrições**    | **Valor default** |
-| ---                        | ---              | ---               | ---               |
-| Selecionar resultado       | Seleção única    |  -                | -                 |
-| Justificar resultado       | Área de texto    |  -                | -                 |
+| ---                        | ---              | ---                        | ---               |
+| Selecionar resultado       | Seleção única    | 'Aprovado' ou 'Rejeitado'  | -                 |
+| Justificar resultado       | Área de texto    |  -                         | -                 |
 
 
 | **Comandos**         |  **Destino**                                                   | **Tipo**          |
 | ---                  | ---                                                            | ---               |
-| Aprovar              | Mensagem ao usuário e armazenamento do resultado em seu perfil | Seleção única     |
-| Rejeitar             | Mensagem ao usuário                                            | Seleção única      |
+| Aprovar              | Mensagem ao usuário e armazenamento do resultado em seu perfil | default           |
+| Rejeitar             | Mensagem ao usuário                                            | cancel            |
 
 **Resultado da verificação**
 
 |     **Campo**              | **Tipo**         | **Restrições**            | **Valor default** |
 | ---                        | ---              | ---                       | ---               |
-| Resultado                  | Seleção única    | "Aprovado" ou "Rejeitado" | -                 |
-| Mensagem de justificativa  | Área de texto    |                           | -                 |
+| Resultado                  | Seleção única    | 'Aprovado' ou 'Rejeitado' | -                 |
+| Mensagem de justificativa  | Área de texto    | -                         | -                 |
 
 | **Comandos**   |  **Destino**   | **Tipo**          |
 | ---            | ---            | ---               |
-| Sair da página | Página inicial | Seleção única     |
+| Sair da página | Página inicial | default     |
 
