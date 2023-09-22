@@ -43,7 +43,7 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 
 |     **Campo**              | **Tipo**         | **Restrições**            | **Valor default** |
 | ---                        | ---              | ---                       | ---               |
-| Resultado                  | Caixa de texto   | "Aprovado" ou "Rejeitado" | -                 |
+| Resultado                  | Seleção única    | "Aprovado" ou "Rejeitado" | -                 |
 | Mensagem de justificativa  | Área de texto    |                           | -                 |
 
 | **Comandos**   |  **Destino**   | **Tipo**          |
