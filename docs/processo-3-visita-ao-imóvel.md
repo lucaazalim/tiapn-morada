@@ -15,7 +15,6 @@ Para isso, o Morada torna tudo mais ágil e eficaz para ambas as partes ao exibi
 | Tabela com horários | Tabela           | Apresentar semana + horários   |                   |
 | Colunas Data        | Data             |                                |                   |
 | Linhas Hora         | Hora             | Horário comercial              |                   |
-| Seleção             | Seleção única    | Evidenciar horário selecionado |                   |
 
 
 | **Comandos**         |  **Destino**                                | **Tipo**      |
