@@ -24,7 +24,7 @@ No Morada, o anúncio do imóvel é criado de maneira estruturada, pelo próprio
 | Descrição                       | Área de Texto    | Máximo de 1000 caracteres                          |               |
 | Metragem                        | Número           | Número inteiro positivo                            |               |
 | Quartos                         | Número           | Número inteiro positivo                            |               |
-| Banheiro                        | Número           | Número inteiro positivo                            |               |
+| Banheiros                       | Número           | Número inteiro positivo                            |               |
 | Vagas de Garagem                | Número           | Número inteiro positivo                            |               |
 | Aceita Pet                      | Seleção Única    | Sim ou Não                                         |               |
 | Mobiliado                       | Seleção Única    | Sim ou Não                                         |               |
