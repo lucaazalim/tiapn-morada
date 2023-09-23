@@ -20,6 +20,7 @@ No Morada, o anúncio do imóvel é criado de maneira estruturada, pelo próprio
 | Bairro                          | Caixa de Texto   |                                                    |               |
 | Cidade                          | Caixa de Texto   |                                                    |               |
 | Estado                          | Seleção Única    | Lista de estados brasileiros                       |               |
+| País                            | Seleção Única    | Lista de países                                    | Brasil        |
 | Descrição                       | Área de Texto    | Máximo de 1000 caracteres                          |               |
 | Metragem                        | Número           | Número inteiro positivo                            |               |
 | Quartos                         | Número           | Número inteiro positivo                            |               |
