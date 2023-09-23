@@ -15,26 +15,25 @@ Para isso, o Morada torna tudo mais ágil e eficaz para ambas as partes ao exibi
 | Tabela com horários | Tabela           | Apresentar semana + horários   |                   |
 | Colunas Data        | Data             |                                |                   |
 | Linhas Hora         | Hora             | Horário comercial              |                   |
-| Seleção             | Seleção única    | Evidenciar horário selecionado |                   |
 
 
-| **Comandos**         |  **Destino**                                | **Tipo** |
-| ---                  | ---                                         | ---      |
-| Selecionar horário   | Seleção de horário na página                |          |
-| Confirmar            | Notificar ao proprietário sobre agendamento | default  |
-| Cancelar             | Cancelar agendamento                        |          |
+| **Comandos**         |  **Destino**                                | **Tipo**      |
+| ---                  | ---                                         | ---           |
+| Selecionar horário   | Seleção de horário na página                |               |
+| Confirmar            | Notificar ao proprietário sobre agendamento | default       |
+| Cancelar             | Cancelar agendamento                        | cancel        |
 
 
 **Avaliar imóvel e visita**
 
-| **Campo**                        | **Tipo**         | **Restrições** | **Valor default** |
-| ---                              | ---              | ---            | ---               |
-| Avaliação com estrelas (símbolo) | Seleção múltipla |                |                   |
-| Mensagem de avaliação            | Área de texto    |                |                   |
+| **Campo**                        | **Tipo**         | **Restrições**  | **Valor default** |
+| ---                              | ---              | ---             | ---               |
+| Avaliação com estrelas (símbolo) | Seleção múltipla | Símbolo estrela |  estrelas vazias  |
+| Mensagem de avaliação            | Área de texto    | Caracteres      |                   |
 
 | **Comandos**         |  **Destino**                             | **Tipo**          |
 | ---                  | ---                                      | ---               |
 | Selecionar           | Acrescentar avaliação ao imóvel          |                   |
-| Escrever mensagem    | Acrescentar avaliação ao imóvel          | opcional          |
+| Escrever mensagem    | Acrescentar avaliação ao imóvel          |                   |
 | Enviar               | Acrescentar e salvar avaliação ao imóvel | default           |
-| Fechar               | Página inicial                           |                   |
+| Fechar               | Página inicial                           | cancel            |

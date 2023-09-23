@@ -15,27 +15,28 @@ No Morada, a rescisão do contrato ocorrerá por meio de uma notificação forma
 
 **Notificar sobre rescisão do contrato**
 
-| **Campo**           | **Tipo**         | **Restrições**                                                               | **Valor default** |
-| ---                 | ---              | ---                                                                          | ---               |
-| Área de texto       | Texto            | Prazo de 30 dias para finalizar o contrato                                   | Dias úteis        |
+| **Campo**           | **Tipo**         | **Restrições**                                                 | **Valor default** |
+| ---                 | ---              | ---                                                            | ---               |
+| Área de texto       | Texto            | mínimo de 300 caracteres                                       | Área de texto     |
 
 
 
-| **Comandos**         |  **Destino**                                        | **Tipo** |
-| ---                  | ---                                                 | ---      |
-| Mensagem             | Notificar os envolvidos sobre início do processo    | Padrão   |
+| **Comandos**         |  **Destino**                                        | **Tipo**        |
+| ---                  | ---                                                 | ---             |
+| Mensagem             | Notificar os envolvidos sobre início do processo    | Área de texto   |
+| Enviar               | Página inicial                                      | Seleção Única   |
 
 
 
-**Verificação das Condições do Contrato**
+**Verificar pagamentos e condições atuais do imóvel**
 
 | **Campo**                   | **Tipo**                        | **Restrições**    | **Valor default** |
 | ---                         | ---                             | ---               | ---               |
-| Arquivo                     | Comprovante de pagamentos       | Enviar em PDF     | Nenhum            |
+| Arquivo                     | Comprovante de pagamentos       | Enviar em PDF     | --                |
 | Data e hora                 | Verificar as condições do imóvel| Horário comercial | Horário comercial |
 
 | **Comandos**         |  **Destino**                                         | **Tipo**          |
 | ---                  | ---                                                  | ---               |
-| Mensagem             | Notificar os envolvidos sobre o decorrer do processo |  Padrão           |
-| Enviar               | Notificar os envolvidos sobre a rescisão do contrato |  Padrão           |
+| Mensagem             | Página inicial                                       |  Seleção Única    |
+| Enviar               | Página inicial                                       |  Seleção Única    |
 

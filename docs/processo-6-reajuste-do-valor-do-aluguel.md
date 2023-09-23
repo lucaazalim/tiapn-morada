@@ -1,56 +1,25 @@
-### 3.3.6 Processo 6 – NOME DO PROCESSO
-
-Apresente aqui o nome e as oportunidades de melhoria para o processo 6. 
-Em seguida, apresente o modelo do processo 6, descrito no padrão BPMN.
+### 3.3.6 Processo 6 – Reajuste do Aluguel
 
 ![Processo 6 - Reajuste do Aluguel](images/processo-6.png "Modelo BPMN do Processo 6.")
 
 
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 6. 
-Devem estar relacionadas com o modelo de processo apresentado anteriormente.
-
-Os tipos de dados a serem utilizados são:
-
-* **Área de texto** - campo texto de múltiplas linhas
-* **Caixa de texto** - campo texto de uma linha
-* **Número** - campo numérico
-* **Data** - campo do tipo data (dd-mm-aaaa)
-* **Hora** - campo do tipo hora (hh:mm:ss)
-* **Data e Hora** - campo do tipo data e hora (dd-mm-aaaa, hh:mm:ss)
-* **Imagem** - campo - contendo uma imagem
-* **Seleção única** - campo com várias opções de valores que são mutuamente exclusivos (tradicional radio button ou combobox)
-* **Seleção múltipla** - campo com várias opções que podem ser selecionadas mutuamente (tradicional checkbox ou listbox)
-* **Arquivo** - campo de upload de documento
-* **Link** - campo que armazena uma URL
-* **Tabela** - campo formado por uma matriz de valores
-
-**Nome da atividade 1**
+**Solicitar reajuste do aluguel**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-| ***Exemplo:***  |                  |                |                   |
-| login           | Caixa de Texto   | formato de e-mail |                |
-| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |
+|  Valor aluguel | Numérico |   Valor positivo, menor que 10.000.000        |                   |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-| ***Exemplo:***       |                                |                   |
-| entrar               | Fim do Processo 1              | default           |
-| cadastrar            | Início do proceso de cadastro  |                   |
+| Enviar | Página de aluguéis | Default |
+| Cancelar          | Pagina de aluguéis  |          Cancel         |
 
 
-**Nome da atividade 2**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-|                 |                  |                |                   |
+**Análise reajuste**
 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-|                      |                                |                   |
+| Aceitar | Página de aluguéis | Default |
+| Rejeitar             |       Página de aluguéis        |   Cancel       |
