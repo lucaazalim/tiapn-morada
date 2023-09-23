@@ -28,8 +28,6 @@ No Morada, o anúncio do imóvel é criado de maneira estruturada, pelo próprio
 | Vagas de Garagem                | Número           | Número inteiro positivo                            |               |
 | Aceita Pet                      | Seleção Única    | Sim ou Não                                         |               |
 | Mobiliado                       | Seleção Única    | Sim ou Não                                         |               |
-| Itens Disponíveis no Imóvel     | Seleção Múltipla | Lista de possíveis itens disponíveis no imóvel     |               |
-| Itens Disponíveis no Condomínio | Seleção Múltipla | Lista de possíveis itens disponíveis no condomínio | Vazio         |
 | Valor do Aluguel                | Número           | Número inteiro positivo                            |               |
 | Valor do Condomínio             | Número           | Número inteiro positivo                            | 0             |
 | Valor do IPTU                   | Número           | Número inteiro positivo                            |               |
@@ -51,15 +49,14 @@ No Morada, o anúncio do imóvel é criado de maneira estruturada, pelo próprio
 | Bairro                          | Caixa de Texto   | Não editável |               |
 | Cidade                          | Caixa de Texto   | Não editável |               |
 | Estado                          | Seleção Única    | Não editável |               |
+| País                            | Seleção Única    | Não editável |               |
 | Descrição                       | Área de Texto    | Não editável |               |
 | Metragem                        | Número           | Não editável |               |
 | Quartos                         | Número           | Não editável |               |
-| Banheiro                        | Número           | Não editável |               |
+| Banheiros                       | Número           | Não editável |               |
 | Vagas de Garagem                | Número           | Não editável |               |
 | Aceita Pet                      | Seleção Única    | Não editável |               |
 | Mobiliado                       | Seleção Única    | Não editável |               |
-| Itens Disponíveis no Imóvel     | Seleção Múltipla | Não editável |               |
-| Itens Disponíveis no Condomínio | Seleção Múltipla | Não editável |               |
 | Valor do Aluguel                | Número           | Não editável |               |
 | Valor do Condomínio             | Número           | Não editável |               |
 | Valor do IPTU                   | Número           | Não editável |               |
