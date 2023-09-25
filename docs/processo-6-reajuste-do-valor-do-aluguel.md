@@ -1,4 +1,4 @@
-### 3.3.6 Processo 6 – Reajuste do Aluguel
+### 3.3.6 Processo 6 – Reajuste do Valor do Aluguel
 
 ![Processo 6 - Reajuste do Aluguel](images/processo-6.png "Modelo BPMN do Processo 6.")
 
