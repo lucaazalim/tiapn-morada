@@ -53,7 +53,7 @@ CREATE TABLE `payment` (
   `rent_value` decimal(15,2) NOT NULL,
   `competence_month` tinyint(2) unsigned NOT NULL,
   `competence_year` smallint(4) unsigned NOT NULL,
-  `status` enum('pending','allegedly_paid','confirmed') NOT NULL DEFAULT 'pending' COMMENT 'Pending: The default status\n\nAllegedly Paid: The renter marked the payment as done\n\nConfirmed: The owner confirmed that the payment was received.',
+  `status` enum('pending','allegedly_paid','confirmed') NOT NULL DEFAULT 'pending',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `payment_rent_id` (`rent_id`),
@@ -95,6 +95,41 @@ CREATE TABLE `property` (
   PRIMARY KEY (`id`),
   KEY `property_FK` (`user_id`),
   CONSTRAINT `property_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `renegotiation`
+--
+
+DROP TABLE IF EXISTS `renegotiation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `renegotiation` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `rent_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `renegotiation_rent_id` (`rent_id`),
+  CONSTRAINT `renegotiation_rent_id` FOREIGN KEY (`rent_id`) REFERENCES `rent` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `renegotiation_offer`
+--
+
+DROP TABLE IF EXISTS `renegotiation_offer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `renegotiation_offer` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `renegotiation_id` bigint(20) NOT NULL,
+  `created_by_owner` tinyint(1) NOT NULL,
+  `rent_value` decimal(15,2) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `renegotiation_offer_renegotiation_id` (`renegotiation_id`),
+  CONSTRAINT `renegotiation_offer_renegotiation_id` FOREIGN KEY (`renegotiation_id`) REFERENCES `renegotiation` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -219,4 +254,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-25 18:50:56
+-- Dump completed on 2023-09-25 19:13:36
