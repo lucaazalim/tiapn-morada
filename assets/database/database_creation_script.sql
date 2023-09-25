@@ -53,7 +53,7 @@ CREATE TABLE `payment` (
   `rent_value` decimal(15,2) NOT NULL,
   `competence_month` tinyint(2) unsigned NOT NULL,
   `competence_year` smallint(4) unsigned NOT NULL,
-  `status` enum('pending','allegedly_paid','confirmed') NOT NULL DEFAULT 'pending',
+  `status` enum('pending','allegedly_paid','confirmed') NOT NULL DEFAULT 'pending' COMMENT 'Pending: The default status\n\nAllegedly Paid: The renter marked the payment as done\n\nConfirmed: The owner confirmed that the payment was received.',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `payment_rent_id` (`rent_id`),
@@ -195,8 +195,8 @@ CREATE TABLE `visit` (
   `user_id` bigint(20) NOT NULL,
   `datetime` datetime NOT NULL,
   `carried_out` tinyint(1) NOT NULL DEFAULT 0,
-  `visit_rating` tinyint(3) unsigned DEFAULT NULL,
-  `property_rating` tinyint(3) unsigned DEFAULT NULL,
+  `visit_rating` tinyint(1) unsigned DEFAULT NULL,
+  `property_rating` tinyint(1) unsigned DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `visit_user_id` (`user_id`),
@@ -219,4 +219,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-23 14:49:19
+-- Dump completed on 2023-09-25 18:50:56
