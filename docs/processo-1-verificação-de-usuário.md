@@ -13,8 +13,8 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 
 |     **Campo**         | **Tipo**         | **Restrições**    | **Valor default** |
 | ---                   | ---              | ---               | ---               |
-| RG                    | Arquivo          | png, jpg ou pdf   |  -                |
-| Comprovante de Renda  | Arquivo          | pdf               |  -                |
+| RG                    | Arquivo          | png, jpg ou pdf   |                   |
+| Comprovante de Renda  | Arquivo          | pdf               |                   |
 
 | **Comandos**         |  **Destino**                                         | **Tipo**          |
 | ---                  | ---                                                  | ---               |
@@ -25,13 +25,13 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 
 |     **Campo**            | **Tipo**         | **Restrições**    | **Valor default** |
 | ---                      | ---              | ---               | ---               |
-| RG                       | Arquivo          | png, jpg ou pdf   |  -                |
-| Comprovante de Renda     | Arquivo          | pdf               |  -                |
+| RG                       | Arquivo          | png, jpg ou pdf   |                   |
+| Comprovante de Renda     | Arquivo          | pdf               |                   |
 
 |     **Campo**              | **Tipo**         | **Restrições**    | **Valor default** |
 | ---                        | ---              | ---                        | ---               |
-| Resultado                  | Seleção única    | 'Aprovado' ou 'Rejeitado'  | -                 |
-| Mensagem de justificativa  | Área de texto    |  -                         | -                 |
+| Resultado                  | Seleção única    | 'Aprovado' ou 'Rejeitado'  |                   |
+| Mensagem de justificativa  | Área de texto    |                            |                   |
 
 
 | **Comandos**         |  **Destino**                                                   | **Tipo**          |
@@ -43,10 +43,10 @@ No Morada, tornamos esse processo muito mais simples. Para se tornar um locatár
 
 |     **Campo**              | **Tipo**         | **Restrições**            | **Valor default** |
 | ---                        | ---              | ---                       | ---               |
-| Resultado                  | Seleção única    | 'Aprovado' ou 'Rejeitado' | -                 |
-| Mensagem de justificativa  | Área de texto    | -                         | -                 |
+| Resultado                  | Seleção única    | 'Aprovado' ou 'Rejeitado' |                   |
+| Mensagem de justificativa  | Área de texto    |                           |                   |
 
 | **Comandos**   |  **Destino**   | **Tipo**          |
 | ---            | ---            | ---               |
-| Sair da página | Página inicial | default     |
+| Sair da página | Página inicial | default           |
 
