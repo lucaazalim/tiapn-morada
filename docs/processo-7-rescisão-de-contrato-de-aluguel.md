@@ -23,8 +23,8 @@ No Morada, a rescisão do contrato ocorrerá por meio de uma notificação forma
 
 | **Comandos**         |  **Destino**                                        | **Tipo**        |
 | ---                  | ---                                                 | ---             |
-| Mensagem             | Notificar os envolvidos sobre início do processo    | Área de texto   |
-| Enviar               | Página inicial                                      | Seleção Única   |
+| Mensagem             | Notificar os envolvidos sobre início do processo    | default         |
+| Enviar               | Notificar os envolvidos sobre início do processo    | default         |
 
 
 
