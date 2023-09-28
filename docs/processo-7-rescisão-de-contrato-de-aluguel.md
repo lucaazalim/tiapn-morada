@@ -40,3 +40,16 @@ No Morada, a rescisão do contrato ocorrerá por meio de uma notificação forma
 | Mensagem             | Página inicial                                       |  Seleção Única    |
 | Enviar               | Página inicial                                       |  Seleção Única    |
 
+
+**Notificar ambas as partes sobre o encerramento do contrato**
+
+| **Campo**                   | **Tipo**                        | **Restrições**                | **Valor default** |
+| ---                         | ---                             | ---                           | ---               |
+| Área de texto               | Texto                           | mínimo de 300 caracteres      | Área de texto     |
+
+
+| **Comandos**         |  **Destino**                                         | **Tipo**          |
+| ---                  | ---                                                  | ---               |
+| Enviar               | Notificar sobre o encerramento do contrato           |  default          |
+| Cancelar	           | Página inicial	                                      |  cancel           |
+
