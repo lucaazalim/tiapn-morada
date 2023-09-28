@@ -26,10 +26,10 @@ Para isso, o Morada torna tudo mais ágil e eficaz para ambas as partes ao exibi
 
 **Avaliar imóvel e visita**
 
-| **Campo**                        | **Tipo**         | **Restrições**  | **Valor default** |
-| ---                              | ---              | ---             | ---               |
-| Avaliação com estrelas (símbolo) | Seleção múltipla | Símbolo estrela |  estrelas vazias  |
-| Mensagem de avaliação            | Área de texto    | Caracteres      |                   |
+| **Campo**                        | **Tipo**         | **Restrições**  | **Valor default**        |
+| ---                              | ---              | ---             | ---                      |
+| Avaliação com estrelas (símbolo) | Seleção múltipla | Símbolo estrela | Estrelas não preenchidas |
+| Mensagem de avaliação            | Área de texto    | Caracteres      |                          |
 
 | **Comandos**         |  **Destino**                             | **Tipo**          |
 | ---                  | ---                                      | ---               |
