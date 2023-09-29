@@ -32,20 +32,20 @@ No Morada, a rescisão do contrato ocorrerá por meio de uma notificação forma
 
 | **Campo**                   | **Tipo**                        | **Restrições**    | **Valor default** |
 | ---                         | ---                             | ---               | ---               |
-| Arquivo                     | Comprovante de pagamentos       | Enviar em PDF     | --                |
-| Data e hora                 | Verificar as condições do imóvel| Horário comercial | Horário comercial |
+| Arquivo                     | Arquivo                         | Enviar em PDF     | --                |
+| Data e hora                 | Data e Hora                     | Horário comercial | --                |
 
 | **Comandos**         |  **Destino**                                         | **Tipo**          |
 | ---                  | ---                                                  | ---               |
-| Mensagem             | Página inicial                                       |  Seleção Única    |
-| Enviar               | Página inicial                                       |  Seleção Única    |
+| Mensagem             | Escrever mensagem                                    |  default          |
+| Enviar               | Enviar mensagem                                      |  default          |
 
 
 **Notificar ambas as partes sobre o encerramento do contrato**
 
 | **Campo**                   | **Tipo**                        | **Restrições**                | **Valor default** |
 | ---                         | ---                             | ---                           | ---               |
-| Área de texto               | Texto                           | mínimo de 300 caracteres      | Área de texto     |
+| Contato                     | Área de texto                   | mínimo de 300 caracteres      |                   |
 
 
 | **Comandos**         |  **Destino**                                         | **Tipo**          |
