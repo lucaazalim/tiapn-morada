@@ -28,9 +28,8 @@ CREATE TABLE `offer` (
   `property_id` bigint(20) NOT NULL,
   `rent_value` decimal(15,2) NOT NULL,
   `contract_html` longtext DEFAULT NULL,
-  `contract_signed_by_owner` tinyint(1) DEFAULT NULL,
-  `contract_signed_by_renter` tinyint(1) DEFAULT NULL,
-  `status` enum('pending','accepted','rejected','signed','canceled') NOT NULL DEFAULT 'pending',
+  `owner_status` enum('pending_offer_approval','offer_approved','offer_rejected','contract_signed','contract_rejected') NOT NULL DEFAULT 'pending_offer_approval',
+  `renter_status` enum('offer_sent','contract_signed','contract_rejected') NOT NULL DEFAULT 'offer_sent',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `offer_property_id` (`property_id`),
@@ -254,4 +253,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-25 19:13:36
+-- Dump completed on 2023-09-29  9:15:32
