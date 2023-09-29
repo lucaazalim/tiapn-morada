@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="ff4ec9c" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="aef033cf-49f9-4611-92ed-adf490356b33">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="1b04471" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="aef033cf-49f9-4611-92ed-adf490356b33">
   <bpmn:collaboration id="Collaboration_1ky9yx5">
     <bpmn:participant id="Participant_050iuex" name="Rescisão de contrato" processRef="Process_0v8tith" />
   </bpmn:collaboration>
@@ -49,12 +49,12 @@
     </bpmn:exclusiveGateway>
     <bpmn:intermediateCatchEvent id="Event_0c1dwyi" name="30 dias">
       <bpmn:incoming>Flow_184m8na</bpmn:incoming>
+      <bpmn:incoming>Flow_1m1lfig</bpmn:incoming>
       <bpmn:outgoing>Flow_07d6b4i</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_02x7x08" />
     </bpmn:intermediateCatchEvent>
     <bpmn:userTask id="Activity_0yca6uf" name="Desocupar o imóvel.">
       <bpmn:incoming>Flow_07d6b4i</bpmn:incoming>
-      <bpmn:incoming>Flow_0p7myv9</bpmn:incoming>
       <bpmn:outgoing>Flow_0y6izko</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:serviceTask id="Activity_028x1bj" name="Encerrar acordos financeiros.">
@@ -75,11 +75,11 @@
     <bpmn:sequenceFlow id="Flow_07d6b4i" sourceRef="Event_0c1dwyi" targetRef="Activity_0yca6uf" />
     <bpmn:sequenceFlow id="Flow_0y6izko" sourceRef="Activity_0yca6uf" targetRef="Activity_028x1bj" />
     <bpmn:sequenceFlow id="Flow_1hxch7e" sourceRef="Activity_028x1bj" targetRef="Event_0h6et2d" />
-    <bpmn:sequenceFlow id="Flow_0p7myv9" sourceRef="Activity_0ra4y98" targetRef="Activity_0yca6uf" />
     <bpmn:sequenceFlow id="Flow_0ykm4h0" name="Não" sourceRef="Gateway_0xbluyv" targetRef="Activity_0ra4y98" />
+    <bpmn:sequenceFlow id="Flow_1m1lfig" sourceRef="Activity_0ra4y98" targetRef="Event_0c1dwyi" />
     <bpmn:manualTask id="Activity_0ra4y98" name="Reavaliar pendências do contrato.">
       <bpmn:incoming>Flow_0ykm4h0</bpmn:incoming>
-      <bpmn:outgoing>Flow_0p7myv9</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1m1lfig</bpmn:outgoing>
     </bpmn:manualTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -147,7 +147,7 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1f5w4m0_di" bpmnElement="Activity_0ra4y98">
-        <dc:Bounds x="720" y="146" width="100" height="80" />
+        <dc:Bounds x="720" y="130" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_10bxhnk_di" bpmnElement="Flow_10bxhnk">
         <di:waypoint x="238" y="328" />
@@ -176,14 +176,6 @@
         <di:waypoint x="620" y="396" />
         <di:waypoint x="675" y="396" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0ykm4h0_di" bpmnElement="Flow_0ykm4h0">
-        <di:waypoint x="700" y="371" />
-        <di:waypoint x="700" y="186" />
-        <di:waypoint x="720" y="186" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="669" y="343" width="21" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_184m8na_di" bpmnElement="Flow_184m8na">
         <di:waypoint x="725" y="396" />
         <di:waypoint x="770" y="396" />
@@ -192,11 +184,6 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="730" y="373" width="19" height="14" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0p7myv9_di" bpmnElement="Flow_0p7myv9">
-        <di:waypoint x="820" y="186" />
-        <di:waypoint x="960" y="186" />
-        <di:waypoint x="960" y="226" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_07d6b4i_di" bpmnElement="Flow_07d6b4i">
         <di:waypoint x="848" y="266" />
@@ -210,6 +197,20 @@
         <di:waypoint x="1010" y="396" />
         <di:waypoint x="1101" y="396" />
         <di:waypoint x="1101" y="274" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ykm4h0_di" bpmnElement="Flow_0ykm4h0">
+        <di:waypoint x="700" y="371" />
+        <di:waypoint x="700" y="170" />
+        <di:waypoint x="720" y="170" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="669" y="341" width="21" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1m1lfig_di" bpmnElement="Flow_1m1lfig">
+        <di:waypoint x="770" y="210" />
+        <di:waypoint x="770" y="229" />
+        <di:waypoint x="830" y="229" />
+        <di:waypoint x="830" y="248" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
