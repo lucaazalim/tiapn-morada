@@ -170,6 +170,7 @@ CREATE TABLE `termination` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `rent_id` bigint(20) NOT NULL,
   `initiated_by_owner` tinyint(1) NOT NULL,
+  `message` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `termination_rent_id` (`rent_id`),
@@ -255,4 +256,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-29  9:36:57
+-- Dump completed on 2023-09-29  9:47:54
