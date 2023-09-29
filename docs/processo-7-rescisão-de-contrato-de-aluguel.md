@@ -17,7 +17,7 @@ No Morada, a rescisão do contrato ocorrerá por meio de uma notificação forma
 
 | **Campo**           | **Tipo**         | **Restrições**                                                 | **Valor default** |
 | ---                 | ---              | ---                                                            | ---               |
-| Área de texto       | Texto            | mínimo de 300 caracteres                                       | Área de texto     |
+| Área de texto       | Texto            | mínimo de 300 caracteres                                       | --                |
 
 
 
