@@ -25,9 +25,9 @@ No Morada, o processo de Reajuste do Valor do Aluguel garante objetividade ao pr
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-|  Reajuste aceito/não | Seleção única |  Deve ser selecionado        |             |
+|  Reajuste  | Seleção única |  Aceitar/Rejeitar        |             |
 |  Valor aluguel | Numérico |   Valor positivo, menor que Reajuste anterior.     |                   |
-| Contraproposta definitiva/flexível | Seleção única             |           |               |
+| Contraproposta | Seleção única             |    Definitiva/flexível       |               |
 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
@@ -38,7 +38,7 @@ No Morada, o processo de Reajuste do Valor do Aluguel garante objetividade ao pr
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-|  Reajuste aceito/não | Seleção única |  Deve ser selecionado        |             |
+|  Reajuste | Seleção única | Aceitar/Rejeitar      |             |
 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
