@@ -27,9 +27,7 @@ CREATE TABLE `offer` (
   `user_id` bigint(20) NOT NULL,
   `property_id` bigint(20) NOT NULL,
   `rent_value` decimal(15,2) NOT NULL,
-  `contract_html` longtext DEFAULT NULL,
-  `owner_status` enum('pending_offer_approval','offer_approved','offer_rejected','contract_signed','contract_rejected') NOT NULL DEFAULT 'pending_offer_approval',
-  `renter_status` enum('offer_sent','contract_signed','contract_rejected') NOT NULL DEFAULT 'offer_sent',
+  `status` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `offer_property_id` (`property_id`),
@@ -56,7 +54,7 @@ CREATE TABLE `payment` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `payment_rent_id` (`rent_id`),
-  CONSTRAINT `payment_rent_id` FOREIGN KEY (`rent_id`) REFERENCES `rent` (`id`)
+  CONSTRAINT `payment_rent_id` FOREIGN KEY (`rent_id`) REFERENCES `rental` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -106,12 +104,12 @@ DROP TABLE IF EXISTS `renegotiation`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `renegotiation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `rent_id` bigint(20) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `rental_id` bigint(20) NOT NULL,
   `agreed` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `renegotiation_rent_id` (`rent_id`),
-  CONSTRAINT `renegotiation_rent_id` FOREIGN KEY (`rent_id`) REFERENCES `rent` (`id`)
+  KEY `renegotiation_rental_id` (`rental_id`),
+  CONSTRAINT `renegotiation_rental_id` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -136,19 +134,23 @@ CREATE TABLE `renegotiation_offer` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `rent`
+-- Table structure for table `rental`
 --
 
-DROP TABLE IF EXISTS `rent`;
+DROP TABLE IF EXISTS `rental`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `rent` (
+CREATE TABLE `rental` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `property_id` bigint(20) DEFAULT NULL,
   `user_id` bigint(20) NOT NULL,
   `offer_id` bigint(20) NOT NULL,
   `rent_value` decimal(15,2) NOT NULL,
-  `active` tinyint(1) NOT NULL,
+  `contract_html` longtext NOT NULL,
+  `contract_signed_by_owner` tinyint(1) NOT NULL DEFAULT 0,
+  `contract_signed_by_renter` tinyint(1) NOT NULL DEFAULT 0,
+  `terminated` tinyint(1) NOT NULL DEFAULT 0,
+  `terminated_at` timestamp NULL DEFAULT current_timestamp(),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `rent_property_id` (`property_id`),
@@ -169,13 +171,13 @@ DROP TABLE IF EXISTS `termination`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `termination` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `rent_id` bigint(20) NOT NULL,
+  `rental_id` bigint(20) NOT NULL,
   `initiated_by_owner` tinyint(1) NOT NULL,
   `message` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `termination_rent_id` (`rent_id`),
-  CONSTRAINT `termination_rent_id` FOREIGN KEY (`rent_id`) REFERENCES `rent` (`id`)
+  KEY `termination_rental_id` (`rental_id`),
+  CONSTRAINT `termination_rental_id` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -235,6 +237,7 @@ CREATE TABLE `visit` (
   `carried_out` tinyint(1) NOT NULL DEFAULT 0,
   `visit_rating` tinyint(1) unsigned DEFAULT NULL,
   `property_rating` tinyint(1) unsigned DEFAULT NULL,
+  `comments` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `visit_user_id` (`user_id`),
@@ -257,4 +260,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-29 10:02:24
+-- Dump completed on 2023-09-29 10:42:24
