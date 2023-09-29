@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+ <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="1b04471" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.2.0" camunda:diagramRelationId="aef033cf-49f9-4611-92ed-adf490356b33">
   <bpmn:collaboration id="Collaboration_1ky9yx5">
     <bpmn:participant id="Participant_050iuex" name="Rescisão de contrato" processRef="Process_0v8tith" />
@@ -8,8 +8,8 @@
       <bpmn:lane id="Lane_1agcp6o" name="Locatário">
         <bpmn:flowNodeRef>Activity_04bbad7</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0c1dwyi</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0yca6uf</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0h6et2d</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0yca6uf</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0ra4y98</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_1tffgxd" name="Proprietário">
@@ -53,10 +53,6 @@
       <bpmn:outgoing>Flow_07d6b4i</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_02x7x08" />
     </bpmn:intermediateCatchEvent>
-    <bpmn:userTask id="Activity_0yca6uf" name="Desocupar o imóvel.">
-      <bpmn:incoming>Flow_07d6b4i</bpmn:incoming>
-      <bpmn:outgoing>Flow_0y6izko</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:serviceTask id="Activity_028x1bj" name="Encerrar acordos financeiros.">
       <bpmn:incoming>Flow_0y6izko</bpmn:incoming>
       <bpmn:outgoing>Flow_1hxch7e</bpmn:outgoing>
@@ -77,10 +73,14 @@
     <bpmn:sequenceFlow id="Flow_1hxch7e" sourceRef="Activity_028x1bj" targetRef="Event_0h6et2d" />
     <bpmn:sequenceFlow id="Flow_0ykm4h0" name="Não" sourceRef="Gateway_0xbluyv" targetRef="Activity_0ra4y98" />
     <bpmn:sequenceFlow id="Flow_1m1lfig" sourceRef="Activity_0ra4y98" targetRef="Event_0c1dwyi" />
-    <bpmn:manualTask id="Activity_0ra4y98" name="Reavaliar pendências do contrato.">
+    <bpmn:manualTask id="Activity_0yca6uf" name="Desocupar o imóvel.">
+      <bpmn:incoming>Flow_07d6b4i</bpmn:incoming>
+      <bpmn:outgoing>Flow_0y6izko</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:userTask id="Activity_0ra4y98" name="Reavaliar pendências do contrato.">
       <bpmn:incoming>Flow_0ykm4h0</bpmn:incoming>
       <bpmn:outgoing>Flow_1m1lfig</bpmn:outgoing>
-    </bpmn:manualTask>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1ky9yx5">
@@ -132,10 +132,6 @@
           <dc:Bounds x="812" y="289" width="36" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0yca6uf_di" bpmnElement="Activity_0yca6uf">
-        <dc:Bounds x="910" y="226" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_028x1bj_di" bpmnElement="Activity_028x1bj">
         <dc:Bounds x="910" y="356" width="100" height="80" />
         <bpmndi:BPMNLabel />
@@ -146,7 +142,10 @@
           <dc:Bounds x="1127" y="233" width="85" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1f5w4m0_di" bpmnElement="Activity_0ra4y98">
+      <bpmndi:BPMNShape id="Activity_1d7a3z5_di" bpmnElement="Activity_0yca6uf">
+        <dc:Bounds x="910" y="226" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1m0g5gv_di" bpmnElement="Activity_0ra4y98">
         <dc:Bounds x="720" y="130" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_10bxhnk_di" bpmnElement="Flow_10bxhnk">
