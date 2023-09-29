@@ -108,7 +108,7 @@ CREATE TABLE `renegotiation` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `rent_id` bigint(20) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `ended` tinyint(1) NOT NULL DEFAULT 0,
+  `agreed` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `renegotiation_rent_id` (`rent_id`),
   CONSTRAINT `renegotiation_rent_id` FOREIGN KEY (`rent_id`) REFERENCES `rent` (`id`)
@@ -127,6 +127,7 @@ CREATE TABLE `renegotiation_offer` (
   `renegotiation_id` bigint(20) NOT NULL,
   `created_by_owner` tinyint(1) NOT NULL,
   `rent_value` decimal(15,2) NOT NULL,
+  `type` enum('final','flexible') NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `renegotiation_offer_renegotiation_id` (`renegotiation_id`),
@@ -256,4 +257,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-29  9:47:54
+-- Dump completed on 2023-09-29 10:02:24
