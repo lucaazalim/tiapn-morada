@@ -27,12 +27,13 @@ Exemplo: conforme diagrama apresentado, as entidades participantes da solução 
 
 #### Front End
 
-| **Dimensão**          | **Tecnologia**         |
-| --------------------- | ---------------------- |
-| Construção de Layouts | HTML, CSS e JavaScript |
-| Framework             | Bootstrap 5            |
-| Iconografia           | FontAwesome            |
-| IDE                   | VS Code                |
+| **Dimensão**                  | **Tecnologia**         |
+| ----------------------------- | ---------------------- |
+| Construção de Layouts         | HTML, CSS e JavaScript |
+| Framework                     | Bootstrap 5            |
+| Iconografia                   | FontAwesome            |
+| Gerenciamento de Dependências | NPM                    |
+| IDE                           | VS Code                |
 
 #### Back End
 
