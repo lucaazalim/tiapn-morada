@@ -54,7 +54,7 @@ Todas as páginas do Morada possuem um cabeçalho e um rodapé padrões. O resta
 | Rosa Morada               | Cinza Escuro                      | Branco                      |
 | ------------------------- | --------------------------------- | --------------------------- |
 | ![Rosa](images/cor-1.png) | ![Cinza Escuro](images/cor-2.png) | ![Branco](images/cor-3.png) |
-| <center>#ff0066</center>  | <center>#212529</center>          | <center>#FFF</center>       |
+| #ff0066                   | #212529                           | #FFF                        |
 
 #### Tipografia
 
