@@ -4,11 +4,11 @@
 
 | Caminho                           | Título             | Acesso            | Descrição                                        |
 | --------------------------------- | ------------------ | ----------------- | ------------------------------------------------ |
-| `/`                               | Página Inicial     | Público           |                                                  |
-| `/search`                         | Busca de Imóveis   | Público           |                                                  |
-| `/search/property`                | Detalhes do Imóvel | Público           |                                                  |
-| `/register`                       | Registro           | Usuário deslogado |                                                  |
-| `/login`                          | Login              | Usuário deslogado |                                                  |
+| `/`                               | Página Inicial     | Público           | Landing Page de apresentação da plataforma.      |
+| `/search`                         | Busca de Imóveis   | Público           | Busca de imóveis publicados.                     |
+| `/search/property`                | Detalhes do Imóvel | Público           | Detalhes de um imóvel publicado.                 |
+| `/register`                       | Registro           | Usuário deslogado | Registro de novo usuário.                        |
+| `/login`                          | Login              | Usuário deslogado | Login de usuário.                                |
 | `/dashboard`                      | Painel do Usuário  | Usuário logado    | Página inicial do Painel do Usuário.             |
 | `/dashboard/verification`         | Imóveis Pendentes  | Usuário logado    | Imóveis pendentes de revisão.                    |
 | `/dashboard/verification/admin`   | Imóveis Pendentes  | Usuário logado    | Verificações pendentes de revisão.               |
