@@ -21,8 +21,6 @@ Exemplo: conforme diagrama apresentado, as entidades participantes da solução 
 
 ### 4.3. Modelo de dados
 
-_Apresente o modelo de dados por meio de um modelo relacional ou Diagrama de Entidade-Relacionamento (DER) que contemple todos os conceitos e atributos apresentados no item anterior._
-
 ![Diagrama de Entidade Relacionamento de Exemplo](images/er_diagram.png "Diagrama de Entidade Relacionamento de Exemplo")
 
 ### 4.4. Tecnologias
