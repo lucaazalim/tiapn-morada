@@ -19,55 +19,56 @@ Exemplo: conforme diagrama apresentado, as entidades participantes da solução 
 - **Componente 1** - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nunc magna, accumsan eget porta a, tincidunt sed mauris. Suspendisse orci nulla, sagittis a lorem laoreet, tincidunt imperdiet ipsum. Morbi malesuada pretium suscipit.
 - **Componente 2** - Praesent nec nisi hendrerit, ullamcorper tortor non, rutrum sem. In non lectus tortor. Nulla vel tincidunt eros.
 
-
 ### 4.3. Modelo de dados
 
-_Apresente o modelo de dados por meio de um modelo relacional ou Diagrama de Entidade-Relacionamento (DER) que contemple todos os conceitos e atributos apresentados no item anterior._ 
+_Apresente o modelo de dados por meio de um modelo relacional ou Diagrama de Entidade-Relacionamento (DER) que contemple todos os conceitos e atributos apresentados no item anterior._
 
 ![Diagrama de Entidade Relacionamento de Exemplo](images/er_diagram.png "Diagrama de Entidade Relacionamento de Exemplo")
 
 ### 4.4. Tecnologias
 
-_Descreva qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas. Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário._
-
-| **Dimensão**   | **Tecnologia**  |
-| ---            | ---             |
-| Persistência   | Hibernate       |
-| Front end      | HTML+CSS+JS     |
-| Back end       | Java SpringBoot |
-| Log do sistema | Log4J           |
-| Teste          | JUnit           |
-| Deploy         | Github Pages    |
-
+| **Dimensão**                | **Tecnologia**         |
+| --------------------------- | ---------------------- |
+| Front End                   | HTML, CSS e JavaScript |
+| Back End                    | Java Spring Boot       |
+| Testes do Back End          | JUnit Jupiter          |
+| ORM                         | Hibernate              |
+| SGBD                        | MariaDB                |
+| Ambiente de Desenvolvimento | Docker                 |
+| IDE                         | IntelliJ e VS Code     |
 
 ### 4.5. Guias de estilo
 
-Layout padrão do site (HTML e CSS) que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
+Todas as páginas do Morada possuem um cabeçalho e um rodapé padrões. O restante do layout varia de acordo com a página. Páginas pertencentes ao Painel do Usuário (/dashboard), por exemplo, possuem um menu de navegação abaixo do cabeçalho.
 
-Explique as guias de estilo utilizadas no seu projeto.
+- [Layout padrão para páginas do Morada](/src/front/README.md#layout-padrão)
 
-## Design
+#### Design
 
-Detalhe os layouts que serão utilizados. Apresente onde será colocado o logo do sistema. Defina os menus padrões, entre outras coisas.
+| Página Inicial                           | Páginas do Painel do Usuário            |
+| ---------------------------------------- | --------------------------------------- |
+| ![](images/protótipo-página-inicial.png) | ![](images/protótipo-página-painel.png) |
 
+#### Cores
 
-## Cores
+| Rosa Morada               | Cinza Escuro                      | Branco                      |
+| ------------------------- | --------------------------------- | --------------------------- |
+| ![Rosa](images/cor-1.png) | ![Cinza Escuro](images/cor-2.png) | ![Branco](images/cor-3.png) |
+| <center>#ff0066</center>  | <center>#212529</center>          | <center>#FFF</center>       |
 
-Apresente a paleta de cores que será utilizada. Uma ferramenta interessante para a criação de palestas de cores é o *Adobe Color* ([https://color.adobe.com/pt/create/color-wheel](https://color.adobe.com/pt/create/color-wheel)).
+#### Tipografia
 
+Será usada a fonte padrão do sistema operacional do usuário.
 
-## Tipografia
+- [Sobre Tipografia no Bootstrap 5](https://getbootstrap.com/docs/5.3/content/typography/)
+- [Sobre _native font stack_ usado pelo Bootstrap 5](https://getbootstrap.com/docs/5.3/content/reboot/#native-font-stack)
+- [Artigo da _Smashing Magazine_ sobre _native font stacks_](https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/)
 
-Apresente as fontes que serão utilizadas e sua função no site. As principais funções são: Título de página, Título de seção, Rótulos de componentes e Corpo de Texto.
+#### Iconografia
 
+Será usado o serviço [FontAwesome](https://fontawesome.com/) em sua versão gratuita.
 
-## Iconografia
-
-Defina os ícones que serão utilizados e suas respectivas funções.
-
-Apresente os estilos CSS criados para cada um dos elementos apresentados.
-Outras seções podem ser adicionadas neste documento para apresentar padrões de componentes, de menus, etc.
-
+- [Buscar ícones disponibilizados pelo FontAwesome](https://fontawesome.com/icons)
 
 > **Links Úteis**:
 >

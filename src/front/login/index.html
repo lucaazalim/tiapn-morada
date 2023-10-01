@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/86ad24bcb9.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/style/custom_bootstrap.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Morada -->
+    <script type="module" src="/assets/script/script.js"></script>
+    <link rel="stylesheet" href="/assets/style/style.css">
+
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <div class="container" style="max-width: 500px;">
+
+        <h1>Login</h1>
+        <p>Faça login para acessar a área logada.</p>
+
+        <div id="alerta"></div>
+
+        <form id="form-login">
+
+            <div class="mb-3">
+                <label for="usuario">Usuário</label>
+                <input type="text" class="form-control" id="usuario" name="usuario" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="senha">Senha</label>
+                <input type="password" class="form-control" id="senha" name="senha" required>
+            </div>
+
+            <button id="btn-entrar" type="submit" class="btn btn-primary">Entrar</button>
+
+    </div>
+
+    <script type="module" src="script.js"></script>
+
+    <div id="footer"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+:root {
+	--morada: #ff0066;
+}
+
+/* General */
+
+#nome-usuario-header {
+	color: white;
+}
+
+.foto {
+	background-color: rgb(238, 238, 238);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+	background-color: var(--morada);
+	color: white;
+	font-size: 14px;
+	transition: filter 0.3s;
+}
+
+.breadcrumbs:hover {
+	filter: brightness(120%);
+}

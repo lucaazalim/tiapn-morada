@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morada</title>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/86ad24bcb9.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/style/custom_bootstrap.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Morada -->
+    <link rel="stylesheet" href="/assets/style/style.css">
+
+    <style>
+        p>i {
+            color: var(--morada);
+            width: 30px;
+        }
+
+        #avaliacao-por-pares {
+            border-radius: 25px;
+        }
+
+        #avaliacao-por-pares h1,
+        h5 {
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="header" class="mb-5"></div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6 col-sm-12">
+
+                <h2 class="mb-4">Simplificando a vida de quem deseja <span style="color: var(--morada)">alugar ou
+                        anúnciar um imóvel</span></h2>
+
+                <p><i class="fa-solid fa-globe fa-xl mx-2"></i>Processo 100% digital</p>
+                <p><i class="fa-solid fa-paperclip fa-xl mx-2"></i>Zero burocracia e papelada</p>
+                <p><i class="fa-solid fa-calendar-days fa-xl mx-2"></i>Agendamento digital de visitas presenciais ou
+                    online
+                </p>
+                <p><i class="fa-solid fa-clock fa-xl mx-2"></i>Anuncie seu imóvel e alugue-o rapidamente</p>
+
+                <div id="botoes-login" class="mb-5 mt-4">
+                    <a href="/register"><button type="button" class="btn btn-primary">Crie sua conta</button></a>
+                    <a href="/login"><button type="button" class="btn btn-outline-primary">Acessar</button></a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <img src="/assets/img/iphone-mao.png">
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div id="avaliacao-por-pares" class="bg-morada">
+                <div class="container p-5">
+                    <h1>Em busca do lugar ideal para morar?</h1>
+                    <h5>Confira os imóveis disponíveis para aluguel no Morada.</h5>
+                    <div class="row mt-5">
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card">
+                                <img src="assets/img/exemplo-apartamento-1.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <small>Apartamento</small>
+                                    <h5 class="card-title">Rua dos Aimorés</h5>
+                                    <p class="card-text">Lourdes, Belo Horizonte</p>
+                                    <a href="#" class="btn btn-primary">Mais informações</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card">
+                                <img src="assets/img/exemplo-apartamento-2.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <small>Apartamento</small>
+                                    <h5 class="card-title">Rua Piauí</h5>
+                                    <p class="card-text">Lourdes, Belo Horizonte</p>
+                                    <a href="#" class="btn btn-primary">Mais informações</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 mb-3 mb-sm-0">
+                            <div class="card">
+                                <img src="assets/img/exemplo-apartamento-3.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <small>Apartamento</small>
+                                    <h5 class="card-title">Rua Orange</h5>
+                                    <p class="card-text">São Pedro, Belo Horizonte</p>
+                                    <a href="#" class="btn btn-primary">Mais informações</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="footer"></div>
+
+</body>
+
+<script type="module" src="/assets/script/script.js"></script>
+
+</html>

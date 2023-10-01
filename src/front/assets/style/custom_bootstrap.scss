@@ -1,0 +1,46 @@
+$morada: #ff0066;
+$primary: $morada;
+
+$btn-padding-x: 30px;
+$font-size-base: 1.2rem;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+@media (min-width: 1400px) {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: 1140px;
+  }
+}
+
+.bg-morada {
+    background: var(--morada);
+    background: linear-gradient(90deg, var(--morada) 0%, #ec005e 100%);
+}
+
+.btn-primary {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(morada);
+  --bs-btn-border-color: var(morada);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #{lighten($morada, 10%)};
+  --bs-btn-hover-border-color: #{lighten($morada, 10%)};
+  --bs-btn-focus-shadow-rgb: var(morada);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #{lighten($morada, 15%)};
+  --bs-btn-active-border-color: #{lighten($morada, 15%)};
+}
+
+.btn-outline-primary {
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(morada);
+  --bs-btn-bg: var(--bs-white);
+  --bs-btn-border-color: var(morada);
+  --bs-btn-hover-color: #{lighten($morada, 10%)};
+  --bs-btn-hover-bg: var(--bs-white);
+  --bs-btn-hover-border-color: #{lighten($morada, 10%)};
+  --bs-btn-focus-shadow-rgb: var(morada);
+  --bs-btn-active-color: #{lighten($morada, 15%)};
+  --bs-btn-active-bg: var(--bs-white);
+  --bs-btn-active-border-color: #{lighten($morada, 15%)};
+}
