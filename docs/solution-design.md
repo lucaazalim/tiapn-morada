@@ -27,15 +27,25 @@ _Apresente o modelo de dados por meio de um modelo relacional ou Diagrama de Ent
 
 ### 4.4. Tecnologias
 
-| **Dimensão**                | **Tecnologia**         |
-| --------------------------- | ---------------------- |
-| Front End                   | HTML, CSS e JavaScript |
-| Back End                    | Java Spring Boot       |
-| Testes do Back End          | JUnit Jupiter          |
-| ORM                         | Hibernate              |
-| SGBD                        | MariaDB                |
-| Ambiente de Desenvolvimento | Docker                 |
-| IDE                         | IntelliJ e VS Code     |
+#### Front End
+
+| **Dimensão**          | **Tecnologia**         |
+| --------------------- | ---------------------- |
+| Construção de Layouts | HTML, CSS e JavaScript |
+| Framework             | Bootstrap 5            |
+| Iconografia           | FontAwesome            |
+| IDE                   | VS Code                |
+
+#### Back End
+
+| **Dimensão**                | **Tecnologia**   |
+| --------------------------- | ---------------- |
+| Web Service                 | Java Spring Boot |
+| Testes do Back End          | JUnit Jupiter    |
+| ORM                         | Hibernate        |
+| SGBD                        | MariaDB          |
+| Ambiente de Desenvolvimento | Docker           |
+| IDE                         | IntelliJ         |
 
 ### 4.5. Guias de estilo
 
@@ -68,4 +78,4 @@ Será usada a fonte padrão do sistema operacional do usuário.
 
 Será usado o serviço [FontAwesome](https://fontawesome.com/) em sua versão gratuita.
 
-- [Buscar ícones disponibilizados pelo FontAwesome](https://fontawesome.com/icons)
+- [Ícones disponíveis no catálogo do FontAwesome](https://fontawesome.com/icons)
