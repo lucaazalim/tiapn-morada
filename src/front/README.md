@@ -1,18 +1,28 @@
 # Front End
 
-## Comandos Úteis
+## Páginas
 
-Comando para instalar dependências:
-
-```
-npm install
-```
-
-Comando para aplicar as customizações do CSS ao Bootstrap via SASS:
-
-```
-npm exec sass ./assets/style/custom_bootstrap.scss ./assets/style/custom_bootstrap.css
-```
+| Caminho                           | Título             | Acesso            | Descrição                                        |
+| --------------------------------- | ------------------ | ----------------- | ------------------------------------------------ |
+| `/`                               | Página Inicial     | Público           |                                                  |
+| `/search`                         | Busca de Imóveis   | Público           |                                                  |
+| `/search/property`                | Detalhes do Imóvel | Público           |                                                  |
+| `/register`                       | Registro           | Usuário deslogado |                                                  |
+| `/login`                          | Login              | Usuário deslogado |                                                  |
+| `/dashboard`                      | Painel do Usuário  | Usuário logado    | Página inicial do Painel do Usuário.             |
+| `/dashboard/verification`         | Imóveis Pendentes  | Usuário logado    | Imóveis pendentes de revisão.                    |
+| `/dashboard/verification/admin`   | Imóveis Pendentes  | Usuário logado    | Verificações pendentes de revisão.               |
+| `/dashboard/property/owner`       | Imóveis Publicados | Usuário logado    | Imóveis publicados por um proprietário.          |
+| `/dashboard/property/renter`      | Imóveis Alugados   | Usuário logado    | Imóveis alugados por um locatário.               |
+| `/dashboard/property/admin`       | Imóveis Pendentes  | Admin             | Imóveis pendentes de revisão.                    |
+| `/dashboard/visit/owner`          | Visitas Agendadas  | Usuário logado    | Visitas agendadas em imóveis de um proprietário. |
+| `/dashboard/visit/renter`         | Visitas Agendadas  | Usuário logado    | Visitas agendadas por um locatário.              |
+| `/dashboard/payment/owner`        | Pagamentos         | Usuário logado    | Pagamentos de imóveis de um proprietário.        |
+| `/dashboard/payment/renter`       | Pagamentos         | Usuário logado    | Pagamentos de imóveis alugados por um locatário. |
+| `/dashboard/renegotiation/owner`  | Renegociações      | Usuário logado    | Renegociações de um proprietário.                |
+| `/dashboard/renegotiation/renter` | Renegociações      | Usuário logado    | Renegociações de um locatário.                   |
+| `/dashboard/termination/owner`    | Rescisões          | Usuário logado    | Rescisões de um proprietário.                    |
+| `/dashboard/termination/renter`   | Rescisões          | Usuário logado    | Rescisões de um locatário.                       |
 
 ## Layout Padrão
 
@@ -54,4 +64,18 @@ npm exec sass ./assets/style/custom_bootstrap.scss ./assets/style/custom_bootstr
 
   <script type="module" src="/assets/script/script.js"></script>
 </html>
+```
+
+## Comandos Úteis
+
+Comando para instalar dependências:
+
+```
+npm install
+```
+
+Comando para aplicar as customizações do CSS ao Bootstrap via SASS:
+
+```
+npm exec sass ./assets/style/custom_bootstrap.scss ./assets/style/custom_bootstrap.css
 ```

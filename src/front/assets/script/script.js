@@ -55,6 +55,7 @@ function loadMenu() {
                             <li><a class="dropdown-item" href="/dashboard/visit/owner">Visitas</a></li>
                             <li><a class="dropdown-item" href="/dashboard/payment/owner">Pagamentos</a></li>
                             <li><a class="dropdown-item" href="/dashboard/renegotiation/owner">Renegociações</a></li>
+                            <li><a class="dropdown-item" href="/dashboard/termination/owner">Rescisões</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -67,6 +68,7 @@ function loadMenu() {
                             <li><a class="dropdown-item" href="/dashboard/property/renter">Imóveis Alugados</a></li>
                             <li><a class="dropdown-item" href="/dashboard/payment/renter">Pagamentos</a></li>
                             <li><a class="dropdown-item" href="/dashboard/renegotiation/renter">Renegociações</a></li>
+                            <li><a class="dropdown-item" href="/dashboard/termination/renter">Rescisões</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -74,9 +76,8 @@ function loadMenu() {
                             Para Admins
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/dashboard/verification/pending">Verificações Pendentes</a></li>
-                            <li><a class="dropdown-item" href="/dashboard/property/pending">Imóveis Pendentes</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="/dashboard/verification/admin">Verificações Pendentes</a></li>
+                            <li><a class="dropdown-item" href="/dashboard/property/admin">Imóveis Pendentes</a></li>
                         </ul>
                     </li>
                 </ul>
