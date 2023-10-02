@@ -37,14 +37,15 @@ Exemplo: conforme diagrama apresentado, as entidades participantes da solução 
 
 #### Back End
 
-| **Dimensão**                | **Tecnologia**   |
-| --------------------------- | ---------------- |
-| Web Service                 | Java Spring Boot |
-| Testes do Back End          | JUnit Jupiter    |
-| ORM                         | Hibernate        |
-| SGBD                        | MariaDB          |
-| Ambiente de Desenvolvimento | Docker           |
-| IDE                         | IntelliJ         |
+| **Dimensão**                  | **Tecnologia**   |
+| ----------------------------- | ---------------- |
+| Web Service                   | Java Spring Boot |
+| Testes                        | JUnit Jupiter    |
+| Gerenciamento de Dependências | Maven            |
+| ORM                           | Hibernate        |
+| SGBD                          | MariaDB          |
+| Ambiente de Desenvolvimento   | Docker           |
+| IDE                           | IntelliJ         |
 
 ### 4.5. Guias de estilo
 
