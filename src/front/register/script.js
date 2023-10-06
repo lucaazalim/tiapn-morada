@@ -1,5 +1,7 @@
 import * as Alert from '../assets/script/alert.js';
 
+Alert.alert("Teste", "danger");
+
 document.getElementById("register-form").addEventListener("submit", function (event) {
 
     event.preventDefault();
