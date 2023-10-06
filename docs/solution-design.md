@@ -4,17 +4,21 @@
 
 ![Diagrama de classes](images/diagrama-de-classe.png "Diagrama de classes")
 
-O diagrama de classes da Morada é representado por:
-- Usuário: armazenamento de informações básicas sobre os indivíduos que acessam a plataforma Morada, podendo ser estendida por duas subclasses (Locador e Locatário) para representar diferentes tipos de usuários
-  - Locador: subclasse de Usuário em que o indivíduo possui propriedades necessárias para anunciar moradias
-  - Locatário: subclasse de Usuário em que o indivíduo possui propriedades necessárias para que possa alugar moradias
-- Propriedade: representa a moradia e as suas definições específicas
-- Aluguel: representação do contrato de aluguel entre o locador e o locatário em relação a uma propriedade
-- Oferta: representação de ofertas realizadas por locatários para alugar propriedades específicas
-- Pagamento: representação das transações financeiras e informações sobre valores relacionados ao pagamento de aluguéis 
-- Renegociação: representação de possíveis renegociações de contrato de aluguel
-- Visita: marcação de visita a propriedades por locatários interessados
-- Interface Identifiable: interface genérica que é implementada por classes que precisam de identificação única
+O diagrama de classes do Morada é representado por:
+
+- **User:** representa qualquer tipo de participante dos processos, incluindo Locatário, Proprietário e Admin;
+- **UserVerification:** representa uma verificação de usuário;
+- **UserVerificationStatus:** representa o status de aprovação de uma verificação de usuário;
+- **Property:** representa uma propriedade (imóvel) publicado na plataforma;
+- **PropertyType:** representa o tipo de uma propriedade;
+- **PropertyStatus:** representa o status de aprovação de uma propriedade;
+- **Rental:** representa um aluguel;
+- **Oferta:** representa uma proposta de valor de aluguel realizada por um Usuário;
+- **Payment:** representa um pagamento de aluguel, que pode já ter sido realizado ou não;
+- **Renegotiation:** representa um reajuste de valor de aluguel iniciado pelo proprietáro;
+- **RenegotiationOffer:** representa uma oferta pertencente a um reajuste de valor de aluguel;
+- **RenegotiationOfferType:** representa o tipo de uma oferta de reajuste de valor de aluguel;
+- **Visit:** representa um agendamento de visita a uma propriedade publicada na plataforma.
 
 ### 4.2. Diagrama de componentes
 
