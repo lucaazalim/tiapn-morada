@@ -190,18 +190,18 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `cpf` char(11) NOT NULL,
   `name` varchar(100) NOT NULL,
+  `cpf` varchar(11) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `password` text NOT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT 0,
   `verified` tinyint(1) NOT NULL DEFAULT 0,
-  `pix_key` varchar(32) NOT NULL,
+  `pix_key` varchar(32) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_cpf` (`cpf`),
   UNIQUE KEY `user_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,14 +214,15 @@ DROP TABLE IF EXISTS `user_verification`;
 CREATE TABLE `user_verification` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL,
-  `photo_identity_document` blob NOT NULL,
-  `status` enum('pending_approval','approved','rejected') DEFAULT 'pending_approval',
+  `identity_document_front` text NOT NULL,
+  `identity_document_back` text NOT NULL,
   `admin_message` text DEFAULT NULL,
+  `status` enum('PENDING_APPROVAL','APPROVED','REJECTED') DEFAULT 'PENDING_APPROVAL',
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `user_verification_user_id` (`user_id`),
   CONSTRAINT `user_verification_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -262,4 +263,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-06 14:02:16
+-- Dump completed on 2023-10-06 20:02:09
