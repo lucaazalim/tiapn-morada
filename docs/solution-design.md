@@ -6,8 +6,8 @@
 
 O diagrama de classes da Morada é representado por:
 - Usuário: armazenamento de informações básicas sobre os indivíduos que acessam a plataforma Morada, podendo ser estendida por duas subclasses (Locador e Locatário) para representar diferentes tipos de usuários
-  - Locador: subclasse de Usuário da qual o indivíduo possui propriedades necessárias para anunciar moradias
-  - Locatário: subclasse de Usuário da qual o indivíduo possui propriedades necessárias para que possa alugar moradias
+  - Locador: subclasse de Usuário em que o indivíduo possui propriedades necessárias para anunciar moradias
+  - Locatário: subclasse de Usuário em que o indivíduo possui propriedades necessárias para que possa alugar moradias
 - Propriedade: representa a moradia e as suas definições específicas
 - Aluguel: representação do contrato de aluguel entre o locador e o locatário em relação a uma propriedade
 - Oferta: representação de ofertas realizadas por locatários para alugar propriedades específicas
