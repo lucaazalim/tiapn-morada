@@ -78,7 +78,7 @@ CREATE TABLE `property` (
   `state` varchar(2) NOT NULL,
   `country` char(2) NOT NULL DEFAULT 'BR',
   `description` text NOT NULL,
-  `square_meters` int(11) NOT NULL,
+  `square_meters` smallint(5) unsigned NOT NULL,
   `bedrooms` tinyint(4) NOT NULL,
   `bathrooms` tinyint(4) NOT NULL,
   `garage_spaces` tinyint(4) NOT NULL,
@@ -193,12 +193,14 @@ CREATE TABLE `user` (
   `cpf` char(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `password` text NOT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT 0,
   `verified` tinyint(1) NOT NULL DEFAULT 0,
   `pix_key` varchar(32) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  UNIQUE KEY `usuario_cpf` (`cpf`)
+  UNIQUE KEY `user_cpf` (`cpf`),
+  UNIQUE KEY `user_email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -260,4 +262,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-29 10:42:24
+-- Dump completed on 2023-10-06 14:02:16
