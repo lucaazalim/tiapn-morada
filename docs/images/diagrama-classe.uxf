@@ -1,0 +1,125 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>360</x><y>78</y><w>126</w><h>96</h></coordinates><panel_attributes>Usuario
+--
+-id: int
+-nome: String
+-email: String
+-telefone: Long
+--
++Usuario(int, String, String, Long)
++editarPerfil(): void
++visualizarPerfil(): void
++login():void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>240</x><y>222</y><w>186</w><h>102</h></coordinates><panel_attributes>Locador
+--
+-cpf: String
+-rg: String
+-endereco: String
+-dataNascimento: LocalDate
+-propriedades: LinkedList&lt;Propriedade&gt;
+--
++Locador(String, String, String, LocalDate,LinkedList)
++adicionarAnuncio(): void
++editarAnuncio(): void
++removerAnuncio(): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>258</y><w>126</w><h>72</h></coordinates><panel_attributes>Locatario
+--
+-cpf: String
+-endereco: String
+-dataNascimento: LocalDate
+--
++Locatario(String, String, LocalDate)
++pesquisarImoveis(): void
++fazerOferta(): void
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>522</x><y>0</y><w>66</w><h>36</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+Identifiable
+--
++id: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>372</x><y>168</y><w>18</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>456</x><y>168</y><w>18</w><h>102</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>UMLClass</id><coordinates><x>246</x><y>396</y><w>126</w><h>222</h></coordinates><panel_attributes>Propriedade
+--
+-id: int
+-Locador locador 
+-rua: String
+-numero: int
+-complemento: String
+-bairro: String
+-cidade: String
+-estado: String
+-pais: String
+-descricao: String
+-area: int
+-numQuartos: int
+-numBanheiros: int
+-vagas: int
+-aceitaPet: boolean
+-isMobiliado: boolean
+-valorAluguel: double
+-valorCondominio: double
+-valorIPTU: double
+-status: boolean
+--
++editarPropriedade(): void;
++isDisponivel():boolean
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>660</x><y>126</y><w>126</w><h>66</h></coordinates><panel_attributes>Oferta
+--
+-id: int
++valor: double
++status: boolean
+--
++avaliarProposta(): boolean
++acompanharProcesso(): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>396</x><y>396</y><w>222</w><h>126</h></coordinates><panel_attributes>Aluguel
+--
+-id: int
+-Locatario locatario
+-Locador locador
+-Propriedade propriedade
+-dataInicio: LocalDate
+-dataFim: LocalDate
+-preco: double
+-status: boolean
+--
++Aluguel(Locatario, Locador, Propriedade, LocalDate, LocalDate)
++editarAluguel(): void;
++isPeriodoValido(LocalDate, LocalDate): boolean
++calcularPrecoTotal(): double
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>312</x><y>318</y><w>48</w><h>90</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..*
+possui &gt;</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>174</y><w>132</w><h>96</h></coordinates><panel_attributes>lt=-
+m1=0..*
+m2=0..*
+realiza &gt;</panel_attributes><additional_attributes>200;20;10;20;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>324</y><w>48</w><h>84</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..*
+possui &gt;</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>684</x><y>222</y><w>108</w><h>84</h></coordinates><panel_attributes>Pagamento
+--
+-aluguel: Aluguel
+-valor: double
+-status: boolean
+--
++pagarAluguel(): void
++calcularPrecoTotal(): double
++calcularPrecoMes(): double
++calcularMulta(): double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>270</y><w>126</w><h>30</h></coordinates><panel_attributes>lt=-
+m1=1..*
+m2=1..*
+realiza &gt;</panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>300</y><w>120</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;230;180;230;180;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>636</x><y>36</y><w>102</w><h>60</h></coordinates><panel_attributes>Renegociação
+--
+-id: int
+-valor: double
+-status: boolean
+--
++avaliarProposta(): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>60</y><w>300</w><h>282</h></coordinates><panel_attributes>lt=-
+m1=0..1
+m2=0..*
+realiza &gt;</panel_attributes><additional_attributes>10;440;430;440;430;10;280;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>798</x><y>396</y><w>126</w><h>72</h></coordinates><panel_attributes>Visita
+--
+-id: int
+-diaAgendado: LocalDateTime
+-status: boolean
+--
++agendarVisita(): boolean
++cancelarVisita(): void
++avaliarVisita(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>366</x><y>462</y><w>486</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;180;790;180;790;10</additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>324</y><w>240</w><h>84</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>380;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>564</x><y>186</y><w>138</w><h>222</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>210;10;10;350</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>132</y><w>252</w><h>102</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>10;150;190;80;400;10</additional_attributes></element><element><id>Relation</id><coordinates><x>444</x><y>30</y><w>120</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>180;10;180;50;10;50;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>546</x><y>30</y><w>102</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;50;150;50</additional_attributes></element><element><id>Relation</id><coordinates><x>546</x><y>30</y><w>126</w><h>114</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;170;190;170</additional_attributes></element><element><id>Relation</id><coordinates><x>546</x><y>30</y><w>72</w><h>378</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;230;100;230;100;610</additional_attributes></element><element><id>Relation</id><coordinates><x>546</x><y>30</y><w>264</w><h>390</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;230;100;230;100;580;190;580;190;630;420;630</additional_attributes></element><element><id>Relation</id><coordinates><x>366</x><y>30</y><w>306</w><h>528</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>310;10;310;230;400;230;400;580;490;580;490;860;10;860</additional_attributes></element></diagram>
