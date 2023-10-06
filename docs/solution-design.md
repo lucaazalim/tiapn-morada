@@ -2,7 +2,7 @@
 
 ### 4.1. Diagrama de classes
 
-![Diagrama de classes](images/classes.gif "Diagrama de classes")
+![Diagrama de classes](images/diagrama-de-classe.png "Diagrama de classes")
 
 _Acrescente uma breve descrição sobre o diagrama apresentado. Descreva cada uma de suas classes._
 
