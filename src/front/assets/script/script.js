@@ -38,7 +38,7 @@ function loadMenu() {
     if (menuElement) {
 
         let menuHtml = `
-            <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
                 <a class="navbar-brand" href="/dashboard">Painel</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

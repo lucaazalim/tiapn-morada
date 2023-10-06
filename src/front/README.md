@@ -44,13 +44,12 @@
     <link rel="stylesheet" href="/assets/style/custom_bootstrap.css" />
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Morada -->
     <link rel="stylesheet" href="/assets/style/style.css" />
   </head>
 
   <body>
     <div id="header"></div>
-    <div id="menu"></div>
+    <div id="menu" class="mb-4"></div>
 
     <div class="container">
       <h1>Título da Página</h1>
