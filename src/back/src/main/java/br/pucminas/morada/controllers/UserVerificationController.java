@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user-verifications")
@@ -51,6 +52,12 @@ public class UserVerificationController {
     public ResponseEntity<UserVerification> findById(@PathVariable Long id) {
         UserVerification userVerification = this.userVerificationService.findById(id);
         return ResponseEntity.ok(userVerification);
+    }
+
+    @GetMapping("/user")
+    public ResponseEntity<List<UserVerification>> findAllByUser() {
+        List<UserVerification> userVerifications = this.userVerificationService.findAllByUser();
+        return ResponseEntity.ok(userVerifications);
     }
 
 }

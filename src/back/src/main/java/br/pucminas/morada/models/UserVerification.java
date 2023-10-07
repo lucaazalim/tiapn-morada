@@ -27,7 +27,7 @@ public class UserVerification {
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @NotNull
+    @NotNull(groups = UpdateUserVerification.class)
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false, updatable = false)
     private User user;

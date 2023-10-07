@@ -1,5 +1,6 @@
 package br.pucminas.morada.models;
 
+import br.pucminas.morada.models.enums.UserRole;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -10,7 +11,9 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -64,6 +67,20 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<UserVerification> verifications;
+
+    public Set<UserRole> getRoles() {
+
+        Set<UserRole> roles = new HashSet<>();
+
+        roles.add(UserRole.USER);
+
+        if(this.isAdmin()) {
+            roles.add(UserRole.ADMIN);
+        }
+
+        return roles;
+
+    }
 
     @Override
     public boolean equals(Object obj) {
