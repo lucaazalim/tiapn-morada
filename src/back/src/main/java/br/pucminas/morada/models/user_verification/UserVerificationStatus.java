@@ -1,4 +1,4 @@
-package br.pucminas.morada.models.enums;
+package br.pucminas.morada.models.user_verification;
 
 public enum UserVerificationStatus {
 

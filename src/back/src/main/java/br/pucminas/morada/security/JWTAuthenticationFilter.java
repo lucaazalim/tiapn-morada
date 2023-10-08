@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import br.pucminas.morada.exceptions.GlobalExceptionHandler;
-import br.pucminas.morada.models.User;
+import br.pucminas.morada.models.user.User;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

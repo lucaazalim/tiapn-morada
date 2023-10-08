@@ -1,6 +1,6 @@
 package br.pucminas.morada.security;
 
-import br.pucminas.morada.models.enums.UserRole;
+import br.pucminas.morada.models.user.UserRole;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

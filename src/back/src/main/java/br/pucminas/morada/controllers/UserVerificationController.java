@@ -1,7 +1,6 @@
 package br.pucminas.morada.controllers;
 
-import br.pucminas.morada.models.User;
-import br.pucminas.morada.models.UserVerification;
+import br.pucminas.morada.models.user_verification.UserVerification;
 import br.pucminas.morada.services.UserVerificationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

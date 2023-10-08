@@ -1,6 +1,6 @@
 package br.pucminas.morada.repositories;
 
-import br.pucminas.morada.models.UserVerification;
+import br.pucminas.morada.models.user_verification.UserVerification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

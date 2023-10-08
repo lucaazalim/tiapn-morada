@@ -1,6 +1,6 @@
 package br.pucminas.morada.services;
 
-import br.pucminas.morada.models.User;
+import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.repositories.UserRepository;
 import br.pucminas.morada.security.UserSpringSecurity;
 import org.springframework.beans.factory.annotation.Autowired;

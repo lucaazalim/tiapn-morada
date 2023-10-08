@@ -1,6 +1,8 @@
 package br.pucminas.morada.controllers;
 
-import br.pucminas.morada.models.User;
+import br.pucminas.morada.models.user.User;
+import br.pucminas.morada.models.user.UserCreateDTO;
+import br.pucminas.morada.models.user.UserUpdateDTO;
 import br.pucminas.morada.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +22,14 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    @Validated(User.CreateUser.class)
-    public ResponseEntity<Void> create(@Valid @RequestBody User user) {
+    public ResponseEntity<Void> create(@Valid @RequestBody UserCreateDTO userCreateDTO) {
 
-        this.userService.create(user);
+        User user = userCreateDTO.toEntity();
+        User newUser = this.userService.create(user);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(user.getId())
+                .buildAndExpand(newUser.getId())
                 .toUri();
 
         return ResponseEntity.created(uri).build();
@@ -35,10 +37,11 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    @Validated(User.UpdateUser.class)
-    public ResponseEntity<Void> update(@Valid @RequestBody User user, @PathVariable Long id) {
+    public ResponseEntity<Void> update(@Valid @RequestBody UserUpdateDTO userUpdateDTO, @PathVariable Long id) {
 
-        user.setId(id);
+        userUpdateDTO.setId(id);
+
+        User user = userUpdateDTO.toEntity();
 
         this.userService.update(user);
 

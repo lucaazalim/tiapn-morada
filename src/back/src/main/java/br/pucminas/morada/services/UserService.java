@@ -1,7 +1,7 @@
 package br.pucminas.morada.services;
 
-import br.pucminas.morada.models.User;
-import br.pucminas.morada.models.enums.UserRole;
+import br.pucminas.morada.models.user.User;
+import br.pucminas.morada.models.user.UserRole;
 import br.pucminas.morada.repositories.UserRepository;
 import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.exceptions.AuthorizationException;
@@ -26,9 +26,7 @@ public class UserService {
     @Transactional
     public User create(User user) {
 
-        user.setId(null);
         user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setAdmin(false);
 
         try {
             return this.userRepository.save(user);
@@ -50,7 +48,7 @@ public class UserService {
         userFound.setVerified(user.isVerified());
         userFound.setPixKey(user.getPixKey());
 
-        return this.userRepository.save(user);
+        return this.userRepository.save(userFound);
 
     }
 

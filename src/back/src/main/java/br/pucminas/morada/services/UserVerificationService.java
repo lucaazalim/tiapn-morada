@@ -1,13 +1,12 @@
 package br.pucminas.morada.services;
 
-import br.pucminas.morada.models.User;
-import br.pucminas.morada.models.UserVerification;
-import br.pucminas.morada.models.enums.UserRole;
+import br.pucminas.morada.models.user.User;
+import br.pucminas.morada.models.user_verification.UserVerification;
+import br.pucminas.morada.models.user.UserRole;
 import br.pucminas.morada.repositories.UserVerificationRepository;
 import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.exceptions.AuthorizationException;
 import br.pucminas.morada.services.exceptions.GenericException;
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -43,7 +42,7 @@ public class UserVerificationService {
 
         userVerificationFound.setStatus(userVerification.getStatus());
 
-        return this.userVerificationRepository.save(userVerification);
+        return this.userVerificationRepository.save(userVerificationFound);
 
     }
 
