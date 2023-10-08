@@ -1,7 +1,5 @@
 import * as Alert from '../assets/script/alert.js';
 
-Alert.alert("Teste", "danger");
-
 document.getElementById("register-form").addEventListener("submit", function (event) {
 
     event.preventDefault();
@@ -28,7 +26,11 @@ document.getElementById("register-form").addEventListener("submit", function (ev
         body: JSON.stringify(data),
     }).then(response => {
 
-        if (response.status === 400) {
+        if (response.status === 201) {
+
+            window.location.href = "../dashboard";
+
+        } else if (response.status === 400) {
 
             response.json().then(data => {
                 Alert.alert(data.message, "danger");

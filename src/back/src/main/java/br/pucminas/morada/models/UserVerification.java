@@ -4,6 +4,7 @@ import br.pucminas.morada.models.enums.UserVerificationStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -13,9 +14,7 @@ import java.sql.Blob;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
-@RequiredArgsConstructor
+@Data
 @Table(name = "user_verification")
 public class UserVerification {
 
@@ -32,11 +31,11 @@ public class UserVerification {
     @JoinColumn(name = "user_id", nullable = false, updatable = false)
     private User user;
 
-    @NotNull(groups = CreateUserVerification.class)
+    @NotBlank(groups = CreateUserVerification.class)
     @Column(name = "identity_document_front", nullable = false, updatable = false)
     private String identityDocumentFront;
 
-    @NotNull(groups = CreateUserVerification.class)
+    @NotBlank(groups = CreateUserVerification.class)
     @Column(name = "identity_document_back", nullable = false, updatable = false)
     private String identityDocumentBack;
 
