@@ -24,15 +24,23 @@
             width: 30px;
         }
 
-        #avaliacao-por-pares {
+        #banner {
             border-radius: 25px;
         }
 
-        #avaliacao-por-pares h1,
+        #banner h1,
         h5 {
             color: white;
         }
     </style>
+
+    <script type="module">
+        import * as API from './assets/script/api.js';
+
+        if (API.isAuthenticated()) {
+            document.getElementById('login-and-register-buttons').style.display = 'none';
+        }
+    </script>
 
 </head>
 
@@ -56,7 +64,7 @@
                 </p>
                 <p><i class="fa-solid fa-clock fa-xl mx-2"></i>Anuncie seu imóvel e alugue-o rapidamente</p>
 
-                <div id="botoes-login" class="mb-5 mt-4">
+                <div id="login-and-register-buttons" class="mb-5 mt-4">
                     <a href="/register"><button type="button" class="btn btn-primary">Crie sua conta</button></a>
                     <a href="/login"><button type="button" class="btn btn-outline-primary">Acessar</button></a>
                 </div>
@@ -71,7 +79,7 @@
         <hr>
 
         <div class="row">
-            <div id="avaliacao-por-pares" class="bg-morada">
+            <div id="banner" class="bg-morada">
                 <div class="container p-5">
                     <h1>Em busca do lugar ideal para morar?</h1>
                     <h5>Confira os imóveis disponíveis para aluguel no Morada.</h5>

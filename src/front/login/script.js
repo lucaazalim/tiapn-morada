@@ -1,33 +1,32 @@
 import * as Alert from '../assets/script/alert.js';
 import * as API from '../assets/script/api.js';
 
-document.getElementById("register-form").addEventListener("submit", function (event) {
+document.getElementById("login-form").addEventListener("submit", function (event) {
 
     event.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const cpf = document.getElementById("cpf").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    fetch(API.BASE_URL + '/users', {
+    fetch(API.BASE_URL + '/login', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: new Headers({
+            "Content-Type": "application/json; charset=utf8",
+            Accept: "application/json",
+        }),
         body: JSON.stringify({
-            name,
-            cpf,
             email,
             password
         }),
     }).then(response => {
 
-        if (response.status === 201) {
+        API.setAuthenticated(response.headers);
 
-            window.location.href = "../login";
+        if (response.status === 200) {
 
-        } else if (response.status === 400) {
+            window.location.href = "../dashboard";
+
+        } else {
 
             response.json().then(data => {
                 Alert.alert(data.message, "danger");

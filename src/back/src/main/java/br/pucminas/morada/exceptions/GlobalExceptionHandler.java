@@ -117,7 +117,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler imple
         response.setStatus(status);
         response.setContentType("application/json");
 
-        ErrorResponse errorResponse = new ErrorResponse(status, "Username or password are not valid.");
+        ErrorResponse errorResponse = new ErrorResponse(status, "E-mail ou senha inválidos.");
         response.getWriter().append(errorResponse.toJson());
 
     }

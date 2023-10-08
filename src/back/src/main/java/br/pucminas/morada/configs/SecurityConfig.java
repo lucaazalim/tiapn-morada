@@ -22,6 +22,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -37,53 +38,42 @@ public class SecurityConfig {
     @Autowired
     private JWTUtil jwtUtil;
 
-    private static final String[] PUBLIC_MATCHERS = {
-            "/"
-    };
-
-    private static final String[] PUBLIC_MATCHERS_POST = {
-            "/users"
-    };
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
-        http.csrf(AbstractHttpConfigurer::disable);
-        http.cors(cors -> cors.configurationSource(this.corsConfigurationSource));
 
         AuthenticationManagerBuilder authenticationManagerBuilder = http
                 .getSharedObject(AuthenticationManagerBuilder.class);
 
-        authenticationManagerBuilder.userDetailsService(this.userDetailsService)
+        authenticationManagerBuilder
+                .userDetailsService(this.userDetailsService)
                 .passwordEncoder(bCryptPasswordEncoder());
 
         AuthenticationManager authenticationManager = authenticationManagerBuilder.build();
 
-        http.authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
-                authorizationManagerRequestMatcherRegistry
-                        .requestMatchers(HttpMethod.POST, PUBLIC_MATCHERS_POST).permitAll()
-                        .requestMatchers(PUBLIC_MATCHERS).permitAll()
-                        .anyRequest().authenticated()
-        ).authenticationManager(authenticationManager);
+        http
+                .cors(cors -> {
 
-        http.addFilter(new JWTAuthenticationFilter(authenticationManager, this.jwtUtil));
-        http.addFilter(new JWTAuthorizationFilter(authenticationManager, this.jwtUtil, this.userDetailsService));
+                    CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
+                    corsConfiguration.setAllowedMethods(List.of("POST", "GET", "PUT", "DELETE"));
 
-        http.sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+                    UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource();
+                    urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
+
+                    cors.configurationSource(urlBasedCorsConfigurationSource);
+
+                })
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
+                        authorizationManagerRequestMatcherRegistry
+                                .requestMatchers(HttpMethod.POST, "/users").permitAll()
+                                .requestMatchers("/").permitAll()
+                                .anyRequest().authenticated()
+                ).authenticationManager(authenticationManager)
+                .addFilter(new JWTAuthenticationFilter(authenticationManager, this.jwtUtil))
+                .addFilter(new JWTAuthorizationFilter(authenticationManager, this.jwtUtil, this.userDetailsService))
+                .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         return http.build();
-    }
-
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-
-        CorsConfiguration configuration = new CorsConfiguration().applyPermitDefaultValues();
-        configuration.setAllowedMethods(Arrays.asList("POST", "GET", "PUT", "DELETE"));
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-
-        return source;
 
     }
 

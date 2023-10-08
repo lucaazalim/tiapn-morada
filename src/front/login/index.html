@@ -23,25 +23,26 @@
 
 <body>
 
-    <div id="header"></div>
+    <div id="header" class="mb-4"></div>
 
     <div class="container" style="max-width: 500px;">
 
         <h1>Login</h1>
-        <p>Faça login para acessar a área logada.</p>
+        <p>Faça login para acessar o painel de controle.</p>
+        <div id="alert"></div>
 
         <div id="alerta"></div>
 
-        <form id="form-login">
+        <form id="login-form">
 
             <div class="mb-3">
-                <label for="usuario">Usuário</label>
-                <input type="text" class="form-control" id="usuario" name="usuario" required>
+                <label for="email">E-mail</label>
+                <input type="text" class="form-control" id="email" name="email" required>
             </div>
 
             <div class="mb-3">
-                <label for="senha">Senha</label>
-                <input type="password" class="form-control" id="senha" name="senha" required>
+                <label for="password">Senha</label>
+                <input type="password" class="form-control" id="password" name="password" required>
             </div>
 
             <button id="btn-entrar" type="submit" class="btn btn-primary">Entrar</button>
