@@ -54,7 +54,7 @@ public class PropertyService {
 
         if (optionalProperty.isEmpty()) {
 
-            if (userSpringSecurity.hasRole(UserRole.ADMIN)) {
+            if (userSpringSecurity != null && userSpringSecurity.hasRole(UserRole.ADMIN)) {
                 throw new GenericException(HttpStatus.NOT_FOUND, "Propriedade não encontrada.");
             }
 
@@ -64,13 +64,12 @@ public class PropertyService {
 
             Property property = optionalProperty.get();
 
-            if (!userSpringSecurity.hasRole(UserRole.ADMIN)
-                    && !property.getStatus().equals(PropertyStatus.APPROVED)
-                    && !property.getUser().getId().equals(userSpringSecurity.getId())) {
-                throw new AuthorizationException("Acesso negado.");
+            if (property.getStatus() == PropertyStatus.APPROVED
+                    || userSpringSecurity != null && (userSpringSecurity.hasRole(UserRole.ADMIN) || property.getUser().getId().equals(userSpringSecurity.getId()))) {
+                return property;
             }
 
-            return property;
+            throw new AuthorizationException("Acesso negado.");
 
         }
 

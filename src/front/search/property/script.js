@@ -1,10 +1,18 @@
 import * as API from '../../assets/script/api.js';
+import * as Alert from '../../assets/script/alert.js';
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
 API.get("properties/" + id)
-    .then(response => response.json())
+    .then(response => {
+
+        if (!response.ok) {
+            Alert.alert("Unable to retrieve property.", "danger");
+            throw new Error("Unable to retrieve property.");
+        }
+
+    })
     .then(property => {
 
         let propertyElement = document.getElementById("property");
@@ -20,8 +28,5 @@ API.get("properties/" + id)
                 </div>
             </div>
         `;
-
-
-        console.log(data);
 
     });

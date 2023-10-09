@@ -66,7 +66,11 @@ public class UserService {
     }
 
     public static UserSpringSecurity authenticated() {
-        return (UserSpringSecurity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        try {
+            return (UserSpringSecurity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        } catch (Exception exception) {
+            return null;
+        }
     }
 
 }
