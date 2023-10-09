@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Publicar Imóvel</title>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/86ad24bcb9.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/style/custom_bootstrap.css" />
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/style/style.css" />
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="menu" class="mb-4"></div>
+
+    <div class="container">
+        <h1>Publicar Imóvel</h1>
+        <h5>Preencha os campos para publicar um imóvel na plataforma.</h5>
+        <hr />
+        <!-- Conteúdo da Página -->
+        <div id="alert"></div>
+        <form id="create-form">
+            <div class="mb-3">
+                <label for="type" class="form-label">Tipo</label>
+                <select class="form-select" id="type" required>
+                    <option value="" selected>Selecione um tipo</option>
+                    <option value="APARTMENT">Apartamento</option>
+                    <option value="HOUSE">Casa</option>
+                    <option value="STUDIO">Studio</option>
+                </select>
+            </div>
+
+            <!-- Address -->
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label for="zip-code" class="form-label">CEP</label>
+                    <input type="text" class="form-control" id="zip-code" placeholder="CEP" required>
+                </div>
+                <div class="col-6">
+                    <label for="street" class="form-label">Rua</label>
+                    <input type="text" class="form-control" id="street" placeholder="Rua" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label for="number" class="form-label">Número</label>
+                    <input type="text" class="form-control" id="number" placeholder="Número" required>
+                </div>
+                <div class="col-6">
+                    <label for="complement" class="form-label">Complemento</label>
+                    <input type="text" class="form-control" id="complement" placeholder="Complemento">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="neighborhood" class="form-label">Bairro</label>
+                <input type="text" class="form-control" id="neighborhood" placeholder="Bairro" required>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label for="city" class="form-label">Cidade</label>
+                    <input type="text" class="form-control" id="city" placeholder="Cidade" required>
+                </div>
+                <div class="col-6">
+                    <label for="state" class="form-label">Estado</label>
+                    <select class="form-select" id="state" required>
+                        <option value="" selected>Selecione um estado</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+            </div>
+            <input type="hidden" class="form-control" id="country" value="BR" required>
+            <div class="mb-3">
+                <label for="description" class="form-label">Descrição</label>
+                <textarea class="form-control" id="description" placeholder="Descrição" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="area" class="form-label">Área em m²</label>
+                <input type="number" class="form-control" id="area" placeholder="Área em m²" required>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label for="bedrooms" class="form-label">Quartos</label>
+                    <input type="number" class="form-control" id="bedrooms" value="1" required>
+                </div>
+                <div class="col-4">
+                    <label for="bathrooms" class="form-label">Banheiros</label>
+                    <input type="number" class="form-control" id="bathrooms" value="1" required>
+                </div>
+                <div class="col-4">
+                    <label for="garage-spaces" class="form-label">Vagas de Garagem</label>
+                    <input type="number" class="form-control" id="garage-spaces" value="1" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label for="accepts-pet" class="form-label">Aceita Pet</label>
+                    <select class="form-select" id="accepts-pet" required>
+                        <option value="" selected></option>
+                        <option value="true">Sim</option>
+                        <option value="false">Não</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <label for="furnished" class="form-label">Mobiliado</label>
+                    <select class="form-select" id="furnished" required>
+                        <option value="" selected></option>
+                        <option value="true">Sim</option>
+                        <option value="false" selected>Não</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label for="rent-value" class="form-label">Valor do Aluguel</label>
+                    <div class="input-group">
+                        <span class="input-group-text">R$</span>
+                        <input type="number" class="form-control" id="rent-value" placeholder="Preço" step="0.01"
+                            min="0" required>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label for="condominium-fee" class="form-label">Valor do Condomínio</label>
+                    <div class="input-group">
+                        <span class="input-group-text">R$</span>
+                        <input type="number" class="form-control" id="condominium-fee" placeholder="Preço" step="0.01"
+                            min="0" required>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <label for="iptu-value" class="form-label">Valor do IPTU</label>
+                    <div class="input-group">
+                        <span class="input-group-text">R$</span>
+                        <input type="number" class="form-control" id="iptu-value" placeholder="Preço" step="0.01"
+                            min="0" required>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="photo" class="form-label">Foto</label>
+                <input type="file" class="form-control" id="photo" required>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Publicar imóvel</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="footer"></div>
+</body>
+
+<script type="module" src="/assets/script/script.js"></script>
+<script type="module" src="script.js"></script>
+
+</html>

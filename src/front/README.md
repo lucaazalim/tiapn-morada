@@ -55,13 +55,14 @@
       <h1>Título da Página</h1>
       <h5>Descrição da página.</h5>
       <hr />
-      <!-- Conteúdo da Página -->
+      <!-- Page Content -->
     </div>
 
     <div id="footer"></div>
   </body>
 
   <script type="module" src="/assets/script/script.js"></script>
+  <script type="module" src="script.js"></script>
 </html>
 ```
 

@@ -4,6 +4,7 @@ import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user.UserCreateDTO;
 import br.pucminas.morada.models.user.UserUpdateDTO;
 import br.pucminas.morada.services.UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,9 @@ public class UserController {
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody UserCreateDTO userCreateDTO) {
 
-        User user = userCreateDTO.toEntity();
+        ObjectMapper objectMapper = new ObjectMapper();
+        User user = objectMapper.convertValue(userCreateDTO, User.class);
+
         User newUser = this.userService.create(user);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -41,7 +44,8 @@ public class UserController {
 
         userUpdateDTO.setId(id);
 
-        User user = userUpdateDTO.toEntity();
+        ObjectMapper objectMapper = new ObjectMapper();
+        User user = objectMapper.convertValue(userUpdateDTO, User.class);
 
         this.userService.update(user);
 

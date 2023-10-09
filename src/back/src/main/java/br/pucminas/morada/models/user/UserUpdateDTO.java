@@ -1,21 +1,14 @@
 package br.pucminas.morada.models.user;
 
-import br.pucminas.morada.models.DTO;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class UserUpdateDTO implements DTO<User> {
+public class UserUpdateDTO {
 
     private Long id;
 
+    @Size(max = 32)
     private String pixKey;
-
-    @Override
-    public User toEntity() {
-        User user = new User();
-        user.setId(this.id);
-        user.setPixKey(this.pixKey);
-        return user;
-    }
 
 }

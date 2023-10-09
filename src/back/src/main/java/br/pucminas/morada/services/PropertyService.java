@@ -1,6 +1,7 @@
 package br.pucminas.morada.services;
 
 import br.pucminas.morada.models.property.Property;
+import br.pucminas.morada.models.property.PropertyStatus;
 import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user.UserRole;
 import br.pucminas.morada.repositories.PropertyRepository;
@@ -63,7 +64,9 @@ public class PropertyService {
 
             Property property = optionalProperty.get();
 
-            if (!userSpringSecurity.hasRole(UserRole.ADMIN) && !property.getUser().getId().equals(userSpringSecurity.getId())) {
+            if (!userSpringSecurity.hasRole(UserRole.ADMIN)
+                    && !property.getStatus().equals(PropertyStatus.APPROVED)
+                    && !property.getUser().getId().equals(userSpringSecurity.getId())) {
                 throw new AuthorizationException("Acesso negado.");
             }
 

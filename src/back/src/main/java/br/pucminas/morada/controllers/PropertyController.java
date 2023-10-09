@@ -1,7 +1,9 @@
 package br.pucminas.morada.controllers;
 
 import br.pucminas.morada.models.property.Property;
+import br.pucminas.morada.models.property.PropertyCreateDTO;
 import br.pucminas.morada.services.PropertyService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,14 +23,16 @@ public class PropertyController {
     private PropertyService propertyService;
 
     @PostMapping
-    @Validated(Property.CreateProperty.class)
-    public ResponseEntity<Void> create(@Valid @RequestBody Property property) {
+    public ResponseEntity<Void> create(@Valid @RequestBody PropertyCreateDTO propertyCreateDTO) {
 
-        this.propertyService.create(property);
+        ObjectMapper objectMapper = new ObjectMapper();
+        Property property = objectMapper.convertValue(propertyCreateDTO, Property.class);
+
+        Property newProperty = this.propertyService.create(property);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(property.getId())
+                .buildAndExpand(newProperty.getId())
                 .toUri();
 
         return ResponseEntity.created(uri).build();
@@ -36,7 +40,7 @@ public class PropertyController {
     }
 
     @PutMapping("/{id}")
-    @Validated(Property.UpdateProperty.class)
+    @Validated
     public ResponseEntity<Void> update(@Valid @RequestBody Property property, @PathVariable Long id) {
 
         property.setId(id);

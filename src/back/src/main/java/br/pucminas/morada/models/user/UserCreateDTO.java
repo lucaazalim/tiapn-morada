@@ -1,7 +1,7 @@
 package br.pucminas.morada.models.user;
 
-import br.pucminas.morada.models.DTO;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,27 +9,20 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserCreateDTO implements DTO<User> {
+public class UserCreateDTO {
 
     @NotBlank
-    private String nome;
+    private String name;
 
     @NotBlank
+    @Size(min = 11, max = 11)
     private String cpf;
 
     @NotBlank
     private String email;
 
     @NotBlank
+    @Size(min = 8, max = 32)
     private String password;
 
-    @Override
-    public User toEntity() {
-        User user = new User();
-        user.setName(this.nome);
-        user.setCpf(this.cpf);
-        user.setEmail(this.email);
-        user.setPassword(this.password);
-        return user;
-    }
 }

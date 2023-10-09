@@ -24,28 +24,21 @@ public class User {
     private Long id;
 
     @Column(name = "name", length = 100, unique = true, nullable = false)
-    @NotBlank
     private String name;
 
     @Column(name = "cpf", updatable = false, length = 11, unique = true, nullable = false)
-    @NotBlank
-    @Size(min = 11, max = 11)
     private String cpf;
 
     @Column(name = "email", unique = true, nullable = false)
-    @NotBlank
     private String email;
 
     @Column(name = "password", nullable = false)
-    @NotBlank
     private String password;
 
     @Column(name = "admin", nullable = false)
-    @NotNull
     private boolean admin;
 
     @Column(name = "verified", nullable = false)
-    @NotNull
     private boolean verified;
 
     @Column(name = "pix_key", length = 32)
