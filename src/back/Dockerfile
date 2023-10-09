@@ -1,0 +1,22 @@
+FROM maven:3.8.3-openjdk-17
+
+ENV PROJECT_HOME /usr/src/morada
+ENV JAR_NAME Morada.jar
+
+# Create destination directory
+RUN mkdir -p $PROJECT_HOME
+WORKDIR $PROJECT_HOME
+
+# Bundle app source
+COPY . .
+
+RUN pwd
+RUN ls -la
+
+# Package the application as a JAR file
+RUN mvn clean package -DskipTests
+
+# Move file
+RUN mv $PROJECT_HOME/target/$JAR_NAME $PROJECT_HOME/
+
+CMD java -jar -Dspring.profiles.active=prod $JAR_NAME

@@ -1,1 +1,13 @@
+# Docker Volumes
+assets/morada/data
+assets/morada/.m2
+
+# Front end
+src/front/node_modules
+
+# Back end
+src/back/target
+
 .DS_Store
+.vscode
+.idea
