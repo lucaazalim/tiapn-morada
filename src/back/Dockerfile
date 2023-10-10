@@ -10,9 +10,6 @@ WORKDIR $PROJECT_HOME
 # Bundle app source
 COPY . .
 
-RUN pwd
-RUN ls -la
-
 # Package the application as a JAR file
 RUN mvn clean package -DskipTests
 
