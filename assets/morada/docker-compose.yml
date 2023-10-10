@@ -11,6 +11,7 @@ services:
       MYSQL_DATABASE: $MARIADB_DATABASE
     volumes:
       - ./data:/var/lib/mysql
+      - ../database/database_creation_script.sql:/docker-entrypoint-initdb.d
   api:
     container_name: morada-api
     depends_on:
