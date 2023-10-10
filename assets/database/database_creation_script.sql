@@ -68,7 +68,7 @@ DROP TABLE IF EXISTS `property`;
 CREATE TABLE `property` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL,
-  `type` enum('apartment','house','studio') NOT NULL,
+  `type` enum('APARTMENT','HOUSE','STUDIO') NOT NULL,
   `zip_code` varchar(8) NOT NULL,
   `street` varchar(100) NOT NULL,
   `number` int(10) unsigned NOT NULL,
@@ -76,23 +76,24 @@ CREATE TABLE `property` (
   `neighborhood` varchar(100) NOT NULL,
   `city` varchar(100) NOT NULL,
   `state` varchar(2) NOT NULL,
-  `country` char(2) NOT NULL DEFAULT 'BR',
+  `country` varchar(2) NOT NULL DEFAULT 'BR',
   `description` text NOT NULL,
-  `square_meters` smallint(5) unsigned NOT NULL,
-  `bedrooms` tinyint(4) NOT NULL,
-  `bathrooms` tinyint(4) NOT NULL,
-  `garage_spaces` tinyint(4) NOT NULL,
+  `area` int(11) NOT NULL,
+  `bedrooms` int(11) NOT NULL,
+  `bathrooms` int(11) NOT NULL,
+  `garage_spaces` int(11) NOT NULL,
   `accepts_pet` tinyint(1) NOT NULL,
   `furnished` tinyint(1) NOT NULL,
   `rent_value` decimal(15,2) NOT NULL,
   `condominium_fee` decimal(15,2) DEFAULT NULL,
   `iptu_value` decimal(15,2) NOT NULL,
-  `status` enum('pending_approval','approved','rejected') NOT NULL DEFAULT 'pending_approval',
+  `photo_base64` text NOT NULL,
+  `status` enum('PENDING_APPROVAL','APPROVED','REJECTED') NOT NULL DEFAULT 'PENDING_APPROVAL',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `property_FK` (`user_id`),
   CONSTRAINT `property_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -201,7 +202,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_cpf` (`cpf`),
   UNIQUE KEY `user_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,4 +264,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-06 20:02:09
+-- Dump completed on 2023-10-09 21:14:22
