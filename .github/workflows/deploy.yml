@@ -36,14 +36,14 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/morada
-            rm .env
+            cd ~/morada/assets/morada
+            rm -rf .env
             touch .env
-            echo MYSQLDB_USER=${{ secrets.MYSQLDB_USER }} >> .env
-            echo MYSQLDB_ROOT_PASSWORD=${{ secrets.MYSQLDB_ROOT_PASSWORD }} >> .env
-            echo MYSQLDB_DATABASE=${{ secrets.MYSQLDB_DATABASE }} >> .env
-            echo MYSQLDB_LOCAL_PORT=${{ secrets.MYSQLDB_LOCAL_PORT }} >> .env
-            echo MYSQLDB_DOCKER_PORT=${{ secrets.MYSQLDB_DOCKER_PORT }} >> .env
+            echo MARIADB_USER=${{ secrets.MARIADB_USER }} >> .env
+            echo MARIADB_ROOT_PASSWORD=${{ secrets.MARIADB_ROOT_PASSWORD }} >> .env
+            echo MARIADB_DATABASE=${{ secrets.MARIADB_DATABASE }} >> .env
+            echo MARIADB_LOCAL_PORT=${{ secrets.MARIADB_LOCAL_PORT }} >> .env
+            echo MARIADB_DOCKER_PORT=${{ secrets.MARIADB_DOCKER_PORT }} >> .env
             echo SPRING_LOCAL_PORT=${{ secrets.SPRING_LOCAL_PORT }} >> .env
             echo SPRING_DOCKER_PORT=${{ secrets.SPRING_DOCKER_PORT }} >> .env
 
@@ -55,6 +55,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/morada
+            cd ~/morada/assets/morada
             docker-compose build --no-cache api
             docker-compose up -d api
