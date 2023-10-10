@@ -56,5 +56,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/morada/assets/morada
-            docker-compose build --no-cache api
-            docker-compose up -d api
+            sudo docker-compose build --no-cache api
+            sudo docker-compose up -d api
