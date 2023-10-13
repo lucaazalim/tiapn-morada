@@ -56,4 +56,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/morada/assets/deploy
-            sudo docker-compose up --buld -d
+            sudo docker-compose up --build -d
