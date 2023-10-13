@@ -1,3 +1,8 @@
+# General
+.DS_Store
+.vscode
+.idea
+
 # Docker Volumes
 assets/deploy/data
 
@@ -6,7 +11,3 @@ src/front/node_modules
 
 # Back end
 src/back/target
-
-.DS_Store
-.vscode
-.idea
