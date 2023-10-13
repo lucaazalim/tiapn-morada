@@ -49,7 +49,7 @@ API.get("properties/" + id)
                     </div>
                 </div>
                 <div class="col-6">
-                    <img src="${property.photoBase64}" width="100%">
+                    <img src="${property.photoBase64}" style="width: 100%; height: 30vw; object-fit: cover;">
                 </div>
             </div>
         `;

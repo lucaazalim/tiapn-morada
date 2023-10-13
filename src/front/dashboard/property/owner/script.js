@@ -21,7 +21,7 @@ function loadProperties() {
                     <div class="card mb-3">
                         <div class="row">
                             <div class="col-3">
-                                <img src="${property.photoBase64}" width="100%">
+                                <img src="${property.photoBase64}" style="width: 100%; height: 15vw; object-fit: cover;">
                             </div>
                             <div class="col-9">
                                 <div class="card-body">
