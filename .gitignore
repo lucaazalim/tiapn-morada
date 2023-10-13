@@ -1,5 +1,5 @@
 # Docker Volumes
-assets/morada/data
+assets/deploy/data
 
 # Front end
 src/front/node_modules
