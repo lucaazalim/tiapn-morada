@@ -21,16 +21,17 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 O sistema é composto por três módulos:
 
 - MariaDB
-- API
+- Back End
 - Front End
 
-Ao seguir os passos descritos nesta sessão, você será capaz de executar um ambiente de desenvolvimento completo localmente.
+Para executar um ambiente completo de desenvolvimento local, basta seguir os seguintes passos:
 
-### Instalação do Docker
+1. Instalar o [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+2. Clonar este repositório em seu computador
+3. Executar o comando `cd /assets/deploy`
+4. Executar o comando `docker-compose up --build -d back`
 
-Utilizamos Docker para gerir a instância do MariaDB e a execução do Back End.
-
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+Após seguir os passos descritos acima, serão iniciados dois containers: um para o MariaDB e um para o Back End.
 
 ## Histórico de versões
 
