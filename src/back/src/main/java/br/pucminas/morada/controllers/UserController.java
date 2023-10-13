@@ -3,10 +3,13 @@ package br.pucminas.morada.controllers;
 import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user.UserCreateDTO;
 import br.pucminas.morada.models.user.UserUpdateDTO;
+import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.UserService;
+import br.pucminas.morada.services.exceptions.GenericException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +24,17 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @GetMapping("/me")
+    public ResponseEntity<User> me() {
+        UserSpringSecurity userSpringSecurity = UserService.authenticated();
+
+        if(userSpringSecurity == null) {
+            throw new GenericException(HttpStatus.FORBIDDEN, "Você não está logado.");
+        }
+
+        return this.findById(userSpringSecurity.getId());
+    }
 
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody UserCreateDTO userCreateDTO) {

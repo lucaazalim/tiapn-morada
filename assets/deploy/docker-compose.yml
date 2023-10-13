@@ -12,8 +12,8 @@ services:
     volumes:
       - ./data/mariadb:/var/lib/mysql
       - ../database:/docker-entrypoint-initdb.d
-  api:
-    container_name: morada-api
+  back:
+    container_name: morada-back
     depends_on:
       - mariadb
     build:
@@ -32,6 +32,11 @@ services:
       - ./data/.m2:/root/.m2
     stdin_open: true
     tty: true
-
-volumes:
-  mariadbvolume:
+  front:
+    container_name: morada-front
+    build:
+      context: ../../src/front/
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - 80:80

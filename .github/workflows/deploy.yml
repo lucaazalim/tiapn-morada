@@ -36,7 +36,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/morada/assets/morada
+            cd ~/morada/assets/deploy
             rm -rf .env
             touch .env
             echo MARIADB_USER=${{ secrets.MARIADB_USER }} >> .env
@@ -55,6 +55,5 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/morada/assets/morada
-            sudo docker-compose build --no-cache api
-            sudo docker-compose up -d api
+            cd ~/morada/assets/deploy
+            sudo docker-compose up --buld -d
