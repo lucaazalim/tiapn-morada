@@ -8,7 +8,7 @@ API.get("properties/" + id)
     .then(response => {
 
         if (!response.ok) {
-            Alert.alert("Unable to retrieve property.", "danger");
+            Alert.alert("Não foi possível obter os dados deste imóvel.", "danger", "default", 0);
             throw new Error("Unable to retrieve property.");
         }
 

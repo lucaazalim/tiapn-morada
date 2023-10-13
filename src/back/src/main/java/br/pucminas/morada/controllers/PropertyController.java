@@ -3,7 +3,11 @@ package br.pucminas.morada.controllers;
 import br.pucminas.morada.models.property.Property;
 import br.pucminas.morada.models.property.PropertyCreateDTO;
 import br.pucminas.morada.models.property.PropertyStatus;
+import br.pucminas.morada.models.user.UserRole;
+import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.PropertyService;
+import br.pucminas.morada.services.UserService;
+import br.pucminas.morada.services.exceptions.AuthorizationException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +34,14 @@ public class PropertyController {
             @RequestParam(name = "status", required = false) PropertyStatus status
     ) {
 
+        UserSpringSecurity userSpringSecurity = UserService.authenticated();
         List<Specification<Property>> specifications = new ArrayList<>();
 
-        if (status != null) {
+        if((userSpringSecurity == null || !userSpringSecurity.hasRole(UserRole.ADMIN)) && status != PropertyStatus.APPROVED) {
+            throw new AuthorizationException("Acesso negado.");
+        }
+
+        if(status != null) {
             specifications.add((root, query, builder) -> builder.equal(root.get("status"), status));
         }
 
