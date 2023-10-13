@@ -10,9 +10,11 @@ function loadProperties() {
         .then(response => response.json())
         .then(properties => {
 
-            console.log(properties);
+            if (properties.length == 0) {
+                propertiesElement.innerHTML = `<p class="text-center">Você não possui imóveis geridos pelo Morada.</p>`;
+                return;
+            }
 
-            // Loop properties
             properties.forEach(property => {
 
                 propertiesElement.innerHTML += `
@@ -25,7 +27,7 @@ function loadProperties() {
                                 <div class="card-body">
                                     <h5 class="card-title">${property.street}, ${property.neighborhood}</h5>
                                     <p class="card-text">${property.description}</p>
-                                    <a href="/search/property/?id=${property.id}" class="btn btn-primary">Visualizar Imóvel</a>
+                                    <a href="/property/?id=${property.id}" class="btn btn-primary">Visualizar Imóvel</a>
                                 </div>
                             </div>
                         </div>

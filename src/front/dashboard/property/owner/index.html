@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Imóveis Publicados</title>
+    <title>Seus Imóveis</title>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/86ad24bcb9.js" crossorigin="anonymous"></script>
@@ -18,12 +18,17 @@
 </head>
 
 <body>
-    <div id="header"></div>
-    <div id="menu" class="mb-4"></div>
+    <div id="header" class="mb-4"></div>
 
     <div class="container">
-        <h1>Imóveis Publicados</h1>
-        <h5>Confira seus imóveis publicados na plataforma.</h5>
+        <h1>Seus Imóveis</h1>
+        <h5>Confira os imóveis que pertencem a você e que estão anunciados ou alugados no Morada.</h5>
+        <hr />
+        <a href="/dashboard/property/owner/create">
+            <div class="d-grid">
+                <button type="button" class="btn btn-primary">Anunciar Imóvel no Morada</button>
+            </div>
+        </a>
         <hr />
         <div id="properties"></div>
     </div>

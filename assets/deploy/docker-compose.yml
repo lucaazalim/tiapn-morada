@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: morada-mariadb
+    ports:
+      - $MARIADB_LOCAL_PORT:$MARIADB_DOCKER_PORT
+    environment:
+      MYSQL_ROOT_PASSWORD: $MARIADB_ROOT_PASSWORD
+      MYSQL_DATABASE: $MARIADB_DATABASE
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
+      - ../database:/docker-entrypoint-initdb.d
+  api:
+    container_name: morada-api
+    depends_on:
+      - mariadb
+    build:
+      context: ../../src/back/
+      dockerfile: Dockerfile
+    working_dir: /usr/src/morada
+    restart: on-failure
+    env_file: ./.env
+    ports:
+      - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://mariadb:$MARIADB_DOCKER_PORT/$MARIADB_DATABASE?createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=$MARIADB_USER
+      - SPRING_DATASOURCE_PASSWORD=$MARIADB_ROOT_PASSWORD
+    volumes:
+      - ./data/.m2:/root/.m2
+    stdin_open: true
+    tty: true
+
+volumes:
+  mariadbvolume:
