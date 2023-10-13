@@ -26,10 +26,22 @@ export function get(route) {
 
 export function post(route, body = {}) {
 
-    console.log(`API POST: ${route} ${JSON.stringify(body)}`);
-
     return fetch(BASE_URL + '/' + route, {
         method: "POST",
+        headers: new Headers({
+            "Content-Type": "application/json; charset=utf8",
+            "Accept": "application/json",
+            "Authorization": getToken()
+        }),
+        body: JSON.stringify(body),
+    });
+
+}
+
+export function put(route, body = {}) {
+
+    return fetch(BASE_URL + '/' + route, {
+        method: "PUT",
         headers: new Headers({
             "Content-Type": "application/json; charset=utf8",
             "Accept": "application/json",

@@ -9,6 +9,7 @@ import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.exceptions.AuthorizationException;
 import br.pucminas.morada.services.exceptions.GenericException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -79,6 +80,12 @@ public class PropertyService {
 
         UserSpringSecurity userSpringSecurity = UserService.authenticated();
         return this.propertyRepository.findByUserId(userSpringSecurity.getId());
+
+    }
+
+    public List<Property> findAll(Specification<Property> specification) {
+
+        return this.propertyRepository.findAll(specification);
 
     }
 

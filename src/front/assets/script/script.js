@@ -27,7 +27,7 @@ function loadFavicon() {
 
 function loadHeader() {
 
-    let headerHtml = `
+    let headerHtml = /*html*/`
             <header>
                 <nav class="navbar bg-morada">
                     <div class="container">
@@ -50,7 +50,7 @@ function loadHeader() {
 
 function loadMenu() {
 
-    document.getElementById("header").innerHTML += `
+    document.getElementById("header").innerHTML += /*html*/`
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container">
             <a class="navbar-brand" href="/dashboard">Painel</a>
@@ -65,7 +65,8 @@ function loadMenu() {
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/dashboard/property/owner">Seus Imóveis</a></li>
-                        <li><a class="dropdown-item" href="/dashboard/visit/owner">Visitas</a></li>
+                        <li><a class="dropdown-item" href="/dashboard/visit/owner">Visitas Agendadas</a></li>
+                        <li><a class="dropdown-item" href="/dashboard/offer/owner">Propostas Recebidas</a></li>
                         <li><a class="dropdown-item" href="/dashboard/payment/owner">Pagamentos</a></li>
                         <li><a class="dropdown-item" href="/dashboard/renegotiation/owner">Renegociações</a></li>
                         <li><a class="dropdown-item" href="/dashboard/termination/owner">Rescisões</a></li>
@@ -77,8 +78,9 @@ function loadMenu() {
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/dashboard/verification">Verificação</a></li>
-                        <li><a class="dropdown-item" href="/dashboard/visit/renter">Visitas</a></li>
                         <li><a class="dropdown-item" href="/dashboard/property/renter">Imóveis Alugados</a></li>
+                        <li><a class="dropdown-item" href="/dashboard/visit/renter">Visitas Agendadas</a></li>
+                        <li><a class="dropdown-item" href="/dashboard/offer/owner">Propostas Enviadas</a></li>
                         <li><a class="dropdown-item" href="/dashboard/payment/renter">Pagamentos</a></li>
                         <li><a class="dropdown-item" href="/dashboard/renegotiation/renter">Renegociações</a></li>
                         <li><a class="dropdown-item" href="/dashboard/termination/renter">Rescisões</a></li>
