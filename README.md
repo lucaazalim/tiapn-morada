@@ -18,7 +18,7 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 
 ## Instruções de utilização
 
-O sistema é composto por três módulos:
+O sistema é composto por três aplicações:
 
 - MariaDB
 - Back End
