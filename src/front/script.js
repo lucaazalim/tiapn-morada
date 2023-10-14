@@ -38,6 +38,8 @@ function loadSearchResults() {
 
     const queryParams = [];
 
+    queryParams.push(`status=APPROVED`);
+
     if (propertyTypes.length > 0) {
         const propertyTypesQuery = `type=${propertyTypes.join(",")}`;
         queryParams.push(propertyTypesQuery);
