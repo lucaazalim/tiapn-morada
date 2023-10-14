@@ -43,17 +43,9 @@ function loadSearchResults() {
         queryParams.push(propertyTypesQuery);
     }
 
-    if (bedrooms !== undefined) {
-        queryParams.push(`bedrooms=${bedrooms}`);
-    }
-
-    if (bathrooms !== undefined) {
-        queryParams.push(`bathrooms=${bathrooms}`);
-    }
-
-    if (garageSpaces !== undefined) {
-        queryParams.push(`garage-spaces=${garageSpaces}`);
-    }
+    queryParams.push(`bedrooms=${bedrooms}`);
+    queryParams.push(`bathrooms=${bathrooms}`);
+    queryParams.push(`garage-spaces=${garageSpaces}`);
 
     API.get(`properties?${queryParams.join("&")}`)
         .then(response => response.json())
