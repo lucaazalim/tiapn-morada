@@ -25,8 +25,11 @@ function loadProperties() {
                             </div>
                             <div class="col-9">
                                 <div class="card-body">
-                                    <h5 class="card-title">${property.street}, ${property.neighborhood}</h5>
-                                    <p class="card-text">${property.description}</p>
+                                    <span class="${API.propertyStatusMap[property.status].bgClass} text-uppercase fw-bold p-1 " style="font-size: 12px; color: white;">
+                                        ${API.propertyStatusMap[property.status].label}
+                                    </span>
+                                    <h5 class="card-title mt-2">${property.street}, ${property.neighborhood}</h5>
+                                    <p class="card-text text-truncate">${property.description}</p>
                                     <a href="/property/?id=${property.id}" class="btn btn-primary">Visualizar Imóvel</a>
                                 </div>
                             </div>

@@ -1,4 +1,16 @@
-export var BASE_URL = "http://localhost:8080";
+export const propertyTypeMap = {
+    APARTMENT: { label: "Apartamento" },
+    HOUSE: { label: "Casa" },
+    STUDIO: { label: "Studio" },
+}
+
+export const propertyStatusMap = {
+    PENDING_APPROVAL: { label: "Aguardando aprovação", bgClass: "bg-warning" },
+    APPROVED: { label: "Aprovado", bgClass: "bg-success" },
+    REJECTED: { label: "Rejeitado", bgClass: "bg-danger" },
+};
+
+export const BASE_URL = "http://localhost:8080";
 
 export function setAuthenticated(responseHeaders) {
     let key = "Authorization";

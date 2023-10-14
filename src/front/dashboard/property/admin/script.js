@@ -29,10 +29,12 @@ function loadProperties() {
                             <div class="col-9">
                                 <div class="card-body">
                                     <h5 class="card-title">${property.street}, ${property.neighborhood}</h5>
-                                    <p class="card-text">${property.description}</p>
+                                    <p class="card-text text-truncate">${property.description}</p>
                                     <a href="/property/?id=${property.id}" class="btn btn-secondary">Visualizar Imóvel</a>
-                                    <button type="button" class="btn btn-success" onclick="updatePropertyStatus(${property.id}, 'APPROVED')">Aprovar</button>
-                                    <button type="button" class="btn btn-danger" onclick="updatePropertyStatus(${property.id}, 'REJECTED')">Rejeitar</button>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-success" onclick="updatePropertyStatus(${property.id}, 'APPROVED')">Aprovar</button>
+                                        <button type="button" class="btn btn-danger" onclick="updatePropertyStatus(${property.id}, 'REJECTED')">Rejeitar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

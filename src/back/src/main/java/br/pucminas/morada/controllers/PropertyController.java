@@ -3,6 +3,7 @@ package br.pucminas.morada.controllers;
 import br.pucminas.morada.models.property.Property;
 import br.pucminas.morada.models.property.PropertyCreateDTO;
 import br.pucminas.morada.models.property.PropertyStatus;
+import br.pucminas.morada.models.property.PropertyType;
 import br.pucminas.morada.models.user.UserRole;
 import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.PropertyService;
@@ -31,18 +32,38 @@ public class PropertyController {
 
     @GetMapping
     public ResponseEntity<List<Property>> search(
-            @RequestParam(name = "status", required = false) PropertyStatus status
-    ) {
+            @RequestParam(name = "status", required = false) PropertyStatus status,
+            @RequestParam(name = "type", required = false) PropertyType[] types,
+            @RequestParam(name = "bedrooms", required = false) Integer minimumBedrooms,
+            @RequestParam(name = "bathrooms", required = false) Integer minimumBathrooms,
+            @RequestParam(name = "garageSpaces", required = false) Integer minimumGarageSpaces
+            ) {
 
         UserSpringSecurity userSpringSecurity = UserService.authenticated();
         List<Specification<Property>> specifications = new ArrayList<>();
 
-        if((userSpringSecurity == null || !userSpringSecurity.hasRole(UserRole.ADMIN)) && status != PropertyStatus.APPROVED) {
+        if ((userSpringSecurity == null || !userSpringSecurity.hasRole(UserRole.ADMIN)) && status != PropertyStatus.APPROVED) {
             throw new AuthorizationException("Acesso negado.");
         }
 
-        if(status != null) {
+        if (status != null) {
             specifications.add((root, query, builder) -> builder.equal(root.get("status"), status));
+        }
+
+        if(types != null) {
+            specifications.add((root, query, builder) -> root.get("type").in((Object[]) types));
+        }
+
+        if(minimumBedrooms != null) {
+            specifications.add((root, query, builder) -> builder.greaterThanOrEqualTo(root.get("bedrooms"), minimumBedrooms));
+        }
+
+        if(minimumBathrooms != null) {
+            specifications.add((root, query, builder) -> builder.greaterThanOrEqualTo(root.get("bathrooms"), minimumBedrooms));
+        }
+
+        if(minimumGarageSpaces != null) {
+            specifications.add((root, query, builder) -> builder.greaterThanOrEqualTo(root.get("garageSpaces"), minimumGarageSpaces));
         }
 
         Specification<Property> specification = Specification.allOf(specifications);

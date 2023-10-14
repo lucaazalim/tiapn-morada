@@ -23,15 +23,6 @@
             color: var(--morada);
             width: 30px;
         }
-
-        #banner {
-            border-radius: 25px;
-        }
-
-        #banner h1,
-        h5 {
-            color: white;
-        }
     </style>
 
     <script type="module">
@@ -79,49 +70,109 @@
         <hr>
 
         <div class="row">
-            <div id="banner" class="bg-morada">
-                <div class="container p-5">
-                    <h1>Em busca do lugar ideal para morar?</h1>
-                    <h5>Confira os imóveis disponíveis para aluguel no Morada.</h5>
-                    <div class="row mt-5">
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <div class="card">
-                                <img src="assets/img/exemplo-apartamento-1.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <small>Apartamento</small>
-                                    <h5 class="card-title">Rua dos Aimorés</h5>
-                                    <p class="card-text">Lourdes, Belo Horizonte</p>
-                                    <a href="#" class="btn btn-primary">Mais informações</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <div class="card">
-                                <img src="assets/img/exemplo-apartamento-2.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <small>Apartamento</small>
-                                    <h5 class="card-title">Rua Piauí</h5>
-                                    <p class="card-text">Lourdes, Belo Horizonte</p>
-                                    <a href="#" class="btn btn-primary">Mais informações</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 mb-3 mb-sm-0">
-                            <div class="card">
-                                <img src="assets/img/exemplo-apartamento-3.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <small>Apartamento</small>
-                                    <h5 class="card-title">Rua Orange</h5>
-                                    <p class="card-text">São Pedro, Belo Horizonte</p>
-                                    <a href="#" class="btn btn-primary">Mais informações</a>
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-md-3 bg-secondary bg-opacity-25 p-3">
+                <h2>Filtros</h2>
+                <hr>
+                <h5>Tipo de Imóvel</h5>
+                <div id="property-types" class="form-check"></div>
+                <hr>
+                <h5>Quartos</h5>
+                <div class="d-flex">
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="bedrooms" id="one-room" value="1" checked>
+                        <label class="form-check-label" for="one-room">
+                            1+
+                        </label>
+                    </div>
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="bedrooms" id="two-rooms" value="2">
+                        <label class="form-check-label" for="two-rooms">
+                            2+
+                        </label>
+                    </div>
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="bedrooms" id="three-rooms" value="3">
+                        <label class="form-check-label" for="three-rooms">
+                            3+
+                        </label>
+                    </div>
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="bedrooms" id="four-rooms" value="4">
+                        <label class="form-check-label" for="four-rooms">
+                            4+
+                        </label>
                     </div>
                 </div>
+                <hr>
+                <h5>Banheiros</h5>
+                <div class="d-flex">
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="bathrooms" id="one-bathroom" value="1"
+                            checked>
+                        <label class="form-check-label" for="one-bathroom">
+                            1+
+                        </label>
+                    </div>
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="bathrooms" id="two-bathrooms" value="2">
+                        <label class="form-check-label" for="two-bathrooms">
+                            2+
+                        </label>
+                    </div>
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="bathrooms" id="three-bathrooms" value="3">
+                        <label class="form-check-label" for="three-bathrooms">
+                            3+
+                        </label>
+                    </div>
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="bathrooms" id="four-bathrooms" value="4">
+                        <label class="form-check-label" for="four-bathrooms">
+                            4+
+                        </label>
+                    </div>
+                </div>
+                <hr>
+                <h5>Vagas de Garagem</h5>
+                <div class="d-flex">
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="garage-spaces" id="one-garage-space"
+                            value="1">
+                        <label class="form-check-label" for="one-garage-space">
+                            1+
+                        </label>
+                    </div>
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="garage-spaces" id="two-garage-spaces"
+                            value="2">
+                        <label class="form-check-label" for="two-garage-spaces">
+                            2+
+                        </label>
+                    </div>
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="garage-spaces" id="three-garage-spaces"
+                            value="3">
+                        <label class="form-check-label" for="three-garage-spaces">
+                            3+
+                        </label>
+                    </div>
+                    <div class="form-check col">
+                        <input class="form-check-input" type="radio" name="garage-spaces" id="whatever-garage-spaces"
+                            value="0" checked>
+                        <label class="form-check-label" for="whatever-garage-spaces">
+                            Tanto faz
+                        </label>
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <button id="search-button" class="btn btn-primary mt-3">Buscar</button>
+                </div>
+            </div>
+            <div id="search-results" class="col-md-9">
 
             </div>
         </div>
+    </div>
 
     </div>
 
@@ -130,5 +181,6 @@
 </body>
 
 <script type="module" src="/assets/script/script.js"></script>
+<script type="module" src="script.js"></script>
 
 </html>
