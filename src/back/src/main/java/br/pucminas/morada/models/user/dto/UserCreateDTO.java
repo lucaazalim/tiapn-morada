@@ -1,5 +1,7 @@
-package br.pucminas.morada.models.user;
+package br.pucminas.morada.models.user.dto;
 
+import br.pucminas.morada.models.DTO;
+import br.pucminas.morada.models.user.User;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -9,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserCreateDTO {
+public class UserCreateDTO implements DTO<User> {
 
     @NotBlank
     private String name;

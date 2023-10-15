@@ -1,11 +1,18 @@
 package br.pucminas.morada.models.user;
 
+import br.pucminas.morada.Constants;
+import br.pucminas.morada.MoradaApplication;
+import br.pucminas.morada.models.property.dto.PropertyDTO;
+import br.pucminas.morada.models.user.dto.UserDTO;
 import br.pucminas.morada.models.user_verification.UserVerification;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -21,6 +28,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(name = "name", length = 100, unique = true, nullable = false)
@@ -48,31 +56,8 @@ public class User {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    @OneToMany(mappedBy = "user")
-    private List<UserVerification> verifications;
-
-    public Set<UserRole> getRoles() {
-
-        Set<UserRole> roles = new HashSet<>();
-
-        roles.add(UserRole.USER);
-
-        if(this.isAdmin()) {
-            roles.add(UserRole.ADMIN);
-        }
-
-        return roles;
-
+    public UserDTO toDTO() {
+        return Constants.OBJECT_MAPPER.convertValue(this, UserDTO.class);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-
-        if (obj instanceof User user) {
-            return user.getId().equals(this.getId());
-        }
-
-        return false;
-
-    }
 }

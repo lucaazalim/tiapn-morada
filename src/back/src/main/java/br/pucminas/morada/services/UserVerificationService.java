@@ -27,7 +27,7 @@ public class UserVerificationService {
     @Transactional
     public UserVerification create(UserVerification userVerification) {
 
-        User user = this.userService.findById(UserService.authenticated().getId());
+        User user = this.userService.findById(UserService.getAuthenticatedUser().getId());
 
         userVerification.setId(null);
         userVerification.setUser(user);
@@ -49,7 +49,7 @@ public class UserVerificationService {
     public UserVerification findById(Long id) {
 
         Optional<UserVerification> optionalUserVerification = this.userVerificationRepository.findById(id);
-        UserSpringSecurity userSpringSecurity = UserService.authenticated();
+        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
 
         if (optionalUserVerification.isEmpty()) {
 
@@ -75,7 +75,7 @@ public class UserVerificationService {
 
     public List<UserVerification> findAllByUser() {
 
-        UserSpringSecurity userSpringSecurity = UserService.authenticated();
+        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
         return this.userVerificationRepository.findByUserId(userSpringSecurity.getId());
 
     }

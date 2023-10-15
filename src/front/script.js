@@ -1,7 +1,14 @@
 import * as API from "/assets/script/api.js"
 
+hideLoginAndRegisterButtons();
 loadPropertyTypes();
 loadSearchResults();
+
+function hideLoginAndRegisterButtons() {
+    if (API.isAuthenticated()) {
+        document.getElementById('login-and-register-buttons').style.display = 'none';
+    }
+}
 
 function loadPropertyTypes() {
 
@@ -108,7 +115,6 @@ function loadSearchResults() {
 
 }
 
-// Listen to search button
 document.getElementById("search-button").addEventListener("click", () => {
 
     loadSearchResults();

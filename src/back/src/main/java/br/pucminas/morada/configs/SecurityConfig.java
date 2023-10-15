@@ -28,6 +28,15 @@ import java.util.List;
 @EnableMethodSecurity
 public class SecurityConfig {
 
+    private static final String[] PUBLIC_GET_ROUTES = new String[] {
+            "/properties",
+            "/properties/*"
+    };
+
+    private static final String[] PUBLIC_POST_ROUTES = new String[] {
+            "/users"
+    };
+
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -51,15 +60,8 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
                         authorizationManagerRequestMatcherRegistry
-                                .requestMatchers(
-                                        HttpMethod.GET,
-                                        "/properties",
-                                        "/properties/*"
-                                ).permitAll()
-                                .requestMatchers(
-                                        HttpMethod.POST,
-                                        "/users"
-                                ).permitAll()
+                                .requestMatchers(HttpMethod.GET, PUBLIC_GET_ROUTES).permitAll()
+                                .requestMatchers(HttpMethod.POST, PUBLIC_POST_ROUTES).permitAll()
                                 .requestMatchers("/").permitAll()
                                 .anyRequest().authenticated()
                 ).authenticationManager(authenticationManager)

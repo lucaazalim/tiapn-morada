@@ -12,6 +12,11 @@ if (pathname.startsWith("/dashboard/")) {
     }
 }
 
+window.logout = function () {
+    API.setAuthenticated(null);
+    window.location.href = "/login";
+};
+
 loadFavicon();
 loadHeader();
 loadFooter();
@@ -55,9 +60,26 @@ function loadMenu() {
         .then(user => {
 
             let menu = "";
+            let adminDropdown = "";
+
+            if (user.admin) {
+
+                adminDropdown += /*html*/ `
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Para Admins
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/dashboard/verification/admin">Verificações Pendentes</a></li>
+                            <li><a class="dropdown-item" href="/dashboard/property/admin">Imóveis Pendentes</a></li>
+                        </ul>
+                    </li >
+                `;
+
+            }
 
             menu += /*html*/`
-                <nav class="navbar navbar-expand-lg bg-secondary bg-opacity-25">
+                <nav class="navbar navbar-expand-lg bg-secondary-subtle">
                 <div class="container">
                     <a class="navbar-brand" href="/dashboard">Painel</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,25 +114,18 @@ function loadMenu() {
                                 <li><a class="dropdown-item" href="/dashboard/termination/renter">Rescisões</a></li>
                             </ul>
                         </li>
-            `;
-
-            if (user.roles.includes("ADMIN")) {
-
-                menu += /*html*/ `
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Para Admins
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/dashboard/verification/admin">Verificações Pendentes</a></li>
-                            <li><a class="dropdown-item" href="/dashboard/property/admin">Imóveis Pendentes</a></li>
-                        </ul>
-                    </li >
-                `;
-
-            }
-
-            menu += /*html*/ `
+                        ${adminDropdown}
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user"></i> ${user.name.split(" ")[0]}
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/dashboard/account">Minha conta</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="logout()">Sair</a></li>
+                            </ul>
+                        </li>
                     </ul >
                     </div >
                 </div >

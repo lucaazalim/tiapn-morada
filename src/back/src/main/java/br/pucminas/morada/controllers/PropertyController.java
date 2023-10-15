@@ -1,9 +1,9 @@
 package br.pucminas.morada.controllers;
 
-import br.pucminas.morada.models.property.Property;
-import br.pucminas.morada.models.property.PropertyCreateDTO;
-import br.pucminas.morada.models.property.PropertyStatus;
-import br.pucminas.morada.models.property.PropertyType;
+import br.pucminas.morada.models.property.*;
+import br.pucminas.morada.models.property.dto.PropertyCreateDTO;
+import br.pucminas.morada.models.property.dto.PropertyDTO;
+import br.pucminas.morada.models.property.dto.PropertyUpdateDTO;
 import br.pucminas.morada.models.user.UserRole;
 import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.PropertyService;
@@ -31,15 +31,15 @@ public class PropertyController {
     private PropertyService propertyService;
 
     @GetMapping
-    public ResponseEntity<List<Property>> search(
+    public ResponseEntity<List<PropertyDTO>> search(
             @RequestParam(name = "status", required = false) PropertyStatus status,
             @RequestParam(name = "type", required = false) PropertyType[] types,
             @RequestParam(name = "bedrooms", required = false) Integer minimumBedrooms,
             @RequestParam(name = "bathrooms", required = false) Integer minimumBathrooms,
             @RequestParam(name = "garageSpaces", required = false) Integer minimumGarageSpaces
-            ) {
+    ) {
 
-        UserSpringSecurity userSpringSecurity = UserService.authenticated();
+        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
         List<Specification<Property>> specifications = new ArrayList<>();
 
         if ((userSpringSecurity == null || !userSpringSecurity.hasRole(UserRole.ADMIN)) && status != PropertyStatus.APPROVED) {
@@ -50,25 +50,30 @@ public class PropertyController {
             specifications.add((root, query, builder) -> builder.equal(root.get("status"), status));
         }
 
-        if(types != null) {
+        if (types != null) {
             specifications.add((root, query, builder) -> root.get("type").in((Object[]) types));
         }
 
-        if(minimumBedrooms != null) {
+        if (minimumBedrooms != null) {
             specifications.add((root, query, builder) -> builder.greaterThanOrEqualTo(root.get("bedrooms"), minimumBedrooms));
         }
 
-        if(minimumBathrooms != null) {
+        if (minimumBathrooms != null) {
             specifications.add((root, query, builder) -> builder.greaterThanOrEqualTo(root.get("bathrooms"), minimumBedrooms));
         }
 
-        if(minimumGarageSpaces != null) {
+        if (minimumGarageSpaces != null) {
             specifications.add((root, query, builder) -> builder.greaterThanOrEqualTo(root.get("garageSpaces"), minimumGarageSpaces));
         }
 
         Specification<Property> specification = Specification.allOf(specifications);
+        List<Property> properties = this.propertyService.findAll(specification);
 
-        return ResponseEntity.ok(this.propertyService.findAll(specification));
+        List<PropertyDTO> propertyDTOS = properties.stream()
+                .map(Property::toDTO)
+                .toList();
+
+        return ResponseEntity.ok(propertyDTOS);
 
     }
 
@@ -87,9 +92,7 @@ public class PropertyController {
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody PropertyCreateDTO propertyCreateDTO) {
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        Property property = objectMapper.convertValue(propertyCreateDTO, Property.class);
-
+        Property property = propertyCreateDTO.toEntity(Property.class);
         Property newProperty = this.propertyService.create(property);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -103,9 +106,13 @@ public class PropertyController {
 
     @PutMapping("/{id}")
     @Validated
-    public ResponseEntity<Void> update(@Valid @RequestBody Property property, @PathVariable Long id) {
+    public ResponseEntity<Void> update(
+            @Valid @RequestBody PropertyUpdateDTO propertyUpdateDTO,
+            @PathVariable Long id
+    ) {
 
-        property.setId(id);
+        propertyUpdateDTO.setId(id);
+        Property property = propertyUpdateDTO.toEntity(Property.class);
 
         this.propertyService.update(property);
 

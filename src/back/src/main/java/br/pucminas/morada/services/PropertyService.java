@@ -29,9 +29,7 @@ public class PropertyService {
     @Transactional
     public Property create(Property property) {
 
-        User user = this.userService.findById(UserService.authenticated().getId());
-
-        property.setId(null);
+        User user = this.userService.findById(UserService.getAuthenticatedUser().getId());
         property.setUser(user);
 
         return this.propertyRepository.save(property);
@@ -51,14 +49,11 @@ public class PropertyService {
     public Property findById(Long id) {
 
         Optional<Property> optionalProperty = this.propertyRepository.findById(id);
-        UserSpringSecurity userSpringSecurity = UserService.authenticated();
+        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
 
         if (optionalProperty.isEmpty()) {
 
-            System.out.println("Debug 1");
-
             if (userSpringSecurity != null && userSpringSecurity.hasRole(UserRole.ADMIN)) {
-                System.out.println("Debug 2");
                 throw new GenericException(HttpStatus.NOT_FOUND, "Propriedade não encontrada.");
             }
 
@@ -68,20 +63,18 @@ public class PropertyService {
 
             if (property.getStatus() == PropertyStatus.APPROVED
                     || userSpringSecurity != null && (userSpringSecurity.hasRole(UserRole.ADMIN) || property.getUser().getId().equals(userSpringSecurity.getId()))) {
-                System.out.println("Debug 3");
                 return property;
             }
 
         }
 
-        System.out.println("Debug 4");
         throw new AuthorizationException("Acesso negado.");
 
     }
 
     public List<Property> findAllByUser() {
 
-        UserSpringSecurity userSpringSecurity = UserService.authenticated();
+        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
         return this.propertyRepository.findByUserId(userSpringSecurity.getId());
 
     }

@@ -25,14 +25,6 @@
         }
     </style>
 
-    <script type="module">
-        import * as API from './assets/script/api.js';
-
-        if (API.isAuthenticated()) {
-            document.getElementById('login-and-register-buttons').style.display = 'none';
-        }
-    </script>
-
 </head>
 
 <body>
@@ -70,7 +62,7 @@
         <hr>
 
         <div class="row">
-            <div class="col-md-3 bg-secondary bg-opacity-25 p-3">
+            <div class="col-md-3 bg-secondary-subtle p-3">
                 <h2>Filtros</h2>
                 <hr>
                 <h5>Tipo de Imóvel</h5>

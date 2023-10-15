@@ -3,6 +3,7 @@ package br.pucminas.morada.security;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import br.pucminas.morada.Constants;
 import br.pucminas.morada.exceptions.GlobalExceptionHandler;
 import br.pucminas.morada.models.user.User;
 import jakarta.servlet.FilterChain;
@@ -32,7 +33,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         try {
 
-            User user = new ObjectMapper().readValue(request.getInputStream(), User.class);
+            User user = Constants.OBJECT_MAPPER.readValue(request.getInputStream(), User.class);
 
             UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                     user.getEmail(), user.getPassword(), new ArrayList<>()

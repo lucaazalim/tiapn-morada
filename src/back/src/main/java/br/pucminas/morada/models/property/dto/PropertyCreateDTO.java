@@ -1,5 +1,8 @@
-package br.pucminas.morada.models.property;
+package br.pucminas.morada.models.property.dto;
 
+import br.pucminas.morada.models.DTO;
+import br.pucminas.morada.models.property.Property;
+import br.pucminas.morada.models.property.PropertyType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -14,7 +17,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PropertyCreateDTO {
+public class PropertyCreateDTO implements DTO<Property> {
 
     @NotNull
     @Enumerated(EnumType.STRING)

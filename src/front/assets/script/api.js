@@ -11,10 +11,14 @@ export const propertyStatusMap = {
 };
 
 export const BASE_URL = "http://localhost:8080";
+const authorizationKey = "Authorization";
 
 export function setAuthenticated(responseHeaders) {
-    let key = "Authorization";
-    window.localStorage.setItem(key, responseHeaders.get(key));
+    if (responseHeaders == null) {
+        window.localStorage.removeItem(authorizationKey);
+    } else {
+        window.localStorage.setItem(authorizationKey, responseHeaders.get(authorizationKey));
+    }
 }
 
 export function isAuthenticated() {
@@ -22,7 +26,7 @@ export function isAuthenticated() {
 }
 
 function getToken() {
-    return window.localStorage.getItem("Authorization");
+    return window.localStorage.getItem(authorizationKey);
 }
 
 export function get(route) {
@@ -51,6 +55,8 @@ export function post(route, body = {}) {
 }
 
 export function put(route, body = {}) {
+
+    console.log(body);
 
     return fetch(BASE_URL + '/' + route, {
         method: "PUT",

@@ -1,15 +1,16 @@
 package br.pucminas.morada.controllers;
 
 import br.pucminas.morada.models.user.User;
-import br.pucminas.morada.models.user.UserCreateDTO;
-import br.pucminas.morada.models.user.UserUpdateDTO;
+import br.pucminas.morada.models.user.UserRole;
+import br.pucminas.morada.models.user.dto.UserCreateDTO;
+import br.pucminas.morada.models.user.dto.UserDTO;
+import br.pucminas.morada.models.user.dto.UserUpdateDTO;
 import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.UserService;
-import br.pucminas.morada.services.exceptions.GenericException;
+import br.pucminas.morada.services.exceptions.AuthorizationException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -26,22 +27,32 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/me")
-    public ResponseEntity<User> me() {
-        UserSpringSecurity userSpringSecurity = UserService.authenticated();
+    public ResponseEntity<UserDTO> me() {
 
-        if(userSpringSecurity == null) {
-            throw new GenericException(HttpStatus.FORBIDDEN, "Você não está logado.");
-        }
-
+        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
         return this.findById(userSpringSecurity.getId());
+
+    }
+
+    @PutMapping("/me")
+    public ResponseEntity<Void> update(@Valid @RequestBody UserUpdateDTO userUpdateDTO) {
+
+        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
+
+        userUpdateDTO.setId(userSpringSecurity.getId());
+
+        User user = userUpdateDTO.toEntity(User.class);
+
+        this.userService.update(user);
+
+        return ResponseEntity.noContent().build();
+
     }
 
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody UserCreateDTO userCreateDTO) {
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        User user = objectMapper.convertValue(userCreateDTO, User.class);
-
+        User user = userCreateDTO.toEntity(User.class);
         User newUser = this.userService.create(user);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -53,24 +64,20 @@ public class UserController {
 
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> update(@Valid @RequestBody UserUpdateDTO userUpdateDTO, @PathVariable Long id) {
-
-        userUpdateDTO.setId(id);
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        User user = objectMapper.convertValue(userUpdateDTO, User.class);
-
-        this.userService.update(user);
-
-        return ResponseEntity.noContent().build();
-
-    }
-
     @GetMapping("/{id}")
-    public ResponseEntity<User> findById(@PathVariable Long id) {
+    public ResponseEntity<UserDTO> findById(@PathVariable Long id) {
+
+        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
+
+        if (!userSpringSecurity.hasRole(UserRole.ADMIN) && !id.equals(userSpringSecurity.getId())) {
+            throw new AuthorizationException("Acesso negado.");
+        }
+
         User user = this.userService.findById(id);
-        return ResponseEntity.ok(user);
+        UserDTO userDTO = user.toDTO();
+
+        return ResponseEntity.ok(userDTO);
+
     }
 
 }

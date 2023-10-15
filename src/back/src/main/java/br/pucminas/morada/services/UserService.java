@@ -41,11 +41,10 @@ public class UserService {
 
         User userFound = this.findById(user.getId());
 
-        userFound.setName(user.getName());
-        userFound.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
-        userFound.setEmail(user.getEmail());
-        userFound.setAdmin(user.isAdmin());
-        userFound.setVerified(user.isVerified());
+        if(user.getPassword() != null) {
+            userFound.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
+        }
+
         userFound.setPixKey(user.getPixKey());
 
         return this.userRepository.save(userFound);
@@ -54,18 +53,12 @@ public class UserService {
 
     public User findById(Long id) {
 
-        UserSpringSecurity userSpringSecurity = UserService.authenticated();
-
-        if (!userSpringSecurity.hasRole(UserRole.ADMIN) && !id.equals(userSpringSecurity.getId())) {
-            throw new AuthorizationException("Acesso negado.");
-        }
-
         return this.userRepository.findById(id)
                 .orElseThrow(() -> new GenericException(HttpStatus.NOT_FOUND, "Usuário não encontrado."));
 
     }
 
-    public static UserSpringSecurity authenticated() {
+    public static UserSpringSecurity getAuthenticatedUser() {
         try {
             return (UserSpringSecurity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         } catch (Exception exception) {

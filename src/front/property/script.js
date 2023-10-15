@@ -26,8 +26,8 @@ API.get("properties/" + id)
                 <div class="col-md-12 col-lg-6">
                     <h1>${API.propertyTypeMap[property.type].label} para alugar</h1>
                     <hr>
-                    <h2 class="text-muted">${property.street}, ${property.neighborhood}</h2>
-                    <h4 class="text-muted">${property.city}, ${property.state}</h4>
+                    <h4 class="text-muted">${property.street}, ${property.number} - ${property.neighborhood}</h4>
+                    <h5 class="text-muted">${property.city}, ${property.state}</h5>
                     <hr>
                     <p class="lh-sm">
                         <span class="fs-4 fw-bold">Total ${formatCurrency(totalValue)}</span>
@@ -36,14 +36,6 @@ API.get("properties/" + id)
                             <span class="fw-bold">Aluguel</span> ${formatCurrency(property.rentValue)}
                         </span>
                     </p>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6 mb-2 mb-md-0">
-                            <a class="btn btn-primary w-100" href="/dashboard/visit/renter/create/?id=${property.id}" role="button"><i class="fa-regular fa-calendar me-2"></i> Agendar visita</a>
-                        </div>
-                        <div class="col-sm-12 col-md-6">
-                            <a class="btn btn-outline-primary w-100" href="/dashboard/offer/renter/create/?id=${property.id}" role="button"><i class="fa-solid fa-money-bill me-2"></i> Fazer Proposta</a>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-md-12 col-lg-6 mt-3 mt-lg-0">
                     <img src="${property.photoBase64}" style="width: 100%; height: 500px; object-fit: cover;">
@@ -77,7 +69,7 @@ API.get("properties/" + id)
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-4 mt-3 mt-md-0">
-                    <div class="bg-secondary bg-opacity-25 p-3">
+                    <div class="bg-secondary-subtle p-3">
                         <div class="text-muted">
                             <div class="row">
                                 <div class="col">Aluguel</div>
@@ -96,6 +88,14 @@ API.get("properties/" + id)
                         <div class="row">
                             <div class="col">Total</div>
                             <div class="col text-end">${formatCurrency(totalValue)}</div>
+                        </div>
+                        <div class="row">
+                            <div class="d-grid mt-3">
+                                <a class="btn btn-primary w-100" href="/dashboard/visit/renter/create/?id=${property.id}" role="button"><i class="fa-regular fa-calendar me-2"></i> Agendar visita</a>
+                            </div>
+                            <div class="d-grid mt-3">
+                                <a class="btn btn-outline-primary w-100" href="/dashboard/offer/renter/create/?id=${property.id}" role="button"><i class="fa-solid fa-money-bill me-2"></i> Fazer Proposta</a>
+                            </div>
                         </div>
                     </div>
                 </div>

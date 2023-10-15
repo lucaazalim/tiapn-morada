@@ -1,5 +1,6 @@
 package br.pucminas.morada.exceptions;
 
+import br.pucminas.morada.Constants;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -61,10 +62,8 @@ public class ErrorResponse {
 
     public String toJson() {
 
-        ObjectMapper objectMapper = new ObjectMapper();
-
         try {
-            return objectMapper.writeValueAsString(this);
+            return Constants.OBJECT_MAPPER.writeValueAsString(this);
         } catch (JsonProcessingException ignored) {
             return null;
         }

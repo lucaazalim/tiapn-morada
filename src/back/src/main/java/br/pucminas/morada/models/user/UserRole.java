@@ -3,7 +3,8 @@ package br.pucminas.morada.models.user;
 public enum UserRole {
 
     ADMIN,
-    USER;
+    USER,
+    VERIFIED;
 
     public static UserRole fromOrdinal(int ordinal) {
 
