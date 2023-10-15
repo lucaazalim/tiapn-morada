@@ -101,9 +101,7 @@ public class Property {
     private LocalDateTime createdAt;
 
     public PropertyDTO toDTO() {
-        PropertyDTO propertyDTO = Constants.OBJECT_MAPPER.convertValue(this, PropertyDTO.class);
-        propertyDTO.setUserId(this.getUser().getId());
-        return propertyDTO;
+        return Constants.OBJECT_MAPPER.convertValue(this, PropertyDTO.class);
     }
 
 }

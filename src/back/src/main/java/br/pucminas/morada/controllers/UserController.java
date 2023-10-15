@@ -37,13 +37,8 @@ public class UserController {
     @PutMapping("/me")
     public ResponseEntity<Void> update(@Valid @RequestBody UserUpdateDTO userUpdateDTO) {
 
-        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
-
-        userUpdateDTO.setId(userSpringSecurity.getId());
-
         User user = userUpdateDTO.toEntity(User.class);
-
-        this.userService.update(user);
+        this.userService.update(UserService.getAuthenticatedUser().getId(), user);
 
         return ResponseEntity.noContent().build();
 

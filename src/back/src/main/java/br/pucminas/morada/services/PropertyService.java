@@ -37,9 +37,9 @@ public class PropertyService {
     }
 
     @Transactional
-    public Property update(Property property) {
+    public Property update(Long id, Property property) {
 
-        Property propertyFound = this.findById(property.getId());
+        Property propertyFound = this.findById(id);
         propertyFound.setStatus(property.getStatus());
 
         return this.propertyRepository.save(propertyFound);

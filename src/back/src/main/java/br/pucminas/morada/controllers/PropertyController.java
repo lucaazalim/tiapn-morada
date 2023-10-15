@@ -111,11 +111,7 @@ public class PropertyController {
             @PathVariable Long id
     ) {
 
-        propertyUpdateDTO.setId(id);
-        Property property = propertyUpdateDTO.toEntity(Property.class);
-
-        this.propertyService.update(property);
-
+        this.propertyService.update(id, propertyUpdateDTO.toEntity(Property.class));
         return ResponseEntity.noContent().build();
 
     }

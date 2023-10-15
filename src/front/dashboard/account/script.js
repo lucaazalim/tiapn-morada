@@ -18,8 +18,10 @@ document.getElementById("my-account-form").addEventListener("submit", function (
 
     event.preventDefault();
 
+    const passwordElement = document.getElementById("password");
+
     const pixKey = document.getElementById("pix-key").value;
-    const password = document.getElementById("password").value;
+    const password = passwordElement.value;
 
     const data = { pixKey };
 
@@ -32,6 +34,7 @@ document.getElementById("my-account-form").addEventListener("submit", function (
 
             if (response.ok) {
                 Alert.alert("Seus dados pessoais foram atualizados.", "success");
+                passwordElement.value = null;
             } else {
                 Alert.alert("Não foi possível atualizar seus dados pessoais.", "danger");
             }

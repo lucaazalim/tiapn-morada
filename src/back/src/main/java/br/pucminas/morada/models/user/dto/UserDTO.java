@@ -4,6 +4,7 @@ import br.pucminas.morada.MoradaApplication;
 import br.pucminas.morada.models.DTO;
 import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user_verification.UserVerification;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.*;
@@ -15,18 +16,16 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
-@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserDTO implements DTO<User> {
-
-    private Long id;
-    private String name;
-    private String cpf;
-    private String email;
-    private boolean admin;
-    private boolean verified;
-    private String pixKey;
-    private LocalDateTime createdAt;
+public record UserDTO(
+        Long id,
+        String name,
+        String cpf,
+        String email,
+        boolean admin,
+        boolean verified,
+        String pixKey,
+        LocalDateTime createdAt
+) implements DTO<User> {
 
 }

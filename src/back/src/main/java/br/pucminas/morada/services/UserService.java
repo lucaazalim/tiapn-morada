@@ -37,9 +37,9 @@ public class UserService {
     }
 
     @Transactional
-    public User update(User user) {
+    public User update(Long id, User user) {
 
-        User userFound = this.findById(user.getId());
+        User userFound = this.findById(id);
 
         if(user.getPassword() != null) {
             userFound.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));

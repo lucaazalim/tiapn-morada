@@ -14,35 +14,30 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PropertyDTO implements DTO<Property> {
-
-    private Long id;
-    private Long userId;
-    private PropertyType type;
-    private String zipCode;
-    private String street;
-    private Integer number;
-    private String complement;
-    private String neighborhood;
-    private String city;
-    private String state;
-    private String country;
-    private String description;
-    private Integer area;
-    private Integer bedrooms;
-    private Integer bathrooms;
-    private Integer garageSpaces;
-    private Boolean acceptsPet;
-    private Boolean furnished;
-    private BigDecimal rentValue;
-    private BigDecimal condominiumFee;
-    private BigDecimal iptuValue;
-    private String photoBase64;
-    private PropertyStatus status = PropertyStatus.PENDING_APPROVAL;
-    private LocalDateTime createdAt;
-
-}
+public record PropertyDTO(
+        Long id,
+        Long userId,
+        PropertyType type,
+        String zipCode,
+        String street,
+        Integer number,
+        String complement,
+        String neighborhood,
+        String city,
+        String state,
+        String country,
+        String description,
+        Integer area,
+        Integer bedrooms,
+        Integer bathrooms,
+        Integer garageSpaces,
+        Boolean acceptsPet,
+        Boolean furnished,
+        BigDecimal rentValue,
+        BigDecimal condominiumFee,
+        BigDecimal iptuValue,
+        String photoBase64,
+        PropertyStatus status,
+        LocalDateTime createdAt
+) implements DTO<Property> {}
