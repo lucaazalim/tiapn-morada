@@ -49,7 +49,7 @@ jobs:
             echo SPRING_LOCAL_PORT=${{ secrets.SPRING_LOCAL_PORT }} >> .env
             echo SPRING_DOCKER_PORT=${{ secrets.SPRING_DOCKER_PORT }} >> .env
 
-      - name: Build and Start Docker-Compose
+      - name: Restart Docker-Compose
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -58,4 +58,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/morada/assets/deploy
+            sudo docker-compose down
             sudo docker-compose up --build -d
