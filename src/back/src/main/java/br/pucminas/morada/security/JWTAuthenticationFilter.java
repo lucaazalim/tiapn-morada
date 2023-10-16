@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import br.pucminas.morada.Constants;
 import br.pucminas.morada.exceptions.GlobalExceptionHandler;
 import br.pucminas.morada.models.user.User;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -48,14 +49,14 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     }
 
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Authentication authentication) {
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain, Authentication authentication) throws JsonProcessingException {
 
         UserSpringSecurity userSpringSecurity = (UserSpringSecurity) authentication.getPrincipal();
 
         String username = userSpringSecurity.getUsername();
-        String token = this.jwtUtil.generateToken(username);
+        JWTUtil.Token token = this.jwtUtil.generateToken(username);
 
-        response.addHeader("Authorization", "Bearer " + token);
+        response.addHeader("Authorization", Constants.OBJECT_MAPPER.writeValueAsString(token));
         response.addHeader("access-control-expose-headers", "Authorization");
 
     }

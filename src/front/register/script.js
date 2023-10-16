@@ -10,17 +10,11 @@ document.getElementById("register-form").addEventListener("submit", function (ev
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    fetch(API.BASE_URL + '/users', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name,
-            cpf,
-            email,
-            password
-        }),
+    API.post("users", {
+        name,
+        cpf,
+        email,
+        password
     }).then(response => {
 
         if (response.ok) {
@@ -29,15 +23,10 @@ document.getElementById("register-form").addEventListener("submit", function (ev
 
         } else {
 
-            response.json().then(data => {
-                console.log(data);
-                Alert.alert(data.message, "danger");
-            });
+            response.json().then(data => Alert.alert(data.message, "danger"));
 
         }
 
-    }).catch(error => {
-        console.log(error);
     });
 
 });

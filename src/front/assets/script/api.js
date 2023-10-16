@@ -15,9 +15,9 @@ const authorizationKey = "Authorization";
 
 export function setAuthenticated(responseHeaders) {
     if (responseHeaders == null) {
-        window.localStorage.removeItem(authorizationKey);
+        localStorage.removeItem(authorizationKey);
     } else {
-        window.localStorage.setItem(authorizationKey, responseHeaders.get(authorizationKey));
+        localStorage.setItem(authorizationKey, responseHeaders.get(authorizationKey));
     }
 }
 
@@ -26,7 +26,16 @@ export function isAuthenticated() {
 }
 
 function getToken() {
-    return window.localStorage.getItem(authorizationKey);
+
+    let authorization = JSON.parse(localStorage.getItem(authorizationKey));
+
+    if (!authorization || authorization.expiration < Date.now()) {
+        setAuthenticated(null);
+        return null;
+    }
+
+    return authorization.token;
+
 }
 
 export function get(route) {

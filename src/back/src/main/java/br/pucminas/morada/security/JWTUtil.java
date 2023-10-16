@@ -21,17 +21,22 @@ public class JWTUtil {
     @Value("${jwt.expiration}")
     private Long expiration;
 
-    public String generateToken(String username) {
+    public Token generateToken(String username) {
 
         SecretKey key = getKeyBySecret();
 
-        return Jwts.builder()
+        long expiration = System.currentTimeMillis() + this.expiration;
+        String token = Jwts.builder()
                 .subject(username)
-                .expiration(new Date(System.currentTimeMillis() + this.expiration))
+                .expiration(new Date(expiration))
                 .signWith(key)
                 .compact();
 
+        return new Token("Bearer " + token, expiration);
+
     }
+
+    public record Token(String token, long expiration) { }
 
     private SecretKey getKeyBySecret() {
         return Keys.hmacShaKeyFor(this.secret.getBytes());
