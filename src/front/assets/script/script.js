@@ -4,11 +4,11 @@ let pathname = window.location.pathname;
 
 if (pathname.startsWith("/dashboard/")) {
     if (!API.isAuthenticated()) {
-        window.location.href = "../login";
+        window.location.href = "/login";
     }
 } else if (pathname.startsWith("/login/") || pathname.startsWith("/register/")) {
     if (API.isAuthenticated()) {
-        window.location.href = "../dashboard";
+        window.location.href = "/dashboard";
     }
 }
 
