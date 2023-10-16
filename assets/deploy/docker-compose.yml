@@ -24,10 +24,6 @@ services:
     env_file: ./.env
     ports:
       - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mariadb://mariadb:$MARIADB_DOCKER_PORT/$MARIADB_DATABASE?createDatabaseIfNotExist=true
-      - SPRING_DATASOURCE_USERNAME=$MARIADB_USER
-      - SPRING_DATASOURCE_PASSWORD=$MARIADB_ROOT_PASSWORD
     volumes:
       - ./data/.m2:/root/.m2
     stdin_open: true
