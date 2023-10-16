@@ -10,7 +10,7 @@ services:
       MYSQL_ROOT_PASSWORD: $MARIADB_ROOT_PASSWORD
       MYSQL_DATABASE: $MARIADB_DATABASE
     volumes:
-      - ./data/mariadb:/var/lib/mysql
+      - $DATA_DIRECTORY/mariadb:/var/lib/mysql
       - ../database:/docker-entrypoint-initdb.d
   back:
     container_name: morada-back
@@ -25,7 +25,7 @@ services:
     ports:
       - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
     volumes:
-      - ./data/.m2:/root/.m2
+      - $DATA_DIRECTORY/.m2:/root/.m2
     stdin_open: true
     tty: true
   front:

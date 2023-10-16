@@ -23,6 +23,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
+          rm: true
           # Github path
           source: "**"
           # VPS path
@@ -39,6 +40,7 @@ jobs:
             cd ~/morada/assets/deploy
             rm -rf .env
             touch .env
+            echo DATA_DIRECTORY=~/morada/data >> .env
             echo MARIADB_USER=${{ secrets.MARIADB_USER }} >> .env
             echo MARIADB_ROOT_PASSWORD=${{ secrets.MARIADB_ROOT_PASSWORD }} >> .env
             echo MARIADB_DATABASE=${{ secrets.MARIADB_DATABASE }} >> .env
