@@ -23,13 +23,14 @@ document.getElementById("register-form").addEventListener("submit", function (ev
         }),
     }).then(response => {
 
-        if (response.status === 201) {
+        if (response.ok) {
 
             window.location.href = "../login";
 
-        } else if (response.status === 400) {
+        } else {
 
             response.json().then(data => {
+                console.log(data);
                 Alert.alert(data.message, "danger");
             });
 
