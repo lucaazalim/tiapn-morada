@@ -19,7 +19,9 @@ document.getElementById("register-form").addEventListener("submit", function (ev
 
         if (response.ok) {
 
-            window.location.href = "../login";
+            API.login(email, password, message => {
+                Alert.alert(message, "danger")
+            });
 
         } else {
 

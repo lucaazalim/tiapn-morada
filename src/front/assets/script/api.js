@@ -78,3 +78,28 @@ export function put(route, body = {}) {
     });
 
 }
+
+export function login(email, password, errorMessageConsumer = null) {
+
+    post("login", {
+        email,
+        password
+    }).then(response => {
+
+        setAuthenticated(response.headers);
+
+        if (response.ok) {
+
+            window.location.href = "../dashboard";
+
+        } else {
+
+            if (errorMessageConsumer) {
+                response.json().then(data => errorMessageConsumer(data.message));
+            }
+
+        }
+
+    });
+
+}
