@@ -27,14 +27,23 @@ export function isAuthenticated() {
 
 function getToken() {
 
-    let authorization = JSON.parse(localStorage.getItem(authorizationKey));
+    try {
 
-    if (!authorization || authorization.expiration < Date.now()) {
+        const authorization = JSON.parse(localStorage.getItem(authorizationKey));
+
+        if (!authorization || authorization.expiration < Date.now()) {
+            setAuthenticated(null);
+            return null;
+        }
+
+        return authorization.token;
+
+    } catch (error) {
+
         setAuthenticated(null);
         return null;
-    }
 
-    return authorization.token;
+    }
 
 }
 
