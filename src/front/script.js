@@ -60,7 +60,7 @@ function loadSearchResults() {
         .then(response => response.json())
         .then(properties => {
 
-            let searchResults = `<p class="mb-3"><b>`;
+            let searchResults = `<p class="mb-3 mt-3"><b>`;
 
             if (properties.length == 0) {
                 searchResults += "Nenhum imóvel foi encontrado.";
@@ -80,7 +80,7 @@ function loadSearchResults() {
                 let totalValue = property.rentValue + property.condominiumFee + property.iptuValue;
 
                 searchResults += /*html*/ `
-                    <div class="col-md-4 col-sm-12 mb-3 mb-md-0">
+                    <div class="col-lg-4 col-md-12 mb-3 mb-md-0">
                         <div class="card">
                             <img src="${property.photoBase64}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;">
                             <div class="card-body">
