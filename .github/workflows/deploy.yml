@@ -49,7 +49,7 @@ jobs:
             cd ~/morada/assets/deploy
             rm -rf .env
             touch .env
-            echo DATA_DIRECTORY=~/morada/data >> .env
+            echo DATA_DIRECTORY=~/data >> .env
             echo MARIADB_USER=${{ secrets.MARIADB_USER }} >> .env
             echo MARIADB_ROOT_PASSWORD=${{ secrets.MARIADB_ROOT_PASSWORD }} >> .env
             echo MARIADB_DATABASE=${{ secrets.MARIADB_DATABASE }} >> .env
