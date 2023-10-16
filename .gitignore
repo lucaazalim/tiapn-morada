@@ -7,7 +7,7 @@
 assets/deploy/data
 
 # Front end
-src/front/node_modules
+# src/front/node_modules
 
 # Back end
 src/back/target
