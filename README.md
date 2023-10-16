@@ -26,10 +26,10 @@ O sistema é composto por três aplicações:
 
 Para executar um ambiente completo de desenvolvimento local, basta seguir os seguintes passos:
 
-1. Instalar o [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-2. Clonar este repositório em seu computador
-3. Executar o comando `cd /assets/deploy`
-4. Executar o comando `docker-compose up --build -d back`
+1. Clonar este repositório em seu computador (não faça download do ZIP)
+2. Executar o comando `npm install` dentro do diretório `/src/front`
+3. Instalar o [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+4. Executar o comando `docker-compose up --build -d back` dentro do diretório `/assets/deploy`
 
 Após seguir os passos descritos acima, serão iniciados dois containers: um para o MariaDB e um para o Back End.
 
