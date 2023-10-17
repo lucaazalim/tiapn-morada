@@ -4,6 +4,8 @@ hideLoginAndRegisterButtons();
 loadPropertyTypes();
 loadSearchResults();
 
+document.getElementById("search-button").addEventListener("click", loadSearchResults);
+
 function hideLoginAndRegisterButtons() {
     if (API.isAuthenticated()) {
         document.getElementById('login-and-register-buttons').style.display = 'none';
@@ -114,12 +116,6 @@ function loadSearchResults() {
         });
 
 }
-
-document.getElementById("search-button").addEventListener("click", () => {
-
-    loadSearchResults();
-
-});
 
 function formatCurrency(value) {
     return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0 });
