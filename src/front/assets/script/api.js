@@ -52,43 +52,33 @@ function getToken() {
 }
 
 export function get(route) {
-
-    return fetch(BASE_URL + '/' + route, {
-        method: "GET",
-        headers: new Headers({
-            "Authorization": getToken()
-        })
-    });
-
+    return sendRequest("GET", route);
 }
 
 export function post(route, body = {}) {
-
-    return fetch(BASE_URL + '/' + route, {
-        method: "POST",
-        headers: new Headers({
-            "Content-Type": "application/json; charset=utf8",
-            "Accept": "application/json",
-            "Authorization": getToken()
-        }),
-        body: JSON.stringify(body),
-    });
-
+    return sendRequest("POST", route, body);
 }
 
 export function put(route, body = {}) {
+    return sendRequest("PUT", route, body);
+}
 
-    console.log(body);
+function sendRequest(method, route, body = {}) {
 
-    return fetch(BASE_URL + '/' + route, {
-        method: "PUT",
+    const request = {
+        method,
         headers: new Headers({
             "Content-Type": "application/json; charset=utf8",
             "Accept": "application/json",
             "Authorization": getToken()
-        }),
-        body: JSON.stringify(body),
-    });
+        })
+    };
+
+    if (method !== "GET" && method !== "HEAD") {
+        request.body = JSON.stringify(body);
+    }
+
+    return fetch(BASE_URL + '/' + route, request);
 
 }
 
@@ -102,15 +92,11 @@ export function login(email, password, errorMessageConsumer = null) {
         setAuthenticated(response.headers);
 
         if (response.ok) {
-
             window.location.href = "../dashboard";
-
         } else {
-
             if (errorMessageConsumer) {
                 response.json().then(data => errorMessageConsumer(data.message));
             }
-
         }
 
     });
