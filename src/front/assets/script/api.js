@@ -10,7 +10,11 @@ export const propertyStatusMap = {
     REJECTED: { label: "Rejeitado", bgClass: "bg-danger" },
 };
 
-export const BASE_URL = "http://localhost:8080";
+export const BASE_URL =
+    window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+        ? "http://localhost:8080"
+        : "http://morada.azal.im:8080";
+
 const authorizationKey = "Authorization";
 
 export function setAuthenticated(responseHeaders) {
