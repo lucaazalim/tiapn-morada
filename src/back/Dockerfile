@@ -16,4 +16,4 @@ RUN mvn clean package -DskipTests
 # Move file
 RUN mv $PROJECT_HOME/target/$JAR_NAME $PROJECT_HOME/
 
-CMD java -jar $JAR_NAME
+CMD java -jar -Dspring.profiles.active=prod $JAR_NAME
