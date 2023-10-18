@@ -14,31 +14,24 @@ import java.time.LocalDateTime;
 @Table(name = "user_verification")
 public class UserVerification {
 
-    public interface CreateUserVerification {}
-    public interface UpdateUserVerification {}
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @NotNull(groups = UpdateUserVerification.class)
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false, updatable = false)
     private User user;
 
-    @NotBlank(groups = CreateUserVerification.class)
     @Column(name = "identity_document_front", nullable = false, updatable = false)
     private String identityDocumentFront;
 
-    @NotBlank(groups = CreateUserVerification.class)
     @Column(name = "identity_document_back", nullable = false, updatable = false)
     private String identityDocumentBack;
 
     @Column(name = "admin_message")
     private String adminMessage;
 
-    @NotNull(groups = UpdateUserVerification.class)
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
     private UserVerificationStatus status;
