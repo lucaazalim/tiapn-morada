@@ -65,7 +65,7 @@ public class UserController {
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
 
         if (!userSpringSecurity.hasRole(UserRole.ADMIN) && !id.equals(userSpringSecurity.getId())) {
-            throw new AuthorizationException("Acesso negado.");
+            throw new AuthorizationException();
         }
 
         User user = this.userService.findById(id);

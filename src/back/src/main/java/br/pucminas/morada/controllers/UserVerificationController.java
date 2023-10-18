@@ -1,6 +1,8 @@
 package br.pucminas.morada.controllers;
 
 import br.pucminas.morada.models.user_verification.UserVerification;
+import br.pucminas.morada.models.user_verification.dto.UserVerificationCreateDTO;
+import br.pucminas.morada.models.user_verification.dto.UserVerificationUpdateDTO;
 import br.pucminas.morada.services.UserVerificationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +23,9 @@ public class UserVerificationController {
     private UserVerificationService userVerificationService;
 
     @PostMapping
-    @Validated(UserVerification.CreateUserVerification.class)
-    public ResponseEntity<Void> create(@Valid @RequestBody UserVerification userVerification) {
+    public ResponseEntity<Void> create(@Valid @RequestBody UserVerificationCreateDTO userVerificationCreateDTO) {
 
+        UserVerification userVerification = userVerificationCreateDTO.toEntity(UserVerification.class);
         this.userVerificationService.create(userVerification);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
@@ -36,13 +38,12 @@ public class UserVerificationController {
     }
 
     @PutMapping("/{id}")
-    @Validated(UserVerification.UpdateUserVerification.class)
-    public ResponseEntity<Void> update(@Valid @RequestBody UserVerification userVerification, @PathVariable Long id) {
+    public ResponseEntity<Void> update(
+            @Valid @RequestBody UserVerificationUpdateDTO userVerificationUpdateDTO,
+            @PathVariable Long id
+    ) {
 
-        userVerification.setId(id);
-
-        this.userVerificationService.update(userVerification);
-
+        this.userVerificationService.update(id, userVerificationUpdateDTO.toEntity(UserVerification.class));
         return ResponseEntity.noContent().build();
 
     }

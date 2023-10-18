@@ -43,7 +43,7 @@ public class PropertyController {
         List<Specification<Property>> specifications = new ArrayList<>();
 
         if ((userSpringSecurity == null || !userSpringSecurity.hasRole(UserRole.ADMIN)) && status != PropertyStatus.APPROVED) {
-            throw new AuthorizationException("Acesso negado.");
+            throw new AuthorizationException();
         }
 
         if (status != null) {

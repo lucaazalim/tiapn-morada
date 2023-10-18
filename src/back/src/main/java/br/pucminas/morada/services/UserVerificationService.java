@@ -36,10 +36,11 @@ public class UserVerificationService {
     }
 
     @Transactional
-    public UserVerification update(UserVerification userVerification) {
+    public UserVerification update(Long id, UserVerification userVerification) {
 
-        UserVerification userVerificationFound = this.findById(userVerification.getId());
+        UserVerification userVerificationFound = this.findById(id);
 
+        userVerificationFound.setAdminMessage(userVerification.getAdminMessage());
         userVerificationFound.setStatus(userVerification.getStatus());
 
         return this.userVerificationRepository.save(userVerificationFound);
@@ -57,14 +58,14 @@ public class UserVerificationService {
                 throw new GenericException(HttpStatus.NOT_FOUND, "Verificação de usuário não encontrada.");
             }
 
-            throw new AuthorizationException("Acesso negado.");
+            throw new AuthorizationException();
 
         } else {
 
             UserVerification userVerification = optionalUserVerification.get();
 
             if (!userSpringSecurity.hasRole(UserRole.ADMIN) && !userVerification.getUser().getId().equals(userSpringSecurity.getId())) {
-                throw new AuthorizationException("Acesso negado.");
+                throw new AuthorizationException();
             }
 
             return userVerification;

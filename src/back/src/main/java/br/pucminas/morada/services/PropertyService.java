@@ -68,7 +68,7 @@ public class PropertyService {
 
         }
 
-        throw new AuthorizationException("Acesso negado.");
+        throw new AuthorizationException();
 
     }
 
