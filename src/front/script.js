@@ -1,4 +1,5 @@
 import * as API from "/assets/script/api.js"
+import * as PropertyCard from "/assets/components/property-card.js"
 
 hideLoginAndRegisterButtons();
 loadPropertyTypes();
@@ -79,31 +80,9 @@ function loadSearchResults() {
 
             properties.forEach(property => {
 
-                let totalValue = property.rentValue + property.condominiumFee + property.iptuValue;
-
                 searchResults += /*html*/ `
                     <div class="col-lg-4 col-md-12 mb-3 mb-md-0">
-                        <div class="card">
-                            <img src="${property.photoBase64}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;">
-                            <div class="card-body">
-                                <h5>${API.propertyTypeMap[property.type].label}</h5>
-                                <p class="text-truncate">${property.street}, ${property.neighborhood}</p>
-                                <hr>
-                                <div class="text-muted mb-3">
-                                    <div class="row">
-                                        <div class="col">Total</div>
-                                        <div class="col text-end">${formatCurrency(totalValue)}</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">Aluguel</div>
-                                        <div class="col text-end">${formatCurrency(property.rentValue)}</div>
-                                    </div>
-                                </div>
-                                <div class="d-grid">
-                                    <a href="/property/?id=${property.id}" class="btn btn-primary">Visualizar Imóvel</a>
-                                </div>
-                            </div>
-                        </div>
+                        ${PropertyCard.get(property)}
                     </div>
                 `;
 
@@ -115,8 +94,4 @@ function loadSearchResults() {
 
         });
 
-}
-
-function formatCurrency(value) {
-    return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0 });
 }
