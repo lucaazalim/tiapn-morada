@@ -24,7 +24,7 @@ O diagrama de classes do Morada é representado por:
 
 _Apresente o diagrama de componentes da aplicação, indicando os elementos da arquitetura e as interfaces entre eles. Faça uma descrição sucinta dos componentes indicando o papel de cada um deles dentro da arquitetura/estilo/padrão arquitetural. Indique também quais componentes serão reutilizados (navegadores, SGBDs, middlewares, etc), quais componentes serão adquiridos por serem proprietários e quais componentes precisam ser desenvolvidos._
 
-![Diagrama de componentes](![image](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-morada/assets/78454334/45617e24-fe45-4673-9fad-fbb08a1456b2)
+![Diagrama de componentes](images/componentes.png "Diagrama de componentes")
 
 _Apresente uma descrição detalhada dos artefatos que constituem o diagrama de componentes._
 

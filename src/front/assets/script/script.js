@@ -139,7 +139,7 @@ function loadMenu() {
 }
 
 function loadFooter() {
-    fetch('/assets/includes/footer.html')
+    fetch('/assets/components/footer.html')
         .then(response => response.text())
         .then(function (data) {
             document.getElementById('footer').innerHTML = data;
