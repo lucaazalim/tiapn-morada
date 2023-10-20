@@ -1,5 +1,5 @@
 import * as API from "/assets/script/api.js"
-import * as PropertyCard from "/assets/components/property-card.js"
+import getPropertyCard from "/assets/components/property-card.js"
 
 hideLoginAndRegisterButtons();
 loadPropertyTypes();
@@ -82,7 +82,7 @@ function loadSearchResults() {
 
                 searchResults += /*html*/ `
                     <div class="col-lg-4 col-md-12 mb-3 mb-md-0">
-                        ${PropertyCard.get(property)}
+                        ${getPropertyCard(property)}
                     </div>
                 `;
 

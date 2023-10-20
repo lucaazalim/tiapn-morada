@@ -1,6 +1,6 @@
 import * as API from '../script/api.js';
 
-export function get(property) {
+export default function getPropertyCard(property) {
 
     let totalValue = property.rentValue + property.condominiumFee + property.iptuValue;
 
