@@ -4,6 +4,7 @@
 
 | Método | Rota               | Descrição                              |
 | ------ | ------------------ | -------------------------------------- |
+| POST   | `/login`           | Autenticar um usuário.                 |
 | GET    | `/users/{id}`      | Buscar um usuário pelo ID.             |
 | POST   | `/users`           | Criar um novo usuário.                 |
 | GET    | `/users/me`        | Buscar o usuário logado.               |
