@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>420</x><y>64</y><w>168</w><h>186</h></coordinates><panel_attributes> User
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>510</x><y>100</y><w>280</w><h>310</h></coordinates><panel_attributes> User
 --
 -id: int
 -cpf: String
@@ -18,7 +18,7 @@
 +editProperty(Property):void
 +removeProperty(Property): void
 +searchProperty(String): void
-+makeOffer(Offer):void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>336</x><y>352</y><w>126</w><h>240</h></coordinates><panel_attributes>Property
++makeOffer(Offer):void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>580</y><w>210</w><h>400</h></coordinates><panel_attributes>Property
 --
 -id: int
 -User user
@@ -47,14 +47,14 @@
 +isAvailable():boolean
 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>762</x><y>130</y><w>126</w><h>66</h></coordinates><panel_attributes>Offer
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1080</x><y>210</y><w>210</w><h>110</h></coordinates><panel_attributes>Offer
 --
 -id: int
 -rentValue: double
 -status: OfferType
 -createdAt: LocalDateTime
 --
-+addOffer(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>498</x><y>382</y><w>222</w><h>138</h></coordinates><panel_attributes>Rental
++addOffer(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>630</y><w>370</w><h>230</h></coordinates><panel_attributes>Rental
 --
 -id: int
 -Property property
@@ -70,16 +70,16 @@
 +editRent(Rent): void;
 +isPeriodOfTimeValid(LocalDate, LocalDate): boolean
 +calculateTotalPrice(): double
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>402</x><y>244</y><w>126</w><h>120</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>400</y><w>210</w><h>200</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=0..*
-it has &gt;</panel_attributes><additional_attributes>180;10;180;80;10;80;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>582</x><y>178</y><w>192</w><h>30</h></coordinates><panel_attributes>lt=-
+it has &gt;</panel_attributes><additional_attributes>180;10;180;80;10;80;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>290</y><w>320</w><h>50</h></coordinates><panel_attributes>lt=-
 m1=0..*
 m2=0..*
-do &gt;</panel_attributes><additional_attributes>300;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>576</x><y>244</y><w>42</w><h>150</h></coordinates><panel_attributes>lt=-
+do &gt;</panel_attributes><additional_attributes>300;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>400</y><w>70</w><h>250</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=0..*
-it has &gt;</panel_attributes><additional_attributes>10;10;10;230</additional_attributes></element><element><id>UMLClass</id><coordinates><x>786</x><y>226</y><w>114</w><h>84</h></coordinates><panel_attributes>Payment
+it has &gt;</panel_attributes><additional_attributes>10;10;10;230</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1120</x><y>370</y><w>190</w><h>140</h></coordinates><panel_attributes>Payment
 --
 -rental: Rental
 -rental_value: double
@@ -88,20 +88,20 @@ it has &gt;</panel_attributes><additional_attributes>10;10;10;230</additional_at
 --
 +payRent(): void
 +calculateTotalPrice(): double
-+calculateMonthPrice(): double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>582</x><y>220</y><w>216</w><h>30</h></coordinates><panel_attributes>lt=-
++calculateMonthPrice(): double</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>360</y><w>360</w><h>50</h></coordinates><panel_attributes>lt=-
 m1=1
 m2=1..*
-pay &gt;</panel_attributes><additional_attributes>10;20;340;20</additional_attributes></element><element><id>Relation</id><coordinates><x>714</x><y>304</y><w>120</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;230;180;230;180;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>726</x><y>4</y><w>174</w><h>66</h></coordinates><panel_attributes>Renegotiation
+pay &gt;</panel_attributes><additional_attributes>10;20;340;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1000</x><y>500</y><w>200</w><h>250</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;230;180;230;180;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1020</x><y>0</y><w>290</w><h>110</h></coordinates><panel_attributes>Renegotiation
 --
 -id: int
 -agreed: boolean
 -created_at: LocalDateTime
 -renegotiations: LinkedList&lt;RenegotiationOffer&gt;
 --
-+addRenegotiationOffer(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>456</x><y>58</y><w>486</w><h>318</h></coordinates><panel_attributes>lt=-
++addRenegotiationOffer(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>90</y><w>790</w><h>530</h></coordinates><panel_attributes>lt=-
 m1=0..1
 m2=0..*
-do &gt;</panel_attributes><additional_attributes>10;500;790;500;790;10;740;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>900</x><y>400</y><w>162</w><h>114</h></coordinates><panel_attributes>Visit
+do &gt;</panel_attributes><additional_attributes>10;500;770;500;770;10;740;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1310</x><y>660</y><w>270</w><h>190</h></coordinates><panel_attributes>Visit
 --
 -id: int
 -datetime: LocalDateTime
@@ -113,12 +113,12 @@ do &gt;</panel_attributes><additional_attributes>10;500;790;500;790;10;740;10</a
 --
 +scheduleVisit(Property, LocalDateTime): void
 +cancelVisit(Property): void
-+rateVisit(Property): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>456</x><y>508</y><w>498</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;100;810;100;810;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>984</x><y>226</y><w>72</w><h>60</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
++rateVisit(Property): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1450</x><y>370</y><w>120</w><h>100</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
 PaymentStatus
 --
 PENDING
 ALLEGEDLY_PAID
-CONFIRMED</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>966</x><y>4</y><w>108</w><h>78</h></coordinates><panel_attributes>RenegotiationOffer
+CONFIRMED</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1420</x><y>0</y><w>180</w><h>130</h></coordinates><panel_attributes>RenegotiationOffer
 --
 -id: int
 -createdByOwner: boolean
@@ -126,26 +126,26 @@ CONFIRMED</panel_attributes><additional_attributes></additional_attributes></ele
 -type: RenegotiationOfferType
 -createdAt: LocalDateTime
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1104</x><y>4</y><w>90</w><h>48</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1650</x><y>0</y><w>150</w><h>80</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
 RenegotiationOfferType
 --
 FINAL
-FLEXIBLE</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>192</x><y>370</y><w>66</w><h>54</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+FLEXIBLE</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>130</x><y>610</y><w>110</w><h>90</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
 PropertyType
 --
 APARTMENT
 HOUSE
-STUDIO</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>984</x><y>118</y><w>66</w><h>60</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+STUDIO</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1450</x><y>190</y><w>110</w><h>100</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
 OfferType
 --
 PENDING
 APPROVED
-REJECTED</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>192</x><y>448</y><w>78</w><h>60</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+REJECTED</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>130</x><y>740</y><w>130</w><h>100</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
 PropertyStatus
 --
 PENDING_APPROVAL
 APPROVED
-REJECTED</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>252</x><y>388</y><w>96</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>264</x><y>484</y><w>84</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>894</x><y>250</y><w>102</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>150;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>882</x><y>136</y><w>114</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>170;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>252</x><y>82</y><w>126</w><h>150</h></coordinates><panel_attributes>UserVerification
+REJECTED</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>230</x><y>130</y><w>210</w><h>250</h></coordinates><panel_attributes>UserVerification
 --
 -id: int
 -photoIdentityDocument: String
@@ -161,9 +161,15 @@ REJECTED</panel_attributes><additional_attributes></additional_attributes></elem
 +editProperty(Property):void
 +removeProperty(Property): void
 +searchProperty(String): void
-+makeOffer(Offer):void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>114</x><y>142</y><w>90</w><h>54</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
++makeOffer(Offer):void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>230</y><w>150</w><h>90</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
 UserVerificationStatus
 --
 PENDING_APPROVAL
 APPROVED
-REJECTED</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>198</x><y>166</y><w>66</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1068</x><y>28</y><w>48</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>60;10;10;10</additional_attributes></element></diagram>
+REJECTED</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>840</y><w>830</w><h>110</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..*
+it has &gt;</panel_attributes><additional_attributes>10;80;790;80;790;10</additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>130</y><w>640</w><h>550</h></coordinates><panel_attributes>lt=-
+m1=0..*
+m2=1
+it has &gt;</panel_attributes><additional_attributes>600;530;600;20;10;20</additional_attributes></element></diagram>
