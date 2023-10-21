@@ -1,6 +1,23 @@
 import * as Alert from '../../../../assets/script/alert.js';
 import * as API from '../../../../assets/script/api.js';
 
+const zipCodeInput = document.getElementById("zip-code");
+
+zipCodeInput.addEventListener('change', () => {
+
+    fetch(`https://brasilapi.com.br/api/cep/v2/${zipCodeInput.value}`)
+        .then(response => response.json())
+        .then(data => {
+
+            document.getElementById("street").value = data.street;
+            document.getElementById("neighborhood").value = data.neighborhood;
+            document.getElementById("city").value = data.city;
+            document.getElementById("state").value = data.state;
+
+        });
+
+});
+
 const photoInput = document.getElementById("photo");
 var photoBase64;
 
