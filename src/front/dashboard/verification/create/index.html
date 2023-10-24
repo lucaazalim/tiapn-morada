@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título da Página</title>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/86ad24bcb9.js"
+      crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/style/custom_bootstrap.css" />
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/style/style.css" />
+  </head>
+
+  <body>
+    <div id="header" class="mb-4"></div>
+
+    <div class="container">
+      <h1>Processo de Verificação de Usuário</h1>
+      <h5>Insira os documentos abaixo para iniciar o processo de verificação de usuário</h5>
+      <hr />
+      <div id="alert"></div>
+      <form class="p-4 bg-secondary-subtle" id="verification-form">
+        <div class="mb-3">
+            <label class="form-label" for="identity_document_front">RG frente</label>
+            <input type="file" class="form-control" id="identity_document_front" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="identity_document_back">RG verso</label>
+            <input type="file" class="form-control" id="identity_document_back" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="proof_of_income">Comprovante de renda</label>
+            <input type="file" class="form-control" id="proof_of_income">
+        </div>
+        <div class="d-grid">
+          <button class="btn btn-primary" type="submit">Enviar</button>
+        </div>
+      </form>
+
+    </div>
+
+    <div id="footer"></div>
+  </body>
+
+  <script type="module" src="/assets/script/script.js"></script>
+  <script type="module" src="script.js"></script>
+</html>
