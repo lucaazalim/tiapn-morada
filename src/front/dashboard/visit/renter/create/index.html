@@ -23,16 +23,31 @@
 
   <body>
     <div id="header" class="mb-4"></div>
-
+    
     <div class="container">
       <h1>Agendar Visita</h1>
       <h5>Selecione uma data e horário para agendar uma visita ao imóvel.</h5>
       <hr />
       <!-- Page Content -->
-      <div id="modal-select-time"></div>
+      <div class="modal" tabindex="-1" id="confirmationModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confirmar Marcação de Horário</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Deseja confirmar a marcação desse horário?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" id="confirmButton">Confirmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <div id="calendar"></div>
-
-
 
     </div>
 
