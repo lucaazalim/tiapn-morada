@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título da Página</title>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/86ad24bcb9.js"
+      crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/style/custom_bootstrap.css" />
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/style/style.css" />
+  </head>
+
+  <body>
+    <div id="header" class="mb-4"></div>
+
+    <div class="container">
+      <h1>Suas visitas</h1>
+      <h5>Listagem de seus agendamentos futuros e visitas realizadas</h5>
+      <hr />
+      <!-- Page Content -->
+      <!-- Exemplo do que será transmitido-->
+        <!--NEXT VISITS-->
+        <div class="container rounded-1 bg-secondary-subtle mt-4 fs-5 text-center p-1"> AGENDAMENTOS</div><br> <!--col-3-->
+        <div id="visits-carried-false" class="row mb-2 flex-wrap justify-content-center">
+          <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
+            <div class="row justify-content-between text-center">
+              <div class="col-4  ms-1 fw-bold">VISITA 32</div>
+              <div class="col-3 p-1 me-3  text-bg-warning text-white small fw-lighter">agendado</div>
+            </div>            
+            <div class="d-flex">
+                <p class="m-2 fw-medium">Sábado, Oct 28, 07:00 - 08:00</p>
+            </div>
+            <div class="d-flex">
+              <p class="m-2">Rua Claudio Manoel 12, apto 801</p>
+            </div>
+            <div class="m-2">
+                <a href="" class="btn btn-sm btn-danger" role="button"><small>Cancelar</small></a>
+            </div>
+          </div>
+          <br>  
+
+          <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
+            <div class="row justify-content-between text-center">
+              <div class="col-4  ms-1 fw-bold">VISITA 10</div>
+              <div class="col-3 p-1 me-3  text-bg-warning text-white small fw-lighter">agendado</div>
+            </div>            
+            <div class="d-flex">
+                <p class="m-2 fw-medium">Sábado, Oct 28, 07:00 - 08:00</p>
+            </div>
+            <div class="d-flex">
+              <p class="m-2">Rua Claudio Manoel 12, apto 801</p>
+            </div>
+            <div class="m-2">
+                <a href="" class="btn btn-sm btn-danger" role="button"><small>Cancelar</small></a>
+            </div>
+          </div>
+          <br> 
+
+          <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
+            <div class="row justify-content-between text-center">
+              <div class="col-4  ms-1 fw-bold">VISITA 27</div>
+              <div class="col-3 p-1 me-3  text-bg-warning text-white small fw-lighter">agendado</div>
+            </div>            
+            <div class="d-flex">
+                <p class="m-2 fw-medium">Sábado, Oct 28, 07:00 - 08:00</p>
+            </div>
+            <div class="d-flex">
+              <p class="m-2">Rua Claudio Manoel 12, apto 801</p>
+            </div>
+            <div class="m-2">
+                <a href="" class="btn btn-sm btn-danger" role="button"><small>Cancelar</small></a>
+            </div>
+          </div>
+          <br> 
+          
+          <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
+            <div class="row justify-content-between text-center">
+              <div class="col-4  ms-1 fw-bold">VISITA 62</div>
+              <div class="col-3 p-1 me-3  text-bg-warning text-white small fw-lighter">agendado</div>
+            </div>            
+            <div class="d-flex">
+                <p class="m-2 fw-medium">Sábado, Oct 28, 07:00 - 08:00</p>
+            </div>
+            <div class="d-flex">
+              <p class="m-2">Rua Claudio Manoel 12, apto 801</p>
+            </div>
+            <div class="m-2">
+                <a href="" class="btn btn-sm btn-danger" role="button"><small>Cancelar</small></a>
+            </div>
+          </div>
+          <br> 
+        </div>
+
+        
+        
+
+        <!--FUTURAS-->
+        <br>
+        <div class="container rounded-1 bg-secondary-subtle fs-5 text-center p-1">VISITAS REALIZADAS</div><br>
+        
+        <div id="visits-carried-true" class="row mb-2 flex-wrap justify-content-center">
+          <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
+            <div class="row justify-content-between text-center "><!--gap-4-->
+              <div class="col-4  ms-1 fw-bold">VISITA 32</div>
+              <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div>
+            </div>            
+            <div class="d-flex">
+                <p class="m-2 fw-medium">Sábado, Oct 28, 07:00 - 08:00</p>
+            </div>
+            <div class="d-flex">
+              <p class="m-2">Rua Claudio Manoel 12</p>
+            </div>
+            <div class="d-flex m-2 mt-4">
+              <i class="fa-regular fa-star" style="color: #ffc107;"></i>
+              <i class="fa-regular fa-star" style="color: #ffc107;"></i>
+              <i class="fa-regular fa-star" style="color: #ffc107;"></i>
+              <i class="fa-regular fa-star" style="color: #ffc107;"></i>
+              <i class="fa-regular fa-star" style="color: #ffc107;"></i>
+            </div>
+            <div class="mb-3 d-flex">
+                <div class="input-group">
+                    <span class="input-group-text">Comentário</span>
+                    <textarea class="form-control" aria-label="Verfication comments"></textarea>
+                  </div>
+            </div>
+            <div class="d-grid">
+                <a href="" class="btn btn-primary btn-sm" role="button">Enviar</a>
+            </div>
+          </div>
+          <br>
+
+          <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
+            <div class="row justify-content-between text-center"><!--gap-4-->
+              <div class="col-4  ms-1 fw-bold">VISITA 67</div>
+              <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div> 
+            </div>            
+            <div class="d-flex">
+                <p class="m-2 fw-medium">Sábado, Oct 17, 09:00 - 10:00</p>
+            </div>
+            <div class="d-flex">
+              <p class="m-2">Rua das Flores, 32</p>
+            </div>
+            <div class="d-flex m-2 mt-4">
+              <i class="fa-solid fa-star" style="color: #ffc107;"></i>
+              <i class="fa-solid fa-star" style="color: #ffc107;"></i>
+              <i class="fa-solid fa-star" style="color: #ffc107;"></i>
+              <i class="fa-solid fa-star" style="color: #ffc107;"></i>
+              <i class="fa-solid fa-star" style="color: #ffc107;"></i>
+            </div>
+            <div class="mb-3 d-flex">
+                <p class="p-2 small">Vista maravilhosa, casa excelente, móveis em perfeito estado. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, quos!</p>
+            </div>
+          </div>
+          <br>  
+  
+        </div>
+
+
+    </div>
+
+    <div id="footer"></div>
+  </body>
+
+  <script type="module" src="/assets/script/script.js"></script>
+  <script type="module" src="script.js"></script>
+</html>

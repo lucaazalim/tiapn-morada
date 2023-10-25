@@ -30,9 +30,7 @@ public class SecurityConfig {
 
     private static final String[] PUBLIC_GET_ROUTES = new String[] {
             "/properties",
-            "/properties/*",
-            "/visits/",
-            "/visits/{id}"
+            "/properties/*"
     };
 
     private static final String[] PUBLIC_POST_ROUTES = new String[] {
