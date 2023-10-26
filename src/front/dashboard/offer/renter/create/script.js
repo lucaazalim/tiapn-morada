@@ -1,4 +1,4 @@
-import getPropertyCard from "./card";
+import getPropertyCard from "./card.js";
 
 const cardContainer = document.getElementById("cardContainer");
 
@@ -23,15 +23,15 @@ ValorSugerido.value = `R$${properties.rentValue}`;
 ValorDaProposta.value = "R$";
 const valorDaPropostaInput = document.getElementById("ValorDaProposta");
 valorDaPropostaInput.addEventListener("input", () => {
-  let valor = valorDaPropostaInput.value;
+  let inputValue = valorDaPropostaInput.value;
 
-  valor = valor.replace(/\D/g, "");
+  inputValue = inputValue.replace(/\D/g, "");
 
-  valor = parseFloat(valor);
-  valor = isNaN(valor) ? 0 : valor;
+  inputValue = parseFloat(inputValue);
+  inputValue = isNaN(inputValue) ? 0 : inputValue;
 
-  valor = (valor / 100).toFixed(2);
-  valor = `R$${valor}`;
+  inputValue = (inputValue / 100).toFixed(2);
+  inputValue = `R$${inputValue}`;
 
-  valorDaPropostaInput.value = valor;
+  valorDaPropostaInput.value = inputValue;
 });
