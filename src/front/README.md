@@ -2,32 +2,32 @@
 
 ## Páginas
 
-| Caminho                                             | Título                            | Acesso            | Descrição                                        |
-| --------------------------------------------------- | --------------------------------- | ----------------- | ------------------------------------------------ |
-| `/`                                                 | Página Inicial                    | Público           | Landing Page de apresentação da plataforma.      |
-| `/search`                                           | Busca de Imóveis                  | Público           | Busca de imóveis publicados.                     |
-| `/register`                                         | Registro                          | Usuário deslogado | Registro de novo usuário.                        |
-| `/login`                                            | Login                             | Usuário deslogado | Login de usuário.                                |
-| `/property/?id=<ID do imóvel>`                      | Detalhes do Imóvel                | Público           | Detalhes de um imóvel publicado.                 |
-| `/dashboard`                                        | Painel do Usuário                 | Usuário logado    | Página inicial do Painel do Usuário.             |
-| `/dashboard/verification`                           | Verificação de Usuário            | Usuário logado    | Verificações enviadas por um usuário.            |
-| `/dashboard/verification/create`                    | Envio de Verificação de Usuário   | Usuário logado    | Formulário de envio de verificação de usuário.   |
-| `/dashboard/verification/admin`                     | Verificações de Usuário Pendentes | Admin             | Verificações pendentes de revisão por um admin.  |
-| `/dashboard/property/owner`                         | Imóveis Publicados                | Usuário logado    | Imóveis publicados por um proprietário.          |
-| `/dashboard/property/owner/create`                  | Publicar Imóvel                   | Usuário logado    | Formulário de publicação de um imóvel            |
-| `/dashboard/property/renter`                        | Imóveis Alugados                  | Usuário logado    | Imóveis alugados por um locatário.               |
-| `/dashboard/property/admin`                         | Imóveis Pendentes                 | Admin             | Imóveis pendentes de revisão.                    |
-| `/dashboard/visit/owner`                            | Visitas Agendadas                 | Usuário logado    | Visitas agendadas em imóveis de um proprietário. |
-| `/dashboard/visit/renter`                           | Visitas Agendadas                 | Usuário logado    | Visitas agendadas por um locatário.              |
-| `/dashboard/visit/renter/create/?id=<ID do imóvel>` | Agendamento de Visita             | Usuário logado    | Formulário de agendamento de visita.             |
-| `/dashboard/offer/owner`                            | Propostas Recebidas               | Usuário logado    | Propostas recebidas por um proprietário.         |
-| `/dashboard/offer/renter`                           | Propostas Enviadas                | Usuário logado    | Propostas enviadas por um locatário.             |
-| `/dashboard/offer/renter/create/?id=<ID do imóvel>` | Envio de Proposta                 | Usuário logado    | Formulário de envio de proposta.                 |
-| `/dashboard/payment/owner`                          | Pagamentos                        | Usuário logado    | Pagamentos de imóveis de um proprietário.        |
-| `/dashboard/payment/renter`                         | Pagamentos                        | Usuário logado    | Pagamentos de imóveis alugados por um locatário. |
-| `/dashboard/renegotiation/owner`                    | Renegociações                     | Usuário logado    | Renegociações de um proprietário.                |
-| `/dashboard/renegotiation/renter`                   | Renegociações                     | Usuário logado    | Renegociações de um locatário.                   |
-| `/dashboard/termination/create?id=<ID do imóvel>`   | Rescisões                         | Usuário logado    | Formulário de iniciação de rescisão.             |
+| Caminho                                             | Título                            | Processo | Descrição                                        |
+| --------------------------------------------------- | --------------------------------- | -------- | ------------------------------------------------ |
+| `/`                                                 | Página Inicial                    |          | Landing Page de apresentação da plataforma.      |
+| `/search`                                           | Busca de Imóveis                  |          | Busca de imóveis publicados.                     |
+| `/register`                                         | Registro                          |          | Registro de novo usuário.                        |
+| `/login`                                            | Login                             |          | Login de usuário.                                |
+| `/property/?id=<ID do imóvel>`                      | Detalhes do Imóvel                | 2        | Detalhes de um imóvel publicado.                 |
+| `/dashboard`                                        | Painel do Usuário                 |          | Página inicial do Painel do Usuário.             |
+| `/dashboard/verification`                           | Verificação de Usuário            | 1        | Verificações enviadas por um usuário.            |
+| `/dashboard/verification/create`                    | Envio de Verificação de Usuário   | 1        | Formulário de envio de verificação de usuário.   |
+| `/dashboard/verification/admin`                     | Verificações de Usuário Pendentes | 1        | Verificações pendentes de revisão por um admin.  |
+| `/dashboard/property/owner`                         | Imóveis Publicados                | 2        | Imóveis publicados por um proprietário.          |
+| `/dashboard/property/owner/create`                  | Publicar Imóvel                   | 2        | Formulário de publicação de um imóvel            |
+| `/dashboard/property/renter`                        | Imóveis Alugados                  | 4        | Imóveis alugados por um locatário.               |
+| `/dashboard/property/admin`                         | Imóveis Pendentes                 | 2        | Imóveis pendentes de revisão.                    |
+| `/dashboard/visit/owner`                            | Visitas Agendadas                 | 3        | Visitas agendadas em imóveis de um proprietário. |
+| `/dashboard/visit/renter`                           | Visitas Agendadas                 | 3        | Visitas agendadas por um locatário.              |
+| `/dashboard/visit/renter/create/?id=<ID do imóvel>` | Agendamento de Visita             | 3        | Formulário de agendamento de visita.             |
+| `/dashboard/offer/owner`                            | Propostas Recebidas               | 4        | Propostas recebidas por um proprietário.         |
+| `/dashboard/offer/renter`                           | Propostas Enviadas                | 4        | Propostas enviadas por um locatário.             |
+| `/dashboard/offer/renter/create/?id=<ID do imóvel>` | Envio de Proposta                 | 4        | Formulário de envio de proposta.                 |
+| `/dashboard/payment/owner`                          | Pagamentos                        | 5        | Pagamentos de imóveis de um proprietário.        |
+| `/dashboard/payment/renter`                         | Pagamentos                        | 5        | Pagamentos de imóveis alugados por um locatário. |
+| `/dashboard/renegotiation/owner`                    | Renegociações                     | 6        | Renegociações de um proprietário.                |
+| `/dashboard/renegotiation/renter`                   | Renegociações                     | 6        | Renegociações de um locatário.                   |
+| `/dashboard/termination/create?id=<ID do imóvel>`   | Rescisões                         | 7        | Formulário de iniciação de rescisão.             |
 
 ## Layout Padrão
 
