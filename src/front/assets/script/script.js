@@ -97,7 +97,6 @@ function loadMenu() {
                                 <li><a class="dropdown-item" href="/dashboard/offer/owner">Propostas Recebidas</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/payment/owner">Pagamentos</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/renegotiation/owner">Renegociações</a></li>
-                                <li><a class="dropdown-item" href="/dashboard/termination/owner">Rescisões</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -111,7 +110,6 @@ function loadMenu() {
                                 <li><a class="dropdown-item" href="/dashboard/offer/owner">Propostas Enviadas</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/payment/renter">Pagamentos</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/renegotiation/renter">Renegociações</a></li>
-                                <li><a class="dropdown-item" href="/dashboard/termination/renter">Rescisões</a></li>
                             </ul>
                         </li>
                         ${adminDropdown}
