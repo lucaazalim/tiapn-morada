@@ -26,7 +26,7 @@ API.get("properties/" + id)
                 <div class="col-md-12 col-lg-6">
                     <h1>${API.propertyTypeMap[property.type].label} para alugar</h1>
                     <hr>
-                    <h4 class="text-muted">${property.street}, ${property.number} - ${property.neighborhood}</h4>
+                    <h4 class="text-muted text-truncated">${property.street}, ${property.number} - ${property.neighborhood}</h4>
                     <h5 class="text-muted">${property.city}, ${property.state}</h5>
                     <hr>
                     <p class="lh-sm">
@@ -38,12 +38,12 @@ API.get("properties/" + id)
                     </p>
                 </div>
                 <div class="col-md-12 col-lg-6 mt-3 mt-lg-0">
-                    <img src="${property.photoBase64}" style="width: 100%; height: 500px; object-fit: cover;">
+                    <img class="rounded" src="${property.photoBase64}" style="width: 100%; height: 500px; object-fit: cover;">
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-md-12 col-lg-8">
-                    <div class="d-flex justify-content-start flex-wrap row-gap-3 column-gap-5 border p-3 mb-3">
+                <div class="col-md-12 col-lg-8 ">
+                    <div class="d-flex justify-content-start flex-wrap row-gap-3 column-gap-5 border p-3 mb-3 rounded">
                         <div>
                             <i class="fa-solid fa-ruler me-2"></i> ${property.area} m²
                         </div>
@@ -63,13 +63,13 @@ API.get("properties/" + id)
                             <i class="fa-solid fa-chair me-2"></i> ${property.furnished ? "Mobiliado" : "Sem mobília"}
                         </div>
                     </div>
-                    <div class="border p-3">
+                    <div class="border p-3 rounded">
                         <h4>Descrição do Proprietário</h4>
                         <span>${property.description}</span>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-4 mt-3 mt-md-0">
-                    <div class="bg-secondary-subtle p-3">
+                    <div class="bg-secondary-subtle p-3 rounded">
                         <div class="text-muted">
                             <div class="row">
                                 <div class="col">Aluguel</div>
