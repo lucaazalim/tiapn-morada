@@ -1,0 +1,71 @@
+name: Deploy
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  morada-deploy:
+    name: Deploy
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Remove old repository from VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            sudo rm -rf ~/morada/morada
+
+      - name: Copy repository content to VPS
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          # Github path
+          source: "**"
+          # VPS path
+          target: "~/morada"
+
+      - name: Create .env file on VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd ~/morada/assets/deploy
+            rm -rf .env
+            touch .env
+            echo DATA_DIRECTORY=~/data >> .env
+            echo MARIADB_USER=${{ secrets.MARIADB_USER }} >> .env
+            echo MARIADB_ROOT_PASSWORD=${{ secrets.MARIADB_ROOT_PASSWORD }} >> .env
+            echo MARIADB_DATABASE=${{ secrets.MARIADB_DATABASE }} >> .env
+            echo MARIADB_LOCAL_PORT=${{ secrets.MARIADB_LOCAL_PORT }} >> .env
+            echo MARIADB_DOCKER_PORT=${{ secrets.MARIADB_DOCKER_PORT }} >> .env
+            echo SPRING_LOCAL_PORT=${{ secrets.SPRING_LOCAL_PORT }} >> .env
+            echo SPRING_DOCKER_PORT=${{ secrets.SPRING_DOCKER_PORT }} >> .env
+
+      - name: Restart Docker-Compose
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd ~/morada/assets/deploy
+            sudo docker-compose down
+            sudo docker-compose up --build -d
