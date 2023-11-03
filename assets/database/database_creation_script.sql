@@ -46,15 +46,15 @@ DROP TABLE IF EXISTS `payment`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `payment` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `rent_id` bigint(20) NOT NULL,
+  `rental_id` bigint(20) NOT NULL,
   `rent_value` decimal(15,2) NOT NULL,
   `competence_month` tinyint(2) unsigned NOT NULL,
   `competence_year` smallint(4) unsigned NOT NULL,
-  `status` enum('pending','allegedly_paid','confirmed') NOT NULL DEFAULT 'pending',
+  `status` enum('allegedly_paid','confirmed','rejected') NOT NULL DEFAULT 'allegedly_paid',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `payment_rent_id` (`rent_id`),
-  CONSTRAINT `payment_rent_id` FOREIGN KEY (`rent_id`) REFERENCES `rental` (`id`)
+  KEY `payment_rent_id` (`rental_id`),
+  CONSTRAINT `payment_rent_id` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -93,7 +93,7 @@ CREATE TABLE `property` (
   PRIMARY KEY (`id`),
   KEY `property_FK` (`user_id`),
   CONSTRAINT `property_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -202,7 +202,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_email` (`email`),
   UNIQUE KEY `user_cpf` (`cpf`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,7 +223,7 @@ CREATE TABLE `user_verification` (
   PRIMARY KEY (`id`),
   KEY `user_verification_user_id` (`user_id`),
   CONSTRAINT `user_verification_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -264,4 +264,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-18 17:43:04
+-- Dump completed on 2023-11-03 10:17:11
