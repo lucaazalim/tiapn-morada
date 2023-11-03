@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciamento de Pagamentos</title>
+    <script src="https://kit.fontawesome.com/86ad24bcb9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/style/custom_bootstrap.css" />
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/assets/style/style.css" />
+</head>
+
+<body>
+    <div id="header" class="mb-4"></div>
+    <div class="container">
+        <h1>Reajustar Valor de Aluguel</h1>
+        <h5>Selecione o imóvel e insira o valor do aluguel.</h5>
+        <hr />
+
+        <div class="container">
+            <form class="border p-3 d-flex flex-column rounded mb-4">
+                <div class="mb-3 d-none">
+                    <label for="TipoPagamento" class="form-label">Tipo de Pagamento</label>
+                    <select class="form-select" id="TipoPagamento">
+                        <option value="aluguel" selected>Aluguel</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="ImovelPagamento" class="form-label">Selecione o Imóvel</label>
+                    <select class="form-select" id="ImovelPagamento">
+                        <option value="1">R. Pernambuco, 881 - Funcionários</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="ValorAluguel" class="form-label">Valor do Aluguel</label>
+                    <input type="number" class="form-control" id="ValorAluguel" placeholder="Valor do Aluguel R$:">
+                </div>
+                
+                <div class="d-flex justify-content-between">
+                    <button type="button" id="cancelarButton" class="btn btn-danger">Cancelar</button>
+                    <button type="button" id="enviarButton" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+</body>
+
+<script type="module" src="../../../assets/script/script.js"></script>
+<script type="module" src="script.js"></script>
+</html>

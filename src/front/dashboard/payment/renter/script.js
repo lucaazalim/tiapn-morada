@@ -1,25 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
     const enviarButton = document.querySelector('#enviarButton');
-    const aprovarButton = document.querySelector('#aprovarButton');
-    const rejeitarButton = document.querySelector('#rejeitarButton');
+    const cancelarButton = document.querySelector('#cancelarButton');
+    const imovelPagamentoSelect = document.querySelector('#ImovelPagamento');
+    const mesPagamentoSelect = document.querySelector('#MesPagamento');
+    const anoPagamentoSelect = document.querySelector('#AnoPagamento');
 
     if (enviarButton) {
         enviarButton.addEventListener('click', function () {
-            alert('Aviso de pagamento do aluguel criado!');
+            const imovelSelecionado = imovelPagamentoSelect.options[imovelPagamentoSelect.selectedIndex].text;
+            const mesPagamento = mesPagamentoSelect.options[mesPagamentoSelect.selectedIndex].text;
+            const anoPagamento = anoPagamentoSelect.value;
+            alert(`Aviso de pagamento do aluguel do imóvel ${imovelSelecionado} para ${mesPagamento} de ${anoPagamento} criado!`);
         });
     }
-
-    if (aprovarButton) {
-        aprovarButton.addEventListener('click', function () {
-            alert('Pagamento do aluguel aprovado!');
-        });
-    }
-
-    if (rejeitarButton) {
-        rejeitarButton.addEventListener('click', function () {
-            alert('Pagamento do aluguel rejeitado!');
-        });
-    }
+    
     if (cancelarButton) {
         cancelarButton.addEventListener('click', function () {
             alert('Aviso de pagamento cancelado!');
