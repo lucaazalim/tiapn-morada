@@ -27,10 +27,13 @@
 | PUT    | `/offers/{id}`               | 4        | Atualizar uma proposta pelo ID.                                    |
 | GET    | `/offers/owner`              | 4        | Consultar propostas recebidas pelo usuário logado.                 |
 | GET    | `/offers/renter`             | 4        | Consultar as propostas realizadas pelo usuário logado.             |
-| POST   | `/rentals`                   | 5        | Criar um novo aluguel.                                             |
-| GET    | `/rentals/{id}`              | 5        | Consultar um aluguel pelo ID.                                      |
-| PUT    | `/rentals/{id}`              | 5        | Atualizar um aluguel pelo ID.                                      |
-| GET    | `/rentals/user`              | 5        | Consultar todos os alugueis de um usuário.                         |
+| POST   | `/rentals`                   | 4        | Criar um novo aluguel.                                             |
+| GET    | `/rentals/{id}`              | 4        | Consultar um aluguel pelo ID.                                      |
+| PUT    | `/rentals/{id}`              | 4        | Atualizar um aluguel pelo ID.                                      |
+| GET    | `/rentals/user`              | 4        | Consultar todos os alugueis de um usuário.                         |
+| POST   | `/payments`                  | 5        | Criar um novo pagamento.                                           |
+| GET    | `/payments/{id}`             | 5        | Consultar pagamento pelo ID.                                       |
+| PUT    | `/payments/{id}`             | 5        | Atualizar pagamento pelo ID.                                       |
 | POST   | `/renegotiations`            | 6        | Criar nova renegociação de valor do aluguel.                       |
 | GET    | `/renegotiations/{id}`       | 6        | Consultar uma renegociação pelo ID.                                |
 | PUT    | `/renegotiations/{id}`       | 6        | Atualizar uma renegociação pelo ID.                                |
