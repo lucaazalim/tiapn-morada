@@ -95,7 +95,6 @@ function loadMenu() {
                                 <li><a class="dropdown-item" href="/dashboard/property/owner">Seus Imóveis</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/visit/owner">Visitas Agendadas</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/offer/owner">Propostas Recebidas</a></li>
-                                <li><a class="dropdown-item" href="/dashboard/renegotiation/owner">Renegociações</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">

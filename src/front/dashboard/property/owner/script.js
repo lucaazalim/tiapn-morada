@@ -20,13 +20,14 @@ function loadProperties() {
                 let currentRentalId = 1; // TODO: pegar o id do aluguel
                 let options = "";
 
-                if (currentRentalId) { // TODO: verificar se o imóvel está alugado
+                if (currentRentalId) {
                     options += /*html*/ `
                         <button type="button" class="btn btn-outline-primary" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa-solid fa-ellipsis"></i>
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/dashboard/payment/owner?id=${currentRentalId}">Pagamentos</a>
+                            <a class="dropdown-item" href="/dashboard/renegotiation/owner?id=${currentRentalId}">Renegociações</a>
                             <a class="dropdown-item" href="/dashboard/renegotiation/create?id=${currentRentalId}">Renegociar do valor do aluguel</a>
                             <a class="dropdown-item" href="/dashboard/termination/create?id=${currentRentalId}">Rescindir contrato de aluguel</a>
                         </div>
