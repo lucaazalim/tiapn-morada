@@ -26,7 +26,7 @@
         <hr />
 
         <div class="content">
-            <div class="row d-flex justify-content-center flex-wrap">
+            <form id="formOffer" class="row d-flex justify-content-center flex-wrap">
                 <div class="col" id="cardContainer"></div>
                 <div class="col d-flex flex-column justify-content-center">
                     <form class="h-auto border p-3 d-flex flex-column rounded">
@@ -35,20 +35,20 @@
                             <input type="text" class="form-control" id="ValorSugerido" disabled>
                         </div>
                         <div class="mb-3">
-                            <label for="ValorDaProposta" class="form-label">Valor da proposta</label>
-                            <input type="text" class="form-control" id="ValorDaProposta">
+                            <label for="proposalValue" class="form-label">Valor da proposta</label>
+                            <input type="text" class="form-control" id="proposalValue">
                         </div>
                         <div class="row">
                             <div class="col d-flex justify-content-center">
-                                <button type="button" class="btn btn-danger">Cancelar</button>
+                                <button  id="btnCancel" class="btn btn-danger">Cancelar</button>
                             </div>
                             <div class="col d-flex justify-content-center">
-                                <button type="button" class="btn btn-success">Enviar</button>
+                                <button type="submit" id="btnSend" class="btn btn-success">Enviar</button>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
+            </form>
         </div>
 
     </div>

@@ -1,37 +1,77 @@
-import getPropertyCard from "./card.js";
+import getPropertyCard from "../../../../assets/components/property-card.js";
+import * as API from '../../../../assets/script/api.js'
+import * as Alert from '../../../../assets/script/alert.js'
 
 const cardContainer = document.getElementById("cardContainer");
 
-const properties = {
-  id: 1,
-  photoBase64:
-    "https://projetaronline.com/wp-content/uploads/2022/11/casa-pequena-planta-baixa-0.png",
-  type: "apartment",
-  street: "123 Main St",
-  neighborhood: "Downtown",
-  rentValue: 1500,
-  condominiumFee: 300,
-  iptuValue: 100,
-  label: "teste",
-};
+const urlParams = new URLSearchParams(window.location.search);
 
-cardContainer.innerHTML = getPropertyCard(properties);
+let id = urlParams.get('id');
 
-// const valorSugerido = document.getElementById("valorSugerido");
-ValorSugerido.value = `R$${properties.rentValue}`;
+API.get(`properties/` + id)
+  .then(response =>{
+    
+    if(!response.ok){
+      Alert.alert("Não foi possivel realizar uma proposta para este imóvel.", "danger", "default", 0);
+      throw new Error("Unable to retrieve property");
+    }
 
-ValorDaProposta.value = "R$";
-const valorDaPropostaInput = document.getElementById("ValorDaProposta");
-valorDaPropostaInput.addEventListener("input", () => {
-  let inputValue = valorDaPropostaInput.value;
+    return response.json();
 
-  inputValue = inputValue.replace(/\D/g, "");
+  })
+  .then(property => {
+    
+    cardContainer.innerHTML = getPropertyCard(property);
 
-  inputValue = parseFloat(inputValue);
-  inputValue = isNaN(inputValue) ? 0 : inputValue;
+    console.log(property.rentValue.toString())
 
-  inputValue = (inputValue / 100).toFixed(2);
-  inputValue = `R$${inputValue}`;
+    let valorSugerido = document.getElementById("ValorSugerido");
+    console.log(valorSugerido.value)
+    if(valorSugerido){
+      valorSugerido.value = `R$${property.rentValue.toString()}`;
+    }
 
-  valorDaPropostaInput.value = inputValue;
-});
+  })
+
+
+ const valorDaPropostaInput = document.getElementById("proposalValue");
+ valorDaPropostaInput.value = "R$";
+ valorDaPropostaInput.addEventListener("input", () => {
+ let inputValue = valorDaPropostaInput.value;
+
+ inputValue = inputValue.replace(/\D/g, "");
+
+ inputValue = parseFloat(inputValue);
+ inputValue = isNaN(inputValue) ? 0 : inputValue;
+
+ inputValue = (inputValue / 100).toFixed(2);
+ inputValue = `R$${inputValue}`;
+
+ valorDaPropostaInput.value = inputValue;
+ });
+
+const btnSend = document.getElementById("btnSend");
+const btnCancel = document.getElementById("btnCancel")
+
+btnCancel.addEventListener("click", () =>{
+  window.location.href = `/property/?id=${id}`;
+})
+
+document.getElementById("formOffer").addEventListener("submit", (event) =>{
+  
+  event.preventDefault();
+
+  const proposalValue = document.getElementById("proposalValue").value;
+
+  API.post('offer', {
+    proposalValue
+  })
+    .then(response => {
+      if(response.status == 201){
+        // window.location.href = "/dashboard/offer/owner"
+      }else{
+        let data = response.json();
+        Alert.alert(data.message, "danger")
+      }
+    })
+})
