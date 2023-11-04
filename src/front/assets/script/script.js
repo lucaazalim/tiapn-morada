@@ -2,15 +2,15 @@ import * as API from './api.js';
 
 let pathname = window.location.pathname;
 
-if (pathname.startsWith("/dashboard/")) {
-    if (!API.isAuthenticated()) {
-        window.location.href = "/login";
-    }
-} else if (pathname.startsWith("/login/") || pathname.startsWith("/register/")) {
-    if (API.isAuthenticated()) {
-        window.location.href = "/dashboard";
-    }
-}
+// if (pathname.startsWith("/dashboard/")) {
+//     if (!API.isAuthenticated()) {
+//         window.location.href = "/login";
+//     }
+// } else if (pathname.startsWith("/login/") || pathname.startsWith("/register/")) {
+//     if (API.isAuthenticated()) {
+//         window.location.href = "/dashboard";
+//     }
+// }
 
 window.logout = function () {
     API.setAuthenticated(null);
@@ -47,9 +47,9 @@ function loadHeader() {
 
     document.getElementById("header").innerHTML = headerHtml;
 
-    if (API.isAuthenticated()) {
+    // if (API.isAuthenticated()) {
         loadMenu();
-    }
+    // }
 
 }
 
