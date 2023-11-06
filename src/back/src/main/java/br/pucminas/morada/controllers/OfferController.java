@@ -7,7 +7,6 @@ import org.hibernate.sql.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +32,30 @@ public class OfferController {
     @Autowired
     private OfferServices offerServices;
 
+    @PostMapping
+        public ResponseEntity<Void> create(@Valid @RequestBody OfferCreateDTO offerCreateDTO){
+            
+            Offer offer = offerCreateDTO.toEntity(Offer.class);
+            this.offerServices.create(offer);
+
+            URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(offer.getId())
+                .toUri();
+
+            return ResponseEntity.created(uri).build();
+
+        }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(
+        @Valid @RequestBody OfferUpdateDTO offerUpdateDTO, 
+        @PathVariable Long id
+    ){
+        this.offerServices.update(id, offerUpdateDTO.toEntity(Offer.class));
+        return ResponseEntity.noContent().build();
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Offer> findById(@PathVariable Long id) {
         Offer offer = this.offerServices.findById(id);
@@ -45,29 +68,8 @@ public class OfferController {
         return ResponseEntity.ok().body(offer);
     }
 
-    @PostMapping
-    public ResponseEntity<Void> create(@Valid @RequestBody OfferCreateDTO offerCreateDTO){
-        
-        Offer offer = offerCreateDTO.toEntity(Offer.class);
-        Offer newOffer = this.offerServices.create(offer);
+    
 
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-            .path("/{id}")
-            .buildAndExpand(newOffer.getId())
-            .toUri();
 
-        return ResponseEntity.created(uri).build();
-
-    }
-
-    @PutMapping("/{id}")
-    @Validated
-    public ResponseEntity<Void> update(
-        @Valid @RequestBody OfferUpdateDTO offerUpdateDTO, 
-        @PathVariable Long id
-        ){
-        this.offerServices.update(id, offerUpdateDTO.toEntity(Offer.class));
-        return ResponseEntity.noContent().build();
-    }
 
 }

@@ -13,6 +13,8 @@ import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 
 import java.math.BigDecimal;
@@ -21,13 +23,12 @@ import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
 @Table(name = "offer")
 public class Offer {
 
-    public interface CreateOffer {}
+    // public interface CreateOffer {}
 
-    public interface UpdateOffer {}
+    // public interface UpdateOffer {}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,24 +36,23 @@ public class Offer {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false, updatable = false)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "property_id")
+    @JoinColumn(name = "property_id", nullable = false, updatable = false)
     private Property property;
 
     @Column(name = "rent_value")
     private BigDecimal rentValue;
 
+    @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
     private OfferStatus status = OfferStatus.PENDING_APPROVAL;
 
+    @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
-    public OfferDTO toDTO() {
-        return Constants.OBJECT_MAPPER.convertValue(this, OfferDTO.class);
-    }
 
 }

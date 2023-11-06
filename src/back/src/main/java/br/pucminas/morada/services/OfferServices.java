@@ -25,10 +25,31 @@ import java.util.Optional;
 public class OfferServices {
 
     @Autowired
-    OfferRepository offerRepository;
+    private OfferRepository offerRepository;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
+
+    @Transactional
+    public Offer create(Offer offer){
+            
+        User user = this.userService.findById(UserService.getAuthenticatedUser().getId());
+        
+        offer.setId(null);
+        offer.setUser(user);
+
+        return this.offerRepository.save(offer);
+
+    }  
+
+    @Transactional
+    public Offer update(Long id,Offer offer){
+        Offer offerFound = this.findById(id);
+        offerFound.setStatus(offer.getStatus());
+
+        return this.offerRepository.save(offerFound);
+    }
+
 
     public Offer findById(Long id) {
         Optional<Offer> optionalOffer = this.offerRepository.findById(id);
@@ -64,26 +85,11 @@ public class OfferServices {
 
     }
 
-    public List<Offer> findAll(Specification<Offer> specification) {
-        return this.offerRepository.findAll(specification);
-    }
+    // public List<Offer> findAll(Specification<Offer> specification) {
+    //     return this.offerRepository.findAll(specification);
+    // }
 
-    @Transactional
-    public Offer create(Offer offer){
-        
-        User user = this.userService.findById(UserService.getAuthenticatedUser().getId());
-        offer.setUser(user);
+    
 
-        return this.offerRepository.save(offer);
-
-    }
-
-    @Transactional
-    public Offer update(Long id,Offer offer){
-        Offer offerFound = this.findById(id);
-        offerFound.setStatus(offer.getStatus());
-
-        return this.offerRepository.save(offerFound);
-    }
 
 }
