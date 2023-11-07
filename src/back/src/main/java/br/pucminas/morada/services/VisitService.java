@@ -5,11 +5,9 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import br.pucminas.morada.models.property.Property;
 import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user.UserRole;
 import br.pucminas.morada.models.visit.Visit;
-import br.pucminas.morada.repositories.UserRepository;
 import br.pucminas.morada.repositories.VisitRepository;
 import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.exceptions.AuthorizationException;
@@ -19,35 +17,35 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-
 //* service - camada de negócios: favorece a reusabilidade
 
 @Service
 public class VisitService {
-    
+
     @Autowired
     private VisitRepository visitRepository;
 
     @Autowired
     private UserService userService;
 
-    public Visit findById(Long id){
+    public Visit findById(Long id) {
         Optional<Visit> optionalVisit = this.visitRepository.findById(id);
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
-        
+
         if (optionalVisit.isEmpty()) {
             if (userSpringSecurity != null && userSpringSecurity.hasRole(UserRole.ADMIN)) {
                 throw new GenericException(HttpStatus.NOT_FOUND, "Visita não encontrada.");
             }
         } else {
             Visit visit = optionalVisit.get();
-            if (userSpringSecurity != null && (userSpringSecurity.hasRole(UserRole.ADMIN) || visit.getUser().getId().equals(userSpringSecurity.getId()))) {
+            if (userSpringSecurity != null && (userSpringSecurity.hasRole(UserRole.ADMIN)
+                    || visit.getUser().getId().equals(userSpringSecurity.getId()))) {
                 return visit;
             }
         }
         throw new AuthorizationException();
     }
-    
+
     public List<Visit> findAllByUser() {
 
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
@@ -55,9 +53,9 @@ public class VisitService {
 
     }
 
-    public List<Visit> findAllVisitsInProperty(){        
+    public List<Visit> findAllVisitsInProperty() {
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
-        if(userSpringSecurity != null)
+        if (userSpringSecurity != null)
             return this.visitRepository.findAllVisitsInProperty(userSpringSecurity.getId());
         else
             throw new AuthorizationException();
@@ -70,7 +68,7 @@ public class VisitService {
     }
 
     @Transactional
-    public Visit create(Visit visit){
+    public Visit create(Visit visit) {
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
         User user = this.userService.findById(userSpringSecurity.getId());
         visit.setId(null);
@@ -80,18 +78,18 @@ public class VisitService {
     }
 
     @Transactional
-    public Visit update(Visit visit){
-        Visit newVisit = findById(visit.getId());
-        newVisit.setDatetime(visit.getDatetime());
-        newVisit.setCariedOut(visit.getCariedOut());
+    public Visit update(Long id, Visit visit) {
+        Visit visitFound = this.findById(id);
+        visitFound.setDatetime(visit.getDatetime());
+        visitFound.setCariedOut(visit.getCariedOut());
 
-        return this.visitRepository.save(newVisit);
+        return this.visitRepository.save(visitFound);
     }
 
     @Transactional
-    public void delete(Long id){
+    public void delete(Long id) {
         findById(id);
         this.visitRepository.deleteById(id);
     }
-    
+
 }

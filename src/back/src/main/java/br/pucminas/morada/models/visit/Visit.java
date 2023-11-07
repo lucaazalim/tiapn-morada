@@ -15,15 +15,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-
 @Entity
 @Data //lombok
 @Table(name = "visit")
 public class Visit {
-
-    public interface CreateVisit {} //!
-    public interface UpdateVisit{}  //!
+    //public interface CreateVisit {}
+    //public interface UpdateVisit{} 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +36,7 @@ public class Visit {
     private User user;
 
     @Column(name = "datetime")
-    @NotNull (groups = UpdateVisit.class)
+    @NotNull //(groups = UpdateVisit.class)
     private LocalDateTime datetime;
 
     @Column(name = "carried_out")
