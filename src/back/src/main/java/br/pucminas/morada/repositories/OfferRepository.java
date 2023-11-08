@@ -11,7 +11,7 @@ import java.util.List;
 import br.pucminas.morada.models.offer.Offer;
 
 @Repository
-public interface OfferRepository extends JpaRepository<Offer, Long>, JpaSpecificationExecutor<Offer> {
+public interface OfferRepository extends JpaRepository<Offer, Long>{
 
     List<Offer> findByUser_Id(Long userId);
 
