@@ -64,19 +64,31 @@ public class VisitService {
 
     @Transactional
     public Visit create(Visit visit) {
-        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
-        User user = this.userService.findById(userSpringSecurity.getId());
+        //UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
+        User user = this.userService.findById(UserService.getAuthenticatedUser().getId());
         visit.setId(null);
         visit.setUser(user);
-        visit = this.visitRepository.save(visit);
-        return visit;
+        return this.visitRepository.save(visit);
     }
 
     @Transactional
-    public Visit update(Long id, Visit visit) {
+    public Visit update(Long id, Visit visit) {   
+
         Visit visitFound = this.findById(id);
-        visitFound.setDatetime(visit.getDatetime());
-        visitFound.setCariedOut(visit.getCariedOut());
+        if(visit.getDatetime() != null)
+            visitFound.setDatetime(visit.getDatetime());
+        
+        if(visit.getCarriedOut() != null)
+            visitFound.setCarriedOut(visit.getCarriedOut());
+
+        if(visit.getVisitRating() != null)
+            visitFound.setVisitRating(visit.getVisitRating());
+
+        if(visit.getPropertyRating() != null)
+            visitFound.setPropertyRating(visit.getPropertyRating());
+
+        if(!visit.getComments().equals(null))
+            visitFound.setComments(visit.getComments());
 
         return this.visitRepository.save(visitFound);
     }

@@ -8,8 +8,8 @@ import io.micrometer.common.lang.Nullable;
 
 public record VisitUpdateDTO(
     Long id,
-    LocalDateTime datetime,
-    Boolean carriedOut,
+    @Nullable LocalDateTime datetime,
+    @Nullable Boolean carriedOut,
     @Nullable Boolean visitRating,
     @Nullable Boolean propertyRating,
     @Nullable String comments

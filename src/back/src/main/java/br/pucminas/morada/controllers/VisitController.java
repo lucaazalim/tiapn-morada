@@ -64,14 +64,11 @@ public class VisitController {
         return ResponseEntity.created(uri).build();
     }
 
-    //Para cancelamento de visita ou para o incremento de avaliações sobre a visita
-    //todo: verificar logica de update em VisitService e no VisitUpdateDTO
+    //*PUT para cancelamento de visita ou para o acréscimo de avaliações sobre a visita
     @PutMapping("/{id}")
-    public ResponseEntity<Void> update(@Valid @RequestBody VisitUpdateDTO visitUpdateDTO, @PathVariable Long id) {
+    public ResponseEntity<Void> update(
+        @Valid @RequestBody VisitUpdateDTO visitUpdateDTO, @PathVariable Long id) {
         this.visitService.update(id, visitUpdateDTO.toEntity(Visit.class));
         return ResponseEntity.noContent().build();
     }
-    //Pois há diversos tipos de update: somente da data ou somente das avaliações.
-    //todo: ^^ verificar necessidade de dois métodos 
-
 }

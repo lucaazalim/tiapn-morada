@@ -38,7 +38,7 @@ public class Visit {
     private LocalDateTime datetime;
 
     @Column(name = "carried_out")
-    private Boolean cariedOut;
+    private Boolean carriedOut;
 
     @Column(name = "visit_rating")
     private Boolean visitRating;
