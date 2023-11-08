@@ -16,7 +16,6 @@ import jakarta.transaction.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-
 //* service - camada de negócios: favorece a reusabilidade
 
 @Service
@@ -47,24 +46,20 @@ public class VisitService {
     }
 
     public List<Visit> findAllByUser() {
-
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
         return this.visitRepository.findByUser_Id(userSpringSecurity.getId());
-
     }
 
-    public List<Visit> findAllVisitsInProperty() {
+    public List<Visit> findAllOfOwner() {
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
         if (userSpringSecurity != null)
-            return this.visitRepository.findAllVisitsInProperty(userSpringSecurity.getId());
+            return this.visitRepository.findAllOfOwner_Id(userSpringSecurity.getId());
         else
             throw new AuthorizationException();
     }
 
     public List<Visit> findAll(Specification<Visit> specification) {
-
         return this.visitRepository.findAll(specification);
-
     }
 
     @Transactional

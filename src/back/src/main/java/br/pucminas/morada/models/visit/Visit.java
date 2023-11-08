@@ -19,8 +19,6 @@ import lombok.Setter;
 @Data //lombok
 @Table(name = "visit")
 public class Visit {
-    //public interface CreateVisit {}
-    //public interface UpdateVisit{} 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +34,7 @@ public class Visit {
     private User user;
 
     @Column(name = "datetime")
-    @NotNull //(groups = UpdateVisit.class)
+    @NotNull
     private LocalDateTime datetime;
 
     @Column(name = "carried_out")

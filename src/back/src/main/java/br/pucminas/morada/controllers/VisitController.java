@@ -22,7 +22,6 @@ import br.pucminas.morada.models.visit.dto.VisitUpdateDTO;
 import br.pucminas.morada.services.VisitService;
 import jakarta.validation.Valid;
 
-
 @RestController
 @RequestMapping("/visits")
 @Validated
@@ -31,23 +30,18 @@ public class VisitController {
     @Autowired
     private VisitService visitService;
 
-    //Consultar uma visita pelo ID.
     @GetMapping("/{id}")
     public ResponseEntity<Visit> findById(@PathVariable Long id) {
         Visit visit = this.visitService.findById(id);
         return ResponseEntity.ok(visit);
     }
 
-    //Consultar visitas agendadas em todos os imóveis de usuário o qual encontra-se logado.
-    //todo: ajustar todo o corpo, pois aqui está para uma unica propriedade
     @GetMapping("/owner") 
-    public ResponseEntity<List<Visit>> findAllVisitsInProperty(){ //todo: in properties  //todo: ajustar todo o corpo, pois aqui está para uma unica propriedade
-        List<Visit> visits = this.visitService.findAllVisitsInProperty();
+    public ResponseEntity<List<Visit>> findAllOfOwner(){
+        List<Visit> visits = this.visitService.findAllOfOwner();
         return ResponseEntity.ok(visits);
     }
 
-    //Consultar visitas agendadas pelo usuário logado
-    //todo: ajustar o corpo e lógica abaixo
     @GetMapping("/renter")
     public ResponseEntity<List<Visit>> findAllByUser(){
         List<Visit> visits = this.visitService.findAllByUser();
@@ -69,7 +63,6 @@ public class VisitController {
 
         return ResponseEntity.created(uri).build();
     }
-
 
     //Para cancelamento de visita ou para o incremento de avaliações sobre a visita
     //todo: verificar logica de update em VisitService e no VisitUpdateDTO
