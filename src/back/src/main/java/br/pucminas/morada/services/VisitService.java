@@ -62,19 +62,14 @@ public class VisitService {
         return this.visitRepository.findAll(specification);
     }
 
-    @Transactional
+    /*@Transactional
     public Visit create(Visit visit) {
         //UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
         User user = this.userService.findById(UserService.getAuthenticatedUser().getId());
         visit.setId(null);
         visit.setUser(user);
         return this.visitRepository.save(visit);
-    }
-
-
-
-
-
+    }*/
 
     @Transactional
     public Visit update(Long id, Visit visit) {   
@@ -102,6 +97,11 @@ public class VisitService {
     public void delete(Long id) {
         findById(id);
         this.visitRepository.deleteById(id);
+    }
+
+    @Transactional
+    public Visit save(Visit visit){
+        return visitRepository.save(visit);
     }
 
 }

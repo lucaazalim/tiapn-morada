@@ -12,13 +12,15 @@ import br.pucminas.morada.models.visit.dto.VisitDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Data //lombok
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "visit")
@@ -55,9 +57,6 @@ public class Visit {
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
-
-    //@JsonProperty(access = Access.WRITE_ONLY) --> passa no req e não retorna no json res
-    //@JsonProperty(access = Access.READ_ONLY) 
 
     public VisitDTO toDTO() {
         return Constants.OBJECT_MAPPER.convertValue(this, VisitDTO.class);
