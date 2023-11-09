@@ -10,12 +10,14 @@ import io.micrometer.common.lang.Nullable;
 import jakarta.validation.constraints.*;
 
 public record VisitCreateDTO(
-    @NotBlank LocalDateTime datetime,
-    @NotEmpty Boolean carriedOut,
+    Long propertyId,
+    Long userId,
+    LocalDateTime datetime, //notBlank
+    Boolean carriedOut,
     @Nullable Boolean visitRating,
     @Nullable Boolean propertyRating,
-    @Nullable String comments,
-    @NotBlank LocalDateTime createdAt
+    @Nullable String comments
+    //@NotBlank LocalDateTime createdAt
 )implements DTO<Visit> {}
 
 

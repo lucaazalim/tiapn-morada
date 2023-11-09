@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -51,7 +52,7 @@ public class VisitController {
     //Criar uma nova visita. (no imóvel específico)
     //todo: verificar lógica corpo: id usuário e id property
     @PostMapping
-    public ResponseEntity<Void> create(@Valid @RequestBody VisitCreateDTO visitCreateDTO) {
+    public ResponseEntity create(@Valid @RequestBody VisitCreateDTO visitCreateDTO) {
 
         Visit visit = visitCreateDTO.toEntity(Visit.class);
         Visit newVisit = this.visitService.create(visit);
@@ -61,7 +62,8 @@ public class VisitController {
                 .buildAndExpand(newVisit.getId())
                 .toUri();
 
-        return ResponseEntity.created(uri).build();
+        //return ResponseEntity.created(uri).build();
+        return new ResponseEntity(newVisit, HttpStatus.CREATED);
     }
 
     //*PUT para cancelamento de visita ou para o acréscimo de avaliações sobre a visita
