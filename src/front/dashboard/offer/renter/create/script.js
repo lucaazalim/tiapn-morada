@@ -66,14 +66,10 @@ document.getElementById("formOffer").addEventListener("submit", (event) => {
   const proposalValue = document.getElementById("proposalValue").value;
 
   API.post("offer", {
-    userId: dados.user.id,
-    property_id: dados.id,
+    property_id: id,
     rentValue: proposalValue,
-    status: "PENDING",
-    created_at: new Date()
   }).then((response) => {
     if (response.status == 201) {
-      // window.location.href = "/dashboard/offer/owner"
     } else {
       response.json().then((data) =>{
         console.log("data" + data);

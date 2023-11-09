@@ -10,6 +10,9 @@ public record OfferCreateDTO(
 
         @NotNull 
         BigDecimal rentValue
+,
+        @NotNull
+        Long property_id
 
 ) implements DTO<Offer> {
 }
