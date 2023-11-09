@@ -3,7 +3,6 @@ package br.pucminas.morada.controllers;
 import java.net.URI;
 import java.util.List;
 
-import org.hibernate.sql.Update;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -20,56 +19,53 @@ import br.pucminas.morada.models.offer.Offer;
 import br.pucminas.morada.models.offer.dto.OfferCreateDTO;
 import br.pucminas.morada.models.offer.dto.OfferUpdateDTO;
 
-import br.pucminas.morada.services.OfferServices;
+import br.pucminas.morada.services.OfferService;
 
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/offer")
+@RequestMapping("/offers")
 @Validated
 public class OfferController {
 
     @Autowired
-    private OfferServices offerServices;
+    private OfferService offerService;
 
     @PostMapping
-        public ResponseEntity<Void> create(@Valid @RequestBody OfferCreateDTO offerCreateDTO){
-            
-            Offer offer = offerCreateDTO.toEntity(Offer.class);
-            this.offerServices.create(offer);
+    public ResponseEntity<Void> create(@Valid @RequestBody OfferCreateDTO offerCreateDTO) {
 
-            URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+        Offer offer = offerCreateDTO.toEntity(Offer.class);
+        this.offerService.create(offer);
+
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(offer.getId())
                 .toUri();
 
-            return ResponseEntity.created(uri).build();
+        return ResponseEntity.created(uri).build();
 
-        }
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> update(
-        @Valid @RequestBody OfferUpdateDTO offerUpdateDTO, 
-        @PathVariable Long id
-    ){
-        this.offerServices.update(id, offerUpdateDTO.toEntity(Offer.class));
+            @Valid @RequestBody OfferUpdateDTO offerUpdateDTO,
+            @PathVariable Long id
+    ) {
+        this.offerService.update(id, offerUpdateDTO.toEntity(Offer.class));
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Offer> findById(@PathVariable Long id) {
-        Offer offer = this.offerServices.findById(id);
+        Offer offer = this.offerService.findById(id);
         return ResponseEntity.ok().body(offer);
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<Offer>> findAllByUser() {
-        List<Offer> offer = this.offerServices.findAllByUser();
+        List<Offer> offer = this.offerService.findAllByUser();
         return ResponseEntity.ok().body(offer);
     }
-
-    
-
 
 
 }

@@ -1,18 +1,13 @@
 package br.pucminas.morada.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import br.pucminas.morada.models.offer.Offer;
-import br.pucminas.morada.models.property.Property;
 import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user.UserRole;
-import br.pucminas.morada.models.visit.Visit;
 import br.pucminas.morada.repositories.OfferRepository;
-import br.pucminas.morada.repositories.UserRepository;
-import br.pucminas.morada.repositories.VisitRepository;
 import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.exceptions.AuthorizationException;
 import br.pucminas.morada.services.exceptions.GenericException;
@@ -22,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class OfferServices {
+public class OfferService {
 
     @Autowired
     private OfferRepository offerRepository;
@@ -35,7 +30,6 @@ public class OfferServices {
             
         User user = this.userService.findById(UserService.getAuthenticatedUser().getId());
         
-        offer.setId(null);
         offer.setUser(user);
 
         return this.offerRepository.save(offer);
