@@ -3,7 +3,12 @@ package br.pucminas.morada.controllers;
 import java.net.URI;
 import java.util.List;
 
+import br.pucminas.morada.models.offer.dto.OfferDTO;
+import br.pucminas.morada.models.property.Property;
+import br.pucminas.morada.services.PropertyService;
+import br.pucminas.morada.services.exceptions.GenericException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,7 +40,7 @@ public class OfferController {
     public ResponseEntity<Void> create(@Valid @RequestBody OfferCreateDTO offerCreateDTO) {
 
         Offer offer = offerCreateDTO.toEntity(Offer.class);
-        this.offerService.create(offer);
+        this.offerService.create(offer, offerCreateDTO.propertyId());
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
@@ -56,15 +61,15 @@ public class OfferController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Offer> findById(@PathVariable Long id) {
+    public ResponseEntity<OfferDTO> findById(@PathVariable Long id) {
         Offer offer = this.offerService.findById(id);
-        return ResponseEntity.ok().body(offer);
+        return ResponseEntity.ok().body(offer.toDTO());
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Offer>> findAllByUser() {
+    public ResponseEntity<List<OfferDTO>> findAllByUser() {
         List<Offer> offer = this.offerService.findAllByUser();
-        return ResponseEntity.ok().body(offer);
+        return ResponseEntity.ok().body(offer.stream().map(Offer::toDTO).toList());
     }
 
 

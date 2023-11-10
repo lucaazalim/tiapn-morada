@@ -2,9 +2,9 @@ package br.pucminas.morada.models.offer.dto;
 
 import br.pucminas.morada.models.DTO;
 import br.pucminas.morada.models.offer.Offer;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
-
 
 public record OfferCreateDTO(
 
@@ -12,7 +12,7 @@ public record OfferCreateDTO(
         BigDecimal rentValue
 ,
         @NotNull
-        Long property_id
+        Long propertyId
 
 ) implements DTO<Offer> {
 }

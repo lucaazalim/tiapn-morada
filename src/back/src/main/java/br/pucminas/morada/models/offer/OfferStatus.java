@@ -2,7 +2,7 @@ package br.pucminas.morada.models.offer;
 
 public enum OfferStatus {
 
-    PENDING_APPROVAL,
+    PENDING,
     APROVED,
     REJECTED;
     

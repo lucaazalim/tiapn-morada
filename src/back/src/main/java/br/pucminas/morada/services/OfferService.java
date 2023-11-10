@@ -1,5 +1,6 @@
 package br.pucminas.morada.services;
 
+import br.pucminas.morada.models.property.Property;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -23,13 +24,18 @@ public class OfferService {
     private OfferRepository offerRepository;
 
     @Autowired
+    private PropertyService propertyService;
+
+    @Autowired
     private UserService userService;
 
     @Transactional
-    public Offer create(Offer offer){
-            
+    public Offer create(Offer offer, Long propertyId){
+
+        Property property = this.propertyService.findById(propertyId);
         User user = this.userService.findById(UserService.getAuthenticatedUser().getId());
-        
+
+        offer.setProperty(property);
         offer.setUser(user);
 
         return this.offerRepository.save(offer);
