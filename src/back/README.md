@@ -27,7 +27,6 @@
 | PUT    | `/offers/{id}`               | 4        | Atualizar uma proposta pelo ID.                                    |
 | GET    | `/offers/owner`              | 4        | Consultar propostas recebidas pelo usuário logado.                 |
 | GET    | `/offers/renter`             | 4        | Consultar as propostas realizadas pelo usuário logado.             |
-| POST   | `/rentals`                   | 4        | Criar um novo aluguel.                                             |
 | GET    | `/rentals/{id}`              | 4        | Consultar um aluguel pelo ID.                                      |
 | PUT    | `/rentals/{id}`              | 4        | Atualizar um aluguel pelo ID.                                      |
 | GET    | `/rentals/user`              | 4        | Consultar todos os alugueis de um usuário.                         |
