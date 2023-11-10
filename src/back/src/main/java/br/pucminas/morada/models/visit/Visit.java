@@ -5,18 +5,24 @@ import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import br.pucminas.morada.Constants;
 import br.pucminas.morada.models.property.Property;
 import br.pucminas.morada.models.user.User;
+import br.pucminas.morada.models.visit.dto.VisitDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Data //lombok
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "visit")
 public class Visit {
 
@@ -26,7 +32,7 @@ public class Visit {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "property_id", nullable = false)
+    @JoinColumn(name = "property_id")
     private Property property;
 
     @ManyToOne
@@ -49,11 +55,12 @@ public class Visit {
     @Column(name = "comments")
     private String comments;
 
-    @Column(name = "created_at", updatable = false, nullable = false)
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
-    //@JsonProperty(access = Access.WRITE_ONLY) --> passa no req e não retorna no json res
-    //@JsonProperty(access = Access.READ_ONLY) 
+    public VisitDTO toDTO() {
+        return Constants.OBJECT_MAPPER.convertValue(this, VisitDTO.class);
+    }
     
 }
 
