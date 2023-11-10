@@ -78,15 +78,15 @@ public class PropertyController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Property> findById(@PathVariable Long id) {
+    public ResponseEntity<PropertyDTO> findById(@PathVariable Long id) {
         Property property = this.propertyService.findById(id);
-        return ResponseEntity.ok(property);
+        return ResponseEntity.ok(property.toDTO());
     }
 
     @GetMapping("/user")
-    public ResponseEntity<List<Property>> findAllByUser() {
+    public ResponseEntity<List<PropertyDTO>> findAllByUser() {
         List<Property> properties = this.propertyService.findAllByUser();
-        return ResponseEntity.ok(properties);
+        return ResponseEntity.ok(properties.stream().map(Property::toDTO).toList());
     }
 
     @PostMapping

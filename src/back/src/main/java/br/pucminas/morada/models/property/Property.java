@@ -101,7 +101,32 @@ public class Property {
     private LocalDateTime createdAt;
 
     public PropertyDTO toDTO() {
-        return Constants.OBJECT_MAPPER.convertValue(this, PropertyDTO.class);
+        return new PropertyDTO(
+                this.id,
+                this.user.getId(),
+                this.type,
+                this.zipCode,
+                this.street,
+                this.number,
+                this.complement,
+                this.neighborhood,
+                this.city,
+                this.state,
+                this.country,
+                this.description,
+                this.area,
+                this.bedrooms,
+                this.bathrooms,
+                this.garageSpaces,
+                this.acceptsPet,
+                this.furnished,
+                this.rentValue,
+                this.condominiumFee,
+                this.iptuValue,
+                this.photoBase64,
+                this.status,
+                this.createdAt
+        );
     }
 
 }
