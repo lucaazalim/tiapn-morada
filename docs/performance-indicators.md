@@ -1,22 +1,13 @@
 ## 5. Indicadores de desempenho
 
-_Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classes e no DER. Colocar no mínimo 5 indicadores._
+Foi elaborado um indicador de desempenho para cada um dos processos.
 
-Perspectivas de medidas de avaliação de desempenho de processos:
-
-* Financeira
-* Cliente
-* Aprendizado e Crescimento
-* Processos internos
-
-Veja o link [Heflo - Types of Process Performance Metrics](https://www.heflo.com/blog/business-management/process-performance-metrics/)
-
-_Usar o seguinte modelo:_
-
-| **Indicador** | **Objetivos** | **Descrição** | **Fonte dados** | **Perspectiva** |
-| ---           | ---           | ---           | ---             | ---             |
-| Percentual de reclamações | Avaliar quantitativamente as reclamações | Percentual de reclamações em relação ao total atendimento | Tabela reclamações | Aprendizado e Crescimento |
-| Taxa de Requisições abertas | Melhorar a prestação de serviços medindo a porcentagem de requisições | Mede % de requisições atendidas na semana | Tabela solicitações | Processos internos |
-| Taxa de entrega de material | Manter controle sobre os materiais que estão sendo entregues | Mede % de material entregue dentro do mês | Tabela Pedidos | Clientes |
-
-Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classes e no DER.
+| Processo | Nome                                         | Objetivo                                                                                      | Descrição                                                                                                    | Fonte de Dados                   | Perspectiva               |
+| -------- | -------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------- | ------------------------- |
+| 1        | Taxa de usuários verificados                 | Avaliar o percentual de usuários verificados                                                  | Percentual do total de usuários cadastrados nos últimos 3 meses que foram verificados                        | Tabela “user”                    | Aprendizado e Crescimento |
+| 2        | Taxa de imóveis rejeitados                   | Avaliar percentual de propriedades que violam regras e são rejeitadas                         | Percentual do total de imóveis cadastrados no último mês que foram rejeitados                                | Tabela “property”                | Processos internos        |
+| 3        | Avaliação média das visitas                  | Melhorar a qualidade do atendimento dos proprietários de imóveis durante as visitas           | Média aritmética das avaliações das visitas realizadas pelos usuários nos últimos 3 meses                    | Tabela “visit”                   | Aprendizado e Crescimento |
+| 4        | Valor médio de aluguel dos imóveis alugados  | Acompanhar os efeitos da inflação no valor médio dos alugueis                                 | Média aritmética dos valores de aluguel dos alugueis iniciados nos últimos 3 meses                           | Tabela “rental”                  | Processos internos        |
+| 5        | Taxa de inadimplência                        | Acompanhar taxa de inadimplência dos imóveis alugados                                         | Percentual dos avisos de pagamento criados nos últimos 3 meses que não foram pagos                           | Tabela “payment”                 | Financeiro                |
+| 6        | Taxa média de reajuste do valor dos alugueis | Acompanhar os efeitos da inflação nos reajustes realizados nos valores dos alugueis           | Percentual médio de reajuste de valor dos reajustes de valor de aluguel abertos nos últimos 3 meses          | Tabela “renegotiation”           | Financeiro                |
+| 7        | Taxa de rescisões preococes                  | Melhorar a taxa de rejeição dos locatários evitando rescisão precoce dos contratos de aluguel | Percentual de rescisões realizadas nos últimos 6 meses cujo período total do aluguel não ultrapassou 3 meses | Tabelas “rental” e “termination” | Aprendizado e Crescimento |
