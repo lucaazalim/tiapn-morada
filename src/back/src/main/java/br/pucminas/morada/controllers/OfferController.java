@@ -63,11 +63,13 @@ public class OfferController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/user")
-    public ResponseEntity<List<OfferDTO>> findAllOffers() {
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<OfferDTO>> findAllOffers(
+        @PathVariable Long id
+    ) {
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
         List<Offer> offers = this.offerService.findAllOffersByUserId(userSpringSecurity.getId());
-        return ResponseEntity.ok().body(offers.stream().map(Offer::toDTO).toList());
+        return ResponseEntity.ok(offers.stream().map(Offer::toDTO).toList());
     }
 
     // @GetMapping("/")

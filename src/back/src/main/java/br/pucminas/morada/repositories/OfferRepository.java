@@ -13,9 +13,9 @@ import br.pucminas.morada.models.offer.Offer;
 @Repository
 public interface OfferRepository extends JpaRepository<Offer, Long>{
 
-    List<Offer> findByUser_Id(Long userId);
+    List<Offer> findByUser_Id(Long user_id);
 
-    @Query(value = "SELECT p.photo_base64, p.streat, p.type, o.rent_value FROM offer o JOIN property p ON o.property_id = p.id WHERE p.user_id = :user_id", nativeQuery = true)
-    List<Offer> findAllOffersByUserId(@Param("userId") Long user_id);
+    @Query(value = "SELECT p.photo_base64, p.street, p.type, o.rent_value FROM offer o JOIN property p ON o.property_id = p.id WHERE p.userId = :user_id")
+    List<Offer> findAllOffersByUserId(@Param("user_id") Long user_id);
 
 }

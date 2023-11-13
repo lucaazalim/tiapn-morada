@@ -78,7 +78,7 @@ public class OfferService {
 
     }
 
-    public List<Offer> findAllOffersByUserId(@Param("user_id") Long id) {
+    public List<Offer> findAllOffersByUserId(Long user_id) {
 
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
         return this.offerRepository.findAllOffersByUserId(userSpringSecurity.getId());
