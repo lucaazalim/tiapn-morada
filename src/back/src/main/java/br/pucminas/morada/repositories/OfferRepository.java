@@ -15,7 +15,7 @@ public interface OfferRepository extends JpaRepository<Offer, Long>{
 
     List<Offer> findByUser_Id(Long userId);
 
-    @Query(value = "SELECT * FROM offer o JOIN property p ON o.property_id = p.id WHERE p.user_id = 77", nativeQuery = true)
-    List<Offer> findAllOffersInProperty(@Param("idUser") Long userId);
+    @Query(value = "SELECT p.photo_base64, p.streat, p.type, o.rent_value FROM offer o JOIN property p ON o.property_id = p.id WHERE p.user_id = :user_id", nativeQuery = true)
+    List<Offer> findAllOffersByUserId(@Param("userId") Long user_id);
 
 }
