@@ -17,6 +17,7 @@ import br.pucminas.morada.services.exceptions.GenericException;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -78,7 +79,7 @@ public class OfferService {
 
     }
 
-    public List<Offer> findAllOffersByUserId(Long user_id) {
+    public List<Map<String, Object>> findAllOffersForTheUser() {
 
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
         return this.offerRepository.findAllOffersByUserId(userSpringSecurity.getId());

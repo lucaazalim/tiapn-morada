@@ -2,6 +2,7 @@ package br.pucminas.morada.controllers;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import br.pucminas.morada.models.offer.dto.OfferDTO;
@@ -63,13 +64,10 @@ public class OfferController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/user/{id}")
-    public ResponseEntity<List<OfferDTO>> findAllOffers(
-        @PathVariable Long id
-    ) {
-        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
-        List<Offer> offers = this.offerService.findAllOffersByUserId(userSpringSecurity.getId());
-        return ResponseEntity.ok(offers.stream().map(Offer::toDTO).toList());
+    @GetMapping("/user")
+    public ResponseEntity<List<Map<String, Object>>> findAllOffers() {
+        List<Map<String, Object>> offers = this.offerService.findAllOffersForTheUser();
+        return ResponseEntity.ok(offers);
     }
 
     // @GetMapping("/")
