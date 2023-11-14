@@ -1,55 +1,49 @@
+import * as API from "../../../assets/script/api.js";
+import * as Alert from "../../../../assets/script/alert.js";
 
-const cardData = [
-    {
-        property: "Casa na Praia",
-        street: "Rua das Palmeiras, 123",
-        value: 250000,
-        imageSrc: "https://casademadeira.com.br/wp-content/uploads/2023/08/casa-de-madeira-argentina-5.jpg"
-    },
-    {
-        property: "Apartamento no Centro",
-        street: "Avenida Principal, 456",
-        value: 150000,
-        imageSrc: "https://example.com/apartment-image.jpg"
-    },
-    // Adicione mais objetos conforme necessário
-];
+let offersRecived = document.getElementById("content");
 
+API.get("offers/user")
+  .then((response) => response.json())
+  .then((offer) => {
 
-    let offersRecived = document.getElementById("content")
+    if (offer.length == 0) {
+      offersRecived.innerHTML = `<p class="text-center">Você não recebeu nenhuma proposta por seus imoveis.</p>`;
+      return;
+    }
 
-    cardData.forEach((offers)=>{
-    
-    offersRecived.innerHTML += `
-    <div class="row border roundeds w-auto p-3 m-2">
-    <div class="col-1 d-flex justify-content-center align-content-center">
-        <img class="" style="height: 12vh;" src="https://casademadeira.com.br/wp-content/uploads/2023/08/casa-de-madeira-argentina-5.jpg">
-    </div>
-    <div class="col-11">
-        <div class="d-flex flex-row justify-content-between w-100">
-            <div class="" id="dados">
-                <div>${offers.property}</div>
-                <div>${offers.street}</div>
-                <div>${formatCurrency(offers.value)}</div>
+    offer.forEach((element) => {
+      offersRecived.innerHTML += `
+        <div class="mb-3 row border rounded">
+            <div class="col-3">
+                <img style="width: 100%; height:100%; object-fit:cover;" src="${element.photo_base64}">
             </div>
-            <div id="buttons" class="col-2 d-flex flex-column text-end justify-content-around">
-                <button class="btn btn-success btn-sm">Aceitar</button>
-                <button class="btn btn-danger btn-sm">Recusar</button>
+            <div class="col-9 d-flex align-items-certer">
+                <div class="row d-flex align-items-center w-100">
+                    <div class="col-9" id="dados">
+                        <div>${element.street}</div>
+                            <div>${element.type}</div>
+                            <div>${formatCurrency(element.rent_value)}</div>
+                        </div>
+                        <div id="buttons" style="height:100%;" class="col-3 d-flex flex-column text-end justify-content-around">
+                            <button class="btn btn-success btn-sm">Aceitar</button>
+                            <button class="btn btn-danger btn-sm">Recusar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-    `
-})
-
+            </div>
+        </div>    
+            `;
+    });
+});
 
 function formatCurrency(value) {
-    return value.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    });
-  }
-
-
+  return value.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
+}

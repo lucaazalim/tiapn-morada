@@ -2,8 +2,10 @@ package br.pucminas.morada.services;
 
 import br.pucminas.morada.models.property.Property;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import br.pucminas.morada.models.offer.Offer;
 import br.pucminas.morada.models.user.User;
@@ -15,6 +17,7 @@ import br.pucminas.morada.services.exceptions.GenericException;
 import jakarta.transaction.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -76,18 +79,12 @@ public class OfferService {
 
     }
 
-    public List<Offer> findAllOffersInProperty() {
+    public List<Map<String, Object>> findAllOffersForTheUser() {
 
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
-        if (userSpringSecurity != null)
-            return this.offerRepository.findAllOffersInProperty(userSpringSecurity.getId());
-        throw new AuthorizationException();
+        return this.offerRepository.findAllOffersByUserId(userSpringSecurity.getId());
 
     }
-
-    // public List<Offer> findAll(Specification<Offer> specification) {
-    //     return this.offerRepository.findAll(specification);
-    // }
 
     
 
