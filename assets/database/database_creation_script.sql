@@ -218,7 +218,7 @@ CREATE TABLE `user_verification` (
   `identity_document_front` longtext NOT NULL,
   `identity_document_back` longtext NOT NULL,
   `admin_message` text DEFAULT NULL,
-  `status` enum('PENDING_APPROVAL','APPROVED','REJECTED') DEFAULT 'PENDING_APPROVAL',
+  `status` enum('PENDING_APPROVAL','APPROVED','REJECTED') NOT NULL DEFAULT 'PENDING_APPROVAL',
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `user_verification_user_id` (`user_id`),
