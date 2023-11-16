@@ -2,6 +2,7 @@ package br.pucminas.morada.services;
 
 import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user_verification.UserVerification;
+import br.pucminas.morada.models.user_verification.UserVerificationStatus;
 import br.pucminas.morada.models.user.UserRole;
 import br.pucminas.morada.repositories.UserVerificationRepository;
 import br.pucminas.morada.security.UserSpringSecurity;
@@ -31,6 +32,7 @@ public class UserVerificationService {
 
         userVerification.setId(null);
         userVerification.setUser(user);
+        userVerification.setStatus(UserVerificationStatus.PENDING_APPROVAL);
 
         return this.userVerificationRepository.save(userVerification);
     }
@@ -79,6 +81,17 @@ public class UserVerificationService {
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
         return this.userVerificationRepository.findByUserId(userSpringSecurity.getId());
 
+    }
+
+    public List<UserVerification> findAll() {
+
+        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
+
+        if (userSpringSecurity != null && (userSpringSecurity.hasRole(UserRole.ADMIN))) {
+            return this.userVerificationRepository.findAllPending();
+        }else{
+            throw new AuthorizationException();
+        }
     }
 
 }

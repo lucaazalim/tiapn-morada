@@ -1,17 +1,26 @@
 package br.pucminas.morada.controllers;
 
+import br.pucminas.morada.models.property.PropertyStatus;
+import br.pucminas.morada.models.property.PropertyType;
+import br.pucminas.morada.models.property.dto.PropertyDTO;
+import br.pucminas.morada.models.user.UserRole;
 import br.pucminas.morada.models.user_verification.UserVerification;
 import br.pucminas.morada.models.user_verification.dto.UserVerificationCreateDTO;
 import br.pucminas.morada.models.user_verification.dto.UserVerificationUpdateDTO;
+import br.pucminas.morada.security.UserSpringSecurity;
+import br.pucminas.morada.services.UserService;
 import br.pucminas.morada.services.UserVerificationService;
+import br.pucminas.morada.services.exceptions.AuthorizationException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -61,10 +70,13 @@ public class UserVerificationController {
         List<UserVerification> userVerifications = this.userVerificationService.findAllByUser();
         return ResponseEntity.ok(userVerifications);
     }
-
-    //todo: método que retorna todas as verificações 'pendentes' de todos os usuários existentes
-
-
+   
+    //*retorna todas as verificações pendentes de todos os usuários existentes
+    @GetMapping("/all")
+    public ResponseEntity<List<UserVerification>> findAll() {
+        List<UserVerification> userVerifications = this.userVerificationService.findAll();
+        return ResponseEntity.ok(userVerifications);
+    }
 
 
 }
