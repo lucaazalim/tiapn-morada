@@ -2,10 +2,14 @@ package br.pucminas.morada.controllers;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import br.pucminas.morada.models.offer.dto.OfferDTO;
 import br.pucminas.morada.models.property.Property;
+import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.PropertyService;
+import br.pucminas.morada.services.UserService;
 import br.pucminas.morada.services.exceptions.GenericException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -60,17 +64,17 @@ public class OfferController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<OfferDTO> findById(@PathVariable Long id) {
-        Offer offer = this.offerService.findById(id);
-        return ResponseEntity.ok().body(offer.toDTO());
+    @GetMapping("/user")
+    public ResponseEntity<List<Map<String, Object>>> findAllOffers() {
+        List<Map<String, Object>> offers = this.offerService.findAllOffersForTheUser();
+        return ResponseEntity.ok(offers);
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<OfferDTO>> findAllByUser() {
-        List<Offer> offer = this.offerService.findAllByUser();
-        return ResponseEntity.ok().body(offer.stream().map(Offer::toDTO).toList());
-    }
+    // @GetMapping("/")
+    // public ResponseEntity<List<OfferDTO>> findAllByUser() {
+    //     List<Offer> offer = this.offerService.findAllByUser();
+    //     return ResponseEntity.ok().body(offer.stream().map(Offer::toDTO).toList());
+    // }
 
 
 }
