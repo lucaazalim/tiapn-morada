@@ -10,7 +10,7 @@ import br.pucminas.morada.models.rental.Rental;
 
 @Repository
 public interface RentalRepository extends JpaRepository<Rental, Long>, JpaSpecificationExecutor<Rental> {
-    
+
     List<Rental> findByUserId(Long userId);
 
 }

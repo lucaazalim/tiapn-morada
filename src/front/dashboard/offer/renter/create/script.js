@@ -60,23 +60,26 @@ btnCancel.addEventListener("click", () => {
   console.log(dados.user.id)
 });
 
-document.getElementById("formOffer").addEventListener("submit", (event) => {
+document.getElementById("formOffer").addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const proposalValue = document.getElementById("proposalValue").value;
 
-  API.post("offer", {
-    property_id: id,
-    rentValue: proposalValue,
-  }).then((response) => {
-    if (response.status == 201) {
-    } else {
-      response.json().then((data) =>{
-        console.log("data" + data);
-      })
+  try {
+    const response = await API.post('offer',{
+      rentValue: proposalValue,
+      property_id: id
+    });
+    
+    if(response.status === 201){
+      window.location.href =  "/dashboard"
+    }else{
+      const data = await response.json();
+      Alert.alert(data.message, "danger")
     }
-  })
-  .catch((error)=>{
-    Alert.alert(error, "danger");
-  })
-});
+  } catch (error) {
+    console.error("Error on request", error)
+  }
+
+
+})

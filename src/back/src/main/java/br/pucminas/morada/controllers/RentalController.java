@@ -9,6 +9,7 @@ import br.pucminas.morada.security.UserSpringSecurity;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,7 @@ public class RentalController {
     @Autowired
     private RentalService rentalService;
 
+
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody RentalCreateDTO rentalCreateDTO){
 
@@ -50,15 +52,26 @@ public class RentalController {
         return ResponseEntity.created(uri).build();
     }
 
-    // @PutMapping("/{id}")
-    // public ResponseEntity<Void> update(
-    //     @Valid @RequestBody RentalUpdateDTO rentalUpdateDTO,
-    //     @PathVariable Long id
-    // ){
-    //     this.rentalService.update(id, rentalUpdateDTO.toEntity(Rental.class));
-    //     return ResponseEntity.noContent().build();
-    // }
+    @GetMapping("/user")
+    public ResponseEntity<List<Rental>> listAllRents(){
+        List<Rental> rentals = this.rentalService.findAllByUser();
+        return ResponseEntity.ok(rentals);
+    }
 
-    
+    @GetMapping("/{id}")
+    public ResponseEntity<Rental> findById(@PathVariable Long id){
+        Rental rental = this.rentalService.findById(id);
+        return ResponseEntity.ok(rental);
+    }
+
+    @PutMapping("/{id}")
+    @Validated
+    public ResponseEntity<Void> update(
+        @Valid @RequestBody RentalUpdateDTO rentalUpdateDTO,
+        @PathVariable Long id
+    ){
+        this.rentalService.update(id, rentalUpdateDTO.toEntity(Rental.class));
+        return ResponseEntity.noContent().build();
+    }
 
 }
