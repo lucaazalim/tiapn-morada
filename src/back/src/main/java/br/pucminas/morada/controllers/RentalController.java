@@ -31,9 +31,7 @@ import jakarta.validation.Valid;
 @RequestMapping("/rentals")
 @Validated
 public class RentalController {
-    
-    @Autowired
-    private RentalRepository rentalRepository;
+
 
     @Autowired
     private RentalService rentalService;

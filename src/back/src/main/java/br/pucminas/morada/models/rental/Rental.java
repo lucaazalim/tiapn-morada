@@ -38,17 +38,15 @@ public class Rental {
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @ManyToOne
     @JoinColumn(name = "property_id", nullable = false)
-    private Property property;
+    private Long propertyId;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "offer_id", nullable = false)
-    private Offer offer;
+    @Column(name = "offer_id", nullable = false)
+    private Long offerId;
 
     @Column(name = "rent_value", nullable = false)
     private BigDecimal rentValue;
@@ -62,7 +60,7 @@ public class Rental {
     @Column(name = "contract_signed_by_renter", nullable = false)
     private boolean contract_signed_by_renter;
 
-    @Column(name = "terminated", nullable = false)
+    @Column(name = "`terminated`", nullable = false)
     private boolean terminated;
 
     @CreationTimestamp
@@ -76,9 +74,9 @@ public class Rental {
     public RentalDTO toDTO(){
         return new RentalDTO(
             this.id, 
-            this.property.getId(), 
+            this.propertyId, 
             this.user.getId(), 
-            this.offer.getId(),
+            this.offerId,
             this.rentValue,
             this.contractHtml,
             this.contract_signed_by_owner,

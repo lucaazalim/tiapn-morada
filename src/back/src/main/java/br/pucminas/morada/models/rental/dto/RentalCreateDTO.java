@@ -13,7 +13,10 @@ import br.pucminas.morada.models.DTO;
 public record RentalCreateDTO (
 
     @NotNull
-    Long id,
+    Long propertyId,
+
+    @NotNull
+    Long offerId,
 
     @NotNull
     BigDecimal rentValue,
