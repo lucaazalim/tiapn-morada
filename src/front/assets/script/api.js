@@ -98,7 +98,12 @@ export function login(email, password, errorMessageConsumer = null) {
                 response.json().then(data => errorMessageConsumer(data.message));
             }
         }
-
     });
-
 }
+
+export const verificationStatusMap = {
+    PENDING_APPROVAL: { label: "Pendente", txtBgClass: "text-bg-warning" },
+    APPROVED: { label: "Aprovado", txtBgClass: "text-bg-success" },
+    REJECTED: { label: "Rejeitado", txtBgClass: "text-bg-danger" },
+};
+
