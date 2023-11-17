@@ -3,16 +3,8 @@ package br.pucminas.morada.controllers;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-import br.pucminas.morada.models.offer.dto.OfferDTO;
-import br.pucminas.morada.models.property.Property;
-import br.pucminas.morada.security.UserSpringSecurity;
-import br.pucminas.morada.services.PropertyService;
-import br.pucminas.morada.services.UserService;
-import br.pucminas.morada.services.exceptions.GenericException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;

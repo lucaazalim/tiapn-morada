@@ -2,14 +2,10 @@ package br.pucminas.morada.controllers;
 
 import br.pucminas.morada.models.rental.Rental;
 import br.pucminas.morada.models.rental.dto.RentalCreateDTO;
-import br.pucminas.morada.models.rental.dto.RentalDTO;
 import br.pucminas.morada.models.rental.dto.RentalUpdateDTO;
-import br.pucminas.morada.repositories.RentalRepository;
-import br.pucminas.morada.security.UserSpringSecurity;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.web.util.UriComponents;
 
 import br.pucminas.morada.services.RentalService;
-import br.pucminas.morada.services.UserService;
 import jakarta.validation.Valid;
 
 @RestController

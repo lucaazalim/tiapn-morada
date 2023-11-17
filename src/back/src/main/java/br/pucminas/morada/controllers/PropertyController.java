@@ -9,7 +9,6 @@ import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.PropertyService;
 import br.pucminas.morada.services.UserService;
 import br.pucminas.morada.services.exceptions.AuthorizationException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
