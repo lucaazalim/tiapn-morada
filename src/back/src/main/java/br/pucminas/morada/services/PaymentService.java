@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.pucminas.morada.models.payment.Payment;
+import br.pucminas.morada.models.payment.dto.PaymentUpdateDTO;
 import br.pucminas.morada.repositories.PaymentRepository;
+import jakarta.validation.Valid;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -42,20 +44,20 @@ public class PaymentService {
     }
 
     @Transactional
-    public Payment update(Long id, Payment updatedPayment) {
+    public Payment update(Long id, @Valid PaymentUpdateDTO paymentUpdateDTO) {
         Payment payment = findById(id);
 
-        if (updatedPayment.getRentValue() != null) {
-            payment.setRentValue(updatedPayment.getRentValue());
+        if (paymentUpdateDTO.getRentValue() != null) {
+            payment.setRentValue(paymentUpdateDTO.getRentValue());
         }
-        if (updatedPayment.getCompetenceMonth() != null) {
-            payment.setCompetenceMonth(updatedPayment.getCompetenceMonth());
+        if (paymentUpdateDTO.getCompetenceMonth() != null) {
+            payment.setCompetenceMonth(paymentUpdateDTO.getCompetenceMonth());
         }
-        if (updatedPayment.getCompetenceYear() != null) {
-            payment.setCompetenceYear(updatedPayment.getCompetenceYear());
+        if (paymentUpdateDTO.getCompetenceYear() != null) {
+            payment.setCompetenceYear(paymentUpdateDTO.getCompetenceYear());
         }
-        if (updatedPayment.getStatus() != null) {
-            payment.setStatus(updatedPayment.getStatus());
+        if (paymentUpdateDTO.getStatus() != null) {
+            payment.setStatus(paymentUpdateDTO.getStatus());
         }
 
         return paymentRepository.save(payment);
