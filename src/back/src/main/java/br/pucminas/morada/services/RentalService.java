@@ -5,15 +5,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import br.pucminas.morada.models.rental.Rental;
 import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user.UserRole;
-import br.pucminas.morada.models.visit.Visit;
-import br.pucminas.morada.repositories.PropertyRepository;
 import br.pucminas.morada.repositories.RentalRepository;
 import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.exceptions.AuthorizationException;

@@ -1,31 +1,15 @@
 package br.pucminas.morada.models.rental;
 
-import br.pucminas.morada.Constants;
-import br.pucminas.morada.MoradaApplication;
-import br.pucminas.morada.models.offer.Offer;
-import br.pucminas.morada.models.property.Property;
-import br.pucminas.morada.models.property.dto.PropertyDTO;
 import br.pucminas.morada.models.rental.dto.RentalDTO;
 import br.pucminas.morada.models.user.User;
-import br.pucminas.morada.models.user.dto.UserDTO;
-import br.pucminas.morada.models.user_verification.UserVerification;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data

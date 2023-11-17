@@ -1,9 +1,7 @@
 package br.pucminas.morada.models.offer;
 
-import br.pucminas.morada.Constants;
 import br.pucminas.morada.models.offer.dto.OfferDTO;
 import br.pucminas.morada.models.property.Property;
-import br.pucminas.morada.models.property.dto.PropertyDTO;
 import br.pucminas.morada.models.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
