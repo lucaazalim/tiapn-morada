@@ -1,5 +1,6 @@
 package br.pucminas.morada.controllers;
 
+import br.pucminas.morada.models.payment.PaymentStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +8,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import br.pucminas.morada.models.payment.Payment;
-import br.pucminas.morada.models.payment.Payment.PaymentStatus;
 import br.pucminas.morada.models.payment.dto.PaymentCreateDTO;
 import br.pucminas.morada.models.payment.dto.PaymentDTO;
 import br.pucminas.morada.models.payment.dto.PaymentUpdateDTO;
@@ -26,6 +26,9 @@ import java.util.stream.Collectors;
 public class PaymentController {
 
     @Autowired
+    private RentalService rentalService;
+
+    @Autowired
     private PaymentService paymentService;
 
     @GetMapping("/{id}")
@@ -38,39 +41,35 @@ public class PaymentController {
     public ResponseEntity<List<PaymentDTO>> findAll() {
         List<Payment> payments = paymentService.findAll();
         List<PaymentDTO> paymentDTOs = payments.stream()
-                                               .map(Payment::toDTO)
-                                               .collect(Collectors.toList());
+                .map(Payment::toDTO)
+                .collect(Collectors.toList());
         return ResponseEntity.ok(paymentDTOs);
     }
 
     @PostMapping
     public ResponseEntity<PaymentDTO> create(@Valid @RequestBody PaymentCreateDTO paymentCreateDTO) {
-        try {
-            Payment payment = paymentServiceaymentService.save(convertDto(paymentCreateDTO));
-            return new ResponseEntity<>(payment.toDTO(), HttpStatus.CREATED);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+        Payment payment = paymentService.save(convertDto(paymentCreateDTO));
+        return new ResponseEntity<>(payment.toDTO(), HttpStatus.CREATED);
     }
 
     private Payment convertDto(PaymentCreateDTO dto) {
-    Rental rental = RentalService.findById(dto.getRentalId());
+        Rental rental = rentalService.findById(dto.getRentalId());
 
-    PaymentStatus status = PaymentStatus.valueOf(dto.getStatus());
+        PaymentStatus status = PaymentStatus.valueOf(dto.getStatus());
 
-    return Payment.builder()
-            .rental(rental)
-            .rentValue(dto.getRentValue())
-            .competenceMonth(dto.getCompetenceMonth())
-            .competenceYear(dto.getCompetenceYear())
-            .status(status)
-            .createdAt(LocalDateTime.now())
-            .build();
-}
+        return Payment.builder()
+                .rental(rental)
+                .rentValue(dto.getRentValue())
+                .competenceMonth(dto.getCompetenceMonth())
+                .competenceYear(dto.getCompetenceYear())
+                .status(status)
+                .createdAt(LocalDateTime.now())
+                .build();
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> update(
-        @Valid @RequestBody PaymentUpdateDTO paymentUpdateDTO, @PathVariable Long id) {
+            @Valid @RequestBody PaymentUpdateDTO paymentUpdateDTO, @PathVariable Long id) {
         paymentService.update(id, paymentUpdateDTO);
         return ResponseEntity.noContent().build();
     }

@@ -4,21 +4,11 @@ import java.time.LocalDateTime;
 
 import br.pucminas.morada.models.payment.dto.PaymentDTO;
 import br.pucminas.morada.models.rental.Rental;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonProperty.Access;
-
-import br.pucminas.morada.Constants;
-import br.pucminas.morada.models.property.Property;
-import br.pucminas.morada.models.user.User;
-import br.pucminas.morada.models.visit.dto.VisitDTO;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.math.BigDecimal;
 
@@ -54,10 +44,6 @@ public class Payment {
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
-
-    public enum PaymentStatus {
-        ALLEGEDLY_PAID, CONFIRMED, REJECTED
-    }
     
     public PaymentDTO toDTO() {
         PaymentDTO dto = new PaymentDTO();
