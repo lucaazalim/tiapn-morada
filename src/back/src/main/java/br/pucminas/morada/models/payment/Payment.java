@@ -2,6 +2,8 @@ package br.pucminas.morada.models.payment;
 
 import java.time.LocalDateTime;
 
+import br.pucminas.morada.models.payment.dto.PaymentDTO;
+import br.pucminas.morada.models.rental.Rental;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -35,7 +37,7 @@ public class Payment {
 
     @ManyToOne
     @JoinColumn(name = "rental_id", nullable = false)
-    private Rental rental; 
+    private Rental rental;
 
     @Column(name = "rent_value", nullable = false, precision = 15, scale = 2)
     private BigDecimal rentValue;
