@@ -36,3 +36,10 @@ services:
     restart: on-failure
     ports:
       - 80:80
+  grafana:
+    container_name: morada-grafana
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - $DATA_DIRECTORY/grafana:/var/lib/grafana
