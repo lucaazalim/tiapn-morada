@@ -87,51 +87,13 @@ CREATE TABLE `property` (
   `rent_value` decimal(15,2) NOT NULL,
   `condominium_fee` decimal(15,2) DEFAULT NULL,
   `iptu_value` decimal(15,2) NOT NULL,
-  `photo_base64` longtext NOT NULL,
+  `photo_base64` longtext DEFAULT NULL,
   `status` enum('PENDING_APPROVAL','APPROVED','REJECTED') NOT NULL DEFAULT 'PENDING_APPROVAL',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `property_FK` (`user_id`),
   CONSTRAINT `property_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `renegotiation`
---
-
-DROP TABLE IF EXISTS `renegotiation`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `renegotiation` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `rental_id` bigint(20) NOT NULL,
-  `agreed` tinyint(1) NOT NULL DEFAULT 0,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `renegotiation_rental_id` (`rental_id`),
-  CONSTRAINT `renegotiation_rental_id` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `renegotiation_offer`
---
-
-DROP TABLE IF EXISTS `renegotiation_offer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `renegotiation_offer` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `renegotiation_id` bigint(20) NOT NULL,
-  `created_by_owner` tinyint(1) NOT NULL,
-  `rent_value` decimal(15,2) NOT NULL,
-  `type` enum('final','flexible') NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `renegotiation_offer_renegotiation_id` (`renegotiation_id`),
-  CONSTRAINT `renegotiation_offer_renegotiation_id` FOREIGN KEY (`renegotiation_id`) REFERENCES `renegotiation` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,7 +113,7 @@ CREATE TABLE `rental` (
   `contract_signed_by_owner` tinyint(1) NOT NULL DEFAULT 0,
   `contract_signed_by_renter` tinyint(1) NOT NULL DEFAULT 0,
   `terminated` tinyint(1) NOT NULL DEFAULT 0,
-  `terminated_at` timestamp NULL DEFAULT current_timestamp(),
+  `terminated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `rent_property_id` (`property_id`),
@@ -160,7 +122,7 @@ CREATE TABLE `rental` (
   CONSTRAINT `rent_offer_id` FOREIGN KEY (`offer_id`) REFERENCES `offer` (`id`),
   CONSTRAINT `rent_property_id` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`),
   CONSTRAINT `rent_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -264,4 +226,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-19 18:09:07
+-- Dump completed on 2023-11-19 19:46:26

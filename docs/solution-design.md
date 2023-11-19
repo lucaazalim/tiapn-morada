@@ -15,9 +15,7 @@ O diagrama de classes do Morada é representado por:
 - **Rental:** representa um aluguel;
 - **Oferta:** representa uma proposta de valor de aluguel realizada por um Usuário;
 - **Payment:** representa um pagamento de aluguel, que pode já ter sido realizado ou não;
-- **Renegotiation:** representa um reajuste de valor de aluguel iniciado pelo proprietáro;
-- **RenegotiationOffer:** representa uma oferta pertencente a um reajuste de valor de aluguel;
-- **RenegotiationOfferType:** representa o tipo de uma oferta de reajuste de valor de aluguel;
+- **PaymentStatus:** representa o status de um pagamento de aluguel;
 - **Visit:** representa um agendamento de visita a uma propriedade publicada na plataforma.
 
 ### 4.2. Diagrama de componentes

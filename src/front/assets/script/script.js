@@ -107,7 +107,6 @@ function loadMenu() {
                                 <li><a class="dropdown-item" href="/dashboard/visit/renter">Visitas Agendadas</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/offer/owner">Propostas Enviadas</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/payment/renter">Pagamentos</a></li>
-                                <li><a class="dropdown-item" href="/dashboard/renegotiation/renter">Renegociações</a></li>
                             </ul>
                         </li>
                         ${adminDropdown}

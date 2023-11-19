@@ -27,8 +27,6 @@ function loadProperties() {
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/dashboard/payment/owner?id=${currentRentalId}">Pagamentos</a>
-                            <a class="dropdown-item" href="/dashboard/renegotiation/owner?id=${currentRentalId}">Renegociações</a>
-                            <a class="dropdown-item" href="/dashboard/renegotiation/create?id=${currentRentalId}">Renegociar do valor do aluguel</a>
                             <a class="dropdown-item" href="/dashboard/termination/create?id=${currentRentalId}">Rescindir contrato de aluguel</a>
                         </div>
                     `;

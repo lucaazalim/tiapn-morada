@@ -22,11 +22,10 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade Cató
 
 ---
 
-_**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final, 
+_**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final,
 mostrar algum resultado relevante do trabalho (até 10 linhas)._
 
 ---
-
 
 ## 1. Introdução
 
@@ -44,16 +43,14 @@ O processo tradicional de busca, seleção e locação de imóveis apresenta uma
 
 O objetivo do Morada é centralizar anúncios de aluguel, simplificando o processo para locatários e proprietários, e para concretizar essa visão, buscamos proporcionar uma experiência totalmente integrada desde a busca até a assinatura do contrato, tornando todo o processo mais ágil. Isso será alcançado por meio de uma busca avançada que permite filtrar opções por localização, tamanho e preço, além da integração direta com serviços de pagamento, simplificando aluguéis e depósitos, e complementado por um suporte ao cliente disponível 24/7, garantindo assistência contínua para uma experiência de aluguel fluida e sem interrupções.
 
-
 #### 1.3.1 Objetivos específicos
 
-* Realizar um levantamento minucioso dos processos envolvidos na busca, seleção e locação de imóveis, identificando pontos de dificuldade e oportunidades de aprimoramento.
-* Identificar as necessidades específicas dos locatários, compreendendo seus critérios de escolha, preferências de localização e requisitos essenciais, a fim de apresentar o imóvel ideal para atender a todas essas demandas de maneira precisa
-* Coletar feedback dos proprietários para entender os desafios enfrentados na promoção de seus imóveis, bem como para identificar as documentações e processos necessários.
-* Desenvolver um sistema de interface que permita a inserção e busca de informações por meio de campos claros e objetivos, proporcionando facilidade de uso e uma experiência intuitiva para o usuário.
-* Estabelecer uma estrutura robusta de gerenciamento de documentos, permitindo o compartilhamento seguro e eficaz de informações entre as partes envolvidas, agilizando a locação.
-* Utilizar os insights e feedbacks para otimizar continuamente a plataforma, adaptando-a às necessidades em evolução dos clientes e às mudanças no mercado imobiliário.
-
+- Realizar um levantamento minucioso dos processos envolvidos na busca, seleção e locação de imóveis, identificando pontos de dificuldade e oportunidades de aprimoramento.
+- Identificar as necessidades específicas dos locatários, compreendendo seus critérios de escolha, preferências de localização e requisitos essenciais, a fim de apresentar o imóvel ideal para atender a todas essas demandas de maneira precisa
+- Coletar feedback dos proprietários para entender os desafios enfrentados na promoção de seus imóveis, bem como para identificar as documentações e processos necessários.
+- Desenvolver um sistema de interface que permita a inserção e busca de informações por meio de campos claros e objetivos, proporcionando facilidade de uso e uma experiência intuitiva para o usuário.
+- Estabelecer uma estrutura robusta de gerenciamento de documentos, permitindo o compartilhamento seguro e eficaz de informações entre as partes envolvidas, agilizando a locação.
+- Utilizar os insights e feedbacks para otimizar continuamente a plataforma, adaptando-a às necessidades em evolução dos clientes e às mudanças no mercado imobiliário.
 
 ### 1.4 Justificativas
 
@@ -62,16 +59,19 @@ A criação da Morada tem como base a necessidade de centralizar anúncios, simp
 ## 2. Participantes do processo
 
 ### Locatário
+
 - Perfil: Pessoas acima de 18 anos, especialmente jovens adultos e adultos.
 - Objetivo: Encontrar imóveis que atendam às suas diversas preferências e necessidades habitacionais.
 - Necessidades: Obter informações precisas sobre imóveis de maneira simples e prática e encontrar propriedades ideais aos seus critérios.
 
 ### Proprietário:
+
 - Perfil: Indivíduos com propriedades disponíveis para aluguel.
 - Objetivo: Anunciar suas propriedades e obter retorno financeiro sobre elas.
 - Necessidades: Buscam inquilinos confiáveis e desejam anunciar seus imóveis de forma facilitada e eficiente a fim de alcançar um público amplo e atrair potenciais inquilinos interessados em suas propriedades
 
 ### Admin
+
 - Perfil: Funcionários do Morada
 - Objetivo: Responsáveis por avaliar publicações de imóveis e analisar solicitações dos usuários.
 
@@ -85,9 +85,8 @@ Atualmente, os locatários em busca de moradia têm que se envolver em uma busca
 
 Por outro lado, os proprietários de imóveis precisam recorrer a múltiplos métodos para anunciar suas propriedades a fim de garantir o alcance de um amplo público e de conquistar potenciais locatários. Os locadores (proprietários de imóveis) utilizam agências imobiliárias, realizam publicações em sites especializados e até recorrem às redes sociais. Essa variedade de meios pode acarretar dificuldades na promoção de seus imóveis de modo eficaz, além de exigir investimento significativo de tempo e de recursos.
 
-
 ### 3.2. Descrição geral da proposta
- 
+
 A proposta do Morada consiste em simplificar e agilizar o processo de aluguel de imóveis, através da eliminação de burocracias impostas aos inquilinos e proprietários, como a necessidade de fiador e de assinatura em cartório, associadas aos modelos tradicionais de locação. A plataforma busca oferecer uma experiência mais eficiente e conveniente para todas as partes envolvidas. O sistema Morada abordará as seguintes funcionalidades de alto nível:
 
 - Centralização da Informação: A plataforma centralizará informações sobre imóveis disponíveis para aluguel, reunindo dados relevantes como localização, tamanho, comodidades e preços. Isso eliminará a necessidade de os locatários consultarem múltiplos sites e aplicativos, tornando o processo de busca mais ágil.
@@ -112,26 +111,23 @@ Por fim, o fluxo da aplicação seguirá as seguintes etapas:
 
 - Confirmado o cadastro, o usuário está apto a cadastrar um imóvel e/ou a realizar pesquisas personalizadas de moradias.
 
-- Na ocorrência de interesse por um determinado imóvel, deverá propor uma oferta ao locador, da qual, após avaliação pelo proprietário, poderá ser aceita, iniciando o procedimento para a locação, ou recusada. 
+- Na ocorrência de interesse por um determinado imóvel, deverá propor uma oferta ao locador, da qual, após avaliação pelo proprietário, poderá ser aceita, iniciando o procedimento para a locação, ou recusada.
 
 - No caso de validação da proposta de oferta, as partes envolvidas se sujeitarão a uma etapa simples de negociação, havendo a solicitação de determinada documentação. Enquanto não for aprovada, o imóvel seguirá disponível a novas propostas.
 
-
 ### 3.3. Modelagem dos processos
 
-[PROCESSO 1 - Verificação de usuário](processo-1-nome-do-processo.md "Detalhamento do Processo 1.")
+[PROCESSO 1 - Verificação de usuário](processo-1-verificação-de-usuário.md "Detalhamento do Processo 1.")
 
-[PROCESSO 2 - Publicação de imóvel](processo-2-nome-do-processo.md "Detalhamento do Processo 2.")
+[PROCESSO 2 - Publicação de imóvel](processo-2-publicação-de-imóvel.md "Detalhamento do Processo 2.")
 
-[PROCESSO 3 - Visita ao imóvel](processo-3-nome-do-processo.md "Detalhamento do Processo 3.")
+[PROCESSO 3 - Visita ao imóvel](processo-3-visita-ao-imóvel.md "Detalhamento do Processo 3.")
 
-[PROCESSO 4 - Aluguel de imóvel](processo-4-nome-do-processo.md "Detalhamento do Processo 4.")
+[PROCESSO 4 - Aluguel de imóvel](processo-4-aluguel-do-imóvel.md "Detalhamento do Processo 4.")
 
-[PROCESSO 5 - Pagamento de aluguel](processo-5-nome-do-processo.md "Detalhamento do Processo 5.")
+[PROCESSO 5 - Pagamento de aluguel](processo-5-pagamento-do-aluguel.md "Detalhamento do Processo 5.")
 
-[PROCESSO 6 - Reajuste do valor do aluguel](processo-6-nome-do-processo.md "Detalhamento do Processo 6.")
-
-[PROCESSO 7 - Rescisão de contrato de aluguel](processo-7-nome-do-processo.md "Detalhamento do Processo 7.")
+[PROCESSO 6 - Rescisão de contrato de aluguel](processo-6-rescisão-de-contrato-de-aluguel.md "Detalhamento do Processo 7.")
 
 ## 4. Projeto da solução
 
@@ -139,23 +135,21 @@ O documento a seguir apresenta o detalhamento do projeto da solução. São apre
 
 [Projeto da solução](solution-design.md "Detalhamento do Projeto da solução: classes, componentes, der, tecnologias e guias de estilo.")
 
-
 ## 5. Indicadores de desempenho
 
 O documento a seguir apresenta os indicadores de desempenho dos processos.
 
 [Indicadores de desempenho dos processos](performance-indicators.md)
 
-
 ## 6. Interface do sistema
 
-A sessão a seguir apresenta a descrição do produto de software desenvolvido. 
+A sessão a seguir apresenta a descrição do produto de software desenvolvido.
 
 [Documentação da interface do sistema](interface.md)
 
 ## 7. Testes
 
-A sessão a seguir apresenta a descrição dos testes de unidade e testes de usabilidade realizados. 
+A sessão a seguir apresenta a descrição dos testes de unidade e testes de usabilidade realizados.
 
 [Testes do sistema](tests.md)
 
@@ -171,7 +165,6 @@ _Verifique no link abaixo como devem ser as referências no padrão ABNT:_
 
 http://www.pucminas.br/imagedb/documento/DOC_DSC_NOME_ARQUI20160217102425.pdf
 
-
 **[1.1]** - _ELMASRI, Ramez; NAVATHE, Sham. **Sistemas de banco de dados**. 7. ed. São Paulo: Pearson, c2019. E-book. ISBN 9788543025001._
 
 **[1.2]** - _COPPIN, Ben. **Inteligência artificial**. Rio de Janeiro, RJ: LTC, c2010. E-book. ISBN 978-85-216-2936-8._
@@ -182,31 +175,18 @@ http://www.pucminas.br/imagedb/documento/DOC_DSC_NOME_ARQUI20160217102425.pdf
 
 **[1.5]** - _RUSSELL, Stuart J.; NORVIG, Peter. **Inteligência artificial**. Rio de Janeiro: Elsevier, c2013. xxi, 988 p. ISBN 9788535237016._
 
-
-
 # APÊNDICES
 
-
 _Atualizar os links e adicionar novos links para que a estrutura do código esteja corretamente documentada._
-
 
 ## Apêndice A - Código fonte
 
 [Código do front-end](../src/front) -- repositório do código do front-end
 
-[Código do back-end](../src/back)  -- repositório do código do back-end
-
+[Código do back-end](../src/back) -- repositório do código do back-end
 
 ## Apêndice B - Apresentação final
 
-
 [Slides da apresentação final](presentations/arquivo.pdf)
 
-
 [Vídeo da apresentação final](video/arquivo.mp4)
-
-
-
-
-
-
