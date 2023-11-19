@@ -11,6 +11,8 @@ Foi elaborado um indicador de desempenho para cada um dos processos.
 | 5        | Taxa de inadimplência                       | Acompanhar taxa de inadimplência dos imóveis alugados                                                         | Percentual mensal dos imóveis alugados que não possuem avisos de pagamento confirmados          | Tabela “rental” e “payment”      | Financeiro                |
 | 6        | Taxa de rescisões precoces                  | Melhorar a satisfação dos locatários por meio da redução da taxa de rescisão precoce dos contratos de aluguel | Percentual mensal de rescisões realizadas cujo período total do aluguel não ultrapassou 3 meses | Tabelas “rental” e “termination” | Aprendizado e Crescimento |
 
+### Queries SQL
+
 Queries SQL a serem utilizadas na plataforma Grafana para visualização dos indicadores de desempenho:
 
 **Taxa de usuários verificados:**

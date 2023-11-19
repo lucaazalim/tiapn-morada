@@ -59,6 +59,12 @@ Exemplo: conforme diagrama apresentado, as entidades participantes da solução 
 | Ambiente de Desenvolvimento   | Docker           |
 | IDE                           | IntelliJ         |
 
+#### Outras Ferramentas
+
+| **Dimensão**              | **Tecnologia** |
+| ------------------------- | -------------- |
+| Indicadores de Desempenho | Grafana        |
+
 ### 4.5. Guias de estilo
 
 Todas as páginas do Morada possuem um cabeçalho e um rodapé padrões. O restante do layout varia de acordo com a página. Páginas pertencentes ao Painel do Usuário (/dashboard), por exemplo, possuem um menu de navegação abaixo do cabeçalho.
