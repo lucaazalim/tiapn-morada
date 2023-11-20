@@ -68,11 +68,11 @@ public class PropertyController {
         Specification<Property> specification = Specification.allOf(specifications);
         List<Property> properties = this.propertyService.findAll(specification);
 
-        List<PropertyDTO> propertyDTOS = properties.stream()
+        List<PropertyDTO> propertyDTOs = properties.stream()
                 .map(Property::toDTO)
                 .toList();
 
-        return ResponseEntity.ok(propertyDTOS);
+        return ResponseEntity.ok(propertyDTOs);
 
     }
 
