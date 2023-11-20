@@ -42,38 +42,45 @@ public class VisitController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/properties/{propertyId}")
+    public ResponseEntity<List<VisitDTO>> findAllOfOneProperty(@PathVariable Long propertyId){
+        Property property = propertyService.findById(propertyId);
+        if (property == null) {
+            return ResponseEntity.notFound().build();
+        }
+        List<Visit> visits = visitService.findAllOfOneProperty(property.getId());
+        return ResponseEntity.ok(visits.stream().map(Visit::toDTO).toList());
+    }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Visit> findById(@PathVariable Long id) {
+    public ResponseEntity<VisitDTO> findById(@PathVariable Long id) {
         Visit visit = this.visitService.findById(id);
-        return ResponseEntity.ok(visit);
+        return ResponseEntity.ok(visit.toDTO());
     }
 
     @GetMapping("/owner") 
-    public ResponseEntity<List<Visit>> findAllOfOwner(){
+    public ResponseEntity<List<VisitDTO>> findAllOfOwner(){
         List<Visit> visits = this.visitService.findAllOfOwner();
-        return ResponseEntity.ok(visits);
+        return ResponseEntity.ok(visits.stream().map(Visit::toDTO).toList());
     }
 
     @GetMapping("/renter")
-    public ResponseEntity<List<Visit>> findAllByUser(){
+    public ResponseEntity<List<VisitDTO>> findAllByUser(){
         List<Visit> visits = this.visitService.findAllByUser();
-        return ResponseEntity.ok(visits);
+        return ResponseEntity.ok(visits.stream().map(Visit::toDTO).toList());
     }
 
     //Criar uma nova visita em imóvel específico.
     @PostMapping
     public ResponseEntity create(@Valid @RequestBody VisitCreateDTO visitCreateDTO) {
-
         try {
             Visit visitSalve = visitService.save(convertDto(visitCreateDTO));
             return new ResponseEntity(visitSalve, HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-
     }
 
-    
     public Visit convertDto(VisitCreateDTO dto){
         Visit visit = Visit.builder()
                             .datetime(dto.getDatetime())
@@ -93,12 +100,13 @@ public class VisitController {
         return visit;
     }
 
-
-    //*PUT para cancelamento de visita ou para o acréscimo de avaliações sobre a visita
+    //PUT para cancelamento de visita ou para o acréscimo de avaliações sobre a visita
     @PutMapping("/{id}")
     public ResponseEntity<Void> update(
         @Valid @RequestBody VisitUpdateDTO visitUpdateDTO, @PathVariable Long id) {
         this.visitService.update(id, visitUpdateDTO.toEntity(Visit.class));
         return ResponseEntity.noContent().build();
     }
+
+    
 }

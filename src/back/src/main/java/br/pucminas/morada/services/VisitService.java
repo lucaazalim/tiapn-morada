@@ -27,6 +27,10 @@ public class VisitService {
     @Autowired
     private UserService userService;
 
+    public List<Visit> findAllOfOneProperty(Long id){
+        return this.visitRepository.findAllOfOneProperty_Id(id);
+    }
+
     public Visit findById(Long id) {
         Optional<Visit> optionalVisit = this.visitRepository.findById(id);
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
@@ -61,15 +65,6 @@ public class VisitService {
     public List<Visit> findAll(Specification<Visit> specification) {
         return this.visitRepository.findAll(specification);
     }
-
-    /*@Transactional
-    public Visit create(Visit visit) {
-        //UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
-        User user = this.userService.findById(UserService.getAuthenticatedUser().getId());
-        visit.setId(null);
-        visit.setUser(user);
-        return this.visitRepository.save(visit);
-    }*/
 
     @Transactional
     public Visit update(Long id, Visit visit) {   

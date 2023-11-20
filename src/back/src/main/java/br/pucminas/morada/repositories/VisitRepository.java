@@ -17,5 +17,8 @@ public interface VisitRepository extends JpaRepository<Visit, Long>, JpaSpecific
 
     @Query(value = "SELECT * FROM visit v WHERE v.property_id IN (SELECT id FROM property p WHERE p.user_id = :id)", nativeQuery = true)
     List<Visit> findAllOfOwner_Id(Long id);
+
+    @Query(value = "SELECT * FROM visit v WHERE v.property_id = :propertyId",  nativeQuery = true)
+    List<Visit> findAllOfOneProperty_Id(Long propertyId);
     
 }
