@@ -123,7 +123,7 @@ public class Property {
                 this.rentValue,
                 this.condominiumFee,
                 this.iptuValue,
-                this.photoBase64 == null ? "https://picsum.photos/seed/" + this.hashCode() + "/720/1280" : this.photoBase64,
+                this.photoBase64 == null ? "https://picsum.photos/seed/" + this.hashCode() + "/1280/720" : this.photoBase64,
                 this.status,
                 this.createdAt
         );
