@@ -2,10 +2,14 @@ import * as API from '../script/api.js';
 
 export default function getPropertyCard(property) {
 
+    if (!property.photoBase64) {
+        property.photoBase64 = "assets/img/exemplo-apartamento-" + (Math.floor(Math.random() * 3) + 1) + ".jpg";
+    }
+
     let totalValue = property.rentValue + property.condominiumFee + property.iptuValue;
 
     return /*html*/ `
-        <div class="card">
+        <div class="card mb-3">
             <img src="${property.photoBase64}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;">
             <div class="card-body">
                 <h5>${API.propertyTypeMap[property.type].label}</h5>
