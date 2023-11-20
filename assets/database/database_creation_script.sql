@@ -34,7 +34,7 @@ CREATE TABLE `offer` (
   KEY `offer_user_id` (`user_id`),
   CONSTRAINT `offer_property_id` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`),
   CONSTRAINT `offer_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -55,7 +55,7 @@ CREATE TABLE `payment` (
   PRIMARY KEY (`id`),
   KEY `payment_rent_id` (`rental_id`),
   CONSTRAINT `payment_rent_id` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +93,7 @@ CREATE TABLE `property` (
   PRIMARY KEY (`id`),
   KEY `property_FK` (`user_id`),
   CONSTRAINT `property_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,7 +109,7 @@ CREATE TABLE `rental` (
   `user_id` bigint(20) NOT NULL,
   `offer_id` bigint(20) NOT NULL,
   `rent_value` decimal(15,2) NOT NULL,
-  `contract_html` longtext NOT NULL,
+  `contract_html` longtext DEFAULT NULL,
   `contract_signed_by_owner` tinyint(1) NOT NULL DEFAULT 0,
   `contract_signed_by_renter` tinyint(1) NOT NULL DEFAULT 0,
   `terminated` tinyint(1) NOT NULL DEFAULT 0,
@@ -122,7 +122,7 @@ CREATE TABLE `rental` (
   CONSTRAINT `rent_offer_id` FOREIGN KEY (`offer_id`) REFERENCES `offer` (`id`),
   CONSTRAINT `rent_property_id` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`),
   CONSTRAINT `rent_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,12 +136,12 @@ CREATE TABLE `termination` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `rental_id` bigint(20) NOT NULL,
   `initiated_by_owner` tinyint(1) NOT NULL,
-  `message` text NOT NULL,
+  `message` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `termination_rental_id` (`rental_id`),
   CONSTRAINT `termination_rental_id` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -164,7 +164,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_email` (`email`),
   UNIQUE KEY `user_cpf` (`cpf`)
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -185,7 +185,7 @@ CREATE TABLE `user_verification` (
   PRIMARY KEY (`id`),
   KEY `user_verification_user_id` (`user_id`),
   CONSTRAINT `user_verification_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -210,7 +210,7 @@ CREATE TABLE `visit` (
   KEY `visit_property_id` (`property_id`),
   CONSTRAINT `visit_property_id` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`),
   CONSTRAINT `visit_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,4 +226,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-19 19:46:26
+-- Dump completed on 2023-11-19 21:29:58
