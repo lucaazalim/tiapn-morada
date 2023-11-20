@@ -4,7 +4,8 @@
 .idea
 
 # Docker Volumes
-assets/deploy/data
+/assets/deploy/data/*
+!/assets/deploy/data/grafana
 
 # Front end
 src/front/node_modules
