@@ -47,19 +47,11 @@ public class PaymentService {
     public Payment update(Long id, @Valid PaymentUpdateDTO paymentUpdateDTO) {
         Payment payment = findById(id);
 
-        if (paymentUpdateDTO.getRentValue() != null) {
             payment.setRentValue(paymentUpdateDTO.getRentValue());
-        }
-        if (paymentUpdateDTO.getCompetenceMonth() != null) {
             payment.setCompetenceMonth(paymentUpdateDTO.getCompetenceMonth());
-        }
-        if (paymentUpdateDTO.getCompetenceYear() != null) {
             payment.setCompetenceYear(paymentUpdateDTO.getCompetenceYear());
-        }
-        if (paymentUpdateDTO.getStatus() != null) {
             payment.setStatus(paymentUpdateDTO.getStatus());
-        }
-
+            payment.setCreatedAt(paymentUpdateDTO.getCreatedAt());
         return paymentRepository.save(payment);
     }
 }
