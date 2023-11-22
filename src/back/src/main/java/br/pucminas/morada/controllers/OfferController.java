@@ -48,6 +48,7 @@ public class OfferController {
     }
 
     @PutMapping("/{id}")
+    @Validated
     public ResponseEntity<Void> update(
             @Valid @RequestBody OfferUpdateDTO offerUpdateDTO,
             @PathVariable Long id
