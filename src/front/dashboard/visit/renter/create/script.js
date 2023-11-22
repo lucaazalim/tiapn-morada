@@ -2,8 +2,8 @@ import * as API from '../../../../assets/script/api.js';
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
+let event = [];
 
-// Elements
 let visitsForFullCalendar = [];
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -15,46 +15,59 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 var calendar = new FullCalendar.Calendar(calendarEl, {
                     locale: 'pt-br',
-                    initialView: 'dayGridMonth',
+                    initialView: "timeGridWeek",
                     headerToolbar: {
                         left: 'prev,next today',
                         center: 'title',
                         right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                    }
+                    },
+                    allDaySlot: false,
+                    slotDuration: "01:00",
+                    slotMinTime: "08:00:00",
+                    slotMaxTime: "17:00:00",
+                    height: "auto"
+                
                 });
                 for (const event of visitsForFullCalendar) {
                     calendar.addEvent(event);
                 }
                 calendar.render();
-            } 
+            }else{
 
-            visits.forEach(visit => {
-                visitsForFullCalendar.push({
-                    start: new Date(visit.createdAt[0], visit.createdAt[1], visit.createdAt[2],
-                        visit.createdAt[3], visit.createdAt[4], visit.createdAt[5])
-                })
-            
-            var calendarEl = document.getElementById('calendar');
+                visits.forEach(visit => {
+                    let data = new Date(visit.datetime[0], visit.datetime[1]-1, visit.datetime[2],
+                        visit.datetime[3], visit.datetime[4]);
+                    
+                    visitsForFullCalendar.push({
+                        start: new Date(data.toUTCString()) 
+                    })
+                
+                    var calendarEl = document.getElementById('calendar');
 
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                locale: 'pt-br',
-                initialView: 'dayGridMonth',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                }
-            });
+                    var calendar = new FullCalendar.Calendar(calendarEl, {
+                    locale: 'pt-br',
+                    initialView: "timeGridWeek",
+                    headerToolbar: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    },
+                    allDaySlot: false,
+                    slotDuration: "01:00",
+                    slotMinTime: "08:00:00",
+                    slotMaxTime: "17:00:00",
+                    height: "auto"
 
-            for (const event of visitsForFullCalendar) {
-                calendar.addEvent(event);
-            }
-            calendar.render();
-            
-        });
-      })
-    .catch(error => {
-        console.log(error)
-    })
-    
+                    });
+                    console.log(event);
+                    for (const event of visitsForFullCalendar) {
+                        calendar.addEvent(event);
+                    }
+                    calendar.render();
+                
+                });
+            }})
+        .catch(error => {
+            console.log(error)
+        })
 });
