@@ -7,10 +7,10 @@ const id = urlParams.get('id');
 let visitsForFullCalendar = [];
 
 document.addEventListener('DOMContentLoaded', function () {
-    API.get("properties/" + id)
+    API.get("visits/properties/" + id)
         .then(response => response.json()) 
-        .then(visitsJson => {
-            if (visitsJson == null) {
+        .then(visits => {
+            if (visits.length == 0) {
                 var calendarEl = document.getElementById('calendar');
 
                 var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -26,33 +26,35 @@ document.addEventListener('DOMContentLoaded', function () {
                     calendar.addEvent(event);
                 }
                 calendar.render();
-            } else {
-                visitsJson.forEach(visita => {
-                    visitsForFullCalendar.push({
-                        start: new Date(visita.createdAt[0], visita.createdAt[1] - 1, visita.createdAt[2],
-                            visita.createdAt[3], visita.createdAt[4], visita.createdAt[5])
-                    });
-                });
+            } 
 
-                var calendarEl = document.getElementById('calendar');
+            visits.forEach(visit => {
+                visitsForFullCalendar.push({
+                    start: new Date(visit.createdAt[0], visit.createdAt[1], visit.createdAt[2],
+                        visit.createdAt[3], visit.createdAt[4], visit.createdAt[5])
+                })
+            
+            var calendarEl = document.getElementById('calendar');
 
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                    locale: 'pt-br',
-                    initialView: 'dayGridMonth',
-                    headerToolbar: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                    }
-                });
-
-                for (const event of visitsForFullCalendar) {
-                    calendar.addEvent(event);
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                locale: 'pt-br',
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 }
-                calendar.render();
+            });
+
+            for (const event of visitsForFullCalendar) {
+                calendar.addEvent(event);
             }
-        })
-        .catch(error => {
-            console.log(error);
+            calendar.render();
+            
         });
+      })
+    .catch(error => {
+        console.log(error)
+    })
+    
 });
