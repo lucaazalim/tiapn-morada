@@ -5,11 +5,11 @@ import * as Alert from "../../../../assets/script/alert.js";
 const cardContainer = document.getElementById("cardContainer");
 
 const urlParams = new URLSearchParams(window.location.search);
-
-let id = urlParams.get("id");
 let dados;
+let propertyId = urlParams.get("id");
 
-API.get(`properties/` + id)
+
+API.get(`properties/` + propertyId)
   .then((response) => {
     if (!response.ok) {
       Alert.alert(
@@ -39,7 +39,7 @@ API.get(`properties/` + id)
 const valorDaPropostaInput = document.getElementById("proposalValue");
 valorDaPropostaInput.value = "R$";
 valorDaPropostaInput.addEventListener("input", () => {
-  let inputValue = valorDaPropostaInput.value;
+let inputValue = valorDaPropostaInput.value;
 
   inputValue = inputValue.replace(/\D/g, "");
 
@@ -47,7 +47,7 @@ valorDaPropostaInput.addEventListener("input", () => {
   inputValue = isNaN(inputValue) ? 0 : inputValue;
 
   inputValue = (inputValue / 100).toFixed(2);
-  inputValue = `R$${inputValue}`;
+  inputValue = `${inputValue}`;
 
   valorDaPropostaInput.value = inputValue;
 });
@@ -57,29 +57,27 @@ const btnCancel = document.getElementById("btnCancel");
 
 btnCancel.addEventListener("click", () => {
   // window.location.href = `/property/?id=${id}`;
-  console.log(dados.user.id)
+  console.log("id"+id)
+  console.log("value"+document.getElementById("proposalValue").value);  
 });
 
-document.getElementById("formOffer").addEventListener("submit", async (event) => {
+document.getElementById("formOffer").addEventListener("submit", function (event){
   event.preventDefault();
 
-  const proposalValue = document.getElementById("proposalValue").value;
+  let rentValue = document.getElementById("proposalValue").value
 
-  try {
-    const response = await API.post('offer',{
-      rentValue: proposalValue,
-      property_id: id
-    });
-    
-    if(response.status === 201){
-      window.location.href =  "/dashboard"
+  API.post('offers', {
+    rentValue,
+    propertyId
+  })
+  .then(response =>{
+    if(response.status == 201){
+      window.location.href = "/dashboard"
     }else{
-      const data = await response.json();
-      Alert.alert(data.message, "danger")
+      let data = response.json()
+      Alert.alert(data.message, "danger");
     }
-  } catch (error) {
-    console.error("Error on request", error)
-  }
+  })
 
 
 })

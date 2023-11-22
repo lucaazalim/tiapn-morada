@@ -1,5 +1,6 @@
 package br.pucminas.morada.models.rental;
 
+import br.pucminas.morada.models.property.Property;
 import br.pucminas.morada.models.rental.dto.RentalDTO;
 import br.pucminas.morada.models.user.User;
 import jakarta.persistence.*;
@@ -22,8 +23,9 @@ public class Rental {
     @Column(name = "id", updatable = false)
     private Long id;
 
+    @ManyToOne
     @JoinColumn(name = "property_id", nullable = false)
-    private Long propertyId;
+    private Property property;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -58,7 +60,7 @@ public class Rental {
     public RentalDTO toDTO(){
         return new RentalDTO(
             this.id, 
-            this.propertyId, 
+            this.property.getId(), 
             this.user.getId(), 
             this.offerId,
             this.rentValue,
