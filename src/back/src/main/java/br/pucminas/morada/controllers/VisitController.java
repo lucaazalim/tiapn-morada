@@ -58,10 +58,11 @@ public class VisitController {
         return ResponseEntity.ok(visit.toDTO());
     }
 
+    //*sem DTO porque necessita de informações sobre a propriedade
     @GetMapping("/owner") 
-    public ResponseEntity<List<VisitDTO>> findAllOfOwner(){
+    public ResponseEntity<List<Visit>> findAllOfOwner(){
         List<Visit> visits = this.visitService.findAllOfOwner();
-        return ResponseEntity.ok(visits.stream().map(Visit::toDTO).toList());
+        return ResponseEntity.ok(visits);
     }
 
     @GetMapping("/renter")
