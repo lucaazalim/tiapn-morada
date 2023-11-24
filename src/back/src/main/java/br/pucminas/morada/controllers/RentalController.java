@@ -2,6 +2,7 @@ package br.pucminas.morada.controllers;
 
 import br.pucminas.morada.models.rental.Rental;
 import br.pucminas.morada.models.rental.dto.RentalCreateDTO;
+import br.pucminas.morada.models.rental.dto.RentalDTO;
 import br.pucminas.morada.models.rental.dto.RentalUpdateDTO;
 
 import java.net.URI;
@@ -58,6 +59,12 @@ public class RentalController {
         return ResponseEntity.ok(rental);
     }
 
+    @GetMapping("/properties/{propertyId}")
+    public ResponseEntity<List<Rental>> findByProperty_Id(@PathVariable Long propertyId){
+        List<Rental> rental = this.rentalService.findByPropertyId(propertyId);
+        return ResponseEntity.ok(rental);
+    }
+
     @PutMapping("/{id}")
     @Validated
     public ResponseEntity<Void> update(
@@ -67,5 +74,7 @@ public class RentalController {
         this.rentalService.update(id, rentalUpdateDTO.toEntity(Rental.class));
         return ResponseEntity.noContent().build();
     }
+
+
 
 }

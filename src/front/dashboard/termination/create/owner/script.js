@@ -5,9 +5,10 @@ import * as Alert from "../../../../assets/script/alert.js";
 const cardContainer = document.getElementById("cardContainer");
 
 const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get('id');
+const propertyId = urlParams.get('propertyId');
+const rentalId = urlParams.get('id')
 
-API.get(`properties/` + id)
+API.get(`properties/` + propertyId)
   .then((response) =>{
 
     if(!response.ok){
@@ -24,7 +25,20 @@ API.get(`properties/` + id)
   
   })
   .then((property) => {
+    console.log(property)
     cardContainer.innerHTML = getPropertyCard(property);
-  })
+
+})
+
+
+
+API.put(`rentals/` + id, {
+    rentalId,
+    initiated_by_owner: 1,
+    
+
+})
+    .then()
+
 
 

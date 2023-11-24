@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título da Página</title>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/86ad24bcb9.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/style/custom_bootstrap.css" />
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/style/style.css" />
+</head>
+
+<body>
+    <div id="header" class="mb-4"></div>
+
+    <div class="container">
+        <h1>Rescisão de contrato</h1>
+        <h5>Preencha os dados para realizar a rescisão</h5>
+        <hr />
+
+        <div class="content">
+
+            <div class="d-flex row justify-content-center flex-wrap">
+                <div class="col" id="cardContainer"></div>
+                <div class="col d-flex flex-column justify-content-center">
+                    <div class="h-auto border p-3 d-flex flex-column rounded">
+                        <div id="processo" class="d-flex flex-column p-2">
+                            <label id="rent">Processo</label>
+                            <input type="text">
+                        </div>
+                        <div id="inputs">
+                            <div class="w-auto p-2">
+                                <label for="">Informe ao locatário sobre o motivo da rescisão</label>
+                                <textarea cols="30" rows="10" class="w-100 rounded border" id="message"></textarea>
+                            </div>
+
+                            <div id="buttons" class="d-flex flex-row justify-content-around">
+                                <div>
+                                    <button class="btn btn-danger" id="btnCancelar">Cancelar</button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-success" id="btnConfirm">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div id="footer"></div>
+</body>
+
+<script type="module" src="/assets/script/script.js"></script>
+<script type="module" src="script.js"></script>
+
+</html>

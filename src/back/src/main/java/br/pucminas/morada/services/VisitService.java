@@ -28,7 +28,7 @@ public class VisitService {
     @Autowired
     private UserService userService;
 
-    public List<Visit> findAllOfOneProperty(Long id){
+    public List<Visit> findAllOfOneProperty(Long id) {
         return this.visitRepository.findAllOfOneProperty_Id(id);
     }
 
@@ -68,22 +68,22 @@ public class VisitService {
     }
 
     @Transactional
-    public Visit update(Long id, Visit visit) {   
+    public Visit update(Long id, Visit visit) {
 
         Visit visitFound = this.findById(id);
-        if(visit.getDatetime() != null)
+        if (visit.getDatetime() != null)
             visitFound.setDatetime(visit.getDatetime());
-        
-        if(visit.getCarriedOut() != null)
+
+        if (visit.getCarriedOut() != null)
             visitFound.setCarriedOut(visit.getCarriedOut());
 
-        if(visit.getVisitRating() != null)
+        if (visit.getVisitRating() != null)
             visitFound.setVisitRating(visit.getVisitRating());
 
-        if(visit.getPropertyRating() != null)
+        if (visit.getPropertyRating() != null)
             visitFound.setPropertyRating(visit.getPropertyRating());
 
-        if(!visit.getComments().equals(null))
+        if (!visit.getComments().equals(null))
             visitFound.setComments(visit.getComments());
 
         return this.visitRepository.save(visitFound);

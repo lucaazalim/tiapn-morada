@@ -1,5 +1,5 @@
 import * as API from "../../../assets/script/api.js";
-import * as Alert from "../../../../assets/script/alert.js";
+import  generateContract  from "../../../assets/script/generateRent.js";
 
 let offersRecived = document.getElementById("content");
 
@@ -26,7 +26,7 @@ API.get("offers/user")
                             <div>${formatCurrency(element.rent_value)}</div>
                         </div>
                         <div id="buttons" style="height:100%;" class="col-3 d-flex flex-column text-end justify-content-around">
-                            <button class="btn btn-success btn-sm">Aceitar</button>
+                            <button class="btn btn-success btn-sm" id="accept${element.id}">Aceitar</button>
                             <button class="btn btn-danger btn-sm">Recusar</button>
                             </div>
                         </div>
@@ -36,7 +36,15 @@ API.get("offers/user")
             </div>
         </div>    
             `;
+            let btnAccept = document.getElementById(`accept${element.id}`);
+        
+            btnAccept.addEventListener("click", () => {
+              alert("teste")
+              generateContract(element.id)
+            })
     });
+
+
 });
 
 function formatCurrency(value) {
@@ -47,3 +55,4 @@ function formatCurrency(value) {
     maximumFractionDigits: 0,
   });
 }
+

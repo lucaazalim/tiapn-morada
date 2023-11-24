@@ -51,7 +51,7 @@ public class PaymentService {
             payment.setCompetenceMonth(paymentUpdateDTO.getCompetenceMonth());
             payment.setCompetenceYear(paymentUpdateDTO.getCompetenceYear());
             payment.setStatus(paymentUpdateDTO.getStatus());
-            payment.setCreatedAt(paymentUpdateDTO.getCreatedAt());
+            //payment.setCreatedAt(paymentUpdateDTO.getCreatedAt());
         return paymentRepository.save(payment);
     }
 }
