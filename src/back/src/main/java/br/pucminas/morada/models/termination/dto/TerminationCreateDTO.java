@@ -7,10 +7,17 @@ import br.pucminas.morada.models.termination.Termination;
 import jakarta.validation.constraints.NotNull;
 
 public record TerminationCreateDTO (
-    @NotNull Long rentalId,
-    @NotNull Boolean initiated_by_owner,
-    @NotNull String message,
-    @NotNull LocalDateTime create
+    @NotNull 
+    Long rentalId,
+
+    @NotNull 
+    boolean initiated_by_owner,
+
+    @NotNull 
+    String message,
+
+    @NotNull 
+    LocalDateTime createdAt
 
 
 ) implements DTO<Termination> {}

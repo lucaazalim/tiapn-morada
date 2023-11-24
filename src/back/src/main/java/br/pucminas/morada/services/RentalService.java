@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import br.pucminas.morada.models.rental.Rental;
 import br.pucminas.morada.models.user.User;
@@ -68,18 +69,20 @@ public class RentalService {
 
             if (optionalRental.isEmpty()) {
                 if (userSpringSecurity != null && userSpringSecurity.hasRole(UserRole.ADMIN)) {
-                    throw new GenericException(HttpStatus.NOT_FOUND, "Visita não encontrada.");
+                    throw new GenericException(HttpStatus.NOT_FOUND, "Aluguel não encontrado.");
                 }
             } else {
                 Rental rental = optionalRental.get();
                 if (userSpringSecurity != null && (userSpringSecurity.hasRole(UserRole.ADMIN)
-                        || rental.getUser().getId().equals(userSpringSecurity.getId()))) {
+                        || rental.getId().equals(userSpringSecurity.getId()))) {
                     return rental;
                 }
             }
             throw new AuthorizationException();
-        }
+    }
 
-
-
+    @Transactional
+    public List<Rental> findByPropertyId(Long propertyId){
+        return this.rentalRepository.findByProperty_Id(propertyId);
+    }
 }

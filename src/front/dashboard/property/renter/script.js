@@ -26,7 +26,7 @@ API.get("rentals/user")
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="/dashboard/payment/renter?id=${currentRentalId}">Pagamentos</a>
-                        <a class="dropdown-item" href="/dashboard/termination/create/?id=${currentRentalId}/?propertyId=${currentPropertyId}">Rescindir contrato de aluguel</a>
+                        <a class="dropdown-item" href="/dashboard/termination/create/renter/?id=${currentRentalId}&propertyId=${currentPropertyId}">Rescindir contrato de aluguel</a>
                     </div>
                 `;
             }

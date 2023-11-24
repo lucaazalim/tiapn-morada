@@ -63,11 +63,11 @@ public class OfferController {
         return ResponseEntity.ok(offers);
     }
 
-    // @GetMapping("/")
-    // public ResponseEntity<List<OfferDTO>> findAllByUser() {
-    //     List<Offer> offer = this.offerService.findAllByUser();
-    //     return ResponseEntity.ok().body(offer.stream().map(Offer::toDTO).toList());
-    // }
+    @GetMapping("/{id}")
+    public ResponseEntity<Offer> findById(@PathVariable Long id){
+        Offer offer = this.offerService.findById(id);
+        return ResponseEntity.ok(offer);
+    }
 
 
 }
