@@ -1,5 +1,6 @@
 package br.pucminas.morada.models.termination;
 
+import br.pucminas.morada.models.rental.Rental;
 import br.pucminas.morada.models.termination.dto.TerminationDTO;
 import jakarta.persistence.*;
 
@@ -8,6 +9,9 @@ import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.time.LocalDateTime;
+
+
+import org.hibernate.annotations.CreationTimestamp;
 
 
 @Entity
@@ -22,8 +26,9 @@ public class Termination {
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @Column(name = "rental_id")
-    private Long rentalId;
+    @ManyToOne
+    @JoinColumn(name = "rental_id")
+    private Rental rental;
 
     @Column(name = "initiated_by_owner")
     private boolean initiated_by_owner;
@@ -31,17 +36,18 @@ public class Termination {
     @Column(name = "message")
     private String message;
 
+    @CreationTimestamp
     @Column(name = "created_at")
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
 
     public TerminationDTO toDTO(){
         return new TerminationDTO(
             this.id,
-            this.rentalId,
+            this.rental.getId(),
             this.initiated_by_owner,
             this.message,
-            this.created_at
+            this.createdAt
         );
     }
 

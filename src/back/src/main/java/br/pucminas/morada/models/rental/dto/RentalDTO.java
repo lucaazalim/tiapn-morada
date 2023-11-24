@@ -12,8 +12,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public record RentalDTO (
     Long id,
     Long propertyId,
-    Long userId,
     Long offerId,
+    Long userId,
     BigDecimal rentValue,
     String contractHtml,
     boolean contract_signed_by_owner,

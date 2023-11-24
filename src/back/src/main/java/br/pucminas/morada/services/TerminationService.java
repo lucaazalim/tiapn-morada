@@ -1,6 +1,7 @@
 package br.pucminas.morada.services;
 
 import br.pucminas.morada.models.termination.Termination;
+import br.pucminas.morada.models.user.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,11 @@ public class TerminationService {
     @Autowired
     private TerminationRepository terminationRepository;
 
+    @Autowired
+    private UserService userService;
 
     @Transactional
-    public Termination create (Termination termination) {
+    public Termination create(Termination termination) {
 
         return this.terminationRepository.save(termination);
 

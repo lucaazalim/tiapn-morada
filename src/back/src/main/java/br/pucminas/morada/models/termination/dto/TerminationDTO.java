@@ -15,7 +15,7 @@ public record TerminationDTO(
     Long rentalId,
     boolean initiated_by_owner,
     String message,
-    LocalDateTime createdAt
+    LocalDateTime created_at
     
 
 
