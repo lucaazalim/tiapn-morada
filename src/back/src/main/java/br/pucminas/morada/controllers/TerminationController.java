@@ -17,7 +17,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.pucminas.morada.models.termination.dto.TerminationCreateDTO;
 
-
 import jakarta.validation.Valid;
 
 @RestController

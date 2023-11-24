@@ -63,6 +63,12 @@ export function put(route, body = {}) {
     return sendRequest("PUT", route, body);
 }
 
+export function remove(route) {
+    return sendRequest("DELETE", route);
+}
+
+
+
 function sendRequest(method, route, body = {}) {
 
     const request = {
