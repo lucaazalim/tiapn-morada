@@ -26,6 +26,7 @@ import br.pucminas.morada.models.visit.dto.VisitUpdateDTO;
 import br.pucminas.morada.services.PropertyService;
 import br.pucminas.morada.services.UserService;
 import br.pucminas.morada.services.VisitService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @RestController
@@ -65,10 +66,11 @@ public class VisitController {
         return ResponseEntity.ok(visits);
     }
 
+    //*sem DTO porque necessita de informações sobre a propriedade
     @GetMapping("/renter")
-    public ResponseEntity<List<VisitDTO>> findAllByUser(){
+    public ResponseEntity<List<Visit>> findAllByUser(){
         List<Visit> visits = this.visitService.findAllByUser();
-        return ResponseEntity.ok(visits.stream().map(Visit::toDTO).toList());
+        return ResponseEntity.ok(visits);
     }
 
     //Criar uma nova visita em imóvel específico.
@@ -106,6 +108,13 @@ public class VisitController {
     public ResponseEntity<Void> update(
         @Valid @RequestBody VisitUpdateDTO visitUpdateDTO, @PathVariable Long id) {
         this.visitService.update(id, visitUpdateDTO.toEntity(Visit.class));
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    @Validated
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        this.visitService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
