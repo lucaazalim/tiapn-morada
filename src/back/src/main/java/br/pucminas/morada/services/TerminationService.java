@@ -21,9 +21,8 @@ public class TerminationService {
     private UserService userService;
 
     @Transactional
-    public Termination create (Termination termination) {
+    public Termination create(Termination termination) {
 
-        // User user = this.userService.findById(UserService.getAuthenticatedUser().getId());
         return this.terminationRepository.save(termination);
 
     }

@@ -11,13 +11,8 @@ public record TerminationCreateDTO (
     Long rentalId,
 
     @NotNull 
-    boolean initiated_by_owner,
+    boolean initiatedByOwner,
 
     @NotNull 
-    String message,
-
-    @NotNull 
-    LocalDateTime createdAt
-
-
+    String message
 ) implements DTO<Termination> {}
