@@ -104,8 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                 console.log(datetime)
                                 let propertyIdAsInt = parseInt(propertyId, 10);
                                 console.log("Dados a serem enviados:", {
-                                    propertyId: propertyIdAsInt,
-                                    //propertyId,
+                                    //propertyId: propertyIdAsInt,
+                                    propertyId,
                                     datetime,
                                     carriedOut
 
