@@ -11,10 +11,7 @@ import lombok.Data;
 @Data
 public class VisitCreateDTO{
     Long propertyId;
-    Long userId;
-    LocalDateTime datetime; //notBlank
+    LocalDateTime datetime;
     Boolean carriedOut;
-    @Nullable Boolean visitRating;
-    @Nullable Boolean propertyRating;
-    @Nullable String comments;
 }
+

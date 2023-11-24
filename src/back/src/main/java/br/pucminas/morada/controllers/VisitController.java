@@ -40,9 +40,6 @@ public class VisitController {
     @Autowired
     private PropertyService propertyService;
 
-    @Autowired
-    private UserService userService;
-
     @GetMapping("/properties/{propertyId}")
     public ResponseEntity<List<VisitDTO>> findAllOfOneProperty(@PathVariable Long propertyId){
         Property property = propertyService.findById(propertyId);
@@ -77,32 +74,22 @@ public class VisitController {
     @PostMapping
     public ResponseEntity create(@Valid @RequestBody VisitCreateDTO visitCreateDTO) {
         try {
-            Visit visitSalve = visitService.save(convertDto(visitCreateDTO));
-            return new ResponseEntity(visitSalve, HttpStatus.CREATED);
+            
+            Property property = propertyService.findById(visitCreateDTO.getPropertyId());
+
+            Visit visit = new Visit();
+            visit.setProperty(property);
+            visit.setDatetime(visitCreateDTO.getDatetime());
+            visit.setCarriedOut(visitCreateDTO.getCarriedOut());
+            Visit newVisit = this.visitService.create(visit);
+
+            return new ResponseEntity(newVisit, HttpStatus.CREATED);
+            
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
-    public Visit convertDto(VisitCreateDTO dto){
-        Visit visit = Visit.builder()
-                            .datetime(dto.getDatetime())
-                            .carriedOut(dto.getCarriedOut())
-                            .build();
-
-        Property property = propertyService
-                    .findById(dto.getPropertyId());
-
-        visit.setProperty(property);
-
-        User user = userService
-            .findById(dto.getUserId());
-        
-        visit.setUser(user);    
-
-        return visit;
-    }
-
+    
     //PUT para cancelamento de visita ou para o acréscimo de avaliações sobre a visita
     @PutMapping("/{id}")
     public ResponseEntity<Void> update(
@@ -117,6 +104,5 @@ public class VisitController {
         this.visitService.delete(id);
         return ResponseEntity.noContent().build();
     }
-
     
 }

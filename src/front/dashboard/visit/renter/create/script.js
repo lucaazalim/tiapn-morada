@@ -33,19 +33,18 @@ document.addEventListener('DOMContentLoaded', function () {
                             };
   
                             let datetime = moment(info.date).format('YYYY-MM-DDTHH:mm:ss.SSS')
-                            console.log(datetime)
-                
-                            calendar.addEvent(date);
-                            
                             let carriedOut = 0
+                
+                            console.log(datetime)                            
                             let propertyIdAsInt = parseInt(propertyId, 10);
                             console.log("Dados a serem enviados:", {
                                 propertyId: propertyIdAsInt,
+                                //propertyId,
                                 datetime,
                                 carriedOut
                             });
                             API.post('visits', {
-                                propertyId: propertyIdAsInt,
+                                propertyId,
                                 datetime,
                                 carriedOut
                              })
@@ -57,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     }
                                 });
                 
+                            calendar.addEvent(date);
                             calendar.render();
                         }
                     }
@@ -100,19 +100,20 @@ document.addEventListener('DOMContentLoaded', function () {
                                 };
       
                                 let datetime = moment(info.date).format('YYYY-MM-DDTHH:mm:ss.SSS')
+                                let carriedOut = 0;
+
                                 console.log(datetime)
-                    
-                                calendar.addEvent(date);
-                                
-                                let carriedOut = 0
                                 let propertyIdAsInt = parseInt(propertyId, 10);
                                 console.log("Dados a serem enviados:", {
                                     propertyId: propertyIdAsInt,
+                                    //propertyId,
                                     datetime,
                                     carriedOut
+
                                 });
                                 API.post('visits', {
-                                    propertyId: propertyIdAsInt,
+
+                                    propertyId,
                                     datetime,
                                     carriedOut
                                  })
@@ -122,8 +123,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                         } else {
                                             console.error('Erro no envio.');
                                         }
-                                    });
+                                });
                     
+                                calendar.addEvent(date);
                                 calendar.render();
                             }
                         }
