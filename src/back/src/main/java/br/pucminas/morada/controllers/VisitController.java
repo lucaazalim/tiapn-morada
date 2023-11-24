@@ -44,7 +44,7 @@ public class VisitController {
     private UserService userService;
 
     @GetMapping("/properties/{propertyId}")
-    public ResponseEntity<List<VisitDTO>> findAllOfOneProperty(@PathVariable Long propertyId){
+    public ResponseEntity<List<VisitDTO>> findAllOfOneProperty(@PathVariable Long propertyId) {
         Property property = propertyService.findById(propertyId);
         if (property == null) {
             return ResponseEntity.notFound().build();
@@ -60,15 +60,15 @@ public class VisitController {
     }
 
     //*sem DTO porque necessita de informações sobre a propriedade
-    @GetMapping("/owner") 
-    public ResponseEntity<List<Visit>> findAllOfOwner(){
+    @GetMapping("/owner")
+    public ResponseEntity<List<Visit>> findAllOfOwner() {
         List<Visit> visits = this.visitService.findAllOfOwner();
         return ResponseEntity.ok(visits);
     }
 
     //*sem DTO porque necessita de informações sobre a propriedade
     @GetMapping("/renter")
-    public ResponseEntity<List<Visit>> findAllByUser(){
+    public ResponseEntity<List<Visit>> findAllByUser() {
         List<Visit> visits = this.visitService.findAllByUser();
         return ResponseEntity.ok(visits);
     }
@@ -84,21 +84,11 @@ public class VisitController {
         }
     }
 
-    public Visit convertDto(VisitCreateDTO dto){
+    public Visit convertDto(VisitCreateDTO dto) {
         Visit visit = Visit.builder()
-                            .datetime(dto.getDatetime())
-                            .carriedOut(dto.getCarriedOut())
-                            .build();
-
-        Property property = propertyService
-                    .findById(dto.getPropertyId());
-
-        visit.setProperty(property);
-
-        User user = userService
-            .findById(dto.getUserId());
-        
-        visit.setUser(user);    
+                .property(propertyService.findById(dto.getPropertyId()))
+                .datetime(dto.getDatetime())
+                .build();
 
         return visit;
     }
@@ -106,17 +96,17 @@ public class VisitController {
     //PUT para cancelamento de visita ou para o acréscimo de avaliações sobre a visita
     @PutMapping("/{id}")
     public ResponseEntity<Void> update(
-        @Valid @RequestBody VisitUpdateDTO visitUpdateDTO, @PathVariable Long id) {
+            @Valid @RequestBody VisitUpdateDTO visitUpdateDTO, @PathVariable Long id) {
         this.visitService.update(id, visitUpdateDTO.toEntity(Visit.class));
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/{id}")
     @Validated
-    public ResponseEntity<Void> delete(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         this.visitService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
-    
+
 }

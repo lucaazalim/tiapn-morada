@@ -7,7 +7,7 @@ let visitsForFullCalendar = [];
 
 document.addEventListener('DOMContentLoaded', function () {
     API.get("visits/properties/" + propertyId)
-        .then(response => response.json()) 
+        .then(response => response.json())
         .then(visits => {
             if (visits.length == 0) {
                 var calendarEl = document.getElementById('calendar');
@@ -31,24 +31,23 @@ document.addEventListener('DOMContentLoaded', function () {
                                 start: info.date,
                                 color: '#ff0066'
                             };
-  
+
                             let datetime = moment(info.date).format('YYYY-MM-DDTHH:mm:ss.SSS')
                             console.log(datetime)
-                
+
                             calendar.addEvent(date);
-                            
+
                             let carriedOut = 0
                             let propertyIdAsInt = parseInt(propertyId, 10);
                             console.log("Dados a serem enviados:", {
-                                propertyId: propertyIdAsInt,
+                                propertyId,
                                 datetime,
                                 carriedOut
                             });
                             API.post('visits', {
-                                propertyId: propertyIdAsInt,
-                                datetime,
-                                carriedOut
-                             })
+                                propertyId,
+                                datetime
+                            })
                                 .then(response => {
                                     if (response.status >= 200 && response.status < 300) {
                                         alert("sucesso!")
@@ -56,27 +55,27 @@ document.addEventListener('DOMContentLoaded', function () {
                                         console.error('Erro no envio.');
                                     }
                                 });
-                
+
                             calendar.render();
                         }
                     }
-                
+
                 });
                 for (const event of visitsForFullCalendar) {
                     calendar.addEvent(event);
                 }
                 calendar.render();
-            }else{
+            } else {
 
                 visits.forEach(visit => {
-                    let data = new Date(visit.datetime[0], visit.datetime[1]-1, visit.datetime[2],
+                    let data = new Date(visit.datetime[0], visit.datetime[1] - 1, visit.datetime[2],
                         visit.datetime[3], visit.datetime[4]);
                     //console.log(new Date(data.toUTCString())) //todo: para análises
                     visitsForFullCalendar.push({
                         start: new Date(data.toUTCString()),
                         color: "#7c7f83"
                     })
-                
+
                     var calendarEl = document.getElementById('calendar');
 
                     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -98,12 +97,12 @@ document.addEventListener('DOMContentLoaded', function () {
                                     start: info.date,
                                     color: '#ff0066'
                                 };
-      
+
                                 let datetime = moment(info.date).format('YYYY-MM-DDTHH:mm:ss.SSS')
                                 console.log(datetime)
-                    
+
                                 calendar.addEvent(date);
-                                
+
                                 let carriedOut = 0
                                 let propertyIdAsInt = parseInt(propertyId, 10);
                                 console.log("Dados a serem enviados:", {
@@ -115,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     propertyId: propertyIdAsInt,
                                     datetime,
                                     carriedOut
-                                 })
+                                })
                                     .then(response => {
                                         if (response.status >= 200 && response.status < 300) {
                                             alert("sucesso!")
@@ -123,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                             console.error('Erro no envio.');
                                         }
                                     });
-                    
+
                                 calendar.render();
                             }
                         }
@@ -133,9 +132,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         //console.log(event); //todo: para análises
                     }
                     calendar.render();
-                
+
                 });
-            }})
+            }
+        })
         .catch(error => {
             console.log(error)
         })
