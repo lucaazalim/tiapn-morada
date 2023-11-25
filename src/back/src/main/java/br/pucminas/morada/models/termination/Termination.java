@@ -31,7 +31,7 @@ public class Termination {
     private Rental rental;
 
     @Column(name = "initiated_by_owner")
-    private boolean initiated_by_owner;
+    private boolean initiatedByOwner;
 
     @Column(name = "message")
     private String message;
@@ -45,7 +45,7 @@ public class Termination {
         return new TerminationDTO(
             this.id,
             this.rental.getId(),
-            this.initiated_by_owner,
+            this.initiatedByOwner,
             this.message,
             this.createdAt
         );

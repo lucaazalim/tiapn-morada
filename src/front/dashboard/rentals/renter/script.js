@@ -15,15 +15,15 @@ API.get("rentals/properties/" + id)
     })
     .then(response => response.json())
     .then(rent =>{
+        console.log(rent);
         rent.map((item) => {
-            console.log(item.user);
             let contract = document.getElementById("contract");
             contract.innerHTML = "";
             contract.innerHTML = item.contractHtml;
 
             document.getElementById("btnSign").addEventListener("click", () =>{
                 API.put("rentals/" + item.id, {
-                    contractSignedByOwner: 1
+                    contractSignedByRenter: 1
                 })
                 .then(response => {
                     if (response.status >= 200 && response.status < 300) {
@@ -39,5 +39,3 @@ API.get("rentals/properties/" + id)
         })
         
 })
-
-

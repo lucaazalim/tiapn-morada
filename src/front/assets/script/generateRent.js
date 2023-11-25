@@ -87,8 +87,8 @@ API.get("offers/" + id)
         offerId: offer.id,
         rentValue: offer.rentValue,
         contractHtml: rental,
-        contract_signed_by_owner: 0,
-        contract_signed_by_renter: 0,
+        contractSignedByOwner: 0,
+        contractSignedByRenter: 0,
         terminated: 0,
         createdAt: new Date()
     })
@@ -101,5 +101,7 @@ API.get("offers/" + id)
                 Alert.alert(data.message, "danger")
             }
         })
+
+    console.log(offer.property.id)
     })  
 }

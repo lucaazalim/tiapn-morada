@@ -16,11 +16,11 @@ public record RentalDTO (
     Long userId,
     BigDecimal rentValue,
     String contractHtml,
-    boolean contract_signed_by_owner,
-    boolean contract_signed_by_renter,
+    boolean contractSignedByOwner,
+    boolean contractSignedByRenter,
     boolean terminated,
-    LocalDateTime terminated_at,
-    LocalDateTime created_at
+    LocalDateTime terminatedAt,
+    LocalDateTime createdAt
 
 
 ) implements DTO<Rental> {}

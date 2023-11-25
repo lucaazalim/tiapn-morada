@@ -13,9 +13,9 @@ import java.time.LocalDateTime;
 public record TerminationDTO(
     Long id,
     Long rentalId,
-    boolean initiated_by_owner,
+    boolean initiatedByOwner,
     String message,
-    LocalDateTime created_at
+    LocalDateTime createdAt
     
 
 

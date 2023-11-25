@@ -37,7 +37,7 @@ public class RentalController {
     public ResponseEntity<Void> create(@Valid @RequestBody RentalCreateDTO rentalCreateDTO){
 
         Rental rental = rentalCreateDTO.toEntity(Rental.class);
-        this.rentalService.create(rental);
+        this.rentalService.create(rental, rentalCreateDTO.propertyId(), rentalCreateDTO.offerId());
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
             .path("/{id}")
