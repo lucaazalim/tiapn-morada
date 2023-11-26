@@ -36,18 +36,13 @@ public class Termination {
     @Column(name = "message")
     private String message;
 
-    @CreationTimestamp
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
-
 
     public TerminationDTO toDTO(){
         return new TerminationDTO(
             this.id,
             this.rental.getId(),
             this.initiatedByOwner,
-            this.message,
-            this.createdAt
+            this.message
         );
     }
 

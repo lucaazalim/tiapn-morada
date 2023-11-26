@@ -89,12 +89,10 @@ API.get("offers/" + id)
         contractHtml: rental,
         contractSignedByOwner: 0,
         contractSignedByRenter: 0,
-        terminated: 0,
-        createdAt: new Date()
+        terminated: 0
     })
         .then(response => {
             if(response.status === 201){
-                alert("sucesso")
                 window.location.href = `/dashboard/rentals/owner/?id=${offer.property.id}`
             } else{
                 let data = response.json()
