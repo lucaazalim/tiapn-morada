@@ -1,17 +1,22 @@
 package br.pucminas.morada.models.payment.dto;
 
-import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Data
-public class PaymentDTO {
-    private Long id;
-    private Long rentalId;
-    private BigDecimal rentValue;
-    private Integer competenceMonth;
-    private Integer competenceYear;
-    private String status;
-    private LocalDateTime createdAt;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import br.pucminas.morada.models.DTO;
+import br.pucminas.morada.models.payment.Payment;
+import br.pucminas.morada.models.payment.PaymentStatus;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record PaymentDTO(
+        Long id,
+        Long rentalId,
+        BigDecimal rentValue,
+        Integer competenceMonth,
+        Integer competenceYear,
+        PaymentStatus status,
+        LocalDateTime createdAt
+) implements DTO<Payment> {
 }
