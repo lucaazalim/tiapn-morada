@@ -2,22 +2,22 @@ package br.pucminas.morada.models.payment;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import br.pucminas.morada.models.payment.dto.PaymentDTO;
 import br.pucminas.morada.models.rental.Rental;
+import br.pucminas.morada.models.user.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Entity
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "payment")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Payment {
 
     @Id
@@ -26,10 +26,14 @@ public class Payment {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "rental_id", nullable = false)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "rental_id", nullable = false, updatable = false)
     private Rental rental;
 
-    @Column(name = "rent_value", nullable = false, precision = 15, scale = 2)
+    @Column(name = "rent_value")
     private BigDecimal rentValue;
 
     @Column(name = "competence_month", nullable = false)
@@ -38,23 +42,24 @@ public class Payment {
     @Column(name = "competence_year", nullable = false)
     private Integer competenceYear;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private PaymentStatus status;
+    @Enumerated(EnumType.STRING)
+    private PaymentStatus status = PaymentStatus.ALLEGEDLY_PAID;
 
+    @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
     
     public PaymentDTO toDTO() {
-        PaymentDTO dto = new PaymentDTO();
-        dto.setId(this.id);
-        dto.setRentalId(this.rental != null ? this.rental.getId() : null);
-        dto.setRentValue(this.rentValue);
-        dto.setCompetenceMonth(this.competenceMonth);
-        dto.setCompetenceYear(this.competenceYear);
-        dto.setStatus(this.status != null ? this.status.name() : null);
-        dto.setCreatedAt(this.createdAt);
-        return dto;
+        return new PaymentDTO(
+                this.id,
+                this.rental.getId(),
+                this.rentValue,
+                this.competenceMonth,
+                this.competenceYear,
+                this.status,
+                this.createdAt
+        );
     }
 }
 
