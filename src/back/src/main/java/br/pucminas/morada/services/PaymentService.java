@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import br.pucminas.morada.models.payment.Payment;
 import br.pucminas.morada.models.payment.PaymentStatus;
 import br.pucminas.morada.models.rental.Rental;
-import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user.UserRole;
 import br.pucminas.morada.repositories.PaymentRepository;
 import br.pucminas.morada.security.UserSpringSecurity;
@@ -29,19 +28,14 @@ public class PaymentService {
     @Autowired
     private RentalService rentalService;
 
-    @Autowired
-    private UserService userService;
-
-    @Transactional
+    @Transactional  
     public Payment create(Payment payment, Long rentalId) {
         Rental rental = this.rentalService.findById(rentalId);
-        User user = this.userService.findById(UserService.getAuthenticatedUser().getId());
-
         payment.setRental(rental);
-        payment.setUser(user);
 
         return this.paymentRepository.save(payment);
     }
+
 
 
     @Transactional
@@ -53,24 +47,25 @@ public class PaymentService {
     }
 
     public Payment findById(Long id) {
-    Optional<Payment> optionalPayment = this.paymentRepository.findById(id);
-    UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
-
-    if (optionalPayment.isEmpty()) {
-        if (userSpringSecurity != null && userSpringSecurity.hasRole(UserRole.ADMIN)) {
-            throw new GenericException(HttpStatus.NOT_FOUND, "Pagamento não encontrado");
+        Optional<Payment> optionalPayment = this.paymentRepository.findById(id);
+        UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
+    
+        if (optionalPayment.isEmpty()) {
+            HttpStatus status = userSpringSecurity != null && userSpringSecurity.hasRole(UserRole.ADMIN) 
+                                ? HttpStatus.NOT_FOUND : HttpStatus.FORBIDDEN;
+            throw new GenericException(status, "Pagamento não encontrado");
         }
-        throw new AuthorizationException();
-    } else {
+    
         Payment payment = optionalPayment.get();
-        User user = payment.getRental().getUser();
-        if (userSpringSecurity != null && (userSpringSecurity.hasRole(UserRole.ADMIN)
-                || user.getId().equals(userSpringSecurity.getId()))) {
-            return payment;
+        Long userId = payment.getRental().getUser().getId();
+        if (userSpringSecurity == null || 
+            (!userSpringSecurity.hasRole(UserRole.ADMIN) && !userId.equals(userSpringSecurity.getId()))) {
+            throw new AuthorizationException();
         }
+    
+        return payment;
     }
-    throw new AuthorizationException();
-}
+    
 
 
     public List<Payment> findAllByUser() {
