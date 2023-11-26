@@ -11,12 +11,10 @@ import java.time.LocalDateTime;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record TerminationDTO(
+    
     Long id,
     Long rentalId,
-    boolean initiated_by_owner,
-    String message,
-    LocalDateTime created_at
+    boolean initiatedByOwner,
+    String message
     
-
-
 )implements DTO<Rental> {}

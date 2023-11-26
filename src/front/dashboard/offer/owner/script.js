@@ -39,7 +39,7 @@ API.get("offers/user")
             let btnAccept = document.getElementById(`accept${element.id}`);
         
             btnAccept.addEventListener("click", () => {
-              alert("teste")
+              console.log(element)
               generateContract(element.id)
             })
     });

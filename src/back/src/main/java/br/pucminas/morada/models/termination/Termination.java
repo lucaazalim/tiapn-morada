@@ -31,23 +31,18 @@ public class Termination {
     private Rental rental;
 
     @Column(name = "initiated_by_owner")
-    private boolean initiated_by_owner;
+    private boolean initiatedByOwner;
 
     @Column(name = "message")
     private String message;
-
-    @CreationTimestamp
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
 
 
     public TerminationDTO toDTO(){
         return new TerminationDTO(
             this.id,
             this.rental.getId(),
-            this.initiated_by_owner,
-            this.message,
-            this.createdAt
+            this.initiatedByOwner,
+            this.message
         );
     }
 

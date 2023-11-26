@@ -31,7 +31,7 @@ public class TerminationController {
     public ResponseEntity<Void> create(@Valid @RequestBody TerminationCreateDTO terminationCreateDTO) {
 
         Termination termination = terminationCreateDTO.toEntity(Termination.class);
-        this.terminationService.create(termination);
+        this.terminationService.create(termination, terminationCreateDTO.rentalId());
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")

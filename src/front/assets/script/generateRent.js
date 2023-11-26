@@ -87,19 +87,19 @@ API.get("offers/" + id)
         offerId: offer.id,
         rentValue: offer.rentValue,
         contractHtml: rental,
-        contract_signed_by_owner: 0,
-        contract_signed_by_renter: 0,
-        terminated: 0,
-        createdAt: new Date()
+        contractSignedByOwner: 0,
+        contractSignedByRenter: 0,
+        terminated: 0
     })
         .then(response => {
             if(response.status === 201){
-                alert("sucesso")
                 window.location.href = `/dashboard/rentals/owner/?id=${offer.property.id}`
             } else{
                 let data = response.json()
                 Alert.alert(data.message, "danger")
             }
         })
+
+    console.log(offer.property.id)
     })  
 }

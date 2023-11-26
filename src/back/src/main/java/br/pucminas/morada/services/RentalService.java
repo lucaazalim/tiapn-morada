@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import br.pucminas.morada.models.offer.Offer;
+import br.pucminas.morada.models.property.Property;
 import br.pucminas.morada.models.rental.Rental;
 import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user.UserRole;
@@ -27,10 +29,20 @@ public class RentalService {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private PropertyService propertyService;
+
+    @Autowired
+    private OfferService offerService;
+
     @Transactional
-    public Rental create(Rental rental){
+    public Rental create(Rental rental, Long propertyId, Long offerId){
 
         User user = this.userService.findById(UserService.getAuthenticatedUser().getId());
+        Property property = this.propertyService.findById(propertyId);
+        Offer offer = this.offerService.findById(offerId);
+        rental.setProperty(property);
+        rental.setOffer(offer);
         rental.setUser(user);
 
         return this.rentalRepository.save(rental);
@@ -41,18 +53,17 @@ public class RentalService {
     public Rental update(Long id, Rental rental){
 
         Rental rentalFound = this.findById(id);
-        if(rental.isContract_signed_by_owner() != true){
-            rentalFound.setContract_signed_by_owner(true);
+
+        if(rental.isContractSignedByOwner()){
+            rentalFound.setContractSignedByOwner(true);
         }
-        if(rental.isContract_signed_by_renter() != true){
-            rentalFound.setContract_signed_by_renter(true);
+        if(rental.isContractSignedByRenter()){
+            rentalFound.setContractSignedByRenter(true);
         }
-        if(rental.isTerminated() != true){
+        if(rental.isTerminated()){
             rentalFound.setTerminated(true);
         }
-        if(rental.getTerminatedAt() != null){
-            rentalFound.setTerminatedAt(LocalDateTime.now());
-        }
+
 
         return this.rentalRepository.save(rentalFound);
 
