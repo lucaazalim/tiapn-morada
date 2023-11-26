@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import br.pucminas.morada.models.payment.dto.PaymentDTO;
 import br.pucminas.morada.models.rental.Rental;
-import br.pucminas.morada.models.user.User;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -24,10 +23,6 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 
     @ManyToOne
     @JoinColumn(name = "rental_id", nullable = false, updatable = false)
