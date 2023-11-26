@@ -7,6 +7,7 @@ import br.pucminas.morada.models.termination.Termination;
 import jakarta.validation.constraints.NotNull;
 
 public record TerminationCreateDTO (
+    
     @NotNull 
     Long rentalId,
 
@@ -15,4 +16,5 @@ public record TerminationCreateDTO (
 
     @NotNull 
     String message
+
 ) implements DTO<Termination> {}

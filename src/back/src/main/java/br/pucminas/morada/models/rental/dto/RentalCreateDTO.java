@@ -25,20 +25,17 @@ public record RentalCreateDTO (
     String contractHtml,
 
     @NotNull
-    boolean contract_signed_by_owner,
+    boolean contractSignedByOwner,
 
     @NotNull
-    boolean contract_signed_by_renter,
+    boolean contractSignedByRenter,
 
     @NotNull
     boolean terminated,
 
     @Nullable
-    LocalDateTime terminated_at,
+    LocalDateTime terminatedAt
     
-    @NotNull
-    LocalDateTime createdAt
-
  ) implements DTO<Rental>{
 
 }

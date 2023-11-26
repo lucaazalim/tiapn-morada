@@ -1,5 +1,6 @@
 package br.pucminas.morada.services;
 
+import br.pucminas.morada.models.rental.Rental;
 import br.pucminas.morada.models.termination.Termination;
 import br.pucminas.morada.models.user.User;
 
@@ -20,10 +21,16 @@ public class TerminationService {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private RentalService rentalService;
 
     @Transactional
-    public Termination create(Termination termination) {
+    public Termination create(Termination termination, Long rentalId) {
 
+        Rental rental = this.rentalService.findById(rentalId);
+        termination.setRental(rental);
+        
         return this.terminationRepository.save(termination);
 
     }

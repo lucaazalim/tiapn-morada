@@ -1,5 +1,6 @@
 package br.pucminas.morada.models.rental;
 
+import br.pucminas.morada.models.offer.Offer;
 import br.pucminas.morada.models.property.Property;
 import br.pucminas.morada.models.rental.dto.RentalDTO;
 import br.pucminas.morada.models.user.User;
@@ -31,8 +32,9 @@ public class Rental {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "offer_id", nullable = false)
-    private Long offerId;
+    @ManyToOne
+    @JoinColumn(name = "offer_id", nullable = false)
+    private Offer offer;
 
     @Column(name = "rent_value", nullable = false)
     private BigDecimal rentValue;
@@ -41,10 +43,10 @@ public class Rental {
     private String contractHtml;
 
     @Column(name = "contract_signed_by_owner", nullable = false)
-    private boolean contract_signed_by_owner;
+    private boolean contractSignedByOwner;
 
     @Column(name = "contract_signed_by_renter", nullable = false)
-    private boolean contract_signed_by_renter;
+    private boolean contractSignedByRenter;
 
     @Column(name = "`terminated`", nullable = false)
     private boolean terminated;
@@ -62,11 +64,11 @@ public class Rental {
             this.id, 
             this.property.getId(), 
             this.user.getId(), 
-            this.offerId,
+            this.offer.getId(),
             this.rentValue,
             this.contractHtml,
-            this.contract_signed_by_owner,
-            this.contract_signed_by_renter,
+            this.contractSignedByOwner,
+            this.contractSignedByRenter,
             this.terminated,
             this.terminatedAt,
             this.createdAt

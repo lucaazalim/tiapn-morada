@@ -16,10 +16,10 @@ API.get("rentals/user")
 
             let currentRentalId = element.id;
             let currentPropertyId = element.property.id
-            console.log("id"+element.property.id)
+            console.log(currentPropertyId)
             let options = "";
 
-            if (currentRentalId) {
+            if (currentRentalId && element.contractSignedByOwner === true && element.contractSignedByRenter === true) {
                 options += /*html*/ `
                     <button type="button" class="btn btn-outline-primary" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa-solid fa-ellipsis"></i>
@@ -28,6 +28,10 @@ API.get("rentals/user")
                         <a class="dropdown-item" href="/dashboard/payment/renter?id=${currentRentalId}">Pagamentos</a>
                         <a class="dropdown-item" href="/dashboard/termination/create/renter/?id=${currentRentalId}&propertyId=${currentPropertyId}">Rescindir contrato de aluguel</a>
                     </div>
+                `;
+            }else if(currentRentalId && element.contractSignedByOwner === true){
+                options += /*html*/ `
+                    <a class="btn btn-primary" href="/dashboard/rentals/renter/?id=${currentPropertyId}">Assinar contrato</a>
                 `;
             }
 

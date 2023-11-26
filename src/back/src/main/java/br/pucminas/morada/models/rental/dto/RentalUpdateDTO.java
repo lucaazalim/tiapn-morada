@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 
 public record RentalUpdateDTO (
     Long id,
+    boolean contractSignedByOwner,
+    boolean contractSignedByRenter,
     boolean terminated,
-    LocalDateTime terminated_at
+    LocalDateTime terminatedAt
 ) implements DTO<Rental>{}

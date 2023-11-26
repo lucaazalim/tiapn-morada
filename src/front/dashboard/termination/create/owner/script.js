@@ -30,15 +30,34 @@ API.get(`properties/` + propertyId)
 
 })
 
+document.getElementById("confirm").addEventListener("click", ()=>{
+
+  const message = document.getElementById("message").value;
 
 
-API.put(`rentals/` + id, {
+  API.put(`rentals/` + rentalId, {
+    terminated: 1
+  })
+    .then(response => {
+      if(response.status == 201){
+        window.location.href = "/dashboard";
+      }else{
+        let data = response.json();
+        Alert.alert(data.message, "danger")
+      }
+  })
+
+  API.post(`terminations`, {
     rentalId,
-    initiated_by_owner: 1,
-    
-
-})
-    .then()
-
-
-
+    initiatedByOwner: 1,
+    message
+  })
+    .then(response => {
+      if(response.status == 201){
+        window.location.href = "/dashboard" 
+      }else{
+        let data = response.json();
+        Alert.alert(data.message, "danger")
+      }
+    })
+  })

@@ -6,7 +6,7 @@ const cardContainer = document.getElementById("cardContainer");
 
 const urlParams = new URLSearchParams(window.location.search);
 const propertyId = urlParams.get('propertyId');
-const rentalId = urlParams.get('id');
+const rentalId = urlParams.get('id')
 
 API.get(`properties/` + propertyId)
   .then((response) =>{
@@ -28,37 +28,36 @@ API.get(`properties/` + propertyId)
     console.log(property)
     cardContainer.innerHTML = getPropertyCard(property);
 
-  })
-
-document.getElementById("btnConfirm").addEventListener("click", (e) => {
-  const message = document.getElementById("message").value;
-
-  API.post(`teminations`, {
-    rentalId,
-    initiated_by_owner: 0,
-    message,
-  })
-    .then(response => {
-      if (response.status >= 200 && response.status < 300) {
-        alert("sucesso1");
-      } else {
-        let data = response.json();
-        Alert.alert(data.message, "danger");
-      }
-    })
-  
-
-  API.put('rentals/' + rentalId, {
-    terminated: 1
-  })
-  .then(response => {
-    if (response.status >= 200 && response.status < 300) {
-      alert("sucesso2")
-  } else {
-      console.error('Erro ao assinar o contrato.');
-  }
-  })
-
 })
 
+document.getElementById("btnConfirm").addEventListener("click", ()=>{
 
+  const message = document.getElementById("message").value;
+
+
+  API.put(`rentals/` + rentalId, {
+    terminated: 1
+  })
+    .then(response => {
+      if(response.status == 201){
+        window.location.href = "/dashboard";
+      }else{
+        let data = response.json();
+        Alert.alert(data.message, "danger")
+      }
+  })
+
+  API.post(`terminations`, {
+    rentalId,
+    initiatedByOwner: 0,
+    message
+  })
+    .then(response => {
+      if(response.status == 201){
+        window.location.href = "/dashboard" 
+      }else{
+        let data = response.json();
+        Alert.alert(data.message, "danger")
+      }
+    })
+  })
