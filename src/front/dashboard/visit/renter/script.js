@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json()) 
         .then(visits => {
             visits.forEach(visit => {
+              console.log(visit)
                 let endereco = visit.property.street + " " + visit.property.number + ", " + visit.property.complement
                 let dataHora = formatarDataHora(visit.datetime)
                 if(visit.datetime !== "2077-07-07 00:00:00.000"){
@@ -51,8 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </div>
       <br>
-                        
-                        `
+                  `
                     }else{
                         visitasrealizadas.innerHTML += `
       <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
@@ -69,18 +69,15 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
       <br>
                         `
-                    }
-                    }
-                }
-            
-            });
+                    }}}
+                 });
             })
         .catch(error => {
             console.log(error)
         })
 });
 
-//necesário ter DELETE mapping.
+//necesário delete mapping
 window.submitButton = function (id) {
     console.log("Canceling visit with ID:", id);
     API.remove("visits/" + id)
@@ -91,7 +88,7 @@ window.submitButton = function (id) {
                 } else {
                     console.error('Erro ao enviar cancelamento.');
                 }
-            });
+          });
 }
 
 
@@ -115,7 +112,7 @@ function addZero(numero) {
 //! API - retornando um booleano ao invés da nota numerica 
 //função não implementada
 function criarEstrelas(nota) {
-    const notaNormalizada = nota / 2;  // Normalizando a nota para um intervalo de 0 a 5 (devido valores existentes no banco de dados)
+    const notaNormalizada = nota / 2;  // Normalizando a nota para um intervalo de 0 a 5 (devido valores existentes de 0 a 10 no banco de dados)
 
     let estrelasHtml = '';
     for (let i = 1; i <= 5; i++) {
@@ -150,7 +147,7 @@ function criarEstrelas(nota) {
                         ` */
 
 
-//necessário reavaliar estrutra do banco de dados (comments x visitRating x carriedOut x [visitado x rating enviado(envio sem aval, com aval zero x nula)(enviado sem comentário = comment nulo X não enviado ainda) x diferenciação])
+//reavaliar estrutura do banco de dados (comments x visitRating x carriedOut x [visitado x rating enviado(envio sem aval, com aval zero x nula)(enviado sem comentário = comment nulo X não enviado ainda) x diferenciação])
 
 
 /*<div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">

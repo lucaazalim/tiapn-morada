@@ -57,21 +57,19 @@ public class UserVerificationController {
 
     }
 
-    //verificação específica
     @GetMapping("/{id}")
     public ResponseEntity<UserVerification> findById(@PathVariable Long id) {
         UserVerification userVerification = this.userVerificationService.findById(id);
         return ResponseEntity.ok(userVerification);
     }
 
-    //todas as verificações do usuário logado
     @GetMapping("/user")
     public ResponseEntity<List<UserVerification>> findAllByUser() {
         List<UserVerification> userVerifications = this.userVerificationService.findAllByUser();
         return ResponseEntity.ok(userVerifications);
     }
    
-    //*retorna todas as verificações pendentes de todos os usuários existentes
+    //retorna todas as verificações pendentes de todos os usuários existentes
     @GetMapping("/all")
     public ResponseEntity<List<UserVerification>> findAll() {
         List<UserVerification> userVerifications = this.userVerificationService.findAll();

@@ -17,8 +17,6 @@ import jakarta.transaction.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-//* service - camada de negócios: favorece a reusabilidade
-
 @Service
 public class VisitService {
 

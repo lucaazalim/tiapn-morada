@@ -26,22 +26,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     slotMaxTime: "17:00:00",
                     height: "auto",
                     dateClick: function (info) {
-                        if (confirm("Deseja agendar uma visita para " + info.dateStr + "?")) {
+                        let formattedDate = moment(info.date).format('DD/MM/YYYY [às] HH[h]mm');
+                        if (confirm("Deseja agendar uma visita para " + formattedDate + " ?")) {
                             let date = {
                                 start: info.date,
                                 color: '#ff0066'
                             };
-
                             let datetime = moment(info.date).format('YYYY-MM-DDTHH:mm:ss.SSS')
                             let carriedOut = 0
                 
-                            console.log(datetime)                            
-                            let propertyIdAsInt = parseInt(propertyId, 10);
-                            console.log("Dados a serem enviados:", {
-                                propertyId,
-                                datetime,
-                                carriedOut
-                            });
                             API.post('visits', {
                                 propertyId,
                                 datetime,
@@ -49,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
                              })
                                 .then(response => {
                                     if (response.status >= 200 && response.status < 300) {
-                                        alert("sucesso!")
+                                        alert("Agendado com sucesso!")
                                     } else {
                                         console.error('Erro no envio.');
                                     }
@@ -70,14 +63,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 visits.forEach(visit => {
                     let data = new Date(visit.datetime[0], visit.datetime[1] - 1, visit.datetime[2],
                         visit.datetime[3], visit.datetime[4]);
-                    //console.log(new Date(data.toUTCString())) //todo: para análises
                     visitsForFullCalendar.push({
                         start: new Date(data.toUTCString()),
                         color: "#7c7f83"
                     })
 
                     var calendarEl = document.getElementById('calendar');
-
                     var calendar = new FullCalendar.Calendar(calendarEl, {
                         locale: 'pt-br',
                         initialView: "timeGridWeek",
@@ -92,33 +83,25 @@ document.addEventListener('DOMContentLoaded', function () {
                         slotMaxTime: "17:00:00",
                         height: "auto",
                         dateClick: function (info) {
-                            if (confirm("Deseja agendar uma visita para " + info.dateStr + "?")) {
+                            let formattedDate = moment(info.date).format('DD/MM/YYYY [às] HH[h]mm');
+
+                            if (confirm("Deseja agendar uma visita para o dia " + formattedDate + " ?")) {
                                 let date = {
                                     start: info.date,
                                     color: '#ff0066'
                                 };
-
+                                
                                 let datetime = moment(info.date).format('YYYY-MM-DDTHH:mm:ss.SSS')
                                 let carriedOut = 0;
 
-                                console.log(datetime)
-                                let propertyIdAsInt = parseInt(propertyId, 10);
-                                console.log("Dados a serem enviados:", {
-                                    //propertyId: propertyIdAsInt,
-                                    propertyId,
-                                    datetime,
-                                    carriedOut
-
-                                });
                                 API.post('visits', {
-
                                     propertyId,
                                     datetime,
                                     carriedOut
                                 })
                                     .then(response => {
                                         if (response.status >= 200 && response.status < 300) {
-                                            alert("sucesso!")
+                                            alert("Agendado com sucesso!")
                                         } else {
                                             console.error('Erro no envio.');
                                         }
@@ -131,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                     for (const event of visitsForFullCalendar) {
                         calendar.addEvent(event);
-                        //console.log(event); //todo: para análises
                     }
                     calendar.render();
 
@@ -142,3 +124,5 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(error)
         })
 });
+
+

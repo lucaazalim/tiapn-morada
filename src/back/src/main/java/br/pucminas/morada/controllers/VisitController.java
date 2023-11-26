@@ -56,14 +56,14 @@ public class VisitController {
         return ResponseEntity.ok(visit.toDTO());
     }
 
-    //*sem DTO porque necessita de informações sobre a propriedade
+    //sem DTO porque necessita de informações sobre a propriedade
     @GetMapping("/owner")
     public ResponseEntity<List<Visit>> findAllOfOwner() {
         List<Visit> visits = this.visitService.findAllOfOwner();
         return ResponseEntity.ok(visits);
     }
 
-    //*sem DTO porque necessita de informações sobre a propriedade
+    //sem DTO porque necessita de informações sobre a propriedade
     @GetMapping("/renter")
     public ResponseEntity<List<Visit>> findAllByUser() {
         List<Visit> visits = this.visitService.findAllByUser();
@@ -90,7 +90,6 @@ public class VisitController {
         }
     }
     
-    //PUT para cancelamento de visita ou para o acréscimo de avaliações sobre a visita
     @PutMapping("/{id}")
     public ResponseEntity<Void> update(
             @Valid @RequestBody VisitUpdateDTO visitUpdateDTO, @PathVariable Long id) {

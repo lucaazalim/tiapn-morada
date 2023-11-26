@@ -61,6 +61,5 @@ public class Visit {
     public VisitDTO toDTO() {
         return Constants.OBJECT_MAPPER.convertValue(this, VisitDTO.class);
     }
-    
 }
 
