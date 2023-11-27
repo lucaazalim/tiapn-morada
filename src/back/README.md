@@ -33,6 +33,8 @@
 | POST   | `/payments`                | 5        | Criar um novo pagamento.                                           |
 | GET    | `/payments/{id}`           | 5        | Consultar pagamento pelo ID.                                       |
 | PUT    | `/payments/{id}`           | 5        | Atualizar pagamento pelo ID.                                       |
+| GET    | `/payments/owner`          | 5        | Consultar pagamentos que pertencem a propriedades de um usuário.    |
+| GET    | `/payments/renter`         | 5        | Consultar pagamentos que pertencem a propriedades alugadas por um usuário.|
 | POST   | `/terminations`            | 6        | Criar uma nova rescisão de aluguel.                                |
 | GET    | `/terminations/{id}`       | 6        | Consultar uma rescisão de aluguel pelo ID.                         |
 | PUT    | `/terminations/{id}`       | 6        | Atualizar uma rescisão de aluguel pelo ID.                         |
