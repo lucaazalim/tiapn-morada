@@ -16,8 +16,8 @@ public record VisitDTO(
     Long userId,
     LocalDateTime datetime,
     Boolean carriedOut,
-    Boolean visitRating,
-    Boolean propertyRating,
+    Integer visitRating,
+    Integer propertyRating,
     String comments,
     LocalDateTime createdAt
 )implements DTO<Visit> {}

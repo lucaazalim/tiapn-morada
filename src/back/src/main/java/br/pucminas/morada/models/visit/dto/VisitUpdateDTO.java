@@ -10,7 +10,7 @@ public record VisitUpdateDTO(
     Long id,
     @Nullable LocalDateTime datetime,
     @Nullable Boolean carriedOut,
-    @Nullable Boolean visitRating,
-    @Nullable Boolean propertyRating,
+    @Nullable Integer visitRating,
+    @Nullable Integer propertyRating,
     @Nullable String comments
 ) implements DTO<Visit> {}
