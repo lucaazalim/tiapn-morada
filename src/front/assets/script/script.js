@@ -48,7 +48,7 @@ function loadHeader() {
     document.getElementById("header").innerHTML = headerHtml;
 
     // if (API.isAuthenticated()) {
-        loadMenu();
+    loadMenu();
     // }
 
 }
@@ -105,7 +105,7 @@ function loadMenu() {
                                 <li><a class="dropdown-item" href="/dashboard/verification">Verificação</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/property/renter">Imóveis Alugados</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/visit/renter">Visitas Agendadas</a></li>
-                                <li><a class="dropdown-item" href="/dashboard/offer/owner">Propostas Enviadas</a></li>
+                                <li><a class="dropdown-item" href="/dashboard/offer/renter">Propostas Enviadas</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/payment/renter">Pagamentos</a></li>
                             </ul>
                         </li>
