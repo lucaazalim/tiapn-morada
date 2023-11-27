@@ -50,7 +50,7 @@ CREATE TABLE `payment` (
   `rent_value` decimal(15,2) NOT NULL,
   `competence_month` int(2) unsigned NOT NULL,
   `competence_year` int(4) unsigned NOT NULL,
-  `status` enum('allegedly_paid','confirmed','rejected') NOT NULL DEFAULT 'allegedly_paid',
+  `status` enum('ALLEGEDLY_PAID','CONFIRMED','REJECTED') NOT NULL DEFAULT 'ALLEGEDLY_PAID',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `payment_rent_id` (`rental_id`),
@@ -226,4 +226,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-19 21:29:58
+-- Dump completed on 2023-11-26 20:59:34
