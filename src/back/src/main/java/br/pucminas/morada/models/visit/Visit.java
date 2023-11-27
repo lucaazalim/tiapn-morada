@@ -47,10 +47,10 @@ public class Visit {
     private Boolean carriedOut;
 
     @Column(name = "visit_rating")
-    private Boolean visitRating;
+    private Integer visitRating;
 
     @Column(name = "property_rating")
-    private Boolean propertyRating;
+    private Integer propertyRating;
 
     @Column(name = "comments")
     private String comments;
