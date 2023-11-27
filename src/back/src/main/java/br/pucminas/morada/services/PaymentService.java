@@ -36,8 +36,6 @@ public class PaymentService {
         return this.paymentRepository.save(payment);
     }
 
-
-
     @Transactional
     public Payment update(Long id, PaymentStatus status) {
         Payment paymentFound = this.findById(id);
@@ -47,7 +45,10 @@ public class PaymentService {
     }
 
     public Payment findById(Long id) {
-        Optional<Payment> optionalPayment = this.paymentRepository.findById(id);
+
+        return this.paymentRepository.findById(id).orElse(null);
+
+        /*Optional<Payment> optionalPayment = this.paymentRepository.findById(id);
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
     
         if (optionalPayment.isEmpty()) {
@@ -58,24 +59,26 @@ public class PaymentService {
     
         Payment payment = optionalPayment.get();
         Long userId = payment.getRental().getUser().getId();
+
         if (userSpringSecurity == null || 
             (!userSpringSecurity.hasRole(UserRole.ADMIN) && !userId.equals(userSpringSecurity.getId()))) {
             throw new AuthorizationException();
         }
     
-        return payment;
+        return payment;*/
+
     }
     
 
 
-    public List<Payment> findAllByUser() {
+    public List<Payment> findForOwner() {
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
-        return this.paymentRepository.findByUser_Id(userSpringSecurity.getId());
+        return paymentRepository.findForOwner(userSpringSecurity.getId());
     }
 
-    public List<Map<String, Object>> findAllPaymentsForTheUser() {
+    public List<Payment> findByRenter() {
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
-        return this.paymentRepository.findAllPaymentsByUserId(userSpringSecurity.getId());
+        return paymentRepository.findByRenter(userSpringSecurity.getId());
     }
 
 }

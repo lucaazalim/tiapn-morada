@@ -1,5 +1,6 @@
 package br.pucminas.morada.controllers;
 
+import br.pucminas.morada.models.payment.dto.PaymentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -43,20 +44,25 @@ public class PaymentController {
             @Valid @RequestBody PaymentUpdateDTO paymentUpdateDTO,
             @PathVariable Long id
     ) {
+        System.out.println("Debug!");
         paymentService.update(id, paymentUpdateDTO.status());
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/user")
-    public ResponseEntity<List<Map<String, Object>>> findAllPayments() {
-        List<Map<String, Object>> payments = paymentService.findAllPaymentsForTheUser();
-        return ResponseEntity.ok(payments);
+    @GetMapping("/owner")
+    public ResponseEntity<List<PaymentDTO>> findForOwner() {
+        return ResponseEntity.ok(paymentService.findForOwner().stream().map(Payment::toDTO).toList());
+    }
+
+    @GetMapping("/renter")
+    public ResponseEntity<List<PaymentDTO>> findByRenter() {
+        return ResponseEntity.ok(paymentService.findByRenter().stream().map(Payment::toDTO).toList());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Payment> findById(@PathVariable Long id) {
+    public ResponseEntity<PaymentDTO> findById(@PathVariable Long id) {
         Payment payment = paymentService.findById(id);
-        return ResponseEntity.ok(payment);
+        return ResponseEntity.ok(payment.toDTO());
     }
 
 }

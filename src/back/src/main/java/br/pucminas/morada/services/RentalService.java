@@ -85,7 +85,7 @@ public class RentalService {
             } else {
                 Rental rental = optionalRental.get();
                 if (userSpringSecurity != null && (userSpringSecurity.hasRole(UserRole.ADMIN)
-                        || rental.getId().equals(userSpringSecurity.getId()))) {
+                        || rental.getUser().getId().equals(userSpringSecurity.getId()))) {
                     return rental;
                 }
             }

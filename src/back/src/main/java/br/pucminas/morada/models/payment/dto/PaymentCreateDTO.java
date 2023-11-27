@@ -10,7 +10,6 @@ public record PaymentCreateDTO(
         @NotNull Long rentalId,
         @NotNull BigDecimal rentValue,
         @NotNull Integer competenceMonth,
-        @NotNull Integer competenceYear,
-        @NotNull PaymentStatus status
+        @NotNull Integer competenceYear
 ) implements DTO<Payment> {
 }

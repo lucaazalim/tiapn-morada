@@ -14,13 +14,17 @@ import java.util.Map;
 @Repository
 public interface PaymentRepository extends JpaRepository<Payment, Long>, JpaSpecificationExecutor<Payment> {
 
-    List<Payment> findByUser_Id(Long userId);
+    @Query(
+            value = "SELECT payment.* FROM payment JOIN rental ON rental.id = payment.rental_id JOIN property ON property.id = rental.property_id WHERE property.user_id = ?1",
+            nativeQuery = true
+    )
+    List<Payment> findForOwner(Long userId);
 
-    @Query(value = "SELECT pmt.id AS payment_id, pmt.rent_value, prop.street, prop.type, rnt.id AS rental_id " +
-                   "FROM payment pmt " +
-                   "JOIN rental rnt ON pmt.rental_id = rnt.id " +
-                   "JOIN property prop ON rnt.property_id = prop.id " +
-                   "WHERE prop.user_id = :user_id", nativeQuery = true)
-    List<Map<String, Object>> findAllPaymentsByUserId(@Param("user_id") Long userId);
+    @Query(
+            value = "SELECT payment.* FROM payment JOIN rental ON rental.id = payment.rental_id WHERE rental.user_id = ?1",
+            nativeQuery = true
+    )
+    List<Payment> findByRenter(Long userId);
+
 }
 
