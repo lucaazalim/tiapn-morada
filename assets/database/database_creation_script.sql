@@ -53,6 +53,7 @@ CREATE TABLE `payment` (
   `status` enum('ALLEGEDLY_PAID','CONFIRMED','REJECTED') NOT NULL DEFAULT 'ALLEGEDLY_PAID',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
+  UNIQUE KEY `payment_UN` (`rental_id`,`competence_month`,`competence_year`),
   KEY `payment_rent_id` (`rental_id`),
   CONSTRAINT `payment_rent_id` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -226,4 +227,4 @@ CREATE TABLE `visit` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-26 20:59:34
+-- Dump completed on 2023-11-26 21:44:43
