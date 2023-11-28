@@ -50,7 +50,7 @@ public class VisitService {
 
     public List<Visit> findAllByUser() {
         UserSpringSecurity userSpringSecurity = UserService.getAuthenticatedUser();
-        return this.visitRepository.findByUser_Id(userSpringSecurity.getId());
+        return this.visitRepository.findAllByUserId(userSpringSecurity.getId());
     }
 
     public List<Visit> findAllOfOwner() {

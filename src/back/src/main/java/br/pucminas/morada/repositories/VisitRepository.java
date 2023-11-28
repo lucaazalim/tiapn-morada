@@ -11,7 +11,7 @@ import br.pucminas.morada.models.visit.Visit;
 
 public interface VisitRepository extends JpaRepository<Visit, Long>, JpaSpecificationExecutor<Visit>{
     
-    List<Visit> findByUser_Id(Long userId);
+    List<Visit> findAllByUserId(Long userId);
     
     List<Visit> findByProperty_Id(Long propertyId);
 

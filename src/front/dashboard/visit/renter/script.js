@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         agendamentos.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
                             <div class="row justify-content-between text-center">
-                                <div class="col-4  ms-1 text-start fw-bold">VISITA</div>
+                                <div class="col-4  ms-1 text-start fw-bold">VISITA ${Math.floor(Math.random() * 100)}</div>
                                 <div class="col-3 p-1 me-3  text-bg-warning text-white small fw-lighter">agendado</div>
                             </div>
                             <div class="d-flex">
@@ -37,37 +37,43 @@ document.addEventListener('DOMContentLoaded', function () {
                         `
                     }
                     if (visit.carriedOut == 1) {
-                    if(visit.comments.length == 0){
+                    if(visit.comments == null && visit.visitRating == null && visit.propertyRating == null){
                         visitasrealizadas.innerHTML += `
-                        <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
-        <div class="row justify-content-between text-center"><!--gap-4-->
-        <div class="col-4  ms-1 text-start fw-bold">VISITA</div>
-          <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div>
-        </div>
-        <div class="d-flex">
-          <p class="m-2 fw-medium">${dataHora}</p>
-        </div>
-        <div class="d-flex">
-          <p class="m-2">${endereco}</p>
-        </div>
-      </div>
-      <br>
+                        
+
+
+                        
+    
                   `
                     }else{
                         visitasrealizadas.innerHTML += `
-      <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
-        <div class="row justify-content-between text-center"><!--gap-4-->
-        <div class="col-4  ms-1 text-start fw-bold">VISITA</div>
-          <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div>
-        </div>
-        <div class="d-flex">
-          <p class="m-2 fw-medium">${dataHora}</p>
-        </div>
-        <div class="d-flex">
-          <p class="m-2">${endereco}</p>
-        </div>
-      </div>
-      <br>
+                        <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
+                        <div class="row justify-content-between text-center"><!--gap-4-->
+                          <div class="col-4 text-start ms-1 fw-bold">VISITA ${Math.floor(Math.random() * 100)}</div>
+                          <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div>
+                        </div>
+                        <div class="d-flex">
+                          <p class="m-2 fw-medium">${dataHora}</p>
+                        </div>
+                        <div class="d-flex">
+                          <p class="m-2">${endereco}</p>
+                        </div>
+                        <div class="d-flex">
+                          <p class="mt-5 ms-2 fw-bold">SUA AVALIAÇÃO</p>
+                        </div>
+                        <div class="d-flex align-items-center ms-2">
+                           <div class="mr-2 me-2">Visita</div>
+                            ${criarEstrelas(visit.visitRating)}
+                        </div>
+                        <div class="d-flex align-items-center ms-2">
+                           <div class="mr-2 me-2">Imóvel</div>
+                            ${criarEstrelas(visit.propertyRating)}
+                        </div>
+                        <div class="mb-3 d-flex">
+                          <p class="ms-2"><small>${visit.comments}</small></p>
+                        </div>
+                      </div>
+                      <br>
                         `
                     }}}
                  });
@@ -93,7 +99,7 @@ window.submitButton = function (id) {
 
 
 function formatarDataHora(datetime) {
-    let dataHora = new Date(datetime[0], datetime[1] - 1, datetime[2], datetime[3], datetime[4], datetime[5]);
+    let dataHora = new Date(datetime[0], datetime[1] - 1, datetime[2], datetime[3], datetime[4]);
     let diasSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
     let meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
 
@@ -109,14 +115,13 @@ function addZero(numero) {
 
 
 
-//! API - retornando um booleano ao invés da nota numerica 
-//função não implementada
 function criarEstrelas(nota) {
-    const notaNormalizada = nota / 2;  // Normalizando a nota para um intervalo de 0 a 5 (devido valores existentes de 0 a 10 no banco de dados)
+    if(nota>5)
+      nota = nota / 2;  // Normalizando a nota para um intervalo de 0 a 5 (devido valores existentes de 0 a 10 no banco de dados)
 
     let estrelasHtml = '';
     for (let i = 1; i <= 5; i++) {
-        if (i <= notaNormalizada) {
+        if (i <= nota) {
             estrelasHtml += '<i class="fa-solid fa-star text-warning"></i>';
         } else {
             estrelasHtml += '<i class="fa-regular fa-star text-warning"></i>';
@@ -147,7 +152,7 @@ function criarEstrelas(nota) {
                         ` */
 
 
-//reavaliar estrutura do banco de dados (comments x visitRating x carriedOut x [visitado x rating enviado(envio sem aval, com aval zero x nula)(enviado sem comentário = comment nulo X não enviado ainda) x diferenciação])
+
 
 
 /*<div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
