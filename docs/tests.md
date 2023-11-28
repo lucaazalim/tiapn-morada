@@ -1,126 +1,325 @@
 ## 7. Testes da solução
 
-Nesta sessão são apresentados os dois tipos de testes realizados:
+# Testes de Inspeção
 
- - O **Teste de Unidade**, que utiliza uma abordadem de caixa preta, e tem por objetivo verificar a conformidade do software com os requisitos funcionais e não funcionais do sistema.
- - O **Teste de Usabilidade**, que busca avaliar a qualidade do uso do sistema por um usuário do público alvo. 
+Abaixo, estão listados os testes de inspeção realizados na solução.
 
-_Se quiser conhecer um pouco mais sobre os tipos de teste de software, leia o documento [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)._
+## CT01 - Criação de Usuário
 
-# Teste de Unidade
+**Processo associado:** Nenhum
+**Procedimento:**
 
-_Nesta seção o grupo deverá documentar os testes de software que verificam a correta implementação dos requisitos funcionais e não funcionais do software. Preencha a tabela com o plano dos testes. Para cada Caso de Teste (CT), associe quais testes unitários são responsáveis por verificar a conformidade com o caso de teste. Associe também o componente que está sendo testado. Veja a tabela de exemplo._
+1. Acessar a página inicial da plataforma
+2. Acessar a página de Cadastro por meio do botão "Crie sua conta" (`/register`)
+3. Preencher os campos de nome, CPF, e-mail e senha com dados válidos
+4. Clicar no botão "Cadastrar"
 
+**Dados de entrada:**
 
-**Caso de Teste** | **CT01 - Cadastrar usuário**
- :--------------: | ------------
-**Procedimento**  | Cadastrar novo usuário. |
-**Dados de entrada** | Inserção de dados válidos no formulário de cadastro. |
-**Resultado obtido** | Dado cadastrado com sucesso. |
-**Teste unitário associado** | `UsuarioTest.testNewUser()` |
+- **Nome:** Luca Ferrari Azalim
+- **CPF:** 10885213637
+- **E-mail:** lucaazalim@gmail.com
+- **Senha:** 123456
 
-**Caso de Teste** | **CT02 - Cadastrar usuário já existente**
- :--------------: | ------------
-**Procedimento**  | Cadastrar usuário já existente.
-**Dados de entrada** | Inserção de dados válidos com nome de usuário já existente no banco.
-**Resultado obtido** | Dado não cadastrado.
-**Teste unitário associado** | `UsuarioTest.testExistingUser()` |
+**Resultado esperado:** O usuário é cadastrado e redirecionado ao dashboard.
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct01.png)
 
+---
 
-## Avaliação dos Testes de Unidade
+## CT02 - Autenticação de Usuário
 
-Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identificados na solução. Comente como o grupo pretende atacar esses pontos nas próximas iterações. Apresente as falhas detectadas e as melhorias geradas a partir dos resultados obtidos nos testes.
+**Processo associado:** Nenhum
+**Procedimento:**
 
-## Testes de Unidade JavaScript (Opcional)
+1. Acessar a página inicial da plataforma
+2. Acessar a página de Login por meio do botão "Acessar" (`/login`)
+3. Preencher os campos de e-mail e senha com dados válidos de um usuário cadastrado
+4. Clicar no botão "Entrar"
 
-Se o grupo tiver interesse em se aprofundar no desenvolvimento de testes de software, ele poderá desenvolver testes automatizados de software que verificam o funcionamento das funções JavaScript desenvolvidas no front-end. Para conhecer sobre testes unitários em JavaScript, leia o documento  [Ferramentas de Teste para Java Script](https://geekflare.com/javascript-unit-testing/).
+**Dados de entrada:**
 
-# Testes de Usabilidade
+- **E-mail:** lucaazalim@gmail.com
+- **Senha:** 123456
 
-O objetivo do Plano de Testes de Usabilidade é obter informações quanto à expectativa dos usuários em relação à funcionalidade da aplicação de forma geral.
+**Resultado esperado:** O usuário é autenticado e redirecionado ao dashboard.
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct02.png)
 
-Para tanto, elaboramos quatro cenários, cada um baseado na definição apresentada sobre as histórias dos usuários, definido na etapa das especificações do projeto.
+---
 
-Foram convidadas quatro pessoas que os perfis se encaixassem nas definições das histórias apresentadas na documentação, visando averiguar os seguintes indicadores:
+## CT03 - Título do Caso de Teste
 
-Taxa de sucesso: responde se o usuário conseguiu ou não executar a tarefa proposta;
+**Processo associado:** 1
+**Procedimento:**
 
-Satisfação subjetiva: responde como o usuário avalia o sistema com relação à execução da tarefa proposta, conforme a seguinte escala:
+1.
+2.
+3.
 
-1. Péssimo; 
-2. Ruim; 
-3. Regular; 
-4. Bom; 
-5. Ótimo.
+**Dados de entrada:**
 
-Tempo para conclusão da tarefa: em segundos, e em comparação com o tempo utilizado quando um especialista (um desenvolvedor) realiza a mesma tarefa.
+- **Campo:** Valor
+- **Campo:** Valor
 
-Objetivando respeitar as diretrizes da Lei Geral de Proteção de Dados, as informações pessoais dos usuários que participaram do teste não foram coletadas, tendo em vista a ausência de Termo de Consentimento Livre e Esclarecido.
+**Resultado esperado:**
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct03.png)
 
+---
 
-Apresente os cenários de testes utilizados na realização dos testes de usabilidade da sua aplicação. Escolha cenários de testes que demonstrem as principais histórias de usuário sendo realizadas. Neste tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo de usuários que foi escolhido para participar do teste e as ferramentas utilizadas.
+## CT04 -
 
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
+**Processo associado:** 1
+**Procedimento:**
 
+1.
+2.
+3.
 
-## Cenários de Teste de Usabilidade
+**Dados de entrada:**
 
-| Nº do Cenário | Descrição do cenário |
-|---------------|----------------------|
-| 1             | Você é uma pessoa que deseja comprar um iphone. Encontre no site um iphone e veja detalhes de localização e contato da loja que o está anunciando. |
-| 2             | Você é uma pessoa que deseja comprar um smartphone até R$ 2.000,00. Encontre no site smartphones nessa faixa de preço. |
+- **Campo:** Valor
+- **Campo:** Valor
 
+**Resultado esperado:**
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct04.png)
 
+---
 
-## Registro de Testes de Usabilidade
+## CT05 - Publicação de Imóvel
 
-Cenário 1: Você é uma pessoa que deseja comprar um iphone. Encontre no site um iphone e veja detalhes de localização e contato da loja que o está anunciando.
+**Processo associado:** 2
+**Procedimento:**
 
-| Usuário | Taxa de sucesso | Satisfação subjetiva | Tempo para conclusão do cenário |
-|---------|-----------------|----------------------|---------------------------------|
-| 1       | SIM             | 5                    | 27.87 segundos                  |
-| 2       | SIM             | 5                    | 17.11 segundos                  |
-| 3       | SIM             | 5                    | 39.09 segundos                  |
-|  |  |  |  |
-| **Média**     | 0%           | 0                | 0 segundos                           |
-| **Tempo para conclusão pelo especialista** | SIM | 5 | 8.66 segundos |
+1. Acessar a página "Seus Imóveis" (`/dashboard/property/owner/`)
+2. Acessar a página de publicação de imóvel por meio do botão "Anunciar Imóvel no Morada"
+3. Preencher todos os campos com dados válidos
+4. Clicar no botão "Publicar imóvel"
 
+**Dados de entrada:**
 
-    Comentários dos usuários: Achei o site muito bom e intuitivo. 
-    Não tive dificuldades e acho que ficou bem intuitivo.
+- **Tipo:** Apartamento
+- **CEP:** 30130155
+- **Rua:** Rua Pernambuco
+- **Número:** 873
+- **Complemento:** 701
+- **Bairro:** Savassi
+- **Cidade:** Belo Horizonte
+- **Estado:** Minas Gerais
+- **Descrição:** Lorem ipsum...
+- **Quartos:** 3
+- **Banheiros:** 2
+- **Vagas de Garagem:** 2
+- **Aceita Pet:** Sim
+- **Mobiliado:** Não
+- **Valor do Aluguel:** 3000
+- **Valor do Condomínio:** 600
+- **Valor do IPTU:** 400
+- **Foto:** [Imagem](https://i.imgur.com/JSovnWd.jpg)
 
+**Resultado esperado:** O imóvel deve ser criado e o usuário deve ser redirecionado para a página "Seus Imóveis".
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct05.png)
 
+---
 
+## CT06 - Publicação de Imóvel com CEP inválido
 
-Cenário 2: Você é uma pessoa que deseja comprar um smartphone até R$ 2.000,00. Encontre no site smartphones nessa faixa de preço.
+**Processo associado:** 2
+**Procedimento:**
 
-| Usuário | Taxa de sucesso | Satisfação subjetiva | Tempo para conclusão do cenário |
-|---------|-----------------|----------------------|---------------------------------|
-| 1       | SIM             | 5                    | 22.54 segundos                          |
-| 2       | SIM             | 5                    | 31.42 segundos                          |
-| 3       | SIM             | 5                    | 36.21 segundos                          |
-|  |  |  |  |
-| **Média**     | 0%           | 0                | 0 segundos                           |
-| **Tempo para conclusão pelo especialista** | SIM | 5 | 13.57 segundos |
+1. Acessar a página "Seus Imóveis" (`/dashboard/property/owner/`)
+2. Acessar a página de publicação de imóvel por meio do botão "Anunciar Imóvel no Morada"
+3. Preencher o campo CEP com um CEP inválido (inexistente no banco de dados dos Correios)
+4. Aguardar até 3 segundos para que o CEP seja validado
 
+**Dados de entrada:**
 
-    Comentários dos usuários: O site é fácil de acessar, mas algumas páginas poderiam 
-    redirecionar a gente automaticamente para outras. Senti a falta de mais opções de filtros, 
-    tanto na hora da pesquisa, quanto depois dela, nos resultados.
+- **CEP:** 1234567
+- **Foto:** [Imagem](https://i.imgur.com/JSovnWd.jpg)
 
+**Resultado esperado:** Deve ser exibido o erro "O CEP informado é inválido.".
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct06.png)
 
+---
 
+## CT07 - Título do Caso de Teste
 
-## Avaliação dos Testes de Usabilidade
+**Processo associado:** 3
+**Procedimento:**
 
+1.
+2.
+3.
 
-Tomando como base os resultados obtidos, foi possível verificar que a aplicação web apresenta bons resultados quanto à taxa de sucesso na interação dos usuários, tendo em vista que os cenários propostos foram concluídos com sucesso.
+**Dados de entrada:**
 
-Além disso, a aplicação obteve também uma elevada satisfação subjetiva dos usuários no momento que realizavam os cenários propostos. Prova são as médias das avaliações em cada um dos cenários, que variou entre 4 (bom) e 5 (ótimo).
+- **Campo:** Valor
+- **Campo:** Valor
 
-Com relação ao tempo para conclusão de cada tarefa/cenário, notamos discrepância entre a média de tempo dos usuários e o tempo do especialista/desenvolvedor em todos os cenários. Tal discrepância, em certa medida, é esperada, tendo em vista que o desenvolvedor já tem prévio conhecimento de toda a interface da aplicação, do posicionamento dos elementos, lógica de organização das páginas, etc.
+**Resultado esperado:**
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct07.png)
 
-Contudo, tendo em vista que a diferença foi relevante (por exemplo, 113 segundos — média usuários — contra 25 segundos — especialista — no cenário três), e ainda os comentários feitos por alguns usuários, entendemos haver oportunidades de melhoria na usabilidade da aplicação.
+---
 
+## CT08 - Título do Caso de Teste
 
+**Processo associado:** 3
+**Procedimento:**
 
+1.
+2.
+3.
+
+**Dados de entrada:**
+
+- **Campo:** Valor
+- **Campo:** Valor
+
+**Resultado esperado:**
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct08.png)
+
+---
+
+## CT09 - Título do Caso de Teste
+
+**Processo associado:** 4
+**Procedimento:**
+
+1.
+2.
+3.
+
+**Dados de entrada:**
+
+- **Campo:** Valor
+- **Campo:** Valor
+
+**Resultado esperado:**
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct09.png)
+
+---
+
+## CT10 - Título do Caso de Teste
+
+**Processo associado:** 4
+**Procedimento:**
+
+1.
+2.
+3.
+
+**Dados de entrada:**
+
+- **Campo:** Valor
+- **Campo:** Valor
+
+**Resultado esperado:**
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct10.png)
+
+---
+
+## CT11 - Título do Caso de Teste
+
+**Processo associado:** 4
+**Procedimento:**
+
+1.
+2.
+3.
+
+**Dados de entrada:**
+
+- **Campo:** Valor
+- **Campo:** Valor
+
+**Resultado esperado:**
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct11.png)
+
+---
+
+## CT12 - Título do Caso de Teste
+
+**Processo associado:** 5
+**Procedimento:**
+
+1.
+2.
+3.
+
+**Dados de entrada:**
+
+- **Campo:** Valor
+- **Campo:** Valor
+
+**Resultado esperado:**
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct12.png)
+
+---
+
+## CT13 - Título do Caso de Teste
+
+**Processo associado:** 5
+**Procedimento:**
+
+1.
+2.
+3.
+
+**Dados de entrada:**
+
+- **Campo:** Valor
+- **Campo:** Valor
+
+**Resultado esperado:**
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct13.png)
+
+---
+
+## CT14 - Título do Caso de Teste
+
+**Processo associado:** 6
+**Procedimento:**
+
+1.
+2.
+3.
+
+**Dados de entrada:**
+
+- **Campo:** Valor
+- **Campo:** Valor
+
+**Resultado esperado:**
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct14.png)
+
+---
+
+## CT15 - Título do Caso de Teste
+
+**Processo associado:** 6
+**Procedimento:**
+
+1.
+2.
+3.
+
+**Dados de entrada:**
+
+- **Campo:** Valor
+- **Campo:** Valor
+
+**Resultado esperado:**
+**Resultado obtido:** Sucesso
+**Evidência:** [Imagem](images/ct15.png)
