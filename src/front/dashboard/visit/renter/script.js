@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
               console.log(visit)
                 let endereco = visit.property.street + " " + visit.property.number + ", " + visit.property.complement
                 let dataHora = formatarDataHora(visit.datetime)
-                if(visit.datetime !== "2077-07-07 00:00:00.000"){
                     if (visit.carriedOut == 0) {
                         //console.log(visit.id)
                         agendamentos.innerHTML += `
@@ -42,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         
 
 
-                        
+
     
                   `
                     }else{
@@ -75,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
                       </div>
                       <br>
                         `
-                    }}}
+                    }}
                  });
             })
         .catch(error => {

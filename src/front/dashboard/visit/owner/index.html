@@ -18,8 +18,10 @@
 
     <!-- Full Calendar -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script> 
- 
 
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+ 
     <link rel="stylesheet" href="/assets/style/style.css" />
   </head>
 
@@ -28,9 +30,13 @@
 
     <div class="container">
       <h1>Visitas Agendadas em seus Imóveis</h1>
-      <h5>Listagem de agendamentos em seus imóveis</h5>
+      <h5>Listagem de agendamentos e de avaliações em seus imóveis</h5>
       <hr />
-      <div id="agendamentos"></div>
+      <div id="agendamentos"></div><br>
+
+
+      <div class="container rounded-1 bg-primary text-white fw-lighter fs-5 text-center p-1 mt-2">AVALIAÇÕES DE VISITAS REALIZADAS</div><br>
+      <div id="visits-carried-true" class="row mb-2 flex-wrap justify-content-center">
    
     </div>
 
