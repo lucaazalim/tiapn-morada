@@ -117,7 +117,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
   - **CEP:** 1234567
   - **Foto:** [Imagem](https://i.imgur.com/JSovnWd.jpg)
 - **Resultado esperado:** Deve ser exibido o erro "O CEP informado é inválido.".
-- **Resultado obtido:** Sucesso
+- **Resultado obtido:** Erro
 - **Evidência:** [Imagem](images/ct06.png)
 
 ---
