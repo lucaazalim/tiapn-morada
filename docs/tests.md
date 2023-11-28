@@ -7,6 +7,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT01 - Criação de Usuário
 
 **Processo associado:** Nenhum
+
 **Procedimento:**
 
 1. Acessar a página inicial da plataforma
@@ -30,6 +31,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT02 - Autenticação de Usuário
 
 **Processo associado:** Nenhum
+
 **Procedimento:**
 
 1. Acessar a página inicial da plataforma
@@ -43,7 +45,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Senha:** 123456
 
 **Resultado esperado:** O usuário é autenticado e redirecionado ao dashboard.
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct02.png)
 
 ---
@@ -51,6 +55,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT03 - Título do Caso de Teste
 
 **Processo associado:** 1
+
 **Procedimento:**
 
 1.
@@ -63,7 +68,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Campo:** Valor
 
 **Resultado esperado:**
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct03.png)
 
 ---
@@ -71,6 +78,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT04 -
 
 **Processo associado:** 1
+
 **Procedimento:**
 
 1.
@@ -83,7 +91,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Campo:** Valor
 
 **Resultado esperado:**
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct04.png)
 
 ---
@@ -91,6 +101,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT05 - Publicação de Imóvel
 
 **Processo associado:** 2
+
 **Procedimento:**
 
 1. Acessar a página "Seus Imóveis" (`/dashboard/property/owner/`)
@@ -120,7 +131,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Foto:** [Imagem](https://i.imgur.com/JSovnWd.jpg)
 
 **Resultado esperado:** O imóvel deve ser criado e o usuário deve ser redirecionado para a página "Seus Imóveis".
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct05.png)
 
 ---
@@ -128,6 +141,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT06 - Publicação de Imóvel com CEP inválido
 
 **Processo associado:** 2
+
 **Procedimento:**
 
 1. Acessar a página "Seus Imóveis" (`/dashboard/property/owner/`)
@@ -141,7 +155,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Foto:** [Imagem](https://i.imgur.com/JSovnWd.jpg)
 
 **Resultado esperado:** Deve ser exibido o erro "O CEP informado é inválido.".
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct06.png)
 
 ---
@@ -149,6 +165,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT07 - Título do Caso de Teste
 
 **Processo associado:** 3
+
 **Procedimento:**
 
 1.
@@ -161,7 +178,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Campo:** Valor
 
 **Resultado esperado:**
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct07.png)
 
 ---
@@ -169,6 +188,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT08 - Título do Caso de Teste
 
 **Processo associado:** 3
+
 **Procedimento:**
 
 1.
@@ -181,7 +201,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Campo:** Valor
 
 **Resultado esperado:**
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct08.png)
 
 ---
@@ -189,6 +211,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT09 - Título do Caso de Teste
 
 **Processo associado:** 4
+
 **Procedimento:**
 
 1.
@@ -201,7 +224,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Campo:** Valor
 
 **Resultado esperado:**
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct09.png)
 
 ---
@@ -209,6 +234,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT10 - Título do Caso de Teste
 
 **Processo associado:** 4
+
 **Procedimento:**
 
 1.
@@ -221,7 +247,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Campo:** Valor
 
 **Resultado esperado:**
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct10.png)
 
 ---
@@ -229,6 +257,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT11 - Título do Caso de Teste
 
 **Processo associado:** 4
+
 **Procedimento:**
 
 1.
@@ -241,7 +270,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Campo:** Valor
 
 **Resultado esperado:**
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct11.png)
 
 ---
@@ -249,6 +280,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT12 - Título do Caso de Teste
 
 **Processo associado:** 5
+
 **Procedimento:**
 
 1.
@@ -261,7 +293,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Campo:** Valor
 
 **Resultado esperado:**
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct12.png)
 
 ---
@@ -269,6 +303,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT13 - Título do Caso de Teste
 
 **Processo associado:** 5
+
 **Procedimento:**
 
 1.
@@ -281,7 +316,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Campo:** Valor
 
 **Resultado esperado:**
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct13.png)
 
 ---
@@ -289,6 +326,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT14 - Título do Caso de Teste
 
 **Processo associado:** 6
+
 **Procedimento:**
 
 1.
@@ -301,7 +339,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Campo:** Valor
 
 **Resultado esperado:**
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct14.png)
 
 ---
@@ -309,6 +349,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 ## CT15 - Título do Caso de Teste
 
 **Processo associado:** 6
+
 **Procedimento:**
 
 1.
@@ -321,5 +362,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Campo:** Valor
 
 **Resultado esperado:**
+
 **Resultado obtido:** Sucesso
+
 **Evidência:** [Imagem](images/ct15.png)
