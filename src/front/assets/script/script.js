@@ -47,9 +47,9 @@ function loadHeader() {
 
     document.getElementById("header").innerHTML = headerHtml;
 
-    // if (API.isAuthenticated()) {
-    loadMenu();
-    // }
+    if (API.isAuthenticated()) {
+        loadMenu();
+    }
 
 }
 

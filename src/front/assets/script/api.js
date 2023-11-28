@@ -67,8 +67,6 @@ export function remove(route) {
     return sendRequest("DELETE", route);
 }
 
-
-
 function sendRequest(method, route, body = {}) {
 
     const request = {
