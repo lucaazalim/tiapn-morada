@@ -124,7 +124,7 @@ function formatarDataHora(datetime) {
     let nomeDiaSemana = diasSemana[dataHora.getDay()];
     let nomeMes = meses[dataHora.getMonth()];
     
-    return `${nomeDiaSemana}, ${nomeMes} ${dataHora.getDate()} às ${addZero(dataHora.getHours())}:${addZero(dataHora.getMinutes())}`;    
+    return `${nomeDiaSemana}, ${dataHora.getDate()} de ${nomeMes} às ${addZero(dataHora.getHours())}h${addZero(dataHora.getMinutes())}`;    
 }
 
 function addZero(numero) {
