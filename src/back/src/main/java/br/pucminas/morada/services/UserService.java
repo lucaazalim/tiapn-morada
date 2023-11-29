@@ -45,10 +45,15 @@ public class UserService {
             userFound.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
         }
 
-        userFound.setPixKey(user.getPixKey());
+        if(user.getPixKey() != null) {
+            userFound.setPixKey(user.getPixKey());
+        }
+
+        if(user.isVerified()) {
+            userFound.setVerified(true);
+        }
 
         return this.userRepository.save(userFound);
-
     }
 
     public User findById(Long id) {

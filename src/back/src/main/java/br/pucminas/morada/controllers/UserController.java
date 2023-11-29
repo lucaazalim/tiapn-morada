@@ -9,6 +9,8 @@ import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.UserService;
 import br.pucminas.morada.services.exceptions.AuthorizationException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -43,6 +46,20 @@ public class UserController {
         return ResponseEntity.noContent().build();
 
     }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<Void> updateVerified(@Valid @PathVariable Long id) {
+        User user = userService.findById(id);
+        user.setVerified(true);
+
+        this.userService.update(id, user);
+
+        return ResponseEntity.noContent().build();
+
+    }
+
+
 
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody UserCreateDTO userCreateDTO) {

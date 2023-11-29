@@ -8,6 +8,7 @@ import lombok.Data;
 public record UserUpdateDTO(
         Long id,
         String password,
+        boolean verified,
         @Size(max = 32) String pixKey
 ) implements DTO<User> {
 
