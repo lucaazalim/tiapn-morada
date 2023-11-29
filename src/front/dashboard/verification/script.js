@@ -1,5 +1,6 @@
 import * as API from '../../../assets/script/api.js';
 
+showBtnCriarVerificacao();
 loadVerifications();
 
 function loadVerifications(){
@@ -27,4 +28,26 @@ function loadVerifications(){
             });
             
         })
+}
+
+
+function showBtnCriarVerificacao() {
+    let btnCriarVerificacaoElement = document.getElementById("btn-criar-verificacao");
+
+    API.get("user-verifications/user")
+        .then(response => response.json())
+        .then(verifications => {
+            let verificacaoAprovada = verifications.find(verification => verification.status === "APPROVED");
+
+            if (verificacaoAprovada) {
+                btnCriarVerificacaoElement.innerHTML = `  `;
+            } else {
+                btnCriarVerificacaoElement.innerHTML = `
+                    <a href="/dashboard/verification/create" class="btn btn-primary">Realizar verificação</a><br>
+                `;
+            }
+        })
+        .catch(error => {
+            console.error("Erro ao carregar verificações:", error);
+        });
 }
