@@ -60,19 +60,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-let visitasrealizadas =  document.getElementById("visits-carried-true");
+let containeravalicoes = document.getElementById("container-avaliacoes");
+let visitasrealizadas = document.getElementById("visits-carried-true");
 
 document.addEventListener('DOMContentLoaded', function () {
-    API.get("visits/renter")
+    API.get("visits/owner")
         .then(response => response.json())
         .then(visits => {
-            visits.forEach(visit => {
-                console.log(visit);
-                let endereco = visit.property.street + " " + visit.property.number + ", " + visit.property.complement;
-                let dataHora = formatarDataHora(visit.datetime);
+            let hasVisitsRating = visits.find(visit => visit.carriedOut == 1 && !(visit.visitRating == null && visit.propertyRating == null));
+            if (hasVisitsRating) {
+                visitasrealizadas.innerHTML = `<div class="container rounded-1 bg-primary text-white fw-lighter fs-5 text-center p-1 mt-2">AVALIAÇÕES DE VISITAS REALIZADAS</div><br>`
+                visits.forEach(visit => {
+                    if(visit.carriedOut == 1 && !(visit.visitRating == null && visit.propertyRating == null)){
+                    console.log(visit);
+                    let endereco = visit.property.street + " " + visit.property.number + ", " + visit.property.complement;
+                    let dataHora = formatarDataHora(visit.datetime);
 
-                if (visit.carriedOut == 1 && !(visit.comments == null && visit.visitRating == null && visit.propertyRating == null)) {
                     visitasrealizadas.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
                             <div class="row justify-content-between text-center"><!--gap-4-->
@@ -97,18 +100,19 @@ document.addEventListener('DOMContentLoaded', function () {
                                 ${criarEstrelas(visit.propertyRating)}
                             </div>
                             <div class="mb-3 d-flex">
-                                <p class="ms-2"><small>${visit.comments}</small></p>
+                                ${visit.comments !== null ? `<p class="ms-2"><small>${visit.comments}</small></p>` : '<p></p>'}
                             </div>
                         </div>
                         <br>
                     `;
-                }
-            });
+            }});
+            }
         })
         .catch(error => {
             console.log(error);
         });
 });
+
 
 
 
