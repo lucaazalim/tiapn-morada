@@ -9,11 +9,11 @@
 | POST   | `/users`                   |          | Criar um novo usuário.                                             |
 | GET    | `/users/me`                |          | Consultar o usuário logado.                                        |
 | PUT    | `/users/me`                |          | Atualizar o usuário logado.                                        |
-| PUT    | `/users/{id}`              |          | Atualizar tipo de verificação de um usuário cadastrado.            |
 | POST   | `/user-verifications`      | 1        | Criar uma nova verificação de usuário.                             |
 | GET    | `/user-verifications/{id}` | 1        | Consultar verificação de usuário pelo ID.                          |
 | GET    | `/user-verifications/user` | 1        | Consultar verificações de usuário do usuário logado.               |
 | PUT    | `/user-verifications/{id}` | 1        | Atualizar verificação de usuário pelo ID.                          |
+| PUT    | `/user-verifications/users/{id}`   | 1       | Atualizar tipo de verificação de um usuário cadastrado.    |
 | GET    | `/properties`              | 2        | Consultar propriedades.                                            |
 | GET    | `/properties/{id}`         | 2        | Consultar uma propriedade pelo ID.                                 |
 | GET    | `/properties/user`         | 2        | Consultar propriedades do usuário logado.                          |
