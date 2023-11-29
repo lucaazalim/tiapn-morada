@@ -10,9 +10,13 @@ function loadPendingVerifications() {
     API.get("user-verifications/all")
         .then(response => response.json())
         .then(verifications => {
+            if (verifications.length == 0) {
+                verificationsElement.innerHTML = `<p class="text-center">Não há verificações pendentes.</p>`;
+                return;
+            }
             verifications.forEach(verification => {
                 verificationsElement.innerHTML += `
-                    <div class="container p-4 bg-secondary-subtle m-3">
+                    <div class="container p-4 bg-secondary-subtle m-3" >
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="mb-3">
@@ -36,7 +40,7 @@ function loadPendingVerifications() {
                                         <textarea class="form-control" id="admin-message_${verification.id}" placeholder="Justificativa" rows="10"></textarea>
                                     </div>
                                     <div class="mt-auto d-grid pb-3">
-                                        <button class="btn btn-primary" onclick="submitButton(${verification.id})">Enviar</button>
+                                        <button class="btn btn-primary" onclick="submitButton(${verification.id}, ${verification.user.id})">Enviar</button>
                                     </div>
                                 </div>
                             </div>
@@ -47,13 +51,15 @@ function loadPendingVerifications() {
         });
 }
 
-window.submitButton = function (id) {
-    const approvedButton = document.getElementById(`approved_${id}`);
-    const rejectedButton = document.getElementById(`rejected_${id}`);
+window.submitButton = function (verificationId, userId) {
+    const approvedButton = document.getElementById(`approved_${verificationId}`);
+    const rejectedButton = document.getElementById(`rejected_${verificationId}`);
 
+    let getVerified = false;
     let selectedStatus = null;
     if (approvedButton.checked) {
         selectedStatus = 'APPROVED';
+        getVerified = true;
     } else if (rejectedButton.checked) {
         selectedStatus = 'REJECTED';
     } else {
@@ -61,11 +67,26 @@ window.submitButton = function (id) {
         return;
     }
 
-    updateVerification(id, selectedStatus);
+    updateVerification(verificationId, selectedStatus, getVerified, userId);
 };
 
-window.updateVerification = function (id, status) {
+
+window.updateVerification = function (id, status, verified, userId) {
     const adminMessage = document.getElementById(`admin-message_${id}`).value;
+
+    if (verified == true){
+        API.put("user-verifications/user/" + userId, {   
+            verified       
+        })
+            .then(response => {
+                if (response.status >= 200 && response.status < 300) {
+                   console.log('verified alterado')
+                } else {
+                    console.error('Erro ao enviar resultado de verificação.');
+                }
+            });
+
+    }
 
     API.put("user-verifications/" + id, {
         status,
