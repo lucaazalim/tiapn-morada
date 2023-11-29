@@ -3,6 +3,7 @@ package br.pucminas.morada.controllers;
 import br.pucminas.morada.models.property.PropertyStatus;
 import br.pucminas.morada.models.property.PropertyType;
 import br.pucminas.morada.models.property.dto.PropertyDTO;
+import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user.UserRole;
 import br.pucminas.morada.models.user_verification.UserVerification;
 import br.pucminas.morada.models.user_verification.dto.UserVerificationCreateDTO;
@@ -11,6 +12,7 @@ import br.pucminas.morada.security.UserSpringSecurity;
 import br.pucminas.morada.services.UserService;
 import br.pucminas.morada.services.UserVerificationService;
 import br.pucminas.morada.services.exceptions.AuthorizationException;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
@@ -30,6 +32,9 @@ public class UserVerificationController {
 
     @Autowired
     private UserVerificationService userVerificationService;
+
+    @Autowired
+    private UserService userService;
 
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody UserVerificationCreateDTO userVerificationCreateDTO) {
@@ -55,6 +60,17 @@ public class UserVerificationController {
         this.userVerificationService.update(id, userVerificationUpdateDTO.toEntity(UserVerification.class));
         return ResponseEntity.noContent().build();
 
+    }
+
+    @PutMapping("/user/{id}")
+    @Transactional
+    public ResponseEntity<Void> updateUser(@Valid @PathVariable Long id) {
+        User user =  userService.findById(id);
+        user.setVerified(true);
+
+        this.userService.update(id, user);
+
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/{id}")
