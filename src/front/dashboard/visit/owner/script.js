@@ -31,6 +31,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         center: 'title',
                         right: 'dayGridMonth,timeGridWeek,listMonth'
                     },
+                    buttonText: {
+                        today: 'Hoje',
+                        month: 'Mês',
+                        week: 'Semana',
+                        day: 'Dia'
+                    },
                     allDaySlot: false,
                     slotDuration: "01:00",
                     slotMinTime: "08:00:00",

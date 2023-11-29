@@ -1,5 +1,7 @@
 import * as API from '../../../../assets/script/api.js';
 
+
+
 const urlParams = new URLSearchParams(window.location.search);
 const propertyId = urlParams.get('id');
 
@@ -14,11 +16,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 var calendar = new FullCalendar.Calendar(calendarEl, {
                     locale: 'pt-br',
+                    lang: 'pt-br',
                     initialView: "timeGridWeek",
                     headerToolbar: {
                         left: 'prev,next today',
                         center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                        right: 'timeGridWeek,timeGridDay'
+                    },
+                    buttonText: {
+                        today: 'Hoje',
+                        week: 'Semana',
+                        day: 'Dia'
                     },
                     allDaySlot: false,
                     slotDuration: "01:00",
@@ -71,11 +79,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     var calendarEl = document.getElementById('calendar');
                     var calendar = new FullCalendar.Calendar(calendarEl, {
                         locale: 'pt-br',
+                        lang: 'pt-br',
                         initialView: "timeGridWeek",
                         headerToolbar: {
                             left: 'prev,next today',
                             center: 'title',
-                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                            right: 'timeGridWeek,timeGridDay'
+                        },
+                        buttonText: {
+                            today: 'Hoje',
+                            week: 'Semana',
+                            day: 'Dia'
                         },
                         allDaySlot: false,
                         slotDuration: "01:00",
