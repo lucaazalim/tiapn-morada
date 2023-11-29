@@ -47,20 +47,6 @@ public class UserController {
 
     }
 
-    @PutMapping("/{id}")
-    @Transactional
-    public ResponseEntity<Void> updateVerified(@Valid @PathVariable Long id) {
-        User user = userService.findById(id);
-        user.setVerified(true);
-
-        this.userService.update(id, user);
-
-        return ResponseEntity.noContent().build();
-
-    }
-
-
-
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody UserCreateDTO userCreateDTO) {
 
