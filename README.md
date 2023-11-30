@@ -1,6 +1,6 @@
 # Morada
 
-Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
+Morada é uma plataforma para locação e anúncio de imóveis que simplifica o processo de aluguel para locatários e proprietários. Diante do tradicional e burocrático mercado imobiliário, o Morada centraliza anúncios, integra processos e documentações, proporcionando uma experiência eficiente. A plataforma oferece recursos como anúncio de imóveis, personalização de pesquisas, agendamento de visitas, sistema de propostas, documentação online e acompanhamento do processo. Em resumo, busca transformar a experiência de aluguel, tornando-a mais ágil e conveniente.
 
 ## Integrantes
 
