@@ -22,7 +22,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade Cató
 
 ---
 
-Morada é uma plataforma para locação e anúncio de imóveis que simplifica o processo de aluguel para locatários e proprietários. Diante do tradicional e burocrático mercado imobiliário, o Morada centraliza anúncios, integra processos e documentações, proporcionando uma experiência eficiente. A plataforma oferece recursos como anúncio de imóveis, personalização de pesquisas, agendamento de visitas, sistema de propostas, documentação online e acompanhamento do processo. Em resumo, busca transformar a experiência de aluguel, tornando-a mais ágil e conveniente.
+Morada é uma plataforma para locação e anúncio de imóveis que simplifica o processo de aluguel para locatários e proprietários. Em contraste ao tradicional e burocrático mercado imobiliário, o Morada centraliza anúncios, integra processos e documentações, proporcionando uma experiência eficiente. A plataforma oferece recursos como anúncio de imóveis, personalização de pesquisas, agendamento de visitas, sistema de propostas, documentação online e acompanhamento do processo. Em resumo, busca transformar a experiência de aluguel, tornando-a mais ágil e conveniente.
 
 Como resultado relevante, o desenvolvimento da plataforma permitiu automatizar todos os processos propostos. O sistema foi desenvolvido utilizando tecnologias modernas, como Java Spring Boot, Docker e MariaDB, o que permitiu a aplicação de conhecimentos adquiridos ao longo do curso.
 
