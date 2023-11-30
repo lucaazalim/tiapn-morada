@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
                         <div class="row justify-content-between text-center"><!--gap-4-->
                           <div class="col-4 text-start ms-1 fw-bold">VISITA ${Math.floor(Math.random() * 100)}</div>
-                          <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div>
+                          <div class="col-3 p-1 me-3 text-bg-info text-white small fw-lighter">realizado</div>
                         </div>
                         <div class="d-flex">
                           <p class="m-2 fw-medium">${dataHora}</p>
