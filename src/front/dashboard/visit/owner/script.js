@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <p class="m-2 fw-medium">${endereco}</p>
                             </div>
                             <div class="d-flex">
-                                <p class="m-2 ">${dataHora}</p>
+                                <p class="m-2 ">${dataHora}.</p>
                             </div>
                             <div class="d-flex">
                                 <p class="mt-4 ms-2 fw-semibold">AVALIAÇÃO</p>
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <div class="mr-2 me-2">Imóvel</div>
                                 ${criarEstrelas(visit.propertyRating)}
                             </div>
-                            <div class="mb-3 d-flex">
+                            <div class="mb-3 d-flex text-justify">
                                 ${visit.comments !== null ? `<p class="ms-2">${visit.comments}</p>` : '<p></p>'}
                             </div>
                         </div>

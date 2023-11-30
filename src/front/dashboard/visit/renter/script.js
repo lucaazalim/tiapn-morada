@@ -2,10 +2,9 @@ import * as API from '../../../../assets/script/api.js';
 
 
 
-let agendamentos = document.getElementById("visits-carried-false");
-
-let visitasparaavaliar = document.getElementById("visits-to-rating");
-let visitasrealizadas =  document.getElementById("visits-carried-true");
+let agendamentosfuturos = document.getElementById("visits-carried-false");
+let visitasRealizadas = document.getElementById("visits-to-rating");
+let visitasAvaliadas =  document.getElementById("visits-carried-rating-true");
 
 
 let visitRating = 0;
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                   } else {
                         //console.log(visit.id)
-                        agendamentos.innerHTML += `
+                        agendamentosfuturos.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
                             <div class="row justify-content-between text-center">
                                 <div class="col-4  ms-1 text-start fw-bold">VISITA ${Math.floor(Math.random() * 100)}</div>
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (visit.carriedOut == 1) {
                     if(visit.comments == null && visit.visitRating == null && visit.propertyRating == null){
                       //console.log(visit.id);
-                      visitasparaavaliar.innerHTML += `
+                      visitasRealizadas.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4" id="card${visit.id}">
         <div class="row justify-content-between text-center "><!--gap-4-->
           <div class="col-4  ms-1 text-start fw-bold">VISITA ${Math.floor(Math.random() * 100)}</div>
@@ -115,11 +114,11 @@ document.addEventListener('DOMContentLoaded', function () {
                   `
                     }else{
                       //console.log(visit.id);
-                       visitasrealizadas.innerHTML += `
+                       visitasAvaliadas.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
                         <div class="row justify-content-between text-center"><!--gap-4-->
                           <div class="col-4 text-start ms-1 fw-bold">VISITA ${Math.floor(Math.random() * 100)}</div>
-                          <div class="col-3 p-1 me-3 text-bg-info text-white small fw-lighter">realizado</div>
+                          <div class="col-3 p-1 me-3 text-bg-info text-white small fw-lighter">avaliado</div>
                         </div>
                         <div class="d-flex">
                           <p class="m-2 fw-medium">${dataHora}</p>
