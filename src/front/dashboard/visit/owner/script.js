@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(visits => {
             let hasVisitsRating = visits.find(visit => visit.carriedOut == 1 && !(visit.visitRating == null && visit.propertyRating == null));
             if (hasVisitsRating) {
-                visitasrealizadas.innerHTML = `<div class="container rounded-1 bg-primary text-white fw-lighter fs-5 text-center p-1 mt-2">AVALIAÇÕES DE VISITAS REALIZADAS</div><br>`
+                visitasrealizadas.innerHTML = `<div class="container rounded-1 bg-primary text-white fs-5 text-center p-1 mt-2">AVALIAÇÕES DE VISITAS REALIZADAS</div><br>`
                 visits.forEach(visit => {
                     if(visit.carriedOut == 1 && !(visit.visitRating == null && visit.propertyRating == null)){
                     console.log(visit);
@@ -80,13 +80,14 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
                             <div class="row justify-content-between text-center"><!--gap-4-->
                                 <div class="col-4 text-start ms-1 fw-bold">VISITA ${Math.floor(Math.random() * 100)}</div>
-                                <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizada</div>
+                                <div class="col-3 p-1 me-3 text-bg-info text-white small">avaliado</div>
+                            </div>
+                            
+                            <div class="d-flex">
+                                <p class="m-2 fw-medium">${endereco}</p>
                             </div>
                             <div class="d-flex">
-                                <p class="m-2 fw-medium">${dataHora}</p>
-                            </div>
-                            <div class="d-flex">
-                                <p class="m-2">${endereco}</p>
+                                <p class="m-2 ">${dataHora}</p>
                             </div>
                             <div class="d-flex">
                                 <p class="mt-4 ms-2 fw-semibold">AVALIAÇÃO</p>
