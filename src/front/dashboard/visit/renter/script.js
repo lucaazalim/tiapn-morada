@@ -8,7 +8,6 @@ let visitasparaavaliar = document.getElementById("visits-to-rating");
 let visitasrealizadas =  document.getElementById("visits-carried-true");
 
 
-
 document.addEventListener('DOMContentLoaded', function () {
     API.get("visits/renter")
         .then(response => response.json()) 
@@ -32,45 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
                       .then(response => {
                           if (response.status >= 200 && response.status < 300) {
                               console.log("carriedOut alterado com sucesso.")
+                              location.reload();
                           } else {
                               console.error('Erro no envio do carriedOut.');
                           }
                       });
-
-                      visitasrealizadas.innerHTML += `
-                      <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
-      <div class="row justify-content-between text-center "><!--gap-4-->
-        <div class="col-4  ms-1 fw-bold">VISITA 32</div>
-        <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div>
-      </div>
-      <div class="d-flex">
-        <p class="m-2 fw-medium">Sábado, Oct 28, 07:00 - 08:00</p>
-      </div>
-      <div class="d-flex">
-        <p class="m-2">Rua Claudio Manoel 12</p>
-      </div>
-      <div class="d-flex m-2 mt-4">
-        <i class="fa-regular fa-star text-warning"></i>
-        <i class="fa-regular fa-star text-warning"></i>
-        <i class="fa-regular fa-star text-warning"></i>
-        <i class="fa-regular fa-star text-warning"></i>
-        <i class="fa-regular fa-star text-warning"></i>
-      </div>
-      <div class="mb-3 d-flex">
-        <div class="input-group">
-          <span class="input-group-text">Comentário</span>
-          <textarea class="form-control" aria-label="Verfication comments"></textarea>
-        </div>
-      </div>
-      <div class="d-grid">
-        <a href="" class="btn btn-primary btn-sm" role="button">Enviar</a>
-      </div>
-    </div>
-    <br>
-  
-                `;
-
-
 
                   } else {
                         //console.log(visit.id)
@@ -102,14 +67,14 @@ document.addEventListener('DOMContentLoaded', function () {
                       visitasparaavaliar.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
         <div class="row justify-content-between text-center "><!--gap-4-->
-          <div class="col-4  ms-1 fw-bold">VISITA 32</div>
+          <div class="col-4  ms-1 text-start fw-bold">VISITA ${Math.floor(Math.random() * 100)}</div>
           <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div>
         </div>
         <div class="d-flex">
-          <p class="m-2 fw-medium">Sábado, Oct 28, 07:00 - 08:00</p>
+          <p class="m-2 fw-medium">${dataHora}</p>
         </div>
         <div class="d-flex">
-          <p class="m-2">Rua Claudio Manoel 12</p>
+          <p class="m-2">${endereco}</p>
         </div>
         <div class="d-flex">
             <p class="mt-4 ms-2 fw-semibold">AVALIAÇÃO</p>
@@ -148,7 +113,8 @@ document.addEventListener('DOMContentLoaded', function () {
                   `
                     }else{
                       //console.log(visit.id);
-                        visitasrealizadas.innerHTML += `
+
+                       visitasrealizadas.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
                         <div class="row justify-content-between text-center"><!--gap-4-->
                           <div class="col-4 text-start ms-1 fw-bold">VISITA ${Math.floor(Math.random() * 100)}</div>
@@ -179,15 +145,16 @@ document.addEventListener('DOMContentLoaded', function () {
                         `
                     }
 
-                    let nota = 0;
-                    const allStarContainers = document.querySelectorAll(".stars-visit");
+                    let visitRating = 0;
+                    let propertyRating = 0;
 
-                    allStarContainers.forEach(starContainer => {
+                    const allVisitStarContainers = document.querySelectorAll(".stars-visit");
+                    allVisitStarContainers.forEach(starContainer => {
                         const stars = starContainer.querySelectorAll("i");
 
                         stars.forEach((star, index1) => {
                             star.addEventListener("click", () => {
-                              updateNota(index1);
+                              updateNotaVisita(index1);
                               stars.forEach((star, index2) => {
                                   index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
                                 });
@@ -195,9 +162,28 @@ document.addEventListener('DOMContentLoaded', function () {
                         });
                     });
 
-                    function updateNota(index) {
-                      nota = index + 1;
-                      console.log("Nota selecionada:", nota);
+                    const allImovelStarContainers = document.querySelectorAll(".stars-imovel");
+                    allImovelStarContainers.forEach(starContainer => {
+                        const stars = starContainer.querySelectorAll("i");
+
+                        stars.forEach((star, index1) => {
+                            star.addEventListener("click", () => {
+                              updateNotaImovel(index1);
+                              stars.forEach((star, index2) => {
+                                  index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+                                });
+                            });
+                        });
+                    });
+
+                    function updateNotaVisita(index) {
+                      visitRating = index + 1;
+                      console.log("Nota visita:", visitRating);
+                    }
+
+                    function updateNotaImovel(index) {
+                      propertyRating = index + 1;
+                      console.log("Nota propriedade:", propertyRating);
                     }
 
                   
