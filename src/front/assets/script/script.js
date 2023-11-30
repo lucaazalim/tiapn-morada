@@ -95,6 +95,7 @@ function loadMenu() {
                                 <li><a class="dropdown-item" href="/dashboard/property/owner">Seus Imóveis</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/visit/owner">Visitas Agendadas</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/offer/owner">Propostas Recebidas</a></li>
+                                <li><a class="dropdown-item" href="/dashboard/payment/owner">Pagamentos Recebidos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -106,7 +107,7 @@ function loadMenu() {
                                 <li><a class="dropdown-item" href="/dashboard/property/renter">Imóveis Alugados</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/visit/renter">Visitas Agendadas</a></li>
                                 <li><a class="dropdown-item" href="/dashboard/offer/renter">Propostas Enviadas</a></li>
-                                <li><a class="dropdown-item" href="/dashboard/payment/renter">Pagamentos</a></li>
+                                <li><a class="dropdown-item" href="/dashboard/payment/renter">Pagamentos Enviados</a></li>
                             </ul>
                         </li>
                         ${adminDropdown}
