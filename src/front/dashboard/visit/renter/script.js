@@ -3,18 +3,76 @@ import * as API from '../../../../assets/script/api.js';
 
 
 let agendamentos = document.getElementById("visits-carried-false");
-let visitasrealizadas =  document.getElementById("visits-carried-true");
+
 let visitasparaavaliar = document.getElementById("visits-to-rating");
+let visitasrealizadas =  document.getElementById("visits-carried-true");
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
     API.get("visits/renter")
         .then(response => response.json()) 
         .then(visits => {
             visits.forEach(visit => {
-              console.log(visit)
+              //console.log(visit)
                 let endereco = visit.property.street + " " + visit.property.number + ", " + visit.property.complement
                 let dataHora = formatarDataHora(visit.datetime)
-                    if (visit.carriedOut == 0) {
+ 
+                // Comparando data da visita com data atual
+                let dataVisita = new Date(visit.datetime[0], visit.datetime[1] - 1, visit.datetime[2], visit.datetime[3], visit.datetime[4]);
+                let dataAtual = new Date();
+                if(visit.carriedOut == 0){
+                  if (dataVisita < dataAtual) {
+                    //API.put + aparece nas visitas realizadas
+                    console.log(visit.id);
+                    let carriedOut = true;
+                    API.put('visits/' + visit.id, {
+                      carriedOut
+                   })
+                      .then(response => {
+                          if (response.status >= 200 && response.status < 300) {
+                              console.log("carriedOut alterado com sucesso.")
+                          } else {
+                              console.error('Erro no envio do carriedOut.');
+                          }
+                      });
+
+                      visitasrealizadas.innerHTML += `
+                      <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
+      <div class="row justify-content-between text-center "><!--gap-4-->
+        <div class="col-4  ms-1 fw-bold">VISITA 32</div>
+        <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div>
+      </div>
+      <div class="d-flex">
+        <p class="m-2 fw-medium">Sábado, Oct 28, 07:00 - 08:00</p>
+      </div>
+      <div class="d-flex">
+        <p class="m-2">Rua Claudio Manoel 12</p>
+      </div>
+      <div class="d-flex m-2 mt-4">
+        <i class="fa-regular fa-star text-warning"></i>
+        <i class="fa-regular fa-star text-warning"></i>
+        <i class="fa-regular fa-star text-warning"></i>
+        <i class="fa-regular fa-star text-warning"></i>
+        <i class="fa-regular fa-star text-warning"></i>
+      </div>
+      <div class="mb-3 d-flex">
+        <div class="input-group">
+          <span class="input-group-text">Comentário</span>
+          <textarea class="form-control" aria-label="Verfication comments"></textarea>
+        </div>
+      </div>
+      <div class="d-grid">
+        <a href="" class="btn btn-primary btn-sm" role="button">Enviar</a>
+      </div>
+    </div>
+    <br>
+  
+                `;
+
+
+
+                  } else {
                         //console.log(visit.id)
                         agendamentos.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
@@ -36,9 +94,12 @@ document.addEventListener('DOMContentLoaded', function () {
                         <br>                    
                         `
                     }
+                  }
+                    
                     if (visit.carriedOut == 1) {
                     if(visit.comments == null && visit.visitRating == null && visit.propertyRating == null){
-                        visitasparaavaliar.innerHTML += `
+                      console.log(visit.id);
+                      visitasparaavaliar.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
         <div class="row justify-content-between text-center "><!--gap-4-->
           <div class="col-4  ms-1 fw-bold">VISITA 32</div>
@@ -68,9 +129,10 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </div>
       <br>
-    
+      //todo: REALOAD DA PÁGINA APÓS FAZER O PUT DA AVALIAÇÃO (estrelas, comment)
                   `
                     }else{
+                      console.log(visit.id);
                         visitasrealizadas.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
                         <div class="row justify-content-between text-center"><!--gap-4-->
@@ -122,6 +184,7 @@ window.submitButton = function (id) {
           });
 }
 
+//todo: REALOAD DA PÁGINA APÓS FAZER O PUT DA AVALIAÇÃO
 
 function formatarDataHora(datetime) {
     let dataHora = new Date(datetime[0], datetime[1] - 1, datetime[2], datetime[3], datetime[4]);
@@ -153,7 +216,10 @@ function criarEstrelas(nota) {
         }
     }
     return estrelasHtml;
+
 }
+
+
 /*visitasrealizadas.innerHTML += `
       <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
         <div class="row justify-content-between text-center"><!--gap-4-->
@@ -175,9 +241,6 @@ function criarEstrelas(nota) {
       </div>
       <br>
                         ` */
-
-
-
 
 
 /*<div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">

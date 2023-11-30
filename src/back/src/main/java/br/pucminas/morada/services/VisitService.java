@@ -81,7 +81,7 @@ public class VisitService {
         if (visit.getPropertyRating() != null)
             visitFound.setPropertyRating(visit.getPropertyRating());
 
-        if (!visit.getComments().equals(null))
+        if (visit.getComments() != null)
             visitFound.setComments(visit.getComments());
 
         return this.visitRepository.save(visitFound);
