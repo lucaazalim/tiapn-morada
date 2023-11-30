@@ -22,7 +22,9 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade Cató
 
 ---
 
-Morada é uma plataforma para locação e anúncio de imóveis que simplifica o processo de aluguel para locatários e proprietários. Diante do tradicional e burocrático mercado de imobiliárias, o Morada centraliza anúncios, integra processos e documentações, proporcionando uma experiência eficiente. A plataforma oferece recursos como anúncios eficientes, personalização de pesquisas, agendamento de visitas, sistema de propostas, documentação online e acompanhamento do processo. Em resumo, busca transformar a experiência de aluguel, tornando-a mais ágil e conveniente.
+Morada é uma plataforma para locação e anúncio de imóveis que simplifica o processo de aluguel para locatários e proprietários. Diante do tradicional e burocrático mercado de imobiliárias, o Morada centraliza anúncios, integra processos e documentações, proporcionando uma experiência eficiente. A plataforma oferece recursos como anúncio de imóveis, personalização de pesquisas, agendamento de visitas, sistema de propostas, documentação online e acompanhamento do processo. Em resumo, busca transformar a experiência de aluguel, tornando-a mais ágil e conveniente.
+
+Como resultado relevante, o desenvolvimento da plataforma permitiu automatizar todos os processos propostos. O sistema foi desenvolvido utilizando tecnologias modernas, como Java Spring Boot, Docker e MariaDB, o que permitiu a aplicação de conhecimentos adquiridos ao longo do curso.
 
 ---
 
@@ -154,7 +156,9 @@ A sessão a seguir apresenta a descrição dos testes de unidade e testes de usa
 
 ## 8. Conclusão
 
-_Apresente aqui a conclusão do seu trabalho. Discussão dos resultados obtidos no trabalho, onde se verifica as observações pessoais de cada aluno. Poderá também apresentar sugestões de novas linhas de estudo._
+Com este trabalho, a equipe teve a oportunidade de desenvolver habilidades de trabalho em equipe, comunicação, organização e gerenciamento de projetos. Além disso, o projeto permitiu a aplicação de conhecimentos adquiridos ao longo do curso, como a modelagem de processos de negócio, a modelagem de dados e o desenvolvimento de software. Dentre os conhecimentos técnicos trabalhados, destacam-se: desenvolvimento de aplicações back end com Java Spring Boot, deploy de aplicações com Docker e desenvolvimento de aplicações front end com HTML, CSS e JavaScript.
+
+Havendo a oportunidade de voltar ao desenvolvimento deste projeto no futuro, investiríamos esforços na melhoria da interface do sistema, com o objetivo de torná-la mais intuitiva e agradável para o usuário. Além disso, buscaríamos aprimorar a experiência do usuário, tornando todos os processos mais ainda mais simples de serem compreendidos pelos usuários. Por fim, buscaríamos aprimorar a segurança do sistema, por meio da implementação de verificações de autorização, garantindo que os dados dos usuários estejam protegidos.
 
 # APÊNDICES
 
