@@ -3,7 +3,7 @@ import * as API from '../../../../assets/script/api.js';
 
 const zipCodeInput = document.getElementById("zip-code");
 
-zipCodeInput.addEventListener('change', () => {
+/*zipCodeInput.addEventListener('change', () => {
 
     fetch(`https://brasilapi.com.br/api/cep/v2/${zipCodeInput.value}`)
         .then(response => {
@@ -12,6 +12,7 @@ zipCodeInput.addEventListener('change', () => {
                 return response.json();
             }
 
+            console.log(response);
             throw new Error("O CEP informado é inválido.");
 
         })
@@ -29,7 +30,7 @@ zipCodeInput.addEventListener('change', () => {
 
         });
 
-});
+});*/
 
 const photoInput = document.getElementById("photo");
 var photoBase64;
