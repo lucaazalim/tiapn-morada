@@ -26,7 +26,6 @@ function loadProperties() {
                             <i class="fa-solid fa-ellipsis"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/dashboard/payment/owner?id=${currentRentalId}">Pagamentos</a>
                             <a class="dropdown-item" href="/dashboard/termination/create/owner?id=${currentRentalId}&propertyId=${property.id}">Rescindir contrato de aluguel</a>
                         </div>
                     `;
