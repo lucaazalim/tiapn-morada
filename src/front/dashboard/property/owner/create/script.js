@@ -3,9 +3,9 @@ import * as API from '../../../../assets/script/api.js';
 
 const zipCodeInput = document.getElementById("zip-code");
 
-/*zipCodeInput.addEventListener('change', () => {
+zipCodeInput.addEventListener('change', () => {
 
-    fetch(`https://brasilapi.com.br/api/cep/v2/${zipCodeInput.value}`)
+    fetch(`https://brasilapi.com.br/api/cep/v1/${zipCodeInput.value}`)
         .then(response => {
 
             if (response.ok) {
@@ -30,7 +30,7 @@ const zipCodeInput = document.getElementById("zip-code");
 
         });
 
-});*/
+});
 
 const photoInput = document.getElementById("photo");
 var photoBase64;
