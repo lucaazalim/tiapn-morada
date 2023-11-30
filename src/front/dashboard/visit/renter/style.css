@@ -1,0 +1,17 @@
+.stars-visit i{
+    color: #e2e2e2;
+    cursor: pointer;
+}
+
+.stars-visit i.active{
+    color: gold;
+}
+
+.stars-imovel i{
+    color: #e2e2e2;
+    cursor: pointer;
+}
+
+.stars-imovel i.active{
+    color: gold;
+}

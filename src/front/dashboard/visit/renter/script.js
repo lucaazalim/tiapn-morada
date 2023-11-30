@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if(visit.carriedOut == 0){
                   if (dataVisita < dataAtual) {
                     //API.put + aparece nas visitas realizadas
-                    console.log(visit.id);
+                    //console.log(visit.id);
                     let carriedOut = true;
                     API.put('visits/' + visit.id, {
                       carriedOut
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     
                     if (visit.carriedOut == 1) {
                     if(visit.comments == null && visit.visitRating == null && visit.propertyRating == null){
-                      console.log(visit.id);
+                      //console.log(visit.id);
                       visitasparaavaliar.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
         <div class="row justify-content-between text-center "><!--gap-4-->
@@ -111,13 +111,29 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="d-flex">
           <p class="m-2">Rua Claudio Manoel 12</p>
         </div>
-        <div class="d-flex m-2 mt-4">
-          <i class="fa-regular fa-star text-warning"></i>
-          <i class="fa-regular fa-star text-warning"></i>
-          <i class="fa-regular fa-star text-warning"></i>
-          <i class="fa-regular fa-star text-warning"></i>
-          <i class="fa-regular fa-star text-warning"></i>
+        <div class="d-flex">
+            <p class="mt-4 ms-2 fw-semibold">AVALIAÇÃO</p>
         </div>
+        <div class="d-flex align-items-center ms-2">
+            <div class="mr-2 me-2">Visita</div>
+            <div class="stars-visit">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+        </div>
+        <div class="d-flex align-items-center ms-2">
+            <div class="mr-2 me-2">Imóvel</div>
+            <div class="stars-imovel">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+        </div><br>
         <div class="mb-3 d-flex">
           <div class="input-group">
             <span class="input-group-text">Comentário</span>
@@ -129,10 +145,9 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </div>
       <br>
-      //todo: REALOAD DA PÁGINA APÓS FAZER O PUT DA AVALIAÇÃO (estrelas, comment)
                   `
                     }else{
-                      console.log(visit.id);
+                      //console.log(visit.id);
                         visitasrealizadas.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
                         <div class="row justify-content-between text-center"><!--gap-4-->
@@ -162,8 +177,31 @@ document.addEventListener('DOMContentLoaded', function () {
                       </div>
                       <br>
                         `
-                    }}
-                 });
+                    }
+
+                    let nota = 0;
+                    const allStarContainers = document.querySelectorAll(".stars-visit");
+
+                    allStarContainers.forEach(starContainer => {
+                        const stars = starContainer.querySelectorAll("i");
+
+                        stars.forEach((star, index1) => {
+                            star.addEventListener("click", () => {
+                              updateNota(index1);
+                              stars.forEach((star, index2) => {
+                                  index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+                                });
+                            });
+                        });
+                    });
+
+                    function updateNota(index) {
+                      nota = index + 1;
+                      console.log("Nota selecionada:", nota);
+                    }
+
+                  
+        }});
             })
         .catch(error => {
             console.log(error)
@@ -172,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //necesário delete mapping
 window.submitButton = function (id) {
-    console.log("Canceling visit with ID:", id);
+    console.log("Cancelando visita com o id:", id);
     API.remove("visits/" + id)
             .then(response => {
                 if (response.status >= 200 && response.status < 300) {
@@ -184,7 +222,6 @@ window.submitButton = function (id) {
           });
 }
 
-//todo: REALOAD DA PÁGINA APÓS FAZER O PUT DA AVALIAÇÃO
 
 function formatarDataHora(datetime) {
     let dataHora = new Date(datetime[0], datetime[1] - 1, datetime[2], datetime[3], datetime[4]);
@@ -220,80 +257,4 @@ function criarEstrelas(nota) {
 }
 
 
-/*visitasrealizadas.innerHTML += `
-      <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
-        <div class="row justify-content-between text-center"><!--gap-4-->
-          <div class="col-4  ms-1 fw-bold">VISITA</div>
-          <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div>
-        </div>
-        <div class="d-flex">
-          <p class="m-2 fw-medium">${dataHora}</p>
-        </div>
-        <div class="d-flex">
-          <p class="m-2">${endereco}</p>
-        </div>
-        <div class="d-flex m-2 mt-4">
-            ${criarEstrelas(visit.visitRating)}
-        </div>
-        <div class="mb-3 d-flex">
-          <p class="p-2 small">${visit.comments}</p>
-        </div>
-      </div>
-      <br>
-                        ` */
 
-
-/*<div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
-        <div class="row justify-content-between text-center "><!--gap-4-->
-          <div class="col-4  ms-1 fw-bold">VISITA 32</div>
-          <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div>
-        </div>
-        <div class="d-flex">
-          <p class="m-2 fw-medium">Sábado, Oct 28, 07:00 - 08:00</p>
-        </div>
-        <div class="d-flex">
-          <p class="m-2">Rua Claudio Manoel 12</p>
-        </div>
-        <div class="d-flex m-2 mt-4">
-          <i class="fa-regular fa-star text-warning"></i>
-          <i class="fa-regular fa-star text-warning"></i>
-          <i class="fa-regular fa-star text-warning"></i>
-          <i class="fa-regular fa-star text-warning"></i>
-          <i class="fa-regular fa-star text-warning"></i>
-        </div>
-        <div class="mb-3 d-flex">
-          <div class="input-group">
-            <span class="input-group-text">Comentário</span>
-            <textarea class="form-control" aria-label="Verfication comments"></textarea>
-          </div>
-        </div>
-        <div class="d-grid">
-          <a href="" class="btn btn-primary btn-sm" role="button">Enviar</a>
-        </div>
-      </div>
-      <br>
-
-      <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
-        <div class="row justify-content-between text-center"><!--gap-4-->
-          <div class="col-4  ms-1 fw-bold">VISITA 67</div>
-          <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div>
-        </div>
-        <div class="d-flex">
-          <p class="m-2 fw-medium">Sábado, Oct 17, 09:00 - 10:00</p>
-        </div>
-        <div class="d-flex">
-          <p class="m-2">Rua das Flores, 32</p>
-        </div>
-        <div class="d-flex m-2 mt-4">
-          <i class="fa-solid fa-star text-warning"></i>
-          <i class="fa-solid fa-star text-warning"></i>
-          <i class="fa-solid fa-star text-warning"></i>
-          <i class="fa-solid fa-star text-warning"></i>
-          <i class="fa-solid fa-star text-warning"></i>
-        </div>
-        <div class="mb-3 d-flex">
-          <p class="p-2 small">Vista maravilhosa, casa excelente, móveis em perfeito estado. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Perferendis, quos!</p>
-        </div>
-      </div>
-      <br>*/
