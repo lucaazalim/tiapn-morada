@@ -8,6 +8,9 @@ let visitasparaavaliar = document.getElementById("visits-to-rating");
 let visitasrealizadas =  document.getElementById("visits-carried-true");
 
 
+let visitRating = 0;
+let propertyRating = 0;
+
 document.addEventListener('DOMContentLoaded', function () {
     API.get("visits/renter")
         .then(response => response.json()) 
@@ -22,8 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 let dataAtual = new Date();
                 if(visit.carriedOut == 0){
                   if (dataVisita < dataAtual) {
-                    //API.put + aparece nas visitas realizadas
-                    //console.log(visit.id);
                     let carriedOut = true;
                     API.put('visits/' + visit.id, {
                       carriedOut
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if(visit.comments == null && visit.visitRating == null && visit.propertyRating == null){
                       //console.log(visit.id);
                       visitasparaavaliar.innerHTML += `
-                        <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
+                        <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4" id="card${visit.id}">
         <div class="row justify-content-between text-center "><!--gap-4-->
           <div class="col-4  ms-1 text-start fw-bold">VISITA ${Math.floor(Math.random() * 100)}</div>
           <div class="col-3 p-1 me-3 text-bg-success text-white small fw-lighter">realizado</div>
@@ -100,20 +101,20 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         </div><br>
         <div class="mb-3 d-flex">
-          <div class="input-group">
-            <span class="input-group-text">Comentário</span>
-            <textarea class="form-control" aria-label="Verfication comments"></textarea>
-          </div>
-        </div>
-        <div class="d-grid">
-          <a href="" class="btn btn-primary btn-sm" role="button">Enviar</a>
-        </div>
+    <div class="input-group">
+        <span class="input-group-text">Comentário</span>
+        <textarea id="comentario-${visit.id}" class="form-control" aria-label="Verification comments"></textarea>
+    </div>
+</div>
+<div class="d-grid">
+    <a href="#" class="btn btn-primary btn-sm" role="button" onclick="avaliacaoButton(${visit.id})">Enviar</a>
+</div>
+
       </div>
       <br>
                   `
                     }else{
                       //console.log(visit.id);
-
                        visitasrealizadas.innerHTML += `
                         <div class="container p-4 bg-light border border-secondary-subtle border-3 m-3 col-md-4">
                         <div class="row justify-content-between text-center"><!--gap-4-->
@@ -138,23 +139,21 @@ document.addEventListener('DOMContentLoaded', function () {
                             ${criarEstrelas(visit.propertyRating)}
                         </div>
                         <div class="mb-3 d-flex">
-                          <p class="ms-2"><small>${visit.comments}</small></p>
+                          <p class="ms-2">${visit.comments}</p>
                         </div>
                       </div>
                       <br>
                         `
                     }
 
-                    let visitRating = 0;
-                    let propertyRating = 0;
-
                     const allVisitStarContainers = document.querySelectorAll(".stars-visit");
                     allVisitStarContainers.forEach(starContainer => {
                         const stars = starContainer.querySelectorAll("i");
-
+                        visitRating = 0;
                         stars.forEach((star, index1) => {
                             star.addEventListener("click", () => {
-                              updateNotaVisita(index1);
+                              visitRating = index1 + 1;
+                              console.log("Nota visita:", visitRating);
                               stars.forEach((star, index2) => {
                                   index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
                                 });
@@ -165,28 +164,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     const allImovelStarContainers = document.querySelectorAll(".stars-imovel");
                     allImovelStarContainers.forEach(starContainer => {
                         const stars = starContainer.querySelectorAll("i");
-
+                        propertyRating = 0;
                         stars.forEach((star, index1) => {
                             star.addEventListener("click", () => {
-                              updateNotaImovel(index1);
+                              propertyRating = index1 + 1;
+                              console.log("Nota imóvel:", propertyRating);
                               stars.forEach((star, index2) => {
                                   index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
                                 });
                             });
                         });
                     });
-
-                    function updateNotaVisita(index) {
-                      visitRating = index + 1;
-                      console.log("Nota visita:", visitRating);
-                    }
-
-                    function updateNotaImovel(index) {
-                      propertyRating = index + 1;
-                      console.log("Nota propriedade:", propertyRating);
-                    }
-
-                  
         }});
             })
         .catch(error => {
@@ -244,3 +232,58 @@ function criarEstrelas(nota) {
 
 
 
+window.avaliacaoButton = function (id) {
+  console.log("Função avaliacaoButton chamada para o ID:", id);
+
+  const commentsElement = document.querySelector(`#comentario-${id}`);
+  const visitElement = document.getElementById(`card${id}`);
+
+  const starsVisitContainer = visitElement.querySelector(".stars-visit");
+  const starsImovelContainer = visitElement.querySelector(".stars-imovel");
+
+  console.log("commentsElement:", commentsElement);
+  console.log("starsVisitContainer:", starsVisitContainer);
+  console.log("starsImovelContainer:", starsImovelContainer);
+
+  const comments = commentsElement ? commentsElement.value : '';
+  let visitRating = obterNotaSelecionada(starsVisitContainer);
+  let propertyRating = obterNotaSelecionada(starsImovelContainer);
+
+  console.log("visitRating:", visitRating);
+  console.log("propertyRating:", propertyRating);
+  console.log("comments:", comments);
+
+  if (visitRating === null) {
+      visitRating = 0;
+  }
+  if (propertyRating === null) {
+      propertyRating = 0;
+  }
+
+  // Faça a chamada para API.put com esses dados
+  API.put('visits/' + id, { visitRating, propertyRating, comments })
+      .then(response => {
+          if (response.status >= 200 && response.status < 300) {
+              console.log("Avaliação enviada com sucesso.");
+              alert("Avaliação enviada com sucesso.");
+              location.reload();
+          } else {
+              console.error('Erro no envio da avaliação.');
+          }
+      });
+}
+
+
+
+function obterNotaSelecionada(container) {
+  const estrelas = container.querySelectorAll("i");
+  let nota = 0;
+
+  estrelas.forEach((star, index) => {
+      if (star.classList.contains("active")) {
+          nota = index + 1;
+      }
+  });
+
+  return nota;
+}

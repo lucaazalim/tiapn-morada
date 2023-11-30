@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 ${criarEstrelas(visit.propertyRating)}
                             </div>
                             <div class="mb-3 d-flex">
-                                ${visit.comments !== null ? `<p class="ms-2"><small>${visit.comments}</small></p>` : '<p></p>'}
+                                ${visit.comments !== null ? `<p class="ms-2">${visit.comments}</p>` : '<p></p>'}
                             </div>
                         </div>
                         <br>
