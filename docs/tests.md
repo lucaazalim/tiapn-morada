@@ -119,19 +119,19 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 ---
 
-## CT07 - Título do Caso de Teste
+## CT07 - Agendamento de Visita
 
 - **Processo associado:** 3
 - **Procedimento:**
-  1. Lorem ipsum
-  2. Lorem ipsum
-  3. Lorem ipsum
+  1. Acessar a página inicial
+  2. Acessar um imóvel apertando o botão "Visualizar imóvel"
+  3. Na página de um imóvel específico selecione o botão "Agendar visita"
+  4. Escolha uma data e horário 
 - **Dados de entrada:**
-  - **Campo:** Valor
-  - **Outro campo:** Outro valor
-- **Resultado esperado:**
+  - **Data e Horário:** 01/12/2023 às 10h00
+- **Resultado esperado:** Deve aparecer um pop-up com a mensagem "Agendado com sucesso!" e o agendamento irá aparecer no calendário
 - **Resultado obtido:** Sucesso
-- **Evidência:** [Imagem](images/ct07.png)
+- **Evidência:** [Imagem 1](images/agendamento-pop-up-sucesso.png) e [Imagem 2](images/agendamento-calendario-sucesso.png)
 
 ---
 
