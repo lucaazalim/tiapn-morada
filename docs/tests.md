@@ -53,7 +53,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
   - **Imagem RG verso:** [Imagem](images/rgVersoExemplo.png)
 - **Resultado esperado:** O processo de verificação de usuário deve ser criado e o usuário deve ser redirecionado para a página "Verificação".
 - **Resultado obtido:** Sucesso
-- **Evidência:** [Imagem](images/resultado-teste-verification.png)
+- **Evidência:** [Imagem](images/ct03.png)
 
 ---
 
@@ -65,7 +65,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
   2. Visualizar os processos de verificação na página
 - **Resultado esperado:** Aprovado
 - **Resultado obtido:** Reprovado
-- **Evidência:** [Imagem](images/erro-teste-verification.png)
+- **Evidência:** [Imagem](images/ct04.png)
 
 ---
 
@@ -115,7 +115,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
   - **Foto:** [Imagem](https://i.imgur.com/JSovnWd.jpg)
 - **Resultado esperado:** Deve ser exibido o erro "O CEP informado é inválido.".
 - **Resultado obtido:** Erro
-- **Evidência:** [Imagem](images/ct03.png)
+- **Evidência:** [Imagem](images/ct06.png)
 
 ---
 
