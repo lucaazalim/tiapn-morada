@@ -34,6 +34,10 @@ document.getElementById("btnConfirm").addEventListener("click", ()=>{
 
   const message = document.getElementById("message").value;
 
+  if(message === null || message === undefined || message === ""){
+    Alert.alert("Preencha todos os campos", "danger")
+    return;
+  }else{
 
   API.put(`rentals/` + rentalId, {
     terminated: 1
@@ -43,7 +47,7 @@ document.getElementById("btnConfirm").addEventListener("click", ()=>{
         window.location.href = "/dashboard";
       }else{
         let data = response.json();
-        Alert.alert(data.message, "danger")
+        
       }
   })
 
@@ -60,4 +64,5 @@ document.getElementById("btnConfirm").addEventListener("click", ()=>{
         Alert.alert(data.message, "danger")
       }
     })
+  }
   })

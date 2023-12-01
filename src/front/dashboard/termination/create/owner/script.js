@@ -12,12 +12,8 @@ API.get(`properties/` + propertyId)
   .then((response) =>{
 
     if(!response.ok){
-      Alert.alert(
-        "Não foi possivel iniciar uma recisão para essa propriedade",
-        "dange",
-        "default",
-        0
-      );
+      console.log("Debug")
+      Alert.alert("Não foi possivel iniciar uma recisão para essa propriedade.","danger");
       throw new Error("Unable to retrive property")
     }
 

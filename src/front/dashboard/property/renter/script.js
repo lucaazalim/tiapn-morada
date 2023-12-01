@@ -34,7 +34,7 @@ API.get("rentals/user")
                     <a class="btn btn-primary" href="/dashboard/rentals/renter/?id=${currentPropertyId}">Assinar contrato</a>
                 `;
             }
-
+            if(!element.terminated){
             rents.innerHTML += 
             `
             <div class="card mb-3">
@@ -52,7 +52,8 @@ API.get("rentals/user")
                             </div>
                         </div>
                     </div>
-            `            
+            `      
+            }      
         });
 
     })
