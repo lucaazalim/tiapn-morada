@@ -225,13 +225,15 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 - **Processo associado:** 6
 - **Procedimento:**
-  1. Lorem ipsum
-  2. Lorem ipsum
-  3. Lorem ipsum
+  1. Acessar a página inicial da plataforma.
+  2. Acessar a visualização de imóveis através do botão "Meus imóveis" na aba do proprietário.
+  3. Visualizar o imóvel apto ao início do processo de rescisão.
+  4. Clicar no botão de options ilustrado por "três pontinhos"
+  5. Clicar na opção "Iniciar processo de rescisão"
+  6. Preencher o formulário a fim de informar o motivo do pedido de rescisão.
 - **Dados de entrada:**
-  - **Campo:** Valor
-  - **Outro campo:** Outro valor
-- **Resultado esperado:**
+  - **Campo:** Olá, desejo finalizar o contrato do imóvel pois vou me casar e estou em busca de um apartamento maior. Aguardo contato para finalizarmos o processo. 
+- **Resultado esperado:** Após o usuário clicar no botão "Confirmar" aparecerá um alert indicando que o pedido foi enviado.
 - **Resultado obtido:** Sucesso
 - **Evidência:** [Imagem](images/ct13.png)
 
@@ -241,12 +243,14 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 - **Processo associado:** 6
 - **Procedimento:**
-  1. Lorem ipsum
-  2. Lorem ipsum
-  3. Lorem ipsum
+1. Acessar a página inicial da plataforma.
+  2. Acessar a visualização de imóveis através do botão "Meus imóveis" na aba do proprietário.
+  3. Visualizar o imóvel apto ao início do processo de rescisão.
+  4. Clicar no botão de options ilustrado por "três pontinhos"
+  5. Clicar na opção "Iniciar processo de rescisão"
+  6. Preencher o formulário a fim de informar o motivo do pedido de rescisão.
 - **Dados de entrada:**
-  - **Campo:** Valor
-  - **Outro campo:** Outro valor
-- **Resultado esperado:**
+  - **Campo:** Vazio
+- **Resultado esperado:** Após o usuário clicar no botão "Confirmar" aparecerá um alert indicando que é obrigatório o preenchimento do formulário. 
 - **Resultado obtido:** Sucesso
 - **Evidência:** [Imagem](images/ct14.png)
