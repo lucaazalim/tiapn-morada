@@ -51,13 +51,23 @@ A terceira tela do processo 3 apresenta ao locador todas as marcações de visit
 
 ## 6.1. Telas do processo 4
 
-Descrição da tela relativa à atividade 1.
+A primeira tela do processo é onde o usuário interessado no imovel realiza uma proposta, com um valor maio ou menor que o valor anunciado.
 
-![Tela da atividade 1](images/interface/process-4-activity-1.png)
+![image](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-morada/assets/127994053/9de8fa99-bd96-42d7-bf96-9dc0062a19ea)
 
-Descrição da tela relativa à atividade 2.
 
-![Tela da atividade 2](images/interface/process-4-activity-2.png)
+A segunda tela está ligada ao proprietario do imovel, que visualiza todas as propotas recebidas e pode aceitar ou recusar a proposta
+
+![image](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-morada/assets/127994053/e784fcac-a795-4a93-b7f4-a404800d3cbc)
+
+A terceira tela é acessada pelo proprietário assim que o mesmo aceita uma proposta. Aqui ele pode ler o contrato e assina-lo
+
+![image](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-morada/assets/127994053/5bc31324-99b1-4197-8064-67d09a8810d3)
+
+Na quarta tela o locatario visualiza todos os imoveis que está alugando e também assina o os contratos pendentes asim como o proprietário
+
+![image](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-morada/assets/127994053/5bbf5b9d-8909-4368-b8ab-e83f2b643ad1)
+
 
 ## 6.1. Telas do processo 5
 
