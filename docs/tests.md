@@ -57,19 +57,15 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 ---
 
-## CT04 - Título do Caso de Teste
+## CT04 - Processo de Verificação de Usuário Negado
 
 - **Processo associado:** 1
 - **Procedimento:**
-  1. Lorem ipsum
-  2. Lorem ipsum
-  3. Lorem ipsum
-- **Dados de entrada:**
-  - **Campo:** Valor
-  - **Outro campo:** Outro valor
-- **Resultado esperado:**
-- **Resultado obtido:** Sucesso
-- **Evidência:** [Imagem](images/ct04.png)
+  1. Acessar a página "Verificação" (`/dashboard/verification/`)
+  2. Visualizar os processos de verificação na página
+- **Resultado esperado:** Aprovado
+- **Resultado obtido:** Reprovado
+- **Evidência:** [Imagem](images/erro-teste-verification.png)
 
 ---
 
