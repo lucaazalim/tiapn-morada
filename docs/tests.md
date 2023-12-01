@@ -119,7 +119,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 ---
 
-## CT07 - Agendamento de Visita
+## CT07 - Agendamento de Visita com Sucesso
 
 - **Processo associado:** 3
 - **Procedimento:**
@@ -135,19 +135,22 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 ---
 
-## CT08 - Título do Caso de Teste
+## CT08 - Agendamento De Mais De Uma Visita Em Um Mesmo Imóvel Sem Sucesso 
 
 - **Processo associado:** 3
 - **Procedimento:**
-  1. Lorem ipsum
-  2. Lorem ipsum
-  3. Lorem ipsum
-- **Dados de entrada:**
-  - **Campo:** Valor
-  - **Outro campo:** Outro valor
-- **Resultado esperado:**
-- **Resultado obtido:** Sucesso
-- **Evidência:** [Imagem](images/ct08.png)
+  1. Acessar a página inicial
+  2. Acessar um imóvel apertando o botão "Visualizar imóvel"
+  3. Na página de um imóvel específico selecione o botão "Agendar visita"
+  4. Escolha uma data e horário
+  5. No calendário irá aparecer o seu agendamento
+  6. Tente agendar mais um horário no calendário
+- **Dados de entrada:** 
+  - **Data e Horário:** 29/11/2023 às 11h00
+- **Resultado esperado:** Deve aparecer um pop-up com a mensagem "Você já tem um agendamento nesta propriedade." e o agendamento não irá aparecer no calendário
+- **Resultado obtido:** Sem sucesso
+- **Evidência:** [Imagem 1](images/agendamento-pop-up-Sem-sucesso.png) e [Imagem 2](images/agendamento-calendario-Sem-sucesso.png)
+
 
 ---
 
