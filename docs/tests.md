@@ -63,6 +63,9 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Procedimento:**
   1. Acessar a página "Verificação" (`/dashboard/verification/`)
   2. Visualizar os processos de verificação na página
+  3. - Se a verificação for bem-sucedida, o resultado exibido deve ser "Aprovado".
+     - Se a verificação estiver em andamento, o resultado deve ser "Pendente", indicando que ainda não houve uma decisão.
+     - Se a verificação for mal-sucedida, o resultado deve ser "Reprovado", indicando que o processo não foi concluído com sucesso.
 - **Resultado esperado:** Aprovado
 - **Resultado obtido:** Reprovado
 - **Evidência:** [Imagem](images/ct04.png)
