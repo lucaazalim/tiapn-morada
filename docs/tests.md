@@ -193,13 +193,13 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 - **Processo associado:** 5
 - **Procedimento:**
-  1. Lorem ipsum
-  2. Lorem ipsum
-  3. Lorem ipsum
+ 1. Acessar a tela inicial da plataforma.
+  2. Clicar no botão "imóvel"
+  3. Visualizar o imóvel e em seguida propor o valor de oferta.
+  4. Clicar em "enviar". 
 - **Dados de entrada:**
-  - **Campo:** Valor
-  - **Outro campo:** Outro valor
-- **Resultado esperado:**
+  - **Campo:** 4000,00
+- **Resultado esperado:** Após o usuário clicar no botão "enviar", deverá aparecer um alert ao usuário informando que a oferta foi enviada.
 - **Resultado obtido:** Sucesso
 - **Evidência:** [Imagem](images/ct11.png)
 
@@ -209,13 +209,14 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 - **Processo associado:** 5
 - **Procedimento:**
-  1. Lorem ipsum
-  2. Lorem ipsum
-  3. Lorem ipsum
+1. Acessar a tela inicial da plataforma.
+  2. Clicar no botão "imóvel"
+  3. Visualizar o imóvel e em seguida propor o valor de oferta.
+  4. Clicar em "enviar". 
 - **Dados de entrada:**
-  - **Campo:** Valor
-  - **Outro campo:** Outro valor
-- **Resultado esperado:**
+  - **Campo:** Vazio.
+- **Resultado esperado:** Após o usuário clicar no botão "enviar", deverá aparecer um alert pedindo ao usuário que preencha o campo de oferta.
+
 - **Resultado obtido:** Sucesso
 - **Evidência:** [Imagem](images/ct12.png)
 
