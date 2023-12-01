@@ -81,10 +81,8 @@ Descrição da tela relativa à atividade 2.
 
 ## 6.1. Telas do processo 6
 
-Descrição da tela relativa à atividade 1.
+Nessa tela o proprietário ou locatário realiza a recisão do imovel, informando o motivo e posteriormente finalizando o contrato
 
-![Tela da atividade 1](images/interface/process-6-activity-1.png)
+![image](https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-morada/assets/127994053/1e325493-a55c-4088-bb3a-b9b6c9f6630a)
 
-Descrição da tela relativa à atividade 2.
 
-![Tela da atividade 2](images/interface/process-6-activity-2.png)
