@@ -37,7 +37,6 @@ API.get(`properties/` + propertyId)
   });
 
 const valorDaPropostaInput = document.getElementById("proposalValue");
-valorDaPropostaInput.value = "R$";
 valorDaPropostaInput.addEventListener("input", () => {
 let inputValue = valorDaPropostaInput.value;
 
@@ -65,7 +64,12 @@ document.getElementById("formOffer").addEventListener("submit", function (event)
   event.preventDefault();
 
   let rentValue = document.getElementById("proposalValue").value
-
+  console.log(rentValue);
+  if(rentValue <= 0){
+    console.log("Debug");
+    Alert.alert("Não é possivel enviar uma proposta para o imovel sem o valor do preencha o campo de valor","danger");
+    return;
+  }
   API.post('offers', {
     rentValue,
     propertyId
@@ -75,6 +79,7 @@ document.getElementById("formOffer").addEventListener("submit", function (event)
       window.location.href = "/dashboard"
     }else{
       let data = response.json()
+      console.log("Debug 2")
       Alert.alert(data.message, "danger");
     }
   })
