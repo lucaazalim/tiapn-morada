@@ -40,19 +40,20 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 ---
 
-## CT03 - Título do Caso de Teste
+## CT03 - Criação de Verificação de Usuário
 
 - **Processo associado:** 1
 - **Procedimento:**
-  1. Lorem ipsum
-  2. Lorem ipsum
-  3. Lorem ipsum
+  1. Acessar a página "Verificação" (`/dashboard/verification/`)
+  2. Acessar a página de criação de uma verificação de usuário por meio do botão "Realizar verificação"
+  3. Preencher os campos com uma imagem da frente e do verso do seu documento de identidade.
+  4. Clicar no botão "Enviar"
 - **Dados de entrada:**
-  - **Campo:** Valor
-  - **Outro campo:** Outro valor
-- **Resultado esperado:**
+  - **Imagem RG frente:** [Imagem](images/rgFrenteExemplo.jpg)
+  - **Imagem RG verso:** [Imagem](images/rgVersoExemplo.png)
+- **Resultado esperado:** O processo de verificação de usuário deve ser criado e o usuário deve ser redirecionado para a página "Verificação".
 - **Resultado obtido:** Sucesso
-- **Evidência:** [Imagem](images/ct03.png)
+- **Evidência:** [Imagem](images/resultado-teste-verification.png)
 
 ---
 
@@ -118,7 +119,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
   - **Foto:** [Imagem](https://i.imgur.com/JSovnWd.jpg)
 - **Resultado esperado:** Deve ser exibido o erro "O CEP informado é inválido.".
 - **Resultado obtido:** Erro
-- **Evidência:** [Imagem](images/ct06.png)
+- **Evidência:** [Imagem](images/ct03.png)
 
 ---
 
