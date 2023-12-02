@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,63 +10,40 @@
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="/assets/style/style.css" />
 </head>
-
 <body>
     <div id="header" class="mb-4"></div>
     <div class="container">
         <h1>Criar Aviso de Pagamento</h1>
         <h5>Notificar sobre o pagamento do aluguel.</h5>
         <hr />
-
-        <div class="container">
-            <form class="border p-3 d-flex flex-column rounded mb-4">
-                <div class="mb-3 d-none">
-                    <label for="TipoPagamento" class="form-label">Tipo de Pagamento</label>
-                    <select class="form-select" id="TipoPagamento">
-                        <option value="aluguel" selected>Aluguel</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="ImovelPagamento" class="form-label">Selecione o Imóvel</label>
-                    <select class="form-select" id="ImovelPagamento">
-                        <option value="1">R. Pernambuco, 881 - Funcionários</option>
-\                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="MesPagamento" class="form-label">Mês do Pagamento</label>
-                    <select class="form-select" id="MesPagamento">
-                        <option value="1">Janeiro</option>
-                        <option value="2">Fevereiro</option>
-                        <option value="3">Março</option>
-                        <option value="4">Abril</option>
-                        <option value="5">Maio</option>
-                        <option value="6">Junho</option>
-                        <option value="7">Julho</option>
-                        <option value="8">Agosto</option>
-                        <option value="9">Setembro</option>
-                        <option value="10">Outubro</option>
-                        <option value="11">Novembro</option>
-                        <option value="12">Dezembro</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="AnoPagamento" class="form-label">Ano do Pagamento</label>
-                    <select class="form-select" id="AnoPagamento">
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                    </select>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <button type="button" id="cancelarButton" class="btn btn-danger">Cancelar</button>
-                    <button type="button" id="enviarButton" class="btn btn-primary">Enviar</button>
-                </div>
-            </form>
-        </div>
+        <form class="border p-3 d-flex flex-column rounded mb-4">
+            <div class="mb-3">
+                <label for="ImovelPagamento" class="form-label">Selecione o Imóvel</label>
+                <select class="form-select" id="ImovelPagamento">
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="MesPagamento" class="form-label">Mês do Pagamento</label>
+                <select class="form-select" id="MesPagamento">
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="AnoPagamento" class="form-label">Ano do Pagamento</label>
+                <select class="form-select" id="AnoPagamento">
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="ValorPagamento" class="form-label">Valor do Pagamento</label>
+                <input type="number" class="form-control" id="ValorPagamento" placeholder="Valor do Aluguel">
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="button" id="cancelarButton" class="btn btn-danger">Cancelar</button>
+                <button type="button" id="enviarButton" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
     </div>
-
     <div id="footer"></div>
+    <script type="module" src="/assets/script/script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
-
-<script type="module" src="/assets/script/script.js"></script>
-<script type="module" src="script.js"></script>
 </html>
