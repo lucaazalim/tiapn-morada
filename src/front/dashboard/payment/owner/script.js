@@ -1,37 +1,49 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const aprovarButton = document.querySelector('#aprovarButton');
-    const rejeitarButton = document.querySelector('#rejeitarButton');
-    const checkboxes = document.querySelectorAll('.form-check-input');
+import * as API from "../../../assets/script/api.js";
 
-    function getSelectedApartments() {
-        const selectedApartments = [];
+let paymentsReceived = document.getElementById("paymentsReceived");
 
-        checkboxes.forEach(checkbox => {
-            if (checkbox.checked) {
-                const cardBody = checkbox.closest('.card-body');
-                const apartmentTitle = cardBody.querySelector('.card-title').textContent;
-                selectedApartments.push(apartmentTitle);
-            }
-        });
+window.updatePaymentStatus = function(paymentId, newStatus) {
 
-        return selectedApartments;
-    }
+  API.put(`payments/${paymentId}`, { status: PaymentStatus[newStatus] })
+    .then(() => {
+      alert(`Status atualizado para: ${newStatus}`);
+      loadPayments(); 
+    })
+    .catch(error => {
+      console.error('Erro ao atualizar o status do pagamento:', error);
+    });
+}
 
-    if (aprovarButton) {
-        aprovarButton.addEventListener('click', function () {
-            const selectedApartments = getSelectedApartments();
-            if (selectedApartments.length > 0) {
-                alert('Pagamento aprovado para os apartamentos: ' + selectedApartments.join(', '));
-            } else {
-                alert('Selecione um apartamento para aprovação.');
-            }
-        });
-    }
+function loadPayments() {
+  API.get("payments/owner")
+    .then(response => response.json())
+    .then(payments => {
+      paymentsReceived.innerHTML = ''; 
+      payments.forEach(payment => {
+        paymentsReceived.innerHTML += `
+          <div class="card mb-3">
+            <div class="card-header">
+              Data do Pagamento: ${payment.competenceMonth}/${payment.competenceYear}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Valor: R$ ${payment.rentValue.toFixed(2)}</h5>
+              <p class="card-text">Status: ${payment.status}</p>
+              <button class="btn btn-success" onclick="updatePaymentStatus(${payment.id}, 'CONFIRMED')">Confirmar</button>
+              <button class="btn btn-danger" onclick="updatePaymentStatus(${payment.id}, 'REJECTED')">Rejeitar</button>
+            </div>
+          </div>
+        `;
+      });
+    })
+    .catch(error => {
+      console.error('Erro ao carregar pagamentos:', error);
+      paymentsReceived.innerHTML = `<p class="text-center">Erro ao carregar os pagamentos.</p>`;
+    });
+}
 
-    if (rejeitarButton) {
-        rejeitarButton.addEventListener('click', function () {
-            alert('Pagamento do aluguel rejeitado!');
-        });
-    }
+loadPayments();
 
-});
+const PaymentStatus = {
+    CONFIRMED: 'CONFIRMED',
+    REJECTED: 'REJECTED'
+};

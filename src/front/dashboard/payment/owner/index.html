@@ -15,54 +15,19 @@
 <body>
     <div id="header" class="mb-4"></div>
     <div class="container">
-            <h1>Confirmar Recebimento do Pagamento</h1>
-            <h5>Aprove ou rejeite o pagamento recebido.</h5>
-            <hr />
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Apartamento 1</h5>
-                            </div>
-                            <div class="card-body d-flex justify-content-between align-items-start">
-                                <div>
-                                    <p class="card-text">R. Pernambuco, 881 - Funcionários, Belo Horizonte</p>
-                                    <p class="card-text">Valor do Aluguel: R$ 2.500,00</p>
-                                    
-                                </div>
-                                <div class="form-check form-switch">
-                                    <div class="text-end">
-                                        <span class="text-muted">11/2023</span>
-                                    </div>
-                                    <br>
-                                    <input class="form-check-input" type="checkbox" id="apartamentoCheck">
-                                    <label class="form-check-label" for="apartamentoCheck">Selecionar</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <form class="border p-3 d-flex flex-column rounded">
-                <div class="mb-3 d-none">
-                    <label for="TipoRecebimento" class="form-label">Tipo de Recebimento</label>
-                    <select class="form-select" id="TipoRecebimento">
-                        <option value="aluguel" selected>Aluguel</option>
-                    </select>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <button type="button" id="rejeitarButton" class="btn btn-danger">Rejeitar</button>
-                    <button type="button" id="aprovarButton" class="btn btn-success">Aprovar</button>
-                </div>
-            </form>
+        <h1>Confirmar Recebimento do Pagamento</h1>
+        <h5>Aprove ou rejeite o pagamento recebido.</h5>
+        <hr />
+
+        <div id="paymentsReceived" class="mt-5">
         </div>
     </div>
 
     <div id="footer"></div>
+
+    <script type="module" src="/assets/script/script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 
-<script type="module" src="../../../assets/script/script.js"></script>
-<script type="module" src="script.js"></script>
 </html>
+
