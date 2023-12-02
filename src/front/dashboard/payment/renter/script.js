@@ -1,5 +1,4 @@
 import * as API from "../../../assets/script/api.js";
-import generateContract from "../../../assets/script/generateRent.js";
 
 let paymentsReceived = document.getElementById("paymentsReceived");
 
@@ -13,22 +12,23 @@ API.get("payments/renter")
     payments.forEach((payment) => {
       const createdAtDate = new Date(payment.createdAt).toLocaleDateString('pt-BR');
       paymentsReceived.innerHTML += `
-        <div class="payment-card">
-          <p>Payment ID: ${payment.id}</p>
-          <p>Rental ID: ${payment.rentalId}</p>
-          <p>Amount: R$ ${payment.rentValue.toFixed(2)}</p>
-          <p>Month: ${payment.competenceMonth}/${payment.competenceYear}</p>
-          <p>Status: ${payment.status}</p>
-          <p>Date: ${createdAtDate}</p>
-          <button id="generateContract${payment.id}" class="btn-generate-contract">Generate Contract</button>
+      <div class="card mb-3">
+        <div class="card-header">
+          Data do Pagamento: ${payment.competenceMonth}/${payment.competenceYear}
         </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title">
+              Valor: R$ ${payment.rentValue.toFixed(2)}
+            </h5>
+            <h5 class="card-title text-right">
+              Aluguel: ${payment.rentalId}
+            </h5>
+          </div>
+          <p class="card-text">Status: ${payment.status}</p>
+        </div>
+      </div>
       `;
-
-      let btnGenerateContract = document.getElementById(`generateContract${payment.id}`);
-      btnGenerateContract.addEventListener("click", () => {
-        console.log(payment);
-        generateContract(payment.id);
-      });
     });
   })
   .catch((error) => {
