@@ -222,7 +222,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 ---
 
-## CT13 - Título do Caso de Teste
+## CT13 - Confirmar envio de rescisão 
 
 - **Processo associado:** 6
 - **Procedimento:**
@@ -240,7 +240,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 ---
 
-## CT14 - Título do Caso de Teste
+## CT14 - Formulário vazio sem sucesso 
 
 - **Processo associado:** 6
 - **Procedimento:**
