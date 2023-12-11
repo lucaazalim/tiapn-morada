@@ -66,6 +66,7 @@ function submitPayment() {
     API.post("payments", paymentData)
         .then(() => {
             alert('Pagamento registrado com sucesso.');
+            window.location = "/dashboard/payment/renter";
         })
         .catch(error => {
             console.error('Erro ao registrar pagamento:', error);

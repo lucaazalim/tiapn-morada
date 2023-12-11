@@ -2,13 +2,19 @@ export const propertyTypeMap = {
     APARTMENT: { label: "Apartamento" },
     HOUSE: { label: "Casa" },
     STUDIO: { label: "Studio" },
-}
+};
 
 export const propertyStatusMap = {
     PENDING_APPROVAL: { label: "Aguardando aprovação", bgClass: "bg-warning" },
     APPROVED: { label: "Aprovado", bgClass: "bg-success" },
     REJECTED: { label: "Rejeitado", bgClass: "bg-danger" },
 };
+
+export const paymentStatusMap = {
+    ALLEGEDLY_PAID: { label: "Pago" },
+    CONFIRMED: { label: "Confirmado" },
+    REJECTED: { label: "Rejeitado" }
+}
 
 export const BASE_URL =
     window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
