@@ -64,12 +64,16 @@ function submitPayment() {
     };
 
     API.post("payments", paymentData)
-        .then(() => {
-            alert('Pagamento registrado com sucesso.');
-            window.location = "/dashboard/payment/renter";
+        .then((response) => {
+            if (response.ok) {
+                alert('Pagamento registrado com sucesso.');
+                window.location = "/dashboard/payment/renter";
+            } else {
+                throw new Error('Erro ao registrar pagamento.');
+            }
         })
         .catch(error => {
-            console.error('Erro ao registrar pagamento:', error);
+            alert(error.message);
         });
 }
 
