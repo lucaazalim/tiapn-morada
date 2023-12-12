@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Título da Página</title>
 
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/86ad24bcb9.js"
-      crossorigin="anonymous"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Título da Página</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="/assets/style/custom_bootstrap.css" />
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/86ad24bcb9.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="/assets/style/style.css" />
-  </head>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/assets/style/custom_bootstrap.css" />
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-  <body>
-    <div id="header" class="mb-4"></div>
+  <link rel="stylesheet" href="/assets/style/style.css" />
+</head>
 
-    <div class="container">
-      <h1>Processo de Verificação de Usuário</h1>
-      <h5>Insira os documentos abaixo para iniciar o processo de verificação de usuário</h5>
-      <hr />
+<body>
+  <div id="header" class="mb-4"></div>
 
-      <!-- Page Content -->
-      <div id="alert"></div>
-      <form class="p-4 bg-secondary-subtle" id="verification-form">
-        <div class="mb-3">
-            <label class="form-label" for="identity_document_front">RG frente</label>
-            <input type="file" class="form-control" id="identityDocumentFront" accept=".png, .jpg" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="identity_document_back">RG verso</label>
-            <input type="file" class="form-control" id="identityDocumentBack" accept=".png, .jpg" required>
-        </div>
-        <div class="d-grid">
-          <button class="btn btn-primary" type="submit">Enviar</button>
-        </div>
-      </form>
+  <div class="container">
+    <h1>Verificação de Usuário</h1>
+    <h5>Insira os documentos abaixo para iniciar o processo de verificação de usuário.</h5>
+    <hr />
 
-    </div>
+    <!-- Page Content -->
+    <div id="alert"></div>
+    <form class="p-4 bg-secondary-subtle" id="verification-form">
+      <div class="mb-3">
+        <label class="form-label" for="identity_document_front">RG frente</label>
+        <input type="file" class="form-control" id="identityDocumentFront" accept=".png, .jpg" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="identity_document_back">RG verso</label>
+        <input type="file" class="form-control" id="identityDocumentBack" accept=".png, .jpg" required>
+      </div>
+      <div class="d-grid">
+        <button class="btn btn-primary" type="submit">Enviar</button>
+      </div>
+    </form>
 
-    <div id="footer"></div>
-  </body>
+  </div>
 
-  <script type="module" src="/assets/script/script.js"></script>
-  <script type="module" src="script.js"></script>
+  <div id="footer"></div>
+</body>
+
+<script type="module" src="/assets/script/script.js"></script>
+<script type="module" src="script.js"></script>
+
 </html>
