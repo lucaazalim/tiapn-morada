@@ -4,6 +4,7 @@ import br.pucminas.morada.Constants;
 import br.pucminas.morada.MoradaApplication;
 import br.pucminas.morada.models.property.dto.PropertyDTO;
 import br.pucminas.morada.models.property.dto.PropertyUpdateDTO;
+import br.pucminas.morada.models.rental.Rental;
 import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user.dto.UserDTO;
 import jakarta.persistence.*;
@@ -16,6 +17,7 @@ import org.hibernate.validator.constraints.Length;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Data
@@ -100,7 +102,17 @@ public class Property {
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
+    @OneToMany(mappedBy = "property", cascade = CascadeType.ALL)
+    private List<Rental> rentals;
+
     public PropertyDTO toDTO() {
+
+        Long currentRentalId = this.rentals.stream()
+                .filter(rental -> !rental.isTerminated())
+                .findFirst()
+                .map(Rental::getId)
+                .orElse(null);
+
         return new PropertyDTO(
                 this.id,
                 this.user.getId(),
@@ -125,7 +137,8 @@ public class Property {
                 this.iptuValue,
                 this.photoBase64 == null ? "https://picsum.photos/seed/" + this.hashCode() + "/1280/720" : this.photoBase64,
                 this.status,
-                this.createdAt
+                this.createdAt,
+                currentRentalId
         );
     }
 

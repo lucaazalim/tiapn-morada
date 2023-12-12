@@ -17,7 +17,9 @@ function loadProperties() {
 
             properties.forEach(property => {
 
-                let currentRentalId = 1; // TODO: pegar o id do aluguel
+                console.log(property);
+
+                let currentRentalId = property.currentRentalId; // TODO: pegar o id do aluguel
                 let options = "";
 
                 if (currentRentalId) {
@@ -26,7 +28,7 @@ function loadProperties() {
                             <i class="fa-solid fa-ellipsis"></i>
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/dashboard/termination/create/owner?id=${currentRentalId}&propertyId=${property.id}">Rescindir contrato de aluguel</a>
+                            <a class="dropdown-item" href="/dashboard/termination/create/owner/?id=${currentRentalId}&propertyId=${property.id}">Rescindir contrato de aluguel</a>
                         </div>
                     `;
                 }
