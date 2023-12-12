@@ -1,5 +1,5 @@
 import * as API from "../../../assets/script/api.js";
-import  generateContract  from "../../../assets/script/generateRent.js";
+import generateContract from "../../../assets/script/generateRent.js";
 
 let offersRecived = document.getElementById("content");
 
@@ -22,7 +22,7 @@ API.get("offers/user")
                 <div class="row d-flex align-items-center w-100">
                     <div class="col-9" id="dados">
                         <div>${element.street}</div>
-                            <div>${element.type}</div>
+                            <div>${API.propertyTypeMap[element.type].label}</div>
                             <div>${formatCurrency(element.rent_value)}</div>
                         </div>
                         <div id="buttons" style="height:100%;" class="col-3 d-flex flex-column text-end justify-content-around">
@@ -36,16 +36,16 @@ API.get("offers/user")
             </div>
         </div>    
             `;
-            let btnAccept = document.getElementById(`accept${element.id}`);
-        
-            btnAccept.addEventListener("click", () => {
-              console.log(element)
-              generateContract(element.id)
-            })
+      let btnAccept = document.getElementById(`accept${element.id}`);
+
+      btnAccept.addEventListener("click", () => {
+        console.log(element)
+        generateContract(element.id)
+      })
     });
 
 
-});
+  });
 
 function formatCurrency(value) {
   return value.toLocaleString("pt-BR", {
