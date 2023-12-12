@@ -102,16 +102,7 @@ public class Property {
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
-    @OneToMany(mappedBy = "property", cascade = CascadeType.ALL)
-    private List<Rental> rentals;
-
     public PropertyDTO toDTO() {
-
-        Long currentRentalId = this.rentals.stream()
-                .filter(rental -> !rental.isTerminated())
-                .findFirst()
-                .map(Rental::getId)
-                .orElse(null);
 
         return new PropertyDTO(
                 this.id,
@@ -137,8 +128,7 @@ public class Property {
                 this.iptuValue,
                 this.photoBase64 == null ? "https://picsum.photos/seed/" + this.hashCode() + "/1280/720" : this.photoBase64,
                 this.status,
-                this.createdAt,
-                currentRentalId
+                this.createdAt
         );
     }
 

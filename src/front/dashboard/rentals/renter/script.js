@@ -14,28 +14,27 @@ API.get("rentals/properties/" + id)
         return response;
     })
     .then(response => response.json())
-    .then(rent =>{
-        console.log(rent);
+    .then(rent => {
+
         rent.map((item) => {
             let contract = document.getElementById("contract");
             contract.innerHTML = "";
             contract.innerHTML = item.contractHtml;
 
-            document.getElementById("btnSign").addEventListener("click", () =>{
+            document.getElementById("btnSign").addEventListener("click", () => {
                 API.put("rentals/" + item.id, {
                     contractSignedByRenter: 1
                 })
-                .then(response => {
-                    if (response.status >= 200 && response.status < 300) {
-                        window.location.href = "/dashboard/";
-                    } else {
-                        console.error('Erro ao assinar o contrato.');
-                    }
-                })
+                    .then(response => {
+                        if (response.status >= 200 && response.status < 300) {
+                            window.location.href = "/dashboard/";
+                        } else {
+                            console.error('Erro ao assinar o contrato.');
+                        }
+                    })
 
             })
-            
 
         })
-        
-})
+
+    })

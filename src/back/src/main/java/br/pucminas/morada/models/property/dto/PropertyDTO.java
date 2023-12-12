@@ -39,6 +39,5 @@ public record PropertyDTO(
         BigDecimal iptuValue,
         String photoBase64,
         PropertyStatus status,
-        LocalDateTime createdAt,
-        Long currentRentalId
+        LocalDateTime createdAt
 ) implements DTO<Property> {}

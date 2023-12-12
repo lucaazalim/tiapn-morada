@@ -80,6 +80,10 @@ function submitPayment() {
 // Adicionando evento de clique ao botão de enviar
 submitButton.addEventListener("click", submitPayment);
 
+cancelarButton.addEventListener("click", () => {
+    window.location = "/dashboard/payment/renter";
+});
+
 // Carregar os aluguéis quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
     loadRentals();
