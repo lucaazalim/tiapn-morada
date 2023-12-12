@@ -30,30 +30,33 @@ document.getElementById("confirm").addEventListener("click", ()=>{
 
   const message = document.getElementById("message").value;
 
-
-  API.put(`rentals/` + rentalId, {
-    terminated: 1
-  })
-    .then(response => {
-      if(response.status == 201){
-        window.location.href = "/dashboard";
-      }else{
-        let data = response.json();
-        Alert.alert(data.message, "danger")
-      }
-  })
-
-  API.post(`terminations`, {
-    rentalId,
-    initiatedByOwner: 1,
-    message
-  })
-    .then(response => {
-      if(response.status == 201){
-        window.location.href = "/dashboard" 
-      }else{
-        let data = response.json();
-        Alert.alert(data.message, "danger")
-      }
+  if (message == "") {
+    alert ("O preenchimento do motivo da rescisão é obrigatório")
+  } else {
+    API.put(`rentals/` + rentalId, {
+      terminated: 1
     })
+      .then(response => {
+        if(response.status == 201){
+          window.location.href = "/dashboard";
+        }else{
+          let data = response.json();
+          Alert.alert(data.message, "danger")
+        }
+    })
+  
+    API.post(`terminations`, {
+      rentalId,
+      initiatedByOwner: 1,
+      message
+    })
+      .then(response => {
+        if(response.status == 201){
+          window.location.href = "/dashboard" 
+        }else{
+          let data = response.json();
+          Alert.alert(data.message, "danger")
+        }
+      })
+  }
   })
