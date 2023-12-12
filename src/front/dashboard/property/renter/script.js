@@ -5,9 +5,9 @@ let rents = document.getElementById("content");
 
 API.get("rentals/user")
     .then((response) => response.json())
-    .then((rent) =>{
+    .then((rent) => {
 
-        if(rent.lenght == 0){
+        if (rent.lenght == 0) {
             rents.innerHTML = `<p class="text-center">Você não recebeu nenhuma proposta por seus imoveis.</p>`;
             return;
         }
@@ -16,7 +16,6 @@ API.get("rentals/user")
 
             let currentRentalId = element.id;
             let currentPropertyId = element.property.id
-            console.log(currentPropertyId)
             let options = "";
 
             if (currentRentalId && element.contractSignedByOwner === true && element.contractSignedByRenter === true) {
@@ -29,18 +28,17 @@ API.get("rentals/user")
                         <a class="dropdown-item" href="/dashboard/termination/create/renter/?id=${currentRentalId}&propertyId=${currentPropertyId}">Rescindir contrato de aluguel</a>
                     </div>
                 `;
-            }else if(currentRentalId && element.contractSignedByOwner === true){
+            } else if (currentRentalId && element.contractSignedByOwner === true) {
                 options += /*html*/ `
                     <a class="btn btn-primary" href="/dashboard/rentals/renter/?id=${currentPropertyId}">Assinar contrato</a>
                 `;
             }
-            if(!element.terminated){
-            rents.innerHTML += 
-            `
-            <div class="card mb-3">
+            if (!element.terminated) {
+                rents.innerHTML += /*html*/`
+                    <div class="card mb-3">
                         <div class="row">
                             <div class="col-3">
-                                <img src="${element.property.photoBase64}" style="width: 100%; height: 10vw; object-fit: cover;">
+                                <img src="${element.property.photoBase64}" style="width: 100%; height: 200px; object-fit: cover;">
                             </div>
                             <div class="col-9">
                                 <div class="card-body">
@@ -52,8 +50,8 @@ API.get("rentals/user")
                             </div>
                         </div>
                     </div>
-            `      
-            }      
+            `
+            }
         });
 
     })
