@@ -61,6 +61,7 @@ jobs:
       - name: Restart Docker-Compose
         uses: appleboy/ssh-action@master
         with:
+          command_timeout: 200m
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
