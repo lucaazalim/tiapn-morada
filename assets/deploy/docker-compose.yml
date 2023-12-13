@@ -39,6 +39,7 @@ services:
   grafana:
     container_name: morada-grafana
     image: grafana/grafana:latest
+    user: "0"
     ports:
       - 3000:3000
     volumes:

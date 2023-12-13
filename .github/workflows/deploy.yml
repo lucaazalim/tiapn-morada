@@ -5,7 +5,7 @@ on:
 
 jobs:
   morada-deploy:
-    name: Deploy
+    name: Deploy (Deprecated)
     runs-on: ${{ matrix.os }}
 
     strategy:
