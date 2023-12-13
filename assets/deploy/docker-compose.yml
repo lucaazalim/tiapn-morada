@@ -42,4 +42,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - $DATA_DIRECTORY/grafana:/var/lib/grafana
+      - grafana:/var/lib/grafana
+
+volumes:
+  grafana:
