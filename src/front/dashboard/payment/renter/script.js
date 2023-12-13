@@ -2,12 +2,12 @@ import * as API from "../../../assets/script/api.js";
 
 let paymentsReceived = document.getElementById("paymentsReceived");
 
-API.get("payments/renter") 
+API.get("payments/renter")
   .then((response) => response.json())
   .then((payments) => {
     console.log(payments);
 
-    paymentsReceived.innerHTML = ''; 
+    paymentsReceived.innerHTML = '';
 
     payments.forEach((payment) => {
       const createdAtDate = new Date(payment.createdAt).toLocaleDateString('pt-BR');
@@ -25,7 +25,7 @@ API.get("payments/renter")
               Aluguel: ${payment.rentalId}
             </h5>
           </div>
-          <p class="card-text">Status: ${payment.status}</p>
+          <p class="card-text">Status: ${API.paymentStatusMap[payment.status].label}</p>
         </div>
       </div>
       `;

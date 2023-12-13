@@ -64,16 +64,25 @@ function submitPayment() {
     };
 
     API.post("payments", paymentData)
-        .then(() => {
-            alert('Pagamento registrado com sucesso.');
+        .then((response) => {
+            if (response.ok) {
+                alert('Pagamento registrado com sucesso.');
+                window.location = "/dashboard/payment/renter";
+            } else {
+                throw new Error('Erro ao registrar pagamento.');
+            }
         })
         .catch(error => {
-            console.error('Erro ao registrar pagamento:', error);
+            alert(error.message);
         });
 }
 
 // Adicionando evento de clique ao botão de enviar
 submitButton.addEventListener("click", submitPayment);
+
+cancelarButton.addEventListener("click", () => {
+    window.location = "/dashboard/payment/renter";
+});
 
 // Carregar os aluguéis quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {

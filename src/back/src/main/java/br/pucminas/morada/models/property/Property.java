@@ -4,6 +4,7 @@ import br.pucminas.morada.Constants;
 import br.pucminas.morada.MoradaApplication;
 import br.pucminas.morada.models.property.dto.PropertyDTO;
 import br.pucminas.morada.models.property.dto.PropertyUpdateDTO;
+import br.pucminas.morada.models.rental.Rental;
 import br.pucminas.morada.models.user.User;
 import br.pucminas.morada.models.user.dto.UserDTO;
 import jakarta.persistence.*;
@@ -16,6 +17,7 @@ import org.hibernate.validator.constraints.Length;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Data
@@ -101,6 +103,7 @@ public class Property {
     private LocalDateTime createdAt;
 
     public PropertyDTO toDTO() {
+
         return new PropertyDTO(
                 this.id,
                 this.user.getId(),

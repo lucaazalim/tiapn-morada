@@ -9,51 +9,53 @@ const propertyId = urlParams.get('propertyId');
 const rentalId = urlParams.get('id')
 
 API.get(`properties/` + propertyId)
-  .then((response) =>{
+  .then((response) => {
 
-    if(!response.ok){
-      console.log("Debug")
-      Alert.alert("Não foi possivel iniciar uma recisão para essa propriedade.","danger");
+    if (!response.ok) {
+      Alert.alert("Não foi possivel iniciar uma recisão para essa propriedade.", "danger");
       throw new Error("Unable to retrive property")
     }
 
     return response.json();
-  
+
   })
   .then((property) => {
     console.log(property)
     cardContainer.innerHTML = getPropertyCard(property);
 
-})
+  })
 
-document.getElementById("confirm").addEventListener("click", ()=>{
+document.getElementById("confirm").addEventListener("click", () => {
 
   const message = document.getElementById("message").value;
 
-
-  API.put(`rentals/` + rentalId, {
-    terminated: 1
-  })
-    .then(response => {
-      if(response.status == 201){
-        window.location.href = "/dashboard";
-      }else{
-        let data = response.json();
-        Alert.alert(data.message, "danger")
-      }
-  })
-
-  API.post(`terminations`, {
-    rentalId,
-    initiatedByOwner: 1,
-    message
-  })
-    .then(response => {
-      if(response.status == 201){
-        window.location.href = "/dashboard" 
-      }else{
-        let data = response.json();
-        Alert.alert(data.message, "danger")
-      }
+  if (message == "") {
+    Alert.alert("O preenchimento do motivo da rescisão é obrigatório.", "danger");
+  } else {
+    API.put(`rentals/` + rentalId, {
+      terminated: 1
     })
-  })
+      .then(response => {
+        if (response.status == 201) {
+          window.location.href = "/dashboard";
+        } else {
+          let data = response.json();
+          Alert.alert(data.message, "danger")
+        }
+      })
+
+    API.post(`terminations`, {
+      rentalId,
+      initiatedByOwner: 1,
+      message
+    })
+      .then(response => {
+        if (response.status == 201) {
+          window.location.href = "/dashboard"
+        } else {
+          let data = response.json();
+          Alert.alert(data.message, "danger")
+        }
+      })
+  }
+})
