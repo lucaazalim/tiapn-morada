@@ -253,5 +253,5 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 - **Dados de entrada:**
   - **Campo:** Vazio
 - **Resultado esperado:** Após o usuário clicar no botão "Confirmar" aparecerá um alert indicando que é obrigatório o preenchimento do formulário. 
-- **Resultado obtido:** Sucesso
+- **Resultado obtido:** Sem sucesso
 - **Evidência:** [Imagem](images/ct14.png)
