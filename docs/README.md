@@ -26,27 +26,27 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade Cató
 
 ---
 
-Morada é uma plataforma para locação e anúncio de imóveis que simplifica o processo de aluguel para locatários e proprietários. Em contraste ao tradicional e burocrático mercado imobiliário, o Morada centraliza anúncios, integra processos e documentações, proporcionando uma experiência eficiente. A plataforma oferece recursos como anúncio de imóveis, personalização de pesquisas, agendamento de visitas, sistema de propostas, documentação online e acompanhamento do processo. Em resumo, busca transformar a experiência de aluguel, tornando-a mais ágil e conveniente.
+Morada é uma plataforma para locação e anúncio de imóveis, a qual simplifica o processo de aluguel para locatários e proprietários. Em contraste ao tradicional e burocrático mercado imobiliário, o Morada centraliza anúncios, integra processos e documentações, proporcionando uma experiência eficiente. A plataforma oferece recursos como anúncio de imóveis, personalização de pesquisas, agendamento de visitas, sistema de propostas, documentação online e acompanhamento de processos de locação. Em resumo, o Morada busca transformar a experiência de aluguel, tornando-a mais ágil e conveniente.
 
-Como resultado relevante, o desenvolvimento da plataforma permitiu automatizar todos os processos propostos. O sistema foi desenvolvido utilizando tecnologias modernas, como Java Spring Boot, Docker e MariaDB, o que permitiu a aplicação de conhecimentos adquiridos ao longo do curso.
+Como resultado relevante, o desenvolvimento da plataforma permitiu automatizar todos os processos propostos. O sistema foi desenvolvido utilizando tecnologias modernas, como Java Spring Boot, Docker e MariaDB, permitindo a aplicação de conhecimentos adquiridos ao longo do curso.
 
 ---
 
 ## 1. Introdução
 
-Morada é a plataforma definitiva para locação e anúncio de imóveis. Simplificamos o processo de aluguel, unificando anúncios e aprimorando a experiência tanto para locatários quanto para proprietários. Além da centralização de anúncios, integramos processos e documentações, oferecendo benefícios que enriquecem a jornada no setor imobiliário.
+Morada é a plataforma definitiva para locação e anúncio de imóveis. Simplificamos o processo de aluguel, unificando anúncios e aprimorando a experiência tanto para locatários quanto para proprietários. Além da centralização de anúncios, integramos processos e documentações, oferecendo benefícios que enriquecem a experiência no setor imobiliário.
 
 ### 1.1 Contextualização
 
-No cenário atual, em meio à crescente inflação global, os salários perderam poder de compra, enquanto as taxas de juros atingiram níveis recordes. Diante do custo elevado para adquirir uma casa devido ao aumento frenético das taxas de juros, a busca por moradias para aluguel tem se intensificado, o que, por sua vez, impulsiona os preços dos aluguéis. Esse cenário é ainda mais evidente conforme noticiado pelo [ G1 em 2023.](https://g1.globo.com/mundo/noticia/2023/06/03/o-que-explica-disparada-de-alugueis-nas-maiores-cidades-da-america-latina.ghtml)
+No cenário atual, em meio à crescente inflação global, os salários perderam poder de compra, enquanto as taxas de juros atingiram níveis recordes. Diante do custo elevado para adquirir uma casa em vista ao aumento frenético das taxas de juros, a busca por aluguel de moradias tem se intensificado, o que, por sua vez, impulsiona o preços dos mesmos. Esse cenário é ainda mais evidente conforme noticiado pelo [ G1 em 2023.](https://g1.globo.com/mundo/noticia/2023/06/03/o-que-explica-disparada-de-alugueis-nas-maiores-cidades-da-america-latina.ghtml)
 
 ### 1.2 Problema
 
-O processo tradicional de busca, seleção e locação de imóveis apresenta uma série de barreiras. Os locatários são obrigados a percorrer vários sites e agências, consumindo tempo e esforço consideráveis. Já os proprietários enfrentam dificuldades em promover seus imóveis de forma eficaz e lidar com as etapas burocráticas e documentais complexas.
+O processo tradicional de busca, seleção e locação de imóveis apresenta uma série de desafios. Os locatários são obrigados a visitar vários sites e agências, consumindo tempo e esforço consideráveis. Já os proprietários enfrentam dificuldades em promover seus imóveis de forma eficaz e lidar com as etapas burocráticas e documentais complexas.
 
 ### 1.3 Objetivo geral
 
-O objetivo do Morada é centralizar anúncios de aluguel, simplificando o processo para locatários e proprietários, e para concretizar essa visão, buscamos proporcionar uma experiência totalmente integrada desde a busca até a assinatura do contrato, tornando todo o processo mais ágil. Isso será alcançado por meio de uma busca avançada que permite filtrar opções por localização, tamanho e preço, além da integração direta com serviços de pagamento, simplificando aluguéis e depósitos, e complementado por um suporte ao cliente disponível 24/7, garantindo assistência contínua para uma experiência de aluguel fluida e sem interrupções.
+O objetivo do Morada é centralizar anúncios de aluguel, simplificando o processo para locatários e proprietários. Para concretizar essa visão, buscamos proporcionar uma experiência totalmente integrada, desde a busca até a assinatura do contrato, tornando o processo mais ágil. Isso será alcançado por meio de uma busca avançada que permite filtrar opções por localização, tamanho e preço, e por meio da integração direta com os serviços de pagamento, de modo a simplificar aluguéis e depósitos, além de um suporte ao cliente que garante assistência contínua para uma experiência de aluguel fluida e sem interrupções.
 
 #### 1.3.1 Objetivos específicos
 
