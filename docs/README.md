@@ -1,10 +1,14 @@
 # Morada
 
-- Guilherme Leroy Teixeira Capanema, gleroydev@gmail.com
-- João Pedro Queiroz Rocha, queirozrochajoaopedro2004@gmail.com
-- Kimberly Liz Spencer Lourenço, kimberlylizsl@gmail.com
-- Luca Ferrari Azalim, lucaazalim@gmail.com
-- Wanessa Dias Costa, wanessadiascw@gmail.com
+Morada é uma plataforma para locação e anúncio de imóveis que simplifica o processo de aluguel para locatários e proprietários. Em contraste ao tradicional e burocrático mercado imobiliário, o Morada centraliza anúncios, integra processos e documentações, proporcionando uma experiência eficiente. A plataforma oferece recursos como anúncio de imóveis, personalização de pesquisas, agendamento de visitas, sistema de propostas, documentação online e acompanhamento do processo. Em resumo, busca transformar a experiência de aluguel, tornando-a mais ágil e conveniente.
+
+## Integrantes
+
+- [Guilherme Leroy Teixeira Capanema](https://github.com/ggleroy)
+- [João Pedro Queiroz Rocha](https://github.com/JoaoPedroQueirozRocha)
+- [Kimberly Liz Spencer Lourenço](https://github.com/kspencerl)
+- [Luca Ferrari Azalim](https://github.com/lucaazalim)
+- [Wanessa Dias Costa](https://github.com/diascw07)
 
 ---
 
