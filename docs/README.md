@@ -51,15 +51,15 @@ O objetivo do Morada é centralizar anúncios de aluguel, simplificando o proces
 #### 1.3.1 Objetivos específicos
 
 - Realizar um levantamento minucioso dos processos envolvidos na busca, seleção e locação de imóveis, identificando pontos de dificuldade e oportunidades de aprimoramento.
-- Identificar as necessidades específicas dos locatários, compreendendo seus critérios de escolha, preferências de localização e requisitos essenciais, a fim de apresentar o imóvel ideal para atender a todas essas demandas de maneira precisa
+- Identificar as necessidades específicas dos locatários, por meio da compreensão de seus critérios de escolha, preferências de localização e requisitos essenciais, a fim de apresentar o imóvel ideal para atender a todas essas demandas de maneira precisa.
 - Coletar feedback dos proprietários para entender os desafios enfrentados na promoção de seus imóveis, bem como para identificar as documentações e processos necessários.
 - Desenvolver um sistema de interface que permita a inserção e busca de informações por meio de campos claros e objetivos, proporcionando facilidade de uso e uma experiência intuitiva para o usuário.
-- Estabelecer uma estrutura robusta de gerenciamento de documentos, permitindo o compartilhamento seguro e eficaz de informações entre as partes envolvidas, agilizando a locação.
+- Estabelecer uma estrutura robusta de gerenciamento de documentos, permitindo o compartilhamento seguro e eficaz de informações entre as partes envolvidas e agilizando a locação.
 - Utilizar os insights e feedbacks para otimizar continuamente a plataforma, adaptando-a às necessidades em evolução dos clientes e às mudanças no mercado imobiliário.
 
 ### 1.4 Justificativas
 
-A criação da Morada tem como base a necessidade de centralizar anúncios, simplificar procedimentos e eliminar as buscas caóticas por moradias. Com a Morada, você economizará tempo, evitará erros e desfrutará de uma experiência de aluguel tranquila e agradável. A plataforma oferece recursos inovadores, como avaliações e comentários de locatários anteriores, e funcionalidades que transformam a maneira como as pessoas encontram e alugam imóveis, incluindo a integração com serviços de pagamento para agilizar aluguéis e depósitos, além da praticidade da assinatura digital de contratos e documentações.
+A criação do Morada tem como base a necessidade de centralizar anúncios, simplificar procedimentos e eliminar as buscas caóticas por moradias. Com o Morada, você economizará tempo, evitará erros e desfrutará de uma experiência de aluguel tranquila e agradável. A plataforma oferece recursos inovadores, como avaliações e comentários de locatários anteriores, e funcionalidades que transformam a maneira como as pessoas encontram e alugam imóveis, incluindo a integração com serviços de pagamento para agilizar aluguéis e depósitos, além da praticidade da assinatura digital de contratos e documentações.
 
 ## 2. Participantes do processo
 
