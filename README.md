@@ -20,7 +20,7 @@ Morada é uma plataforma para locação e anúncio de imóveis que simplifica o 
 
 A plataforma está disponível por meio do endereço [morada.azal.im](http://morada.azal.im).
 
-Os indicadores de desempenho podem ser acessados por meio do endereço [morada.azal.im:3000](http://morada.azal.im:3000/d/f97fb6bd-4e03-49c8-8f05-d29c11036393/indicadores-de-desempenho?orgId=1), utilizando o usuário "admin" e a senha "admin".
+Os indicadores de desempenho podem ser acessados por meio do endereço [morada.azal.im:3000](http://morada.azal.im:3000/d/f97fb6bd-4e03-49c8-8f05-d29c11036393/indicadores-de-desempenho?orgId=1), utilizando o usuário "admin" e a senha "admin". Caso a ferramente sugira a troca da senha, clique em "Skip".
 
 ---
 
