@@ -157,7 +157,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 ---
 
-## CT09 - Título do Caso de Teste
+## CT09 - Envio de oferta
 
 - **Processo associado:** 4
 - **Procedimento:**
@@ -173,7 +173,7 @@ Abaixo, estão listados os testes de inspeção realizados na solução.
 
 ---
 
-## CT10 - Título do Caso de Teste
+## CT10 - Campo vazio sem sucesso
 
 - **Processo associado:** 4
 - **Procedimento:**
