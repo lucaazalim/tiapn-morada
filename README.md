@@ -24,7 +24,7 @@ Os indicadores de desempenho podem ser acessados por meio do endereço [morada.a
 
 ---
 
-O sistema é composto por três aplicações:
+O sistema é composto por quatro aplicações:
 
 - MariaDB
 - Back End
