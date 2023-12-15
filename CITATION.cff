@@ -1,16 +1,16 @@
 # YAML 1.2
 ---
 authors: 
-  - family-names: sobrenome do aluno 1
-    given-names: Nome do aluno 1 
-  - family-names: sobrenome do aluno 2
-    given-names: Nome do aluno 2 
-  - family-names: sobrenome do aluno 3
-    given-names: Nome do aluno 3 
-  - family-names: sobrenome do aluno 4
-    given-names: Nome do aluno 4 
-  - family-names: sobrenome do aluno 5
-    given-names: Nome do aluno 5 
+  - family-names: Teixeira Capanema
+    given-names: Guilherme Leroy
+  - family-names: Queiroz Rocha
+    given-names: João Pedro
+  - family-names: Spencer Lourenço
+    given-names: Kimberly Liz
+  - family-names: Ferrari Azalim
+    given-names: Luca
+  - family-names: Dias Costa
+    given-names: Wanessa
     
   - name-suffix: Professor
     affiliation: PUC Minas
@@ -24,27 +24,19 @@ authors:
     affiliation: PUC Minas
     family-names: Baroni de Carvalho
     given-names: Juliana Amaral 
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: Seufitelli
-    given-names: Danilo Boechat
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: Silva
-    given-names: Luiz Henrique da Costa
+
 
 cff-version: "1.1.0"
 keywords: 
-  - "Modelagem de Processos de Negócios"
-  - "Palavra chave 2"
-  - "Palavra chave 3"
+  - "Plataforma de Locação"
+  - "Experiência de Aluguel"
+  - "Inovação Imobiliária"
 message: |
-    "If you use this software, please cite it using these metadata.
-    Se você utilizar este software, por favor cite-o utilizando estes metadados."
-repository-code: "https://github.com/url do projeto"
-title: "Título do projeto"
+    "Please cite this software using these metadata."
+repository-code: "https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-morada"
+title: "Morada"
 abstract: |
     "
-    Breve descrição do projeto
+    Morada é uma plataforma inovadora para locação e anúncio de imóveis, que busca simplificar e aprimorar a experiência de aluguel. Ao centralizar anúncios, integrar processos e documentações, a plataforma oferece recursos como anúncios personalizados, agendamento de visitas, sistema de propostas e documentação online. Desenvolvida com tecnologias modernas como Java Spring Boot, Docker e MariaDB, a Morada automatiza completamente os processos, oferecendo uma experiência eficiente, moderna e descomplicada para locatários e proprietários.
     "
 ...
