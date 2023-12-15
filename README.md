@@ -18,22 +18,22 @@ Morada é uma plataforma para locação e anúncio de imóveis que simplifica o 
 
 ## Instruções de utilização
 
+A plataforma está disponível por meio do endereço [morada.azal.im](http://morada.azal.im).
+
+Os indicadores de desempenho podem ser acessados por meio do endereço [morada.azal.im:3000](http://morada.azal.im:3000/d/f97fb6bd-4e03-49c8-8f05-d29c11036393/indicadores-de-desempenho?orgId=1), utilizando o usuário "admin" e a senha "admin".
+
+---
+
 O sistema é composto por três aplicações:
 
 - MariaDB
 - Back End
 - Front End
+- Grafana
 
 Para executar um ambiente completo de desenvolvimento local, basta seguir os seguintes passos:
 
-1. Clonar este repositório em seu computador (não faça download do ZIP)
+1. Clonar este repositório em seu computador
 2. Acessar o diretório `/src/front` e executar o comando `npm install`
 3. Instalar o [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 4. Executar o comando `docker-compose up --build -d` dentro do diretório `/assets/deploy`
-
-Após seguir os passos descritos acima, serão iniciados dois containers: um para o MariaDB e um para o Back End.
-
-## Histórico de versões
-
-- 1.0.0
-  - Versão inicial
